@@ -1103,6 +1103,14 @@ a {
     background-image: url(../../../images/screen/common/logo-tercentre.svg);
 }
 
+.train-logo.train-logo-ter-languedoc-roussillon {
+    background-image: url(../../../images/screen/common/logo-terlanguedocroussillon.svg);
+}
+
+.train-logo.train-logo-ter-midi-pyrenees {
+    background-image: url(../../../images/screen/common/logo-termidipyrenees.svg);
+}
+
 .train-logo.train-logo-ter-nord-pas-de-calais {
     background-image: url(../../../images/screen/common/logo-ternordpasdecalais.svg);
 }

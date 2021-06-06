@@ -165,12 +165,16 @@ function loadTrains(user_id, id){
                         logo.setAttribute('class', 'train-logo train-logo-hauts-de-france');
                     } else if (train_type === 'Lio') {
                         logo.setAttribute('class', 'train-logo train-logo-lio');
+                    } else if (train_type === 'TER Languedoc Roussillon') {
+                        logo.setAttribute('class', 'train-logo train-logo-ter-languedoc-roussillon');
                     } else if (train_type === 'Mobigo') {
                         logo.setAttribute('class', 'train-logo train-logo-mobigo');
                     } else if (train_type === 'Nomad') {
                         logo.setAttribute('class', 'train-logo train-logo-nomad');
                     } else if (train_type === 'TER Metrolor') {
                         logo.setAttribute('class', 'train-logo train-logo-ter-metrolor');
+                    } else if (train_type === 'TER Midi Pyrénées') {
+                        logo.setAttribute('class', 'train-logo train-logo-ter-midi-pyrenees');
                     } else if (train_type === 'Rémi') {
                         logo.setAttribute('class', 'train-logo train-logo-remi');
                     } else if (train_type === 'Renfe Ave') {
