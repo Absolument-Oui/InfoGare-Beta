@@ -1055,6 +1055,10 @@ a {
     background-image: url(../../../images/screen/common/logo-mobigo.svg);
 }
 
+.train-logo.train-logo-nomad {
+    background-image: url(../../../images/screen/common/logo-nomad.svg);
+}
+
 .train-logo.train-logo-remi {
     background-image: url(../../../images/screen/common/logo-remi.svg);
 }

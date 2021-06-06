@@ -932,6 +932,10 @@ a {
     background-image: url(../../../images/screen/quai/logo-mobigo-color.svg);
 }
 
+.train-logo.train-logo-nomad {
+    background-image: url(../../../images/screen/quai/logo-nomad-color.svg);
+}
+
 .train-logo.train-logo-remi {
     background-image: url(../../../images/screen/quai/logo-remi-color.svg);
 }
