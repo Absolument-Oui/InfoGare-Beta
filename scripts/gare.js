@@ -507,8 +507,8 @@ function prepDupliTrain(tid) {
         document.getElementById('modif_train_prov').value = snapshot.val().provenance;
         document.getElementById('modif_train_dest').value = snapshot.val().destination;
         document.getElementById('modif_train_type').value = snapshot.val().type;
-        document.getElementById('modif_train_hour_arrive').value = snapshot.val().hourarrive;
-        document.getElementById('modif_train_hour_depart').value = snapshot.val().hourdepart;
+        document.getElementById('modif_train_hour_arrive').value = snapshot.val().hourarrive.replace('h', ':');
+        document.getElementById('modif_train_hour_depart').value = snapshot.val().hourdepart.replace('h', ':');
         if (snapshot.val().retardtype === 'ret') {
             document.getElementById('modif_train_ret').checked = true;
         } else if (snapshot.val().retardtype === 'alheure') {
@@ -544,6 +544,7 @@ function dupliTrain() {
     }
 
     database.child('users').child(uid).child('gares').child(gare_id).child('trains').child(trainid).set({
+        id: trainid,
         number: document.getElementById('modif_train_number').value,
         provenance: document.getElementById('modif_train_prov').value,
         destination: document.getElementById('modif_train_dest').value,

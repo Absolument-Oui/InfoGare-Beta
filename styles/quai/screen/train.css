@@ -1100,7 +1100,8 @@ a {
 }
 
 .trains-station td.trains-station-column {
-    horizontal-align: center;
+    align-content: center;
+    top: 50%;
 }
 
 
@@ -1207,7 +1208,7 @@ a {
     width: 2.5vh;
     height: 2.5vh;
     margin: 0 0.4vh;
-    margin-bottom: 0.5vh;
+    margin-bottom: 50%;
     border-radius: 50%;
     background: #f5f900;
 }
