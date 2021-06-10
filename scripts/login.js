@@ -87,9 +87,15 @@ function checkLogin() {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         document.getElementById('mnu_login').hidden = true;
-        this.user = user
+        if (location.host === 'beta.infogare.fr') {
+          checkBeta(user.uid);
+        }
+        this.user = user;
       } else {
         document.getElementById('mnu_login').hidden = false;
+        if (location.host === 'beta.infogare.fr') {
+          checkBeta(user.uid);
+        }
       }
     });
 }
@@ -115,4 +121,12 @@ function checkTfa() {
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.send("pin="+pin+"&secretCode="+SecretCode);
   alert(xhr.reponseText);
+}
+
+function checkBeta(userid) {
+  firebase.database().ref('users/'+userid).get().then((snapshot) => {
+    if (!snapshot.val().beta) {
+      window.location.replace('beta_access_refused.htm');
+    }
+  })
 }
