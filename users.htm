@@ -155,7 +155,10 @@
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 setUid(user.uid);
+                setUsername(user.displayName);
                 getAllUsers();
+            } else {
+                document.getElementById('confidentiality').hidden = true;
             }
         })
     </script>

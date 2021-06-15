@@ -82,6 +82,12 @@ function setUid(val) {
     uid = val;
 }
 
+function setUsername(uname) {
+    database.child(uid).update({
+        username: uname
+    });
+}
+
 function modifConfidentiality() {
     var profile_public = document.getElementById('public_yes').checked;
 
