@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,12 +7,15 @@
     <link title="Dark mode" href="scripts/bootstrap-sncf-metier/bootstrap-sncf.darkmode.min.css" rel="stylesheet alternate">
     <link rel="Stylesheet" href="styles/Global.css" type="text/css" />
     <link rel=Stylesheet href="styles/Index.css" type="text/css" />
-    <link rel="Stylesheet" href="styles/Apropos.css" type="text/css">
     <link rel="icon" href="images/favicon.png" size="16x16" type="image/png" />
     <link rel="icon" href="images/favicon.png" size="32x32" type="image/png" />
-    <title>InfoGare - À propos</title>
-</head>
-<body onload="checkLogin(); initLogo();" class="light" style="overflow: hidden;">
+    <meta name="description" content="Site de création et d'affichage d'infogare" />
+    <meta name="keywords" content="InfoGare, info gare, social gare, SocialGare" />
+    <meta name="author" content="Absolument Oui" />
+    <title>InfoGare - Utilisateurs</title>
+    <script data-ad-client="ca-pub-3014614649994013" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+<body onload="checkLogin(); createLoader();">
 <div>
     <nav role="navigation" class="mastnav">
   <ul class="mastnav-top">
@@ -35,12 +38,12 @@
       </a>
     </li>
     <li>
-      <a href="users.htm" class="mastnav-item">
-          <i class="icons-large-group icons-size-1x5" aria-hidden="true"></i>
-          <span class="font-weight-medium">Utilisateurs</span>
-      </a>
+        <a href="#" class="mastnav-item active">
+            <i class="icons-large-group icons-size-1x5" aria-hidden="true"></i>
+            <span class="font-weight-medium">Utilisateurs</span>
+        </a>
     </li>
-    <li id="mnu_login" hidden>
+    <li id="mnu_login" hidden hidden>
       <a href="login.htm" class="mastnav-item">
         <i class="icons-circle-account-connected icons-size-1x5" aria-hidden="true"></i>
         <span class="font-weight-medium">Se connecter</span>
@@ -51,6 +54,11 @@
         <i class="icons-options icons-size-1x5" aria-hidden="true"></i>
         <span class="font-weight-medium">Plus</span>
       </button>
+      <div class="options-menu options-menu-btn" aria-labelledby="dropdownMenuButton1" id="plus">
+        <ul>
+          <li class="dropdown-item"><a href="#">Se connecter</a></li>
+        </ul>
+      </div>
     </li>
   </ul>
   <div class="mastnav-bottom d-none d-lg-block">
@@ -62,29 +70,57 @@
 </nav>
 </div>
 
-<div style="overflow: hidden; height: max-content;" id="content">
-  <marquee behavior="scroll" direction="up" scrollamount="5" style="overflow: hidden; height: max-content;">
-      <img src="images/icon.png" id="logo" /><img src="images/absolument oui.png">
-      <br><br><br>
-      <h2>Un projet réalisé par <a href="https://github.com/Absolument-Oui" target="_blank">Absolument Oui</a></h2>
-      <h2>Avec la participation active de <a href="https://github.com/guerinlupus" target="_blank">guerinlupus</a> et <a href="https://github.com/MaxALEau" target="_blank">MaxALEau</a></h2>
-      <h2>Site designé avec <a href="https://designmetier-bootstrap.sncf.fr/" target="_blank">Bootstrap Métier</a> créé par la <a href="https://sncf.com/fr" target="_blank">SNCF</a></h2>
-      <h2>Ecran des départs, arrivés et écrans quai designés par SocialGare (R.I.P)</h2>
-      <h2>Images des trains mis à dispositions par <a href="https://mlgtraffic.net" target="_blank">MLGTraffic</a> sous licence <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons</a></h2>
-      <br>
-      <br>
-      <h1><a href="http://discord.gg/jvsfzxkCdz" target="_blank">Rejoindre le serveur Discord</a></h1>
-      <br />
-      <br />
-      E-mail de contact : <a href="mailto:contact@infogare.fr">contact@infogare.fr</a>
-      <br>
-      <br>
-      <h1>Un grand merci à toutes les personnes du serveur Discord du projet, qui apporte du soutient activement et participe énormément la conception du site.</h1>
-      <br>
-  </marquee>
-  <div class="footerbar">
-      <center><a href=apropos.htm>&Agrave; propos</a> | <a href= cgu.htm>CGU</a> | <a href=mentionslegales.htm>Mentions légales</a> | <a href="donation.htm">Nous soutenir</a></center>
-  </div>
+<div class="main-content">
+    <marquee id="loader" scrollamount="15"><img id="caisse-1"><img id="caisse-2"><img id="caisse-3"></marquee>
+    <center><div id="error_loading" hidden><img src="images/loading/Error.gif"></div></center>
+
+    <div id="actions">
+        <button class="btn btn-primary" id="confidentiality" data-toggle="modal" data-target="#confidentiality_dialog">Paramètres</button>
+    </div>
+    <div id="cards">
+        
+    </div>
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:728px;height:90px"
+            data-ad-client="ca-pub-3014614649994013"
+            data-ad-slot="5523609982"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    <div class="footerbar">
+        <center><a href=apropos.htm>&Agrave; propos</a> | <a href= cgu.htm>CGU</a> | <a href=mentionslegales.htm>Mentions légales</a> | <a href="donation.htm">Nous soutenir</a></center>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="confidentiality_dialog" tabindex="-1" role="dialog" aria-labelledby="confidentiality_dialog_title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="h1 modal-title" id="confidentiality_dialog_title">Paramètres d'affichage du cprofil</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <label for="public">Afficher mon profil</label>
+            <div class="options-control" id="public">
+                <div class="options-item">
+                  <input type="radio" name="optionsRadio" id="public_yes" class="sr-only"/>
+                  <label class="options-btn font-weight-medium" for="public_yes">Oui</label>
+                </div>
+                <div class="options-item">
+                  <input type="radio" name="optionsRadio" id="public_no" class="sr-only" checked/>
+                  <label class="options-btn font-weight-medium" for="public_no">Non</label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="modifConfidentiality();">Valider</button>
+        </div>
+        </div>
+    </div>
 </div>
 
 <div class="modal" tabindex="-1" role="dialog" aria-labelledby="cookies_title" id="cookies">
@@ -113,6 +149,16 @@
     <script src="scripts/bootstrap-sncf-metier/bootstrap-sncf.min.js"></script>
     <script src="scripts/initialize.js"></script>
     <script src="scripts/login.js"></script>
+    <script src="scripts/loader.js"></script>
+    <script src="scripts/users.js"></script>
+    <script>
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                setUid(user.uid);
+                getAllUsers();
+            }
+        })
+    </script>
     <script>
         if (localStorage.getItem('cookies_accepted') === undefined) {
             $('#cookies').modal('show');
@@ -121,8 +167,6 @@
         $('#cookies').on('hidden.bs.modal', function (e) {
           localStorage.setItem('cookies_accepted', true);
         });
-
-        document.getElementById('content').style.height = window.innerHeight - 68;
     </script>
 </body>
 </html>
