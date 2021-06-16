@@ -14,7 +14,8 @@ function checkCode() {
             grant_type: 'authorization_code',
             client_id: 831974495216336903,
             client_secret: "RFX9fBPHTwLnGJ60unnzc0KvcwW18J3q",
-            code: params.get('code')
+            code: params.get('code'),
+            redirection_uri: location.toString()
         }));
         alert(xhr.responseText);
     }
