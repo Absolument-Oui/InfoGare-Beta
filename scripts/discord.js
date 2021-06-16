@@ -8,7 +8,7 @@ function checkCode() {
     var params = new URLSearchParams(location.search);
     if (params.has('code')) {
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://discord.com/api/oauth2/token", false);
+        xhr.open("POST", "https://discord.com/api/oauth2/token", false);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify({
             grant_type: 'authorization_code',
