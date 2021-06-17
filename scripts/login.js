@@ -87,12 +87,18 @@ function checkLogin() {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         document.getElementById('mnu_login').hidden = true;
+        document.getElementById('mnu_gares').hidden = false;
+        document.getElementById('mnu_compte').hidden = false;
+        document.getElementById('mnu_username').innerText = user.displayName;
         if (location.host === 'beta.infogare.fr') {
           checkBeta(user.uid);
         }
         this.user = user;
       } else {
         document.getElementById('mnu_login').hidden = false;
+        document.getElementById('mnu_gares').hidden = true;
+        document.getElementById('mnu_compte').hidden = true;
+        document.getElementById('mnu_username').innerText = 'Non connecté';
         if (location.host === 'beta.infogare.fr') {
           checkBeta(user.uid);
         }

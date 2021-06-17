@@ -119,9 +119,9 @@ function getUser(id) {
                 managmentitemmain.setAttribute('class', 'management-item-main');
                 managmentitemmain.setAttribute('style', 'cursor: pointer;');
                 if (type === 'neutral') {
-                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare.htm?uid='+snapshot.key+'&id='+id+'"');
+                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare.htm?id='+childsnapshot.key+'&uid='+id+'"');
                 } else {
-                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare_rer.htm?uid='+snapshot.key+'id='+id+'"');
+                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare_rer.htm?id='+childsnapshot.key+'&uid='+id+'"');
                 }
                 managmentitemmain.appendChild(title);
                 managmentitemmain.appendChild(metalist);
