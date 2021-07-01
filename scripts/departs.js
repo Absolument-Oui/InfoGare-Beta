@@ -45,7 +45,8 @@ function loadTrains(user_id, id){
                     retardtype: child.val().retardtype,
                     voie: child.val().voie,
                     show: showed,
-                    showvoie: voieshowed
+                    showvoie: voieshowed,
+                    alternance: child.val().alternance
                 });
             }
         });
@@ -70,6 +71,7 @@ function loadTrains(user_id, id){
                     var secondsecondcol_firstrow = document.createElement('div');
                     var secondthirdcol_firstrow = document.createElement('div');
                     var thirdcol_firstrow = document.createElement('div');
+                    var col_hide = document.createElement('div');
                     
                     // First Col
                     var logo = document.createElement('div');
@@ -84,6 +86,10 @@ function loadTrains(user_id, id){
                     
                     // Second Third Col
                     var dest = document.createElement('span');
+
+                    // Col Hide
+                    var col_hide_inner = document.createElement('div');
+                    var alternance = document.createElement('div');
                     
                     // Third Col
                     var track = document.createElement('div');
@@ -106,6 +112,7 @@ function loadTrains(user_id, id){
                     const train_retard_type = value["retardtype"];
                     const train_retard_time = value["retardtime"];
                     const train_voie = value["voie"];
+                    const train_alternance = value["alternance"];
                     
                     var gares_split = train_gares.substr(0, train_gares.length - 1).split("|");
                     var retard, textfeature;
@@ -123,6 +130,22 @@ function loadTrains(user_id, id){
                     } else {
                         retard = 'supprimé';
                         textfeature = 3;
+                    }
+
+                    col_hide.setAttribute('class', 'col-hide');
+                    
+                    if (train_alternance === "") {
+
+                    } else if (train_alternance === undefined) {
+
+                    } else {
+                        alternance.setAttribute('class', 'train-information-dynamic train-information-dynamic-yellow animation-dynamic');
+                        alternance.innerText = train_alternance;
+                        
+                        col_hide_inner.setAttribute('class', 'col-hide-inner');
+                        col_hide_inner.appendChild(alternance);
+
+                        col_hide.appendChild(col_hide_inner);
                     }
                     
                     gares_split.forEach((item, index) => {
@@ -288,12 +311,28 @@ function loadTrains(user_id, id){
                         thirdcol_firstrow.appendChild(track);
                     }
                     thirdcol_firstrow.setAttribute('class', 'col-third');
+
+                                        
+                    if (train_alternance === "") {
+
+                    } else if (train_alternance === undefined) {
+
+                    } else {
+                        alternance.setAttribute('class', 'train-information-dynamic train-information-dynamic-yellow animation-dynamic');
+                        alternance.innerText = train_alternance;
+                        
+                        col_hide_inner.setAttribute('class', 'col-hide-inner');
+                        col_hide_inner.appendChild(alternance);
+
+                        col_hide.appendChild(col_hide_inner);
+                    }
                     
                     firstrow.appendChild(firstcol_firstrow);
                     firstrow.appendChild(secondfirstcol_firstrow);
                     firstrow.appendChild(secondsecondcol_firstrow);
                     firstrow.appendChild(secondthirdcol_firstrow);
                     firstrow.appendChild(thirdcol_firstrow);
+                    firstrow.appendChild(col_hide);
                     
                     if (i < 2) {
                         firstcol_secondrow.setAttribute('class', 'col-first');

@@ -219,6 +219,7 @@ function prepModifTrain(tid) {
         document.getElementById('modif_train_hour_depart').value = snapshot.val().hourdepart;
         document.getElementById('modif_train_hour_arrive').value = snapshot.val().hourarrive;
         document.getElementById('modif_train_retard_time').value = snapshot.val().retardtime;
+        document.getElementById('modif_train_alternance').value = snapshot.val().alternance;
         if (snapshot.val().retardtype === 'alheure') {
             document.getElementById('modif_train_alheure').checked = true;
         } else if (snapshot.val().retardtype === 'retindet') {
@@ -294,7 +295,8 @@ function modifTrain(tid) {
         retardtype: retardtype,
         voie: document.getElementById('modif_train_voie').value,
         gares: document.getElementById('modif_train_gares_dest').value,
-        from: document.getElementById('modif_train_gares_prov').value
+        from: document.getElementById('modif_train_gares_prov').value,
+        alternance: document.getElementById('modif_train_alternance').value
     }).then((snapshot) => {
         document.location.reload();
     });
@@ -522,6 +524,7 @@ function prepDupliTrain(tid) {
         document.getElementById('modif_train_voie').value = snapshot.val().voie;
         document.getElementById('modif_train_gares_prov').value = snapshot.val().from;
         document.getElementById('modif_train_gares_dest').value = snapshot.val().gares;
+        document.getElementById('modif_train_alternance').value = snapshot.val().alternance;
 
         document.getElementById('validate2').setAttribute('onclick', 'dupliTrain()');
         document.getElementById('validate2').innerText = 'Dupliquer';
@@ -555,7 +558,8 @@ function dupliTrain() {
         from: document.getElementById('modif_train_gares_prov').value,
         gares: document.getElementById('modif_train_gares_dest').value,
         hourdepart: document.getElementById('modif_train_hour_depart').value,
-        hourarrive: document.getElementById('modif_train_hour_arrive').value
+        hourarrive: document.getElementById('modif_train_hour_arrive').value,
+        alternance: document.getElementById('modif_train_alternance').value
     }).then(() => {
         window.location.reload();
     })
@@ -604,7 +608,8 @@ function createTrain() {
         retardtime: document.getElementById('retard_time').value,
         from: from,
         gares: gares,
-        voie: document.getElementById('train_voie').value
+        voie: document.getElementById('train_voie').value,
+        alternance: document.getElementById('train_alternance').value
     }).then((snapshot) => {
         document.location.reload();
     });

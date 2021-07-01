@@ -412,6 +412,11 @@
           <select class="sr-only" data-role="input" tabindex="-1" aria-hidden="true" id="gares" multiple>
           </select>
         </div><br />
+        <label for="train_alternance">Informations dynamiques</label>
+        <div class="form-control-container">
+          <input type="text" class="form-control" id="train_alternance" placeholder="Entrez les informations dynamiques">
+          <span class="form-control-state"></span>
+        </div><br>
         <button type=button class="btn btn-secondary" id="cancel" data-toggle="modal" data-target="#new_train">Annuler</button>&nbsp;<button type=submit class="btn btn-primary" id="validate" data-toggle="modal" data-target="#new_train" onclick="createTrain();">Créer</button>
       </div>
     </div>
@@ -581,6 +586,11 @@
             <input type="text" id="modif_train_gares_dest" class="form-control" placeholder="Entrez les gares desservies" />
             <span class="form-control-state"></span>
         </div><br />
+        <label for="modif_train_alternance">Informations dynamiques</label>
+        <div class="form-control-container">
+          <input type="text" class="form-control" id="modif_train_alternance" placeholder="Entrez les informations dynamiques">
+          <span class="form-control-state"></span>
+        </div><br>
         <button type=button class="btn btn-secondary" id="cancel2" data-toggle="modal" data-target="#modif_train">Annuler</button>&nbsp;<button type=submit class="btn btn-primary" id="validate2" data-toggle="modal" data-target="#modif_train">Modifier</button>
       </div>
     </div>
