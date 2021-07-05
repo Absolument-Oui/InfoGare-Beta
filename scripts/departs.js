@@ -331,8 +331,8 @@ function loadTrains(user_id, id){
                     firstrow.appendChild(secondfirstcol_firstrow);
                     firstrow.appendChild(secondsecondcol_firstrow);
                     firstrow.appendChild(secondthirdcol_firstrow);
-                    firstrow.appendChild(thirdcol_firstrow);
                     firstrow.appendChild(col_hide);
+                    firstrow.appendChild(thirdcol_firstrow);
                     
                     if (i < 2) {
                         firstcol_secondrow.setAttribute('class', 'col-first');
@@ -383,6 +383,7 @@ function loadTrains(user_id, id){
         });
     }).catch((error) => {
         document.getElementById('error_loading').hidden = false;
+        console.error(error);
     });
 }
 
