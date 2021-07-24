@@ -9,7 +9,7 @@ function checkCode() {
     if (params.has('code')) {
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://discord.com/api/oauth2/token", false);
-        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.send(JSON.stringify({
             'grant_type': 'authorization_code',
             'client_id': 831974495216336903,
