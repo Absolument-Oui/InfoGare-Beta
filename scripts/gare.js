@@ -675,7 +675,7 @@ function createTrain() {
         from: from,
         gares: gares,
         voie: document.getElementById('train_voie').value,
-        alternance: document.getElementById('train_alternance').value,
+        alternance: document.getElementById('train_dynamic').value,
         hall: document.getElementById('train_hall').value
     }).then((snapshot) => {
         document.location.reload();
