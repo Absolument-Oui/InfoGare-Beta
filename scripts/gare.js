@@ -237,7 +237,6 @@ function prepModifTrain(tid) {
         var gares = snapshot.val().gares;
         var from = snapshot.val().from;
         gares = gares.substr(0, gares.length - 1).split('|');
-        from = from.susbtr(0, from.length - 1).split('|');
         gares.forEach((item, index) => {
             var chips_group = document.createElement('div');
             var option = document.createElement('option');
@@ -268,6 +267,8 @@ function prepModifTrain(tid) {
             document.getElementById('chips').insertBefore(chips_group, document.getElementById('addreceivers1'));
             document.getElementById('gares').appendChild(option);
         });
+
+        from = from.susbtr(0, from.length - 1).split('|');
 
         from.forEach((item, index) => {
             var chips_group = document.createElement('div');
@@ -479,7 +480,7 @@ function loadGare(userid){
                         btnmodify.setAttribute('class', 'btn btn-options dropdown-toggle');
                         btnmodify.setAttribute('type', 'button');
                         btnmodify.setAttribute('title', 'Modifier le train');
-                        btnmodify.setAttribute('onclick', 'prepModifTrain('+id+');');
+                        btnmodify.setAttribute('onclick', 'window.open("modif_train.htm?gid='+gare_id+'&tid='+id+'&action=modify", "", "height=500,width=750");');
                         btnmodify.setAttribute('data-toggle', 'modal');
                         btnmodify.setAttribute('data-target', '#train');
                         
@@ -637,11 +638,11 @@ function createTrain() {
     var trainid = Math.round(Math.random() * 1000000000);
     var e = document.getElementById('train_type');
     var rettype = undefined;
-    if (document.getElementById('alheure').checked == true) {
+    if (document.getElementById('train_alheure').checked == true) {
         rettype = 'alheure';
-    } else if (document.getElementById('retindet').checked == true) {
+    } else if (document.getElementById('train_retindet').checked == true) {
         rettype = 'retindet';
-    } else if (document.getElementById('ret').checked == true) {
+    } else if (document.getElementById('train_ret').checked == true) {
         rettype = 'ret';
     } else {
         rettype = 'suppr';
@@ -670,7 +671,7 @@ function createTrain() {
         hourdepart: document.getElementById('train_hour_depart').value.replace(':', 'h'),
         hourarrive: document.getElementById('train_hour_arrive').value.replace(':', 'h'),
         retardtype: rettype,
-        retardtime: document.getElementById('retard_time').value,
+        retardtime: document.getElementById('train_retard_time').value,
         from: from,
         gares: gares,
         voie: document.getElementById('train_voie').value,
@@ -693,4 +694,5 @@ function loadTrainModification(id){
 
 function checkGare(state) {
     document.getElementById('gare_rer_edit').hidden = state;
+    document.getElementById('gare_edit').hidden =! state;
 }

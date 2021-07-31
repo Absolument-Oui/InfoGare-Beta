@@ -24,7 +24,7 @@
   <div id="general" class="accordion-item">
     <label for="train_number">Numéro du train</label>
         <div class="form-control-container">
-            <input type=number class="form-control" placeholder="Entrez le numéro du train" id="train_number" />
+            <input type=text class="form-control" placeholder="Entrez le numéro du train" id="train_number" />
             <span class="form-control-state"></span>
         </div><br />
         <label for="train_prov">Provenance</label>
@@ -224,7 +224,8 @@
               </div>
             </div>
           </div>
-        </div><br />
+        </div>
+      </div><br>
         <div class="btn" data-component="state" data-state="active" data-behaviour="toggle" data-target="#heures"><div class="management-item-caret"><h2>Heures</h2></div></div>
         <div id="heures" class="accordion-item">
           <label for="train_hour_arrive">Heure d'arrivée</label>
@@ -257,8 +258,7 @@
               </div>
             </div>
           </div>
-        </div>
-      </div><br>
+        </div><br>
       <div class="btn" data-component="state" data-state="active" data-behaviour="toggle" data-target="#retard"><div class="management-item-caret"><h2>Retard</h2></div></div>
       <div id="retard" class="accordion-item">
         <label for="train_retard">Retard</label>
@@ -308,6 +308,10 @@
           <select class="sr-only" data-role="input" tabindex="-1" aria-hidden="true" id="from" multiple>
           </select>
         </div><br />
+        <div class="form-control-container" hidden>
+          <input type="text" class="form-control" id="from_modify">
+          <span class="form-control-state"></span>
+        </div><br>
         <label class="font-weight-medium mb-2" for="addreceivers1">Gares desservies (vers la destination)</label>
         <div class="form-control-container form-chips-container" data-component="chips" id="chips">
           <input data-role="typewriter" type="text" class="chips-input stretchy" id="addreceivers1" />
