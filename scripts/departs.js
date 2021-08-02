@@ -390,8 +390,7 @@ function loadTrains(user_id, id){
             //document.getElementById('loader').style.display = 'none';
             
             scrollX();
-            autoRow();
-            //checkHiddenTrains(user_id, id);
+            //autoRow();
         });
     }).catch((error) => {
         document.getElementById('error_loading').hidden = false;
