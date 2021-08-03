@@ -12,4 +12,4 @@ N'hésitez pas à nous rejoindre sur notre Discord afin de nous faire des retour
 
 E-mail : [contact@infogare.fr](mailto:contact@infogare.fr)
 
-Discord : [discord.com/invite/jvsfzxkCdz](discord.com/invite/jvsfzxkCdz)
+Discord : [discord.com/invite/jvsfzxkCdz](https://discord.com/invite/jvsfzxkCdz)
