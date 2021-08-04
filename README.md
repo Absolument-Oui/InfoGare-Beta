@@ -4,9 +4,11 @@ Read in [[English]](https://github.com/Absolument-Oui/InfoGares/blob/main/README
 
 InfoGare, créer des infogares deviens facile !
 
-## Rejoindre la béta
+## Rejoindre la bêta
 
-Vous pouvez envoyer votre candidature pour rejoindre la version béta de Infogare sur notre serveur Discord. Le nombre de places est limité !
+Vous pouvez envoyer votre candidature pour rejoindre la version béta de Infogare sur notre serveur Discord.
+
+Le nombre de places est limité !
  
 ## Pour les volontaires
 
