@@ -5007,7 +5007,7 @@ h1, .h1 {
     bottom: 0;
     z-index: 1030;
     width: 100%;
-    height: rem;
+    height: 2rem;
     padding-right: 1.25rem;
     padding-left: 1.25rem;
     background-color: #fff;
@@ -5018,7 +5018,7 @@ h1, .h1 {
     .footerbar {
         bottom: 0;
         width: 100%;
-        height: rem;
+        height: 2rem;
         padding-right: .75rem;
         padding-left: 1.875rem
     }
@@ -13320,7 +13320,7 @@ td[data-role="toggle-group-btn"]>* {
 
 @media (min-width: 768px) {
     .table-wrapper.has-footerbar {
-        padding-bottom: rem
+        padding-bottom: 2rem
     }
 }
 
