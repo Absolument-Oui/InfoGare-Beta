@@ -407,7 +407,7 @@ function autoRow(){
 
 	$('.row-group').each(function(){
         console.log($(this).data('timehide') + ' <=> ' + timestamp);
-		if($(this).data('timehide') < timestamp){
+		if($(this).data('timehide') <= timestamp){
 			clearInterval('autoRowRun');
 
 			$(this).addClass('row-group-hidden');

@@ -10,7 +10,6 @@ function checkCode() {
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://discord.com/api/v8/oauth2/token", false);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        alert('client_id=831974495216336903&client_secret=RFX9fBPHTwLnGJ60unnzc0KvcwW18J3q&grant_type=authorization_code&code='+params.get('code'));
         xhr.send('client_id=831974495216336903&client_secret=RFX9fBPHTwLnGJ60unnzc0KvcwW18J3q&grant_type=authorization_code&code='+params.get('code'));
         alert(xhr.responseText);
     }
