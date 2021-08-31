@@ -212,7 +212,7 @@ function loadTrains(user_id, id){
                         logo.setAttribute('class', 'train-logo train-logo-renfe-ave');
                     } else if (train_type === 'SBB') {
                         logo.setAttribute('class', 'train-logo train-logo-sbb');
-                    } else if (train_type === 'SNCF (logo 1958)') {
+                    } else if (train_type === 'SNCF (logo 1985)') {
                         logo.setAttribute('class', 'train-logo train-logo-sncf-1985');
                     } else if (train_type === 'SNCF (logo 1992)') {
                         logo.setAttribute('class', 'train-logo train-logo-sncf-1992');
@@ -248,7 +248,9 @@ function loadTrains(user_id, id){
                     animationblink.setAttribute('class', 'animation-blink');
                     animationblink1.setAttribute('class', 'animation-blink-1');
                     type.setAttribute('class', 'text-type');
-                    if (train_type === 'SNCF (logo 1958)' || train_type === 'SNCF (logo 1992)') {
+                    if (train_type === 'SNCF (logo 1985)') {
+                        type.appendChild(document.createTextNode('Train SNCF'));
+                    } else if (train_type === 'SNCF (logo 1992)'){
                         type.appendChild(document.createTextNode('Train SNCF'));
                     } else {
                         type.appendChild(document.createTextNode(train_type));
