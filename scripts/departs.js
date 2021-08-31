@@ -248,7 +248,11 @@ function loadTrains(user_id, id){
                     animationblink.setAttribute('class', 'animation-blink');
                     animationblink1.setAttribute('class', 'animation-blink-1');
                     type.setAttribute('class', 'text-type');
-                    type.appendChild(document.createTextNode(train_type));
+                    if (train_type === 'SNCF (logo 1958)' || train_type === 'SNCF (logo 1992)') {
+                        type.appendChild(document.createTextNode('Train SNCF'));
+                    } else {
+                        type.appendChild(document.createTextNode(train_type));
+                    }
                     number.setAttribute('class', 'text-number');
                     number.appendChild(document.createTextNode(train_number));
                     animationblink2.setAttribute('class', 'animation-blink-2 text-features-'+textfeature);
