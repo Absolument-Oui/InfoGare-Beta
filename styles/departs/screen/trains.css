@@ -1240,6 +1240,14 @@ a {
     border-left: 0.5vh #fff solid;
 }
 
+.train-information-dynamic:nth-of-type(odd) {
+    background-color: #0064aa;
+}
+
+.train-information-dynamic:nth-of-type(even) {
+    background-color: #003a79;
+}
+
 .train-information-dynamic.train-information-dynamic-yellow {
     color: #f5f900;
     border-color: #f5f900;
