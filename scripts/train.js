@@ -184,7 +184,11 @@ function loadTrain(uid) {
             tr.appendChild(trainstationstation);
             document.getElementById('gares').appendChild(tr);
 
-            if (snapshot.val().alternance !== undefined || snapshot.val().alternance !== "") {
+            if (snapshot.val().alternance === undefined){
+                
+            }else if (snapshot.val().alternance === "") {
+
+            } else {
                 document.getElementById('infos').innerHTML = snapshot.val().alternance;
             }
         });
