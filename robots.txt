@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: cgu.htm
+Disallow: departs.htm
+Disallow: departs_rer.htm
+Disallow: rer.htm
+Disallow: panel.htm
+Disallow: modif_train.html
+Disallow: 

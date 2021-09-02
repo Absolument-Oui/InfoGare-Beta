@@ -532,10 +532,10 @@ html, body {
   
   /* -- styles -- */
   .rows .row-group.row-group-informations-1 .col-first {
-    background-image: url(../../img/screen/backgrounds/row-background-informations-1.svg);
+    background-image: url(../../../images/screen/informations/row-background-informations-1.svg);
   }
   .rows .row-group.row-group-informations-2 .col-first {
-    background-image: url(../../img/screen/backgrounds/row-background-informations-2.svg);
+    background-image: url(../../../images/screen/informations/row-background-informations-2.svg);
   }
   
   /* -- texts -- */

@@ -188,6 +188,11 @@ function prepModifGare(gid) {
         document.getElementById('modif_gare_name').value = snapshot.val().name;
         document.getElementById('modify_gare_btn').setAttribute('onclick', 'modifyGare('+snapshot.val().id+');');
         document.getElementById('modif_gare_infos').value = snapshot.val().infos;
+        if (snapshot.val().infostype === 'flash') {
+            document.getElementById('modif_gare_infos_type_2').checked = true;
+        } else {
+            document.getElementById('modif_gare_infos_type_1').checked = true;
+        }
         document.getElementById('modify_gare_edit_time_1').value = snapshot.val().timebeforeshow;
         document.getElementById('modify_gare_edit_time_2').value = snapshot.val().timeafterhide;
     }).catch((error) => {
@@ -301,9 +306,17 @@ function modifyGare(gid) {
         hm = 'showremaining';
     }
 
+    var it;
+    if (document.getElementById('modif_gare_infos_type_1').checked) {
+        it = 'informations'
+    } else {
+        it = 'flash';
+    }
+
     database.child("users").child(uid).child("gares").child(gid).update({
         name: document.getElementById('modif_gare_name').value,
         infos: document.getElementById('modif_gare_infos').value,
+        infostype: it,
         alapproche: document.getElementById('modif_alapproche').value,
         aquai: document.getElementById('modif_aquai').value,
         hourmode: hm,
@@ -346,10 +359,17 @@ function createGare(name) {
     } else {
         hm = 'showremaining';
     }
+    var it;
+    if (document.getElementById('gare_infos_type_1').checked) {
+        it = 'informations';
+    } else {
+        it = 'flash';
+    }
     database.child("users").child(uid).child("gares").child(id).set({
         id: id,
         name: name,
         infos: document.getElementById('gare_infos').value,
+        infostype: it,
         type: gare_type,
         alapproche: document.getElementById('alapproche').value,
         aquai: document.getElementById('aquai').value,
