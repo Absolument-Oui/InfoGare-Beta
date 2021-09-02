@@ -1240,11 +1240,11 @@ a {
     border-left: 0.5vh #fff solid;
 }
 
-.train-information-dynamic:nth-of-type(odd) {
+.row-group:nth-of-type(odd) .train-information-dynamic {
     background-color: #0064aa;
 }
 
-.train-information-dynamic:nth-of-type(even) {
+.row-group:nth-of-type(even) .train-information-dynamic {
     background-color: #003a79;
 }
 
