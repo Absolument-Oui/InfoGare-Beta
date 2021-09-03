@@ -1,0 +1,782 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    overflow-x: hidden;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+
+body {
+    font-family: 'Achemine';
+    font-size: 1vh;
+    font-weight: normal;
+    line-height: 1;
+}
+
+*,
+ :after,
+ :before {
+    outline: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:focus,
+*:active,
+ :after:focus,
+ :after:active,
+ :before:focus,
+ :before:active {
+    outline: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.rows {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -moz-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    -webkit-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+}
+
+.rows .row-group {
+    height: 10%;
+}
+
+.rows .row-group:hover {
+    cursor: default;
+}
+
+.rows .row-group>.row {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+.rows .row-group>.row>div {
+    display: table-cell;
+    overflow: hidden;
+    line-height: 1.2;
+    vertical-align: middle;
+}
+
+.rows .row-group-hidden {
+    display: none;
+}
+
+
+/* -- sizes -- */
+
+.rows .row-group.row-group-2 {
+    height: 20%;
+}
+
+/* -- bar -- */
+
+.row-group-bar {
+    position: absolute;
+    bottom: 0;
+    height: 10%;
+    padding-left: 2vh;
+}
+
+.row-group-bar .col-first {
+    width: auto !important;
+    vertical-align: middle !important;
+}
+
+.row-group-bar .col-first .bar-informations {
+    font-size: 7em;
+}
+
+.row-group-bar .col-first .bar-informations {
+    font-size: 7em;
+}
+
+.row-group-bar .col-second {
+    width: 30vh;
+    text-align: center;
+    vertical-align: bottom !important;
+}
+
+
+/* -- informations -- */
+
+.bar-informations {
+    display: inline-block;
+    white-space: nowrap;
+    font-style: italic;
+}
+
+
+/* -- clock -- */
+
+.bar-clock {
+    display: inline-block;
+    position: relative;
+    z-index: 5000;
+    width: 80%;
+    height: 7.5vh;
+    font-size: 5vh;
+    font-weight: 700;
+    line-height: 1.5;
+    border: solid 0.5vh #fff;
+    border-bottom: none;
+    border-radius: 0.8vh 0.8vh 0 0;
+    background: #003a79;
+}
+
+.bar-clock small {
+    display: inline-block;
+    padding-left: 1.6vh;
+    color: #ff9f17;
+}
+
+
+/* -- blink -- */
+
+.animation-blink {
+    position: relative;
+}
+
+.animation-blink .animation-blink-1,
+.animation-blink .animation-blink-2 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    will-change: visibility;
+    animation: blink 4s steps(2, start) infinite;
+    -webkit-animation: blink 4s steps(2, start) infinite;
+}
+
+.animation-blink .animation-blink-2 {
+    visibility: hidden;
+    animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+}
+
+.animation-blink .animation-blink-clock {
+    animation: blink 1.5s steps(2, start) infinite;
+    -webkit-animation: blink 1.5s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    from {
+        visibility: visible;
+    }
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink {
+    from {
+        visibility: visible;
+    }
+    to {
+        visibility: hidden;
+    }
+}
+
+
+/* -- scroll-x -- */
+
+.animation-scroll-x {
+    transform: translateZ(0);
+    will-change: transform;
+    animation: scrollX 0s linear infinite;
+    -webkit-animation: scrollX 0s linear infinite;
+}
+
+@keyframes scrollX {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes scrollX {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+
+@keyframes scrollY {
+   /* 0% { transform: translateY(100%); }
+    25% { transform: translateY(-100%); }
+    50% { transform: translateY(100%); }
+    75% { transform: translateY(0%); }
+    100% { transform: translateY(-100%); } */
+    from {
+        transform: translateY(0%);
+    }
+    50% { transform: translateY(100%); }
+    to {
+        transform: translateY(100%);
+    }
+}
+
+@-webkit-keyframes scrollY {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(100%);
+        animation-timing-function:ease-in-out
+    }
+}
+
+
+/* -- texts -- */
+
+.text-scroll-x {
+    display: inline-block;
+    padding-left: 100%;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 8em;
+    white-space: nowrap;
+}
+
+.text-scroll-x span {
+    display: inline;
+}
+
+.text-scroll-x span:after {
+    content: '';
+    display: inline-block;
+    width: 2.5vh;
+    height: 2.5vh;
+    margin: 0 1.5vh;
+    margin-bottom: 0.5vh;
+    border-radius: 50%;
+    background: #f5f900;
+}
+
+.text-scroll-x span:last-child:after {
+    display: none;
+}
+
+.text-type {
+    line-height: 1;
+    font-size: 3.3em;
+    font-weight: 100;
+    font-family: 'Achemine';
+    display: inline-block;
+}
+
+.text-number {
+    line-height: 1;
+    font-size: 4em;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.text-time {
+    color: #f5f900;
+    font-size: 6.5em;
+    font-weight: bold;
+}
+
+.text-time.retard {
+    color: #f9a200;
+}
+
+.text-features-1 {
+    margin-top: 2%;
+    font-size: 3.5em;
+    font-weight: bold;
+}
+
+.text-features-2 {
+    color: #fff;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.text-features-3 {
+    color: #f5f900;
+    font-size: 3.5em;
+    font-weight: bold;
+}
+
+
+/* -- cols -- */
+
+.row-group {
+    height: 10%;
+}
+
+.row-group .row {
+    position: relative;
+}
+
+.row-group .row .col-first {
+    width: 17vh;
+}
+
+.row-group .row .col-first-details {
+    display: relative;
+    color: #f5f900;
+    width: 60vh;
+    font-size: 5em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.row-group .row .col-second {
+    position: relative;
+}
+
+.row-group .row .col-second-first {
+    width: 20vh;
+    vertical-align: middle !important;
+}
+
+.row-group .row .col-second-second {
+    width: 24vh;
+    vertical-align: middle;
+}
+
+.row-group .row .col-second-third {
+    font-size: 8em;
+    white-space: nowrap;
+}
+
+.row-group .row .col-second-merged {
+    width: 44vh;
+}
+
+.row-group .row .col-second-merged>div {
+    display: table;
+}
+
+.row-group .row .col-second-merged>div>div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.row-group .row .col-hide {
+    display: block;
+    position: relative;
+    width: 0;
+    overflow: visible !important;
+}
+
+.row-group .row .col-hide .col-hide-inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -1vh;
+    width: 100vh;
+    overflow: hidden;
+}
+
+.row-group .row .col-third {
+    position: relative;
+    z-index: 1;
+    width: 18vh;
+    overflow: visible !important;
+}
+
+
+.rows .row-group-2 .row:nth-of-type(1) {
+    height: 55%;
+}
+
+.rows .row-group-2 .row:nth-of-type(1)>div {
+    line-height: 1;
+}
+
+.rows .row-group-2 .row:nth-of-type(1) .col-second-first {
+    vertical-align: text-bottom !important;
+    text-align: center;
+}
+
+.rows .row-group-2 .row:nth-of-type(1) .col-second-first .animation-blink {
+    height: 6vh;
+}
+
+.rows .row-group-2 .row:nth-of-type(1) .col-second-third {
+    font-size: 10em;
+}
+
+.rows .row-group-2 .row:nth-of-type(1) .col-second-third .animation-rotate {
+    height: 11vh;
+}
+
+.rows .row-group-2 .row:nth-of-type(1) .col-second-third .animation-rotate div {
+    margin-bottom: 1vh;
+}
+
+.rows .row-group-2 .row:nth-of-type(1) .text-time {
+    font-size: 7.5em;
+}
+
+.rows .row-group-2 .row:nth-of-type(1) .train-track {
+    height: 11vh;
+    width: 11vh;
+    font-size: 7.5em;
+    line-height: 1.4;
+}
+
+.rows .row-group-2 .row:nth-of-type(1) .train-track.train-track-p:before {
+    width: 10.25vh;
+    height: 10.25vh;
+}
+
+.rows .row-group-2 .row:nth-of-type(1) .train-track.train-track-h:not(.train-track-view) {
+    padding-top: 0.4em;
+    line-height: 0.4;
+}
+
+.rows .row-group-2 .row:nth-of-type(2) {
+    height: 45%;
+}
+
+.rows .row-group-2 .row:nth-of-type(2)>div {
+    line-height: 1.05;
+}
+
+
+.rows.rows-departures,
+.rows.rows-transilien {
+    background: #0064aa;
+}
+
+.rows.rows-departures .row-group:nth-of-type(odd),
+.rows.rows-transilien .row-group:nth-of-type(odd) {
+    background: #0064aa;
+}
+
+.rows.rows-departures .row-group:nth-of-type(odd) .train-track-h:not(.train-track-view),
+.rows.rows-transilien .row-group:nth-of-type(odd) .train-track-h:not(.train-track-view) {
+    color: #0064aa;
+}
+
+.rows.rows-departures .row-group:nth-of-type(even),
+.rows.rows-transilien .row-group:nth-of-type(even) {
+    background: #003a79;
+}
+
+.rows.rows-departures .row-group:nth-of-type(even) .train-track-h:not(.train-track-view),
+.rows.rows-transilien .row-group:nth-of-type(even) .train-track-h:not(.train-track-view) {
+    color: #003a79;
+}
+/* -- logo -- */
+
+.train-logo {
+    height: 6vh;
+    background: no-repeat center;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+
+.train-logo.train-logo-sncf {
+    background-image: url(../../../images/screen/common/logo-sncf.svg);
+}
+
+.train-logo.train-logo-inoui {
+    background-image: url(../../../images/screen/common/logo-inoui.svg);
+}
+
+.train-logo.train-logo-ter {
+    background-image: url(../../../images/screen/common/logo-ter.svg);
+}
+
+.train-logo.train-logo-tgv {
+    background-image: url(../../../images/screen/common/logo-tgv.svg);
+}
+
+.train-logo.train-logo-ice {
+    background-image: url(../../../images/screen/common/logo-ice.svg);
+}
+
+.train-logo.train-logo-lyria {
+    background-image: url(../../../images/screen/common/logo-lyria.svg);
+}
+
+.train-logo.train-logo-ouigo {
+    background-image: url(../../../images/screen/common/logo-ouigo.svg);
+}
+
+.train-logo.train-logo-ler {
+    background-image: url(../../../images/screen/common/logo-ler.svg);
+}
+
+.train-logo.train-logo-fluo {
+    background-image: url(../../../images/screen/common/logo-fluo.svg);
+}
+
+.train-logo.train-logo-occitanie {
+    background-image: url(../../../images/screen/common/logo-occitanie.svg);
+}
+
+.train-logo.train-logo-intercite {
+    background-image: url(../../../images/screen/common/logo-intercites.svg);
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.train-logo.train-logo-aleop {
+    background-image: url(../../../images/screen/common/logo-aleop.svg);
+}
+
+.train-logo.train-logo-auvergne-rhone-alpes {
+    background-image: url(../../../images/screen/common/logo-auvergerhonealpes.svg);
+}
+
+.train-logo.train-logo-breizhgo {
+    background-image: url(../../../images/screen/common/logo-breizhgo.svg);
+}
+
+.train-logo.train-logo-db {
+    background-image: url(../../../images/screen/common/logo-db.svg);
+}
+
+.train-logo.train-logo-ter-hauts-de-france {
+    background-image: url(../../../images/screen/common/logo-hautsdefrance.svg);
+}
+
+.train-logo.train-logo-lio {
+    background-image: url(../../../images/screen/common/logo-lio.svg);
+}
+
+.train-logo.train-logo-ter-metrolor {
+    background-image: url(../../../images/screen/common/logo-metrolor.svg);
+}
+
+.train-logo.train-logo-mobigo {
+    background-image: url(../../../images/screen/common/logo-mobigo.svg);
+}
+
+.train-logo.train-logo-nomad {
+    background-image: url(../../../images/screen/common/logo-nomad.svg);
+}
+
+.train-logo.train-logo-remi {
+    background-image: url(../../../images/screen/common/logo-remi.svg);
+}
+
+.train-logo.train-logo-renfe-ave {
+    background-image: url(../../../images/screen/common/logo-renfeave.svg);
+}
+
+.train-logo.train-logo-sbb {
+    background-image: url(../../../images/screen/common/logo-sbb.svg);
+}
+
+.train-logo.train-logo-sncf-1985 {
+    background-image: url(../../../images/screen/common/logo-sncf1985.svg);
+}
+
+.train-logo.train-logo-sncf-1992 {
+    background-image: url(../../../images/screen/common/logo-sncf1992.svg);
+}
+
+.train-logo.train-logo-ter-alsace {
+    background-image: url(../../../images/screen/common/logo-teralsace.svg);
+}
+
+.train-logo.train-logo-ter-aquitaine {
+    background-image: url(../../../images/screen/common/logo-teraquitaine.svg);
+}
+
+.train-logo.train-logo-ter-basse-normandie {
+    background-image: url(../../../images/screen/common/logo-terbassenormandie.svg);
+}
+
+.train-logo.train-logo-ter-bourgogne {
+    background-image: url(../../../images/screen/common/logo-terbourgogne.svg);
+}
+
+.train-logo.train-logo-ter-bretagne {
+    background-image: url(../../../images/screen/common/logo-terbretagne.svg);
+}
+
+.train-logo.train-logo-ter-centre {
+    background-image: url(../../../images/screen/common/logo-tercentre.svg);
+}
+
+.train-logo.train-logo-ter-languedoc-roussillon {
+    background-image: url(../../../images/screen/common/logo-terlanguedocroussillon.svg);
+}
+
+.train-logo.train-logo-ter-midi-pyrenees {
+    background-image: url(../../../images/screen/common/logo-termidipyrenees.svg);
+}
+
+.train-logo.train-logo-ter-nord-pas-de-calais {
+    background-image: url(../../../images/screen/common/logo-ternordpasdecalais.svg);
+}
+
+.train-logo.train-logo-poitou-charentes {
+    background-image: url(../../../images/screen/common/logo-terpoitoucharentes.svg);
+}
+
+.train-logo.train-logo-thello {
+    background-image: url(../../../images/screen/common/logo-thello.svg);
+}
+
+.train-logo.train-logo-tram-train {
+    background-image: url(../../../images/screen/common/logo-tramtrain.svg);
+}
+
+.train-logo.train-logo-zou {
+    background-image: url(../../../images/screen/common/logo-zou.svg);
+}
+
+.train-logo.train-logo-eurostar {
+    background-image: url(../../../images/screen/common/logo-eurostar.svg);
+}
+
+.train-logo.train-logo-thalys {
+    background-image: url(../../../images/screen/common/logo-thalys.svg);
+}
+
+.train-logo.train-logo-rer-a {
+    background-image: url(../../../images/screen/common/logo-rer-a.svg);
+}
+
+.train-logo.train-logo-rer-b {
+    background-image: url(../../../images/screen/common/logo-rer-b.svg);
+}
+
+.train-logo.train-logo-rer-c {
+    background-image: url(../../../images/screen/common/logo-rer-c.svg);
+}
+
+.train-logo.train-logo-rer-d {
+    background-image: url(../../../images/screen/common/logo-rer-d.svg);
+}
+
+.train-logo.train-logo-rer-e {
+    background-image: url(../../../images/screen/common/logo-rer-e.svg);
+}
+
+.train-logo.train-logo-t-h {
+    background-image: url(../../../images/screen/common/logo-t-h.svg);
+}
+
+.train-logo.train-logo-t-j {
+    background-image: url(../../../images/screen/common/logo-t-j.svg);
+}
+
+.train-logo.train-logo-t-k {
+    background-image: url(../../../images/screen/common/logo-t-k.svg);
+}
+
+.train-logo.train-logo-t-l {
+    background-image: url(../../../images/screen/common/logo-t-l.svg);
+}
+
+.train-logo.train-logo-t-n {
+    background-image: url(../../../images/screen/common/logo-t-n.svg);
+}
+
+.train-logo.train-logo-t-p {
+    background-image: url(../../../images/screen/common/logo-t-p.svg);
+}
+
+.train-logo.train-logo-t-r {
+    background-image: url(../../../images/screen/common/logo-t-r.svg);
+}
+
+.train-logo.train-logo-t-u {
+    background-image: url(../../../images/screen/common/logo-t-u.svg);
+}
+
+
+/* -- track -- */
+
+.train-track {
+    display: none;
+    position: absolute;
+    top: 0.75vh;
+    right: 3vh;
+    width: 8vh;
+    height: 8vh;
+    font-size: 5.6em;
+    font-weight: bold;
+    line-height: 1.3;
+    text-align: center;
+    border: solid 0.35vh #fff;
+    border-radius: 10%;
+    z-index: 1000;
+}
+
+.train-track span {
+    display: none;
+}
+
+.train-track.train-track-view {
+    display: block;
+}
+
+.train-track.train-track-view span {
+    display: inline;
+}
+
+/* -- line -- */
+
+.line {
+    position: relative;
+    left: 1.8%;
+    height: 5%;
+    background-size: 0.7%;
+    background-image: url(../../../images/screen/wagons/train-wagons-line.svg);        
+}
+
+
+/* -- arrows -- */
+
+.arrow {
+    position: absolute;
+    top: 1.75vh;
+    right: 6vh;
+    width: 6vh;
+    height: 6vh;
+    line-height: 1;
+    text-align: center;
+}
+
+.arrow-left-down {
+    background-image: url(../../../images/screen/accesquai/left_down_arrow.svg);
+}
+
+.arrow-left-up {
+    background-image: url(../../../images/screen/accesquai/left_up_arrow.svg);
+}
+
+.arrow-right-down {
+    background-image: url(../../../images/screen/accesquai/right_down_arrow.svg);
+}
+.arrow-right-up {
+    background-image: url(../../../images/screen/accesquai/right_up_arrow.svg);
+}
