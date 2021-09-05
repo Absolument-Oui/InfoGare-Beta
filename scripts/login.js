@@ -90,6 +90,8 @@ function checkLogin() {
         document.getElementById('mnu_gares').hidden = false;
         document.getElementById('mnu_compte').hidden = false;
         document.getElementById('mnu_username').innerText = user.displayName;
+        document.getElementById('mnu_users').hidden = false;
+        document.getElementById('mnu_logout').hidden = false;
         if (location.host === 'beta.infogare.fr') {
           checkBeta(user.uid);
         }
@@ -99,6 +101,8 @@ function checkLogin() {
         document.getElementById('mnu_gares').hidden = true;
         document.getElementById('mnu_compte').hidden = true;
         document.getElementById('mnu_username').innerText = 'Non connecté';
+        document.getElementById('mnu_users').hidden = true;
+        document.getElementById('mnu_logout').hidden = true;
         if (location.host === 'beta.infogare.fr') {
           checkBeta(user.uid);
         }
