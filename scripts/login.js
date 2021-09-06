@@ -5,10 +5,11 @@ var user = undefined;
 var SecretCode = null;
 
 document.getElementById('login_btn').onclick = function() {
-  window.location.href = 'login.html?redirect=' + encodeURIComponent(window.location.href);
+  window.location.href = 'login.htm?redirect=' + encodeURIComponent(window.location.href);
 }
 
 function login(email, password) {
+  var params = new URLSearchParams(location.search);
     document.getElementById('checkemail').hidden = true;
     document.getElementById('checkpassword').hidden = true;
     document.getElementById('emailexists').hidden = true;
@@ -33,7 +34,11 @@ function login(email, password) {
             SecretCode = snapshot.val().tfacode;
             $('#tfa').modal('show');
           } else {
-            window.location.href='index.htm';
+            if (params.has('redirect')) {
+              window.location.href = params.get('redirect');
+            } else {
+              window.location.href='index.htm';
+            }
           }
         });
         // ...
