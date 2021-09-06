@@ -41,8 +41,8 @@ function loadTrain(uid) {
             logo.setAttribute('class', 'train-logo train-logo-intercite');
         } else if (train_type === 'Aléop') {
             logo.setAttribute('class', 'train-logo train-logo-aleop');
-        } else if (train_type === 'TER Auvergne') {
-            logo.setAttribute('class', 'train-logo train-logo-ter-auvergne');
+        } else if (train_type === 'TER Auvergne Rhône Alpes') {
+            logo.setAttribute('class', 'train-logo train-logo-auvergne-rhone-alpes');
         } else if (train_type === 'BreizhGo') {
             logo.setAttribute('class', 'train-logo train-logo-breizhgo');
         } else if (train_type === 'DB') {

@@ -187,8 +187,8 @@ function loadTrains(user_id, id){
                         logo.setAttribute('class', 'train-logo train-logo-intercite');
                     } else if (train_type === 'Aléop') {
                         logo.setAttribute('class', 'train-logo train-logo-aleop');
-                    } else if (train_type === 'TER Auvergne') {
-                        logo.setAttribute('class', 'train-logo train-logo-ter-auvergne');
+                    } else if (train_type === 'TER Auvergne Rhône Alpes') {
+                        logo.setAttribute('class', 'train-logo train-logo-auvergne-rhone-alpes');
                     } else if (train_type === 'BreizhGo') {
                         logo.setAttribute('class', 'train-logo train-logo-breizhgo');
                     } else if (train_type === 'DB') {
@@ -239,7 +239,7 @@ function loadTrains(user_id, id){
                         logo.setAttribute('class', 'train-logo train-logo-tram-train');
                     } else if (train_type === 'Zou') {
                         logo.setAttribute('class', 'train-logo train-logo-zou');
-                    } else {            
+                    } else {
                         logo.setAttribute('class', 'train-logo train-logo-sncf');
                     }
                     
@@ -407,7 +407,6 @@ function loadTrains(user_id, id){
             //document.getElementById('loader').style.display = 'none';
             
             scrollX();
-            autoRow();
         });
     }).catch((error) => {
         document.getElementById('error_loading').hidden = false;

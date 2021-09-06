@@ -13,8 +13,8 @@ function loadQuais(userid, pairId, gid) {
                     retard: child.val().ret,
                     type: child.val().type,
                     voie: child.val().voie
-                })
+                });
             }
-        })
-    })
+        });
+    });
 }

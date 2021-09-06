@@ -31,7 +31,7 @@ function loadParams() {
 }
 
 function createGareLink(gid) {
-    var glink = "https://infogares.page.link/?link=https://infogare.fr/gare.htm?uid="+uid+"%26id="+gid;
+    var glink = "https://link.infogare.fr/?link=https://infogare.fr/gare.htm?uid="+uid+"%26id="+gid;
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=AIzaSyCWi0EChm97lofJrhqBp6wRRtgQGKq8IEg", false);
     xhr.setRequestHeader('Content-Type', 'application/json');
