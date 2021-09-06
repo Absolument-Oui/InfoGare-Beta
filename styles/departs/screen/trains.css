@@ -1,35 +1,11 @@
-/*
-    COPYRIGHT ABSOLUMENT OUI (ORIGINAL PAR SOCIAL GARE)
-    Ce fichier est prot�g� par la propri�t�
-    intellectuelle en France et dans d'autres pays
-    
-    Toute reproduction (m�me partielle), utilisation
-    ou modification sans l'accord de son cr�ateur
-    constitue un d�lit. 
-*/
-
-
-
 /* -- compass -- */
-
-
 /* -- sass files -- */
-
-
 /* -- colors -- */
-
-
 /* -- colors (screen) -- */
-
-
 /* -- widths -- */
-
-
 /* -- base -- */
-
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic");
-html,
-body {
+html, body {
     width: 100%;
     height: 100%;
     margin: 0;
