@@ -4,6 +4,10 @@ var user = undefined;
 
 var SecretCode = null;
 
+document.getElementById('login_btn').onclick = function() {
+  window.location.href = 'login.html?redirect=' + encodeURIComponent(window.location.href);
+}
+
 function login(email, password) {
     document.getElementById('checkemail').hidden = true;
     document.getElementById('checkpassword').hidden = true;
@@ -11,30 +15,40 @@ function login(email, password) {
     document.getElementById('passwordweak').hidden = true;
     document.getElementById('checkusername').hidden = true;
     document.getElementById('error').hidden = true;
-    firebase.auth().signInWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    // Signed in
-    var user = userCredential.user;
-    firebase.database().ref('users/'+user.uid).get().then((snapshot) => {
-      if (snapshot.val().tfa) {
-        SecretCode = snapshot.val().tfacode;
-        $('#tfa').modal('show');
-      } else {
-        window.location.href='index.htm';
-      }
-    });
-    // ...
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    if (errorCode == 'auth/invalid-email') {
-        document.getElementById('checkemail').hidden = false;
-    }else if (errorCode == 'auth/wrong-password') {
-        document.getElementById('checkpassword').hidden = false;
+    var pers;
+
+    if (document.getElementById('stay_connected').checked) {
+      pers = firebase.auth.Auth.Persistence.LOCAL;
+    } else {
+      pers = firebase.auth.Auth.Persistence.SESSION;
     }
-    document.getElementById('error').hidden = false;
-  });
+
+    firebase.auth().setPersistence(pers).then(() => {
+      firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        firebase.database().ref('users/'+user.uid).get().then((snapshot) => {
+          if (snapshot.val().tfa) {
+            SecretCode = snapshot.val().tfacode;
+            $('#tfa').modal('show');
+          } else {
+            window.location.href='index.htm';
+          }
+        });
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode == 'auth/invalid-email') {
+            document.getElementById('checkemail').hidden = false;
+        }else if (errorCode == 'auth/wrong-password') {
+            document.getElementById('checkpassword').hidden = false;
+        }
+        document.getElementById('error').hidden = false;
+      });
+    })
 }
 
 function signin(email, password, username) {

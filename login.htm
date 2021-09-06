@@ -71,7 +71,7 @@
             <ul>
               <li class="dropdown-item" id="mnu_compte"><a href="compte.htm">Mon profil</a></li>
               <li class="dropdown-item" id="mnu_gares"><a href="gares.htm">Mes gares</a></li>
-              <li class="dropdown-item" id="mnu_login"><a href="login.htm">Se connecter</a></li>
+              <li class="dropdown-item" id="mnu_login"><a href="#" id="login_btn">Se connecter</a></li>
               <li class="dropdown-item" id="mnu_users"><a href="users.htm">Utilisateurs</a></li>
               <li class="dropdown-item darkmode-btn"><a href="#" onclick="toggleDarkmode();">Mode clair/sombre</a></li>
               <li class="dropdown-item" id="mnu_logout"><a href="#" data-toggle="modal" data-target="#logout">Se déconnecter</a></li>
@@ -107,6 +107,11 @@
             <span class="form-control-state"></span>
         </div><br />
         <span data-toggle="modal" data-target="#recover_pswd" style="cursor: pointer;">Mot de passe perdu ?</span><br><br>
+        <div class="custom-control custom-checkbox" data-toggle="tooltip" title="Si la case n'est pas cochée, vous serez déconnecté lorsque vous fermerez cette fenêtre/onglet">
+          <input type="checkbox" class="custom-control-input" id="stay_connected">
+          <label class="custom-control-label" for="stay_connected">Rester connecté</label>
+        </div>
+        <br>
         <button type="submit" class="btn btn-primary" onclick="login(document.getElementById('email').value, document.getElementById('password').value);">Se connecter</button>&nbsp;
         <span onclick="document.getElementById('signin').hidden=false; document.getElementById('login').hidden=true;" style="cursor: pointer;">Pas de compte ?</span>
     </div>
