@@ -6,7 +6,7 @@ InfoGare, créer des infogares deviens facile !
 
 ## Rejoindre la bêta
 
-Vous pouvez remplir notre formulaire pour rejoindre la version bêta de InfoGare ici : https://forms.gle/xtVjmnPz7apn6Ta59
+Vous pouvez remplir notre formulaire pour rejoindre la version bêta de InfoGare ici : https://link.infogare.fr/JoinBeta
 
 Le nombre de places est limité !
  
