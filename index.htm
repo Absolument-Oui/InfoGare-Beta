@@ -164,6 +164,12 @@
     <script src="scripts/login.js"></script>
     <script src="scripts/notifications.js"></script>
     <script>
+        var params = new URLSearchParams(location.search);
+        if (params.has('token')) {
+          loginWithToken(params.get('token'));
+        }
+
+
         if (localStorage.getItem('cookies_accepted') === undefined) {
             $('#cookies').modal('show');
         }

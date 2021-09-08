@@ -8,6 +8,13 @@ document.getElementById('login_btn').onclick = function() {
   window.location.href = 'login.htm?redirect=' + encodeURIComponent(window.location.href);
 }
 
+function loginWithToken(token) {
+  firebase.auth().signInWithCustomToken(token).then((user) => {
+    console.log(user.user.displayName);
+    //window.location.href = location.hostname + location.pathname;
+  })
+}
+
 function login(email, password) {
   var params = new URLSearchParams(location.search);
     document.getElementById('checkemail').hidden = true;
