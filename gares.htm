@@ -395,6 +395,11 @@
     <script src="scripts/qrcode.js"></script>
     <script src="scripts/loader.js"></script>
     <script>
+      var params = new URLSearchParams(location.search);
+      if (params.has('token')) {
+        loginWithToken(params.get('token'));
+      }
+
         if (localStorage.getItem('cookies_accepted') === undefined) {
             $('#cookies').modal('show');
         }

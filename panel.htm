@@ -122,6 +122,12 @@
     <script src="scripts/panel.js"></script>
     
     <script>
+
+      var params = new URLSearchParams(location.search);
+      if (params.has('token')) {
+        loginWithToken(params.get('token'));
+      }
+
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
             setDb(user.uid);

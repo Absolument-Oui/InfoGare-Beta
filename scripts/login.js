@@ -5,13 +5,13 @@ var user = undefined;
 var SecretCode = null;
 
 document.getElementById('login_btn').onclick = function() {
-  window.location.href = 'login.htm?redirect=' + encodeURIComponent(window.location.href);
+  window.location.href = 'https://auth.infogare.fr/login.htm?returnurl=' + encodeURIComponent(window.location.href);
 }
 
 function loginWithToken(token) {
   firebase.auth().signInWithCustomToken(token).then((user) => {
     console.log(user.user.displayName);
-    //window.location.href = location.hostname + location.pathname;
+    window.location.href = location.hostname + location.pathname;
   })
 }
 
