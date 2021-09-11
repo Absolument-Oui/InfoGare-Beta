@@ -122,6 +122,7 @@ function loadTrains(user_id, id){
                     const train_retard_time = value["retardtime"];
                     const train_voie = value["voie"];
                     const train_alternance = value["alternance"];
+                    const train_hall = value["hall"];
                     
                     var gares_split = train_gares.substr(0, train_gares.length - 1).split("|");
                     var retard, textfeature;
@@ -317,22 +318,65 @@ function loadTrains(user_id, id){
                         track.setAttribute('class', 'train-track train-track-car voie');
                     } else {
                         if (value['hall'] === undefined) {
-                            
-                        } else if (value['hall'] === "") {
-
-                        } else {
                             voie.appendChild(document.createTextNode(train_voie));
                         
                             track.appendChild(voie);
                             track.setAttribute('class', 'train-track train-track-view voie');
+
+                            if (value['showvoie']) {
+                                thirdcol_firstrow.appendChild(track);
+                            }
+
+                            thirdcol_firstrow.setAttribute('class', 'col-third');
+                        } else if (value['hall'] === "") {
+                            voie.appendChild(document.createTextNode(train_voie));
+                        
+                            track.appendChild(voie);
+                            track.setAttribute('class', 'train-track train-track-view voie');
+
+                            if (value['showvoie']) {
+                                thirdcol_firstrow.appendChild(track);
+                            }
+
+                            thirdcol_firstrow.setAttribute('class', 'col-third');
+                        } else {
+                            var anim1 = document.createElement('div');
+                            var anim2 = document.createElement('div');
+
+                            anim1.setAttribute('class', 'animation-blink-1');
+
+                            anim2.setAttribute('class', 'animation-blink-2');
+
+
+                            var hall = document.createElement('div');
+                            var hall_1 = document.createElement('small');
+                            var hall_2 = document.createElement('h1');
+                            var br = document.createElement('br');
+                            var br1 = document.createElement('br');
+
+                            hall.setAttribute('class', 'train-track train-track-h animation-blink-2');
+                            hall_1.appendChild(document.createTextNode('hall'));
+                            hall_2.appendChild(document.createTextNode(train_hall));
+
+                            hall.appendChild(hall_1);
+                            hall.appendChild(br);
+                            hall.appendChild(br1);
+                            hall.appendChild(hall_2);
+
+                            voie.appendChild(document.createTextNode(train_voie));
+                        
+                            track.appendChild(voie);
+                            track.setAttribute('class', 'train-track train-track-view voie animation-blink-1');
+
+                            if (value['showvoie']) {
+                                thirdcol_firstrow.appendChild(track);
+                                thirdcol_firstrow.appendChild(hall);
+                            }
+
+                            thirdcol_firstrow.setAttribute('class', 'col-third animation-blink');
                         }
                     }
                     
-                    if (value['showvoie']) {
-                        thirdcol_firstrow.appendChild(track);
-                    }
-                    thirdcol_firstrow.setAttribute('class', 'col-third');
-
                                         
                     if (train_alternance === "") {
 
