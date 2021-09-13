@@ -402,8 +402,13 @@ function loadTrains(user_id, id){
                     if (i < 2) {
                         firstcol_secondrow.setAttribute('class', 'col-first');
                         
-                        gares.setAttribute('class', 'train-stations text-scroll-x scroll-x animation-scroll-x');
-                        gares.setAttribute('style', 'animation-duration: '+animation_time+'s; padding-left: 100%;');
+                        if (gares_split.length < 2) {
+                            gares.setAttribute('class', 'train-stations text-scroll-x');
+                            gares.setAttribute('style', 'padding-left: 0%;');
+                        } else {
+                            gares.setAttribute('class', 'train-stations text-scroll-x scroll-x animation-scroll-x');
+                            gares.setAttribute('style', 'animation-duration: '+animation_time+'s; padding-left: 100%;');
+                        }
                         secondcol_secondrow.appendChild(gares);
                         secondcol_secondrow.setAttribute('class', 'col-second');
                         
