@@ -402,7 +402,7 @@ function loadTrains(user_id, id){
                     if (i < 2) {
                         firstcol_secondrow.setAttribute('class', 'col-first');
                         
-                        if (gares_split.length < 2) {
+                        if (train_gares.length < 30) {
                             gares.setAttribute('class', 'train-stations text-scroll-x');
                             gares.setAttribute('style', 'padding-left: 0%;');
                         } else {
