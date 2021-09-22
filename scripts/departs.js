@@ -254,6 +254,8 @@ function loadTrains(user_id, id){
                         type.appendChild(document.createTextNode('Train SNCF'));
                     } else if (train_type === 'SNCF (logo 1992)'){
                         type.appendChild(document.createTextNode('Train SNCF'));
+                    } else if (train_type === 'SNCF (carmillon)') {
+                        type.appendChild(document.createTextNode('Train SNCF'));
                     } else {
                         type.appendChild(document.createTextNode(train_type));
                     }
