@@ -641,6 +641,18 @@ function createTrain() {
     for (j = 0; j < y.length; j++) {
         from = from + y.options[j].value + "|";
     }
+
+    // Verification
+
+    /*if (document.getElementById('train_dest').value === "" && document.getElementById('train_prov').value === "") {
+        alert('Vous devez entrer une provenance/destination !');
+        return false;
+    }
+
+    if (document.getElementById('train_number').value === "") {
+        alert('Vous devez entrer un numéro de train !');
+        return false;
+    }*/
     
     database.child("users").child(uid).child("gares").child(gare_id).child("trains").child(trainid).set({
         id: trainid,
