@@ -15,16 +15,6 @@ function loginWithToken(token) {
   })
 }
 
-function login(email, password) {
-  var params = new URLSearchParams(location.search);
-    document.getElementById('checkemail').hidden = true;
-    document.getElementById('checkpassword').hidden = true;
-    document.getElementById('emailexists').hidden = true;
-    document.getElementById('passwordweak').hidden = true;
-    document.getElementById('checkusername').hidden = true;
-    document.getElementById('error').hidden = true;
-    var pers;
-
     if (document.getElementById('stay_connected').checked) {
       pers = firebase.auth.Auth.Persistence.LOCAL;
     } else {
@@ -61,15 +51,6 @@ function login(email, password) {
         document.getElementById('error').hidden = false;
       });
     })
-}
-
-function signin(email, password, username) {
-    document.getElementById('checkemail').hidden = true;
-    document.getElementById('checkpassword').hidden = true;
-    document.getElementById('emailexists').hidden = true;
-    document.getElementById('passwordweak').hidden = true;
-    document.getElementById('checkusername').hidden = true;
-    document.getElementById('error').hidden = true;
     
     if (username == null) {
         document.getElementById('checkusername').hidden = false;
@@ -107,7 +88,6 @@ function signin(email, password, username) {
         document.getElementById('error').hidden = false;
       });
     }
-}
 
 function checkLogin() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -134,12 +114,6 @@ function checkLogin() {
         }
       }
     });
-}
-
-function sendPass(email) {
-  firebase.auth().sendPasswordResetEmail(email).then(() => {
-    alert('Un email de réinitialisation de votre mot de passe viens d\'être envoyé  à' + email + '!');
-  });
 }
 
 function logout() {
