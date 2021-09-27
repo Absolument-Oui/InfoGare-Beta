@@ -3,7 +3,7 @@
 var user = undefined;
 
 document.getElementById('login_btn').onclick = function() {
-  location.href = 'https://auth.infogare.fr/login.htm?returnurl=' + encodeURIComponent(location.href)+'&service=infogare&version=beta';
+  location.href = 'https://auth.infogare.fr/redirect.htm?returnurl=' + encodeURIComponent(location.href)+'&service=infogare&version=beta';
 }
 
 function loginWithToken(token) {
