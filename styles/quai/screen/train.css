@@ -742,7 +742,7 @@ a {
     z-index: 0;
 }
 
-.rows .row-group-train .row:nth-of-type(2) {
+.rows .row-group-train.row-group-train-third .row:nth-of-type(2) {
     background: #51124a;
 }
 
