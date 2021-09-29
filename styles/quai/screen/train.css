@@ -750,6 +750,15 @@ a {
     height: 65%;
 }
 
+.rows .row-group-train.row-group-train-third .row:nth-last-of-type(1) .col-first {
+    position: relative;
+    width: 62vh;
+    height: 100%;
+    padding: 2.5vh;
+    vertical-align: top;
+    background: #fff;
+}
+
 .rows .row-group-train.row-group-train-third .row:nth-of-type(1) .col-second-container {
     height: 65vh;
 }
