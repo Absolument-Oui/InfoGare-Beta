@@ -22,6 +22,11 @@ function checkLogin() {
         document.getElementById('mnu_username').innerText = user.displayName;
         document.getElementById('mnu_users').hidden = false;
         document.getElementById('mnu_logout').hidden = false;
+        if (user.photoURL !== undefined) {
+          document.getElementById('mnu_user_photo').src = user.photoURL;
+          document.getElementById('mnu_user_photo').style.display = 'block';
+          document.getElementById('mnu_user_no_photo').style.display = 'none';
+        }
         if (location.host === 'beta.infogare.fr') {
           checkBeta(user.uid);
         }
