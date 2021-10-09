@@ -7,9 +7,12 @@ document.getElementById('login_btn').onclick = function() {
 }
 
 function loginWithToken(token) {
-  firebase.auth().signInWithCustomToken(token).then((user) => {
-    console.log(user.user.displayName);
-    window.location.href = location.pathname;
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then(() => {
+    firebase.auth().signInWithCustomToken(token).then((user) => {
+      console.log(user.user.displayName);
+      window.location.href = location.pathname;
+    });
   });
 }
 
