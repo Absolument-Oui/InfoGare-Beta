@@ -195,6 +195,10 @@ function loadTrain(uid) {
     });
     
     database.child("users").child(uid).child("gares").child(params.get('gid')).get().then((snapshot) => {
+        if (snapshot.val().infos.length > 35) {
+            document.getElementById('infos').setAttribute('class', 'bar-informations');
+        }
+
         if (document.getElementById('infos').innerHTML === "") {
             document.getElementById('infos').innerHTML = snapshot.val().infos.replace('\n', ' &nbsp;');    
         }

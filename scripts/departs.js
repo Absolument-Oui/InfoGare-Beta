@@ -452,6 +452,9 @@ function loadTrains(user_id, id){
         document.getElementById('rows').appendChild(group);
         
         database.child("users").child(user_id).child("gares").child(id).get().then((snapshot) => {
+            if (snapshot.val().infos.length > 35) {
+                document.getElementById('infos').setAttribute('class', 'bar-informations');
+            }
             document.getElementById('infos').innerHTML = snapshot.val().infos.replace('\n', ' &nbsp;');
 
             document.getElementById('bg').hidden = false;
