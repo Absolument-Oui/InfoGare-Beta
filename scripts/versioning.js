@@ -6,6 +6,7 @@ function getVersion() {
     req.onload = ((e) => {
         var response = JSON.parse(req.response);
         var message = response[0].message;
+        console.log(message);
         var version = message.split('\n');
 
         document.getElementById('version').innerText = version[0];
