@@ -5,7 +5,8 @@ function getVersion() {
     req.open('GET', COMMITS_API);
     req.onload = ((e) => {
         var response = JSON.parse(req.response);
-        var message = response[0].message;
+        var item = response[0];
+        var message = item.message;
         console.log(message);
         var version = message.split('\n');
 
