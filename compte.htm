@@ -14,7 +14,7 @@
     <meta name="description" content="Afficher vos options de compte">
     <meta http-equiv="content-language" content="fr-fr">
 </head>
-<body onload="checkLogin(); loadInfos(); createLoader(); checkCode();" class="light">
+<body onload="checkLogin(); getVersion(); loadInfos(); createLoader(); checkCode();" class="light">
 <div>
   <div class="mastheader">
     <div class="mastheader-logo">
@@ -238,7 +238,8 @@
   </div>
 
     <div class="footerbar">
-        <center><a href=apropos.htm>&Agrave; propos</a> | <a href= cgu.htm>CGU</a> | <a href=mentionslegales.htm>Mentions légales</a> | <a href="donation.htm">Nous soutenir</a></center>
+        <center><a href=apropos.htm>&Agrave; propos</a> | <a href= cgu.htm>CGU</a> | <a href=mentionslegales.htm>Mentions légales</a> | <a href="donation.htm">Nous soutenir</a></center><br>
+    <center><i id="version"></i></center>
     </div>
 
 <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="lougout_title" aria-hidden="true">
