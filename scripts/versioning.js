@@ -6,7 +6,7 @@ function getVersion() {
     req.onload = ((e) => {
         var response = JSON.parse(req.response);
         var item = response[0];
-        var message = item.message;
+        var message = item.commit.message;
         console.log(message);
         var version = message.split('\n');
 
