@@ -16,7 +16,7 @@
     <meta name="author" content="Absolument Oui" />
     <meta http-equiv="content-language" content="fr-fr">
     </head>
-<body onload="checkLogin(); initLogo();" class="light">
+<body onload="checkLogin(); initLogo(); getVersion();" class="light">
 <div>
   <br><br><br>
   <div class="mastheader">
@@ -112,7 +112,8 @@
 </div>
 
 <div data-nosnippet class="footerbar">
-    <center><a href=apropos.htm>&Agrave; propos</a> | <a href= cgu.htm>CGU</a> | <a href=mentionslegales.htm>Mentions légales</a> | <a href="donation.htm">Nous soutenir</a></center>
+    <center><a href=apropos.htm>&Agrave; propos</a> | <a href= cgu.htm>CGU</a> | <a href=mentionslegales.htm>Mentions légales</a> | <a href="donation.htm">Nous soutenir</a></center><br>
+    <i id="version"></i>
 </div>
 
 <div class="modal" tabindex="-1" role="dialog" aria-labelledby="cookies_title" id="cookies">
@@ -162,6 +163,7 @@
     <script src="scripts/bootstrap-sncf-metier/bootstrap-sncf.min.js"></script>
     <script src="scripts/initialize.js"></script>
     <script src="scripts/login.js"></script>
+    <script src="scripts/versioning.js"></script>
     <script src="scripts/notifications.js"></script>
     <script>
         var params = new URLSearchParams(location.search);
