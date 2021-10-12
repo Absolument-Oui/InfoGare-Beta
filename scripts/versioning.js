@@ -5,9 +5,10 @@ function getVersion() {
     req.open('GET', COMMITS_API);
     req.onload = ((e) => {
         var response = JSON.parse(req.response);
-        var message = response[0].message.split('\n');
+        var message = response[0].message;
+        var version = message.split('\n');
 
-        document.getElementById('version').innerText = message[0];
+        document.getElementById('version').innerText = version[0];
     });
     req.send('');
 }
