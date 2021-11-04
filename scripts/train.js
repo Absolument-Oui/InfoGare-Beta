@@ -16,6 +16,10 @@ function loadTrain(uid) {
         } else {
             document.getElementById('train_type').innerText = train_type;
         }
+
+        if (snapshot.val().from != undefined) {
+            document.getElementById('row').setAttribute('class', 'rows row-screen rows-arrival')
+        }
         
         if (train_type === 'TER') {
             logo.setAttribute('class', 'train-logo train-logo-ter');
