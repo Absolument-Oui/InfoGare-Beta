@@ -453,11 +453,11 @@ function loadGare(userid){
                         var train_hourarrive = childsnapshot.val().hourarrive;
                         var train_hourdepart = childsnapshot.val().hourdepart;
 
-                        if (train_hourarrive === null) {
+                        if (train_hourarrive === "") {
                             train_hourarrive = undefined;
                         }
 
-                        if (train_hourdepart === null) {
+                        if (train_hourdepart === "") {
                             train_hourdepart = undefined;
                         }
 
