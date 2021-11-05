@@ -451,15 +451,39 @@ function loadGare(userid){
                         managmentitemmain.setAttribute('class', 'management-item-main');
                         if (openmethod) {
                             if (userid == uid) {
-                                managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid='+gare_id+'&tid='+id+'", "", "height=500,width=750");');
+                                if (childsnapshot.val().hourarrive != undefined && childsnapshot.val().hourdepart != undefined) {
+                                    loadChooser(gare_id, id);
+                                } else if (childsnapshot.val().hourdepart != undefined) {
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid='+gare_id+'&tid='+id+'&instance=departures", "", "height=500,width=750");');
+                                } else {
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid='+gare_id+'&tid='+id+'&instance=arrivals", "", "height=500,width=750");');
+                                }
                             } else {
-                                managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid='+userid+'&gid='+gare_id+'&tid='+id+'", "", "height=500,width=750");');
+                                if (childsnapshot.val().hourdepart != undefined && childsnapshot.val().hourarrive != undefined) {
+                                    loadChooser(gare_id, id);
+                                } else if (childsnapshot.val().hourdepart != undefined) {
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid='+userid+'&gid='+gare_id+'&tid='+id+'&instance=departures", "", "height=500,width=750");');
+                                } else {
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid='+userid+'&gid='+gare_id+'&tid='+id+'&instance=arrivals", "", "height=500,width=750");');
+                                }
                             }
                         } else {
                             if (userid == uid) {
-                                managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid='+gare_id+'&tid='+id+'");');
+                                if (childsnapshot.val().hourarrive != undefined && childsnapshot.val().hourdepart != undefined) {
+                                    loadChooser(gare_id, id);
+                                } else if (childsnapshot.val().hourdepart != undefined) {
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid='+gare_id+'&tid='+id+'&instance=departures");');
+                                } else {
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid='+gare_id+'&tid='+id+'&instance=arrivals");');
+                                }
                             } else {
-                                managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid='+userid+'&gid='+gare_id+'&tid='+id+'");');
+                                if (childsnapshot.val().hourdepart != undefined && childsnapshot.val().hourarrive != undefined) {
+                                    loadChooser(gare_id, id);
+                                } else if (childsnapshot.val().hourdepart != undefined) {
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid='+userid+'&gid='+gare_id+'&tid='+id+'&instance=departures");');
+                                } else {
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid='+userid+'&gid='+gare_id+'&tid='+id+'&instance=arrivals");');
+                                }
                             }
                         }
                         managmentitemmain.setAttribute('style', 'cursor: pointer;');
@@ -552,6 +576,17 @@ function loadGare(userid){
         document.getElementById('error_loading').hidden = false;
         document.getElementById('loader').style.display = 'none';
     });
+}
+
+function loadChooser(gid, tid) {
+    if (openmethod) {
+        document.getElementById('departure_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=departures", "", "height=500,width=750");');
+        document.getElementById('arrival_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=arrivals", "", "height=500,width=750");');
+    } else {
+        document.getElementById('departure_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=departures");');
+        document.getElementById('arrivals_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=arrivals");');
+    }
+    $('#choose_instance').modal('show');
 }
 
 function prepDupliTrain(tid) {
@@ -695,7 +730,10 @@ function createTrain() {
         return false;
     }
 
-    
+    if (document.getElementById('train_ret').checked === true && document.getElementById('train_retard_time').value === 0) {
+        alert('Vous devez entrer un temps de retard !');
+        return false;
+    }
     
     database.child("users").child(uid).child("gares").child(gare_id).child("trains").child(trainid).set({
         id: trainid,

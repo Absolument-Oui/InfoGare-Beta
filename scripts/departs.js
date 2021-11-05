@@ -461,6 +461,7 @@ function loadTrains(user_id, id){
             //document.getElementById('loader').style.display = 'none';
             
             scrollX();
+            autoRow();
         });
     }).catch((error) => {
         document.getElementById('error_loading').hidden = false;
@@ -481,6 +482,14 @@ function autoRow(){
 
 			autoRowRun = setInterval(autoRow, 10000, 0);
 			return false;
-		}
+		} else if ($(this).data('timeshow') >= timestamp) {
+            clearInterval('autoRowRun');
+
+            $(this).addClass('row-group');
+            $(this).removeClass('row-group-hidden');
+
+            autoRowRun = setInterval(autoRow, 10000, 0);
+            return false;
+        }
 	});
 }

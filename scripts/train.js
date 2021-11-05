@@ -17,8 +17,16 @@ function loadTrain(uid) {
             document.getElementById('train_type').innerText = train_type;
         }
 
-        if (snapshot.val().from != undefined) {
-            document.getElementById('row').setAttribute('class', 'rows row-screen rows-arrival')
+        let train_hour;
+        let gare;
+
+        if (params.get('instance') === 'arrivals') {
+            document.getElementById('row').setAttribute('class', 'rows row-screen rows-arrival');
+            train_hour = snapshot.val().hourarrive.replace(':', 'h');
+            gares = snapshot.val().from.substr(0, snapshot.val().gares.length - 1).split("|");
+        } else {
+            train_hour = snapshot.val().hourdepart.replace(':', 'h');
+            gares = snapshot.val().gares.substr(0, snapshot.val().gares.length - 1).split("|");
         }
         
         if (train_type === 'TER') {
@@ -100,7 +108,7 @@ function loadTrain(uid) {
         if (snapshot.val().retardtype === 'alheure') {
             var hour = document.createElement('div');
             var alheure = document.createElement('div');
-            hour.innerText = snapshot.val().hourdepart.replace(':', 'h');
+            hour.innerText = train_hour;
             hour.setAttribute('class', 'text-time-hours');
             alheure.innerText = 'à l\'heure';
             alheure.setAttribute('class', 'text-time-ontime');
@@ -115,7 +123,7 @@ function loadTrain(uid) {
             var retindet = document.createElement('div');
             animblink.setAttribute('class', 'col-second-merged animation-blink');
             animblink1.setAttribute('class', 'animation-blink-1');
-            hour.innerText = snapshot.val().hourdepart.replace(':', 'h');
+            hour.innerText = train_hour;
             hour.setAttribute('class', 'text-time-hours');
             ontime.setAttribute('class', 'text-time-ontime');
             animblink2.setAttribute('class', 'animation-blink-2');
@@ -136,7 +144,7 @@ function loadTrain(uid) {
             var retindet = document.createElement('div');
             animblink.setAttribute('class', 'col-second-merged animation-blink');
             animblink1.setAttribute('class', 'animation-blink-1');
-            hour.innerText = snapshot.val().hourdepart.replace(':', 'h');
+            hour.innerText = train_hour;
             hour.setAttribute('class', 'text-time-hours');
             ontime.setAttribute('class', 'text-time-ontime');
             animblink2.setAttribute('class', 'animation-blink-2');
@@ -157,7 +165,7 @@ function loadTrain(uid) {
             var retindet = document.createElement('div');
             animblink.setAttribute('class', 'col-second-merged animation-blink');
             animblink1.setAttribute('class', 'animation-blink-1');
-            hour.innerText = snapshot.val().hourdepart.replace(':', 'h');
+            hour.innerText = train_hour;
             hour.setAttribute('class', 'text-time-hours');
             ontime.setAttribute('class', 'text-time-ontime');
             animblink2.setAttribute('class', 'animation-blink-2');
@@ -170,7 +178,7 @@ function loadTrain(uid) {
             animblink.appendChild(animblink2);
             document.getElementById('train_ret').appendChild(animblink);
         }
-        var gares = snapshot.val().gares.substr(0, snapshot.val().gares.length - 1).split("|");
+
         gares.forEach((item, index) => { 
             var tr = document.createElement('tr');
             var trainstationcolumn = document.createElement('td');
