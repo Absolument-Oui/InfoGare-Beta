@@ -819,7 +819,7 @@ a {
 }
 
 .rows.rows-arrivals .row-background {
-    background-image: url(../../img/screen/backgrounds/row-background-arrival.svg);
+    background-image: url(../../../images/screen/arrives/row-background-arrivals.svg);
 }
 
 .rows.rows-arrivals .row-group-bar {
