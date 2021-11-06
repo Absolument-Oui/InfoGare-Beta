@@ -596,7 +596,7 @@ function loadChooser(gid, tid) {
         document.getElementById('arrival_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=arrivals", "", "height=500,width=750");');
     } else {
         document.getElementById('departure_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=departures");');
-        document.getElementById('arrivals_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=arrivals");');
+        document.getElementById('arrival_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=arrivals");');
     }
     $('#choose_instance').modal('show');
 }
