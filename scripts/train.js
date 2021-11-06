@@ -184,36 +184,38 @@ function loadTrain(uid) {
             }
 
             gares.forEach((item, index) => { 
-                var tr = document.createElement('tr');
-                var trainstationcolumn = document.createElement('td');
-                var trainstationstation = document.createElement('td');
-                var spanstation = document.createElement('span');
-                trainstationcolumn.setAttribute('class', 'trains-stations-column');
-                trainstationstation.setAttribute('class', 'trains-stations-station');
-                spanstation.setAttribute('title', item);
-                spanstation.innerText = item;
-                trainstationstation.appendChild(spanstation);
-                if (index === (gares.length - 1)) {
-                    if (params.get('instance') === 'arrivals') {
-                        tr.setAttribute('class', 'train-stations-last-arrivals');
-                    } else {
-                        tr.setAttribute('class', 'train-stations-last-departures');
+                if (item != "") {
+                    var tr = document.createElement('tr');
+                    var trainstationcolumn = document.createElement('td');
+                    var trainstationstation = document.createElement('td');
+                    var spanstation = document.createElement('span');
+                    trainstationcolumn.setAttribute('class', 'trains-stations-column');
+                    trainstationstation.setAttribute('class', 'trains-stations-station');
+                    spanstation.setAttribute('title', item);
+                    spanstation.innerText = item;
+                    trainstationstation.appendChild(spanstation);
+                    if (index === (gares.length - 1)) {
+                        if (params.get('instance') === 'arrivals') {
+                            tr.setAttribute('class', 'train-stations-last-arrivals');
+                        } else {
+                            tr.setAttribute('class', 'train-stations-last-departures');
+                        }
                     }
-                }
-                tr.appendChild(trainstationcolumn);
-                tr.appendChild(trainstationstation);
-                document.getElementById('gares').appendChild(tr);
+                    tr.appendChild(trainstationcolumn);
+                    tr.appendChild(trainstationstation);
+                    document.getElementById('gares').appendChild(tr);
 
-                if (snapshot.val().alternance === undefined){
-                    
-                }else if (snapshot.val().alternance === "") {
+                    if (snapshot.val().alternance === undefined){
+                        
+                    }else if (snapshot.val().alternance === "") {
 
-                } else {
-                    if (snapshot.val().alternancetype === 'normal') {
-                        document.getElementById('infos').innerHTML = snapshot.val().alternance;
-                        document.getElementById('rowgroupbar').setAttribute('class', 'row-group row-group-bar row-group-bar');
                     } else {
-                        document.getElementById('infos').innerHTML = snapshot.val().alternance;
+                        if (snapshot.val().alternancetype === 'normal') {
+                            document.getElementById('infos').innerHTML = snapshot.val().alternance;
+                            document.getElementById('rowgroupbar').setAttribute('class', 'row-group row-group-bar row-group-bar');
+                        } else {
+                            document.getElementById('infos').innerHTML = snapshot.val().alternance;
+                        }
                     }
                 }
             });
