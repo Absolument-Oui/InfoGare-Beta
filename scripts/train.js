@@ -26,7 +26,7 @@ function loadTrain(uid) {
             if (params.get('instance') === 'arrivals') {
                 document.getElementById('row').setAttribute('class', 'rows row-screen rows-arrivals');
                 train_hour = snapshot.val().hourarrive.replace(':', 'h');
-                gares = snapshot.val().from.substr(0, snapshot.val().gares.length - 1).split("|");
+                gares = snapshot.val().from.substr(0, snapshot.val().gares.length).split("|");
                 gares.push(gare);
             } else {
                 train_hour = snapshot.val().hourdepart.replace(':', 'h');
@@ -194,7 +194,11 @@ function loadTrain(uid) {
                 spanstation.innerText = item;
                 trainstationstation.appendChild(spanstation);
                 if (index === (gares.length - 1)) {
-                    tr.setAttribute('class', 'train-stations-last-departures');
+                    if (params.get('instance') === 'arrivals') {
+                        tr.setAttribute('class', 'train-stations-last-arrivals');
+                    } else {
+                        tr.setAttribute('class', 'train-stations-last-departures');
+                    }
                 }
                 tr.appendChild(trainstationcolumn);
                 tr.appendChild(trainstationstation);
