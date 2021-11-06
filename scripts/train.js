@@ -3,6 +3,10 @@
 function loadTrain(uid) {
     var params = new URLSearchParams(location.search);
     database.child("users").child(uid).child("gares").child(params.get('gid')).child("trains").child(params.get('tid')).get().then((snapshot) => {
+        let gare;
+        database.child("users").child(uid).child("gares").child(params.get('gid')).get().then((snap) => {
+            gare = snap.val().name;
+        })
         document.getElementById('train_number').innerText = snapshot.val().number;
         document.getElementById('train_dest').innerText = snapshot.val().destination;
 
@@ -24,6 +28,7 @@ function loadTrain(uid) {
             document.getElementById('row').setAttribute('class', 'rows row-screen rows-arrivals');
             train_hour = snapshot.val().hourarrive.replace(':', 'h');
             gares = snapshot.val().from.substr(0, snapshot.val().gares.length - 1).split("|");
+            gares.push(gare);
         } else {
             train_hour = snapshot.val().hourdepart.replace(':', 'h');
             gares = snapshot.val().gares.substr(0, snapshot.val().gares.length - 1).split("|");
