@@ -23,10 +23,10 @@ function loadTrain(uid) {
         if (params.get('instance') === 'arrivals') {
             document.getElementById('row').setAttribute('class', 'rows row-screen rows-arrivals');
             train_hour = snapshot.val().hourarrive.replace(':', 'h');
-            gares = snapshot.val().from.substr(0, snapshot.val().gares.length).split("|");
+            gares = snapshot.val().from.substr(0, snapshot.val().gares.length - 1).split("|");
         } else {
             train_hour = snapshot.val().hourdepart.replace(':', 'h');
-            gares = snapshot.val().gares.substr(0, snapshot.val().gares.length).split("|");
+            gares = snapshot.val().gares.substr(0, snapshot.val().gares.length - 1).split("|");
         }
         
         if (train_type === 'TER') {
