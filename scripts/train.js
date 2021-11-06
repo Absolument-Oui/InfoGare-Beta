@@ -18,15 +18,15 @@ function loadTrain(uid) {
         }
 
         let train_hour;
-        let gare;
+        let gares;
 
         if (params.get('instance') === 'arrivals') {
             document.getElementById('row').setAttribute('class', 'rows row-screen rows-arrivals');
             train_hour = snapshot.val().hourarrive.replace(':', 'h');
-            gares = snapshot.val().from.substr(0, snapshot.val().gares.length - 1).split("|");
+            gares = snapshot.val().from.substr(0, snapshot.val().gares.length).split("|");
         } else {
             train_hour = snapshot.val().hourdepart.replace(':', 'h');
-            gares = snapshot.val().gares.substr(0, snapshot.val().gares.length - 1).split("|");
+            gares = snapshot.val().gares.substr(0, snapshot.val().gares.length).split("|");
         }
         
         if (train_type === 'TER') {
@@ -201,7 +201,12 @@ function loadTrain(uid) {
             }else if (snapshot.val().alternance === "") {
 
             } else {
-                document.getElementById('infos').innerHTML = snapshot.val().alternance;
+                if (snapshot.val().alternancetype === 'normal') {
+                    document.getElementById('infos').innerHTML = snapshot.val().alternance;
+                    document.getElementById('rowgroupbar').setAttribute('class', 'row-group row-group-bar row-group-bar');
+                } else {
+                    document.getElementById('infos').innerHTML = snapshot.val().alternance;
+                }
             }
         });
     });

@@ -55,7 +55,8 @@ function loadTrains(user_id, id){
                     show: showed,
                     showvoie: voieshowed,
                     alternance: child.val().alternance,
-                    hall: child.val().hall
+                    hall: child.val().hall,
+                    alternancetype: child.val().alternancetype
                 });
             }
         });
@@ -123,6 +124,7 @@ function loadTrains(user_id, id){
                     const train_voie = value["voie"];
                     const train_alternance = value["alternance"];
                     const train_hall = value["hall"];
+                    const alternance_type = value["alternancetype"];
                     
                     var gares_split = train_gares.substr(0, train_gares.length - 1).split("|");
                     var retard, textfeature;
@@ -385,7 +387,11 @@ function loadTrains(user_id, id){
                     } else if (train_alternance === undefined) {
 
                     } else {
-                        alternance.setAttribute('class', ' train-information-dynamic train-information-dynamic-yellow animation-dynamic');
+                        if (alternance_type === 'normal') {
+                            alternance.setAttribute('class', ' train-information-dynamic animation-dynamic');
+                        } else {
+                            alternance.setAttribute('class', ' train-information-dynamic train-information-dynamic-yellow animation-dynamic');
+                        }
                         alternance.innerText = train_alternance;
                         
                         col_hide_inner.setAttribute('class', 'col-hide-inner');
@@ -461,7 +467,6 @@ function loadTrains(user_id, id){
             //document.getElementById('loader').style.display = 'none';
             
             scrollX();
-            autoRow();
         });
     }).catch((error) => {
         document.getElementById('error_loading').hidden = false;
