@@ -815,11 +815,11 @@ a {
 
 .rows.rows-departures .row-group-train .col-second .train-stations tbody .train-stations-margin-background,
 .rows.rows-transilien .row-group-train .col-second .train-stations tbody .train-stations-margin-background {
-    background-image: url(../../img/screen/backgrounds/train-stations-margin-background-departure.svg);
+    background-image: url(../../../images/screen/quai/train-stations-margin-background-departure.svg);
 }
 
 .rows.rows-arrivals .row-background {
-    background-image: url(../../../images/screen/arrives/row-background-arrivals.svg);
+    background-image: url(../../../images/screen/quai/row-background-arrival.svg);
 }
 
 .rows.rows-arrivals .row-group-bar {
@@ -840,7 +840,7 @@ a {
 }
 
 .rows.rows-arrivals .row-group-train .col-second .train-stations tbody .train-stations-margin-background {
-    background-image: url(../../img/screen/backgrounds/train-stations-margin-background-arrival.svg);
+    background-image: url(../../../images/screen/quai/train-stations-margin-background-arrival.svg);
 }
 
 
