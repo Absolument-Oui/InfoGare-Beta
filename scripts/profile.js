@@ -23,8 +23,6 @@ function loadInfos() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             uid = user.uid;
-            document.getElementById('username').innerText = user.displayName;
-            document.getElementById('email').innerText = user.email;
             loadParams();
             getLivree();
             firebase.database().ref('users/'+uid+'/gares').get().then((snapshot) => {
@@ -68,22 +66,4 @@ function loadParams() {
     }).catch((error) => {
         document.getElementById('error_loading').hidden = false;
     })
-}
-
-function chgPass(oldpass, newpass) {
-    var email = firebase.auth().currentUser.email;
-    var credential = firebase.auth.EmailAuthProvider.credential(email, oldpass);
-    firebase.auth().currentUser.reauthenticateWithCredential(credential).then(function() {
-        firebase.auth().currentUser.updatePassword(newpass).then(() => {
-            window.location.reload();
-        });
-    });
-}
-
-function chgUsername(username) {
-    firebase.auth().currentUser.updateProfile({
-        displayName: username
-    }).then(() => {
-        window.location.reload;
-    });
 }
