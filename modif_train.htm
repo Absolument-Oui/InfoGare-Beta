@@ -230,7 +230,7 @@
           </div>
         </div>
       </div><br>
-        <div class="btn" data-component="state" data-state="active" data-behaviour="toggle" data-target="#heures"><div class="management-item-caret"><h2>Heures</h2></div></div>
+        <div class="btn" data-component="state" data-state="active" data-behaviour="toggle" data-target="#heures"><div class="management-item-caret"><h2>Horaires</h2></div></div>
         <div id="heures" class="accordion-item">
           <label for="train_hour_arrive">Heure d'arrivée</label>
           <div data-component="picker" data-mode="time" data-increment-hours-on-minutes-max>
@@ -260,6 +260,37 @@
                   <i class="icons-calendar-time" aria-hidden="true"></i>
                 </button>
               </div>
+            </div>
+          </div>
+          <label for="train_days">Jours de circulation</label>
+          <div id="train_days">
+            <div class="custom-control custom-control-inline custom-checkbox">
+              <input name="days" type="checkbox" class="custom-control-input" id="train_days_monday">
+              <label class="custom-control-label" for="train_days_monday">Lundi</label>
+            </div>
+            <div class="custom-control custom-control-inline custom-checkbox">
+              <input name="days" type="checkbox" class="custom-control-input" id="train_days_tuesday">
+              <label class="custom-control-label" for="train_days_tuesday">Mardi</label>
+            </div>
+            <div class="custom-control custom-control-inline custom-checkbox">
+              <input name="days" type="checkbox" class="custom-control-input" id="train_days_wednesday">
+              <label class="custom-control-label" for="train_days_wednesday">Mercredi</label>
+            </div>
+            <div class="custom-control custom-control-inline custom-checkbox">
+              <input name="days" type="checkbox" class="custom-control-input" id="train_days_thursday">
+              <label class="custom-control-label" for="train_days_thursday">Jeudi</label>
+            </div>
+            <div class="custom-control custom-control-inline custom-checkbox">
+              <input name="days" type="checkbox" class="custom-control-input" id="train_days_friday">
+              <label class="custom-control-label" for="train_days_friday">Vendredi</label>
+            </div>
+            <div class="custom-control custom-control-inline custom-checkbox">
+              <input name="days" type="checkbox" class="custom-control-input" id="train_days_saturday">
+              <label class="custom-control-label" for="train_days_saturday">Samedi</label>
+            </div>
+            <div class="custom-control custom-control-inline custom-checkbox">
+              <input name="days" type="checkbox" class="custom-control-input" id="train_days_sunday">
+              <label class="custom-control-label" for="train_days_sunday">Dimanche</label>
             </div>
           </div>
         </div><br>

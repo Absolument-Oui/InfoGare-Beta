@@ -72,7 +72,7 @@
           </button>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="mycontrol">
             <ul>
-              <li class="dropdown-item" id="mnu_compte"><a href="https://auth.infogare.fr/account.htm" target="_blank">Mon profil</a></li>
+              <li class="dropdown-item" id="mnu_compte"><a href="compte.htm">Mon profil</a></li>
               <li class="dropdown-item" id="mnu_gares"><a href="gares.htm">Mes gares</a></li>
               <li class="dropdown-item" id="mnu_login"><a id="login_btn">Se connecter</a></li>
               <li class="dropdown-item" id="mnu_users"><a href="users.htm">Utilisateurs</a></li>
@@ -89,18 +89,8 @@
 <div class="main-content">
  <marquee id="loader" scrollamount="15"><img id="caisse-1"><img style="vertical-align: bottom;" id="caisse-2"><img id="caisse-3"></marquee>
   <center><div id="error_loading" hidden><img src="images/loading/Error.gif"></div></center>
+  <a class="btn btn-primary" href="https://auth.infogare.fr/account.htm">Gérer mon compte</a>
   <div id="content" hidden>
-    <i class="icons-circle-account-connected icons-size-140px"></i>
-    <br /><br>
-    <h1 id="username"></h1>
-    <h3 id="email"></h3>
-    <br />
-    <button class="btn btn-primary" id="chg_pass" data-toggle="modal" data-target="#chg_password">Changer de mot de passe</button> &nbsp; <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#chg_username">Changer le nom d'utilisateur</button> &nbsp; <button type=button class="btn btn-danger" data-toggle="modal" data-target="#logout">Se déconnecter</button>
-    <br /><br />
-    <h1>Paramètres</h1>
-
-    <br>
-    
     <label for="param1">Ouvrir les écrans dans </label>
     <div class="options-control">
       <div class="options-item">
@@ -223,9 +213,6 @@
     <h2>Nombre de gares : <span id="gares_nbr"></span></h2>
     <h2>Nombre de trains : <span id="trains_nbr"></span></h2>
     <br><br>
-
-    <h1>Zone expérimentale</h1>
-    <span>Inscrivez-vous à la bêta en <a href="https://link.infogare.fr/JoinBeta">cliquant ici !</a></span>
     <div><center>
       <ins class="adsbygoogle"
           style="display:inline-block;width:728px;height:90px"
