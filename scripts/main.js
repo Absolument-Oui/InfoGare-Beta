@@ -1248,7 +1248,7 @@ var list = new Array();
 
 var uid;
 
-function loadTrains(user_id, id){
+function loadTrainsRer(user_id, id){
     uid = user_id;
     var ref = database.child("users").child(user_id).child("gares").child(id).child("trains");
     ref.get().then((snapshot) => {
