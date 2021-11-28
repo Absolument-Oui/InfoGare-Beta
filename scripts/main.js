@@ -837,7 +837,7 @@ function loadQuais(userid, pairId, gid) {
 
 
 // APPAREANCE
-if (location.pathname != 'train.htm') {
+if (location.pathname != ('/train.htm' || '/rer.htm' || '/departs.htm' || '/arrives.htm' || '/departs_rer.htm' || '/infos.htm')) {
     initDarkmode();
 }
 
