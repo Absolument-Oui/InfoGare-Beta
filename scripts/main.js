@@ -837,7 +837,9 @@ function loadQuais(userid, pairId, gid) {
 
 
 // APPAREANCE
-initDarkmode();
+if (location.pathname != 'train.htm') {
+    initDarkmode();
+}
 
 function initDarkmode() {
   const mode = localStorage.getItem('bootstrap-sncf-css-name');
