@@ -179,6 +179,7 @@ function loadGares(userid) {
             document.getElementById('loader').style.display = 'none';
         }
     }).catch((error) => {
+        setError("Chargement des gares", error.stack);
         document.getElementById('error_loading').hidden = false;
         document.getElementById('loader').style.display = 'none';
     })
@@ -341,7 +342,9 @@ function modifyGare(gid) {
     }).then((snapshot) => {
         document.location.reload();
     }).catch((error) => {
-        setError('Application des modifications à la gare', error.stack);
+        setError('Application des modifications à la gare', error.stack)
+        document.getElementById('error_loading').hidden = false;
+        document.getElementById('loader').style.display = 'none';
     })
 }
 
@@ -1231,6 +1234,7 @@ function loadArrives(user_id, id){
             scrollX();
         });
     }).catch((error) => {
+        setError("Chargement des arrivés", error.stack);
         document.getElementById('error_loading').hidden = false;
         document.getElementById('loader').style.display = 'none';
     })
@@ -1474,6 +1478,7 @@ function loadTrains(user_id, id){
             checkInfos(id);
         });
     }).catch((error) => {
+        setError("Chargement des départs RER", error.stack);
         document.getElementById('error_loading').hidden = false;
         document.getElementById('loader').style.display = 'none';
 
@@ -1983,6 +1988,7 @@ function loadTrains(user_id, id){
             scrollX();
         });
     }).catch((error) => {
+        setError("Chargement des départs", error.stack);
         document.getElementById('error_loading').hidden = false;
         console.error(error);
     });
@@ -2262,12 +2268,14 @@ function loadGareRer(userid){
             window.location.href = "gares.htm";
         }
     }).catch((error) => {
-        // alert(error.message);
+        setError('Chargemment de la gare RER', error.stack);
+        document.getElementById('error_loading').hidden = false;
+        document.getElementById('loader').style.display = 'none';
     });
 }
 
 function createTrainRer() {
-    
+
     var params = new URLSearchParams(window.location.search);
     gare_id = params.get("id");
 
@@ -2452,7 +2460,9 @@ function logout() {
     firebase.auth().signOut().then(() => {
       window.location.href="index.htm";
     }).catch((error) => {
-      console.error(error.message);
+      setError("Déconnexion", error.stack);
+      document.getElementById('error_loading').hidden = false;
+      document.getElementById('loader').style.display = 'none';
     });
 }
 
@@ -2494,7 +2504,7 @@ function changeInfos() {
     });
 }
 
-function loadTrains() {
+function loadPanelTrains() {
     gare_id = params.get("id");
     db.get().then((snapshot) => {
         if (snapshot.exists()) {
@@ -2608,7 +2618,9 @@ function loadTrains() {
             //window.location.href = "gares.htm";
         }
     }).catch((error) => {
-        // alert(error.message);
+        setError("Chargement des trains", error.stack);
+        document.getElementById('error_loading').hidden = false;
+        document.getElementById('loader').style.display = 'none';
     });
 }
 
@@ -2714,6 +2726,7 @@ function loadInfos() {
                 });
                 document.getElementById('trains_nbr').innerText = childs;
             }).catch((error) => {
+                setError("Chargement des infos", error.stack);
                 document.getElementById('error_loading').hidden = false;
             });
             firebase.database().ref('users/'+uid).update({
@@ -2745,6 +2758,7 @@ function loadParams() {
             document.getElementById('newsletterno').checked = true;
         }
     }).catch((error) => {
+        setError("Chargement des paramètres", error.stack);
         document.getElementById('error_loading').hidden = false;
     })
 }
@@ -3201,6 +3215,7 @@ function getAllUsers() {
         });
         document.getElementById('loader').style.display = 'none';
     }).catch((error) => {
+        setError("Chargement des tout les utilisateurs", error.stack);
         document.getElementById('error_loading').hidden = false;
         document.getElementById('loader').style.display = 'none';
     })
@@ -3272,7 +3287,7 @@ function getUser(id) {
         });
         document.getElementById('loader').style.display = 'none';
     }).catch((error) => {
-        setError('Chargement des utiloisateurs', error.stack);
+        setError('Chargement des utilisateurs', error.stack);
         document.getElementById('error_loading').hidden = false;
     })
 }
