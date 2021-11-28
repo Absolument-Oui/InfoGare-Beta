@@ -2036,7 +2036,7 @@ function loadParams() {
     });
 }
 
-function prepModifTrain(tid) {
+function prepModifTrainRer(tid) {
     database.child("users").child(uid).child("gares").child(gare_id).child("trains").child(tid).get().then((snapshot) => {
         document.getElementById('modif_train_number').value = snapshot.val().number;
         document.getElementById('modif_train_dest').value = snapshot.val().destination;
@@ -2096,7 +2096,7 @@ function prepModifTrain(tid) {
     });
 }
 
-function modifTrain(tid) {
+function modifTrainRer(tid) {
     var retardtype;
     
     if (document.getElementById('modif_train_alheure').checked == true) {
@@ -2132,21 +2132,21 @@ function modifTrain(tid) {
     });
 }
 
-function setGare(gid) {
+function setGareRer(gid) {
     id = gid;
 }
 
-function getGare() {
+function getGareRer() {
     return id;
 }
 
-function delTrain(tid) {
+function delTrainRer(tid) {
     database.child("users").child(uid).child("gares").child(gare_id).child("trains").child(tid).remove().then(() => {
         document.getElementById('train_del').hidden = false;
     });
 }
 
-function loadGare(userid){
+function loadGareRer(userid){
     uid = userid;
     var params = new URLSearchParams(window.location.search);
     gare_id = params.get("id");
@@ -2266,7 +2266,8 @@ function loadGare(userid){
     });
 }
 
-function createTrain() {
+function createTrainRer() {
+    
     var params = new URLSearchParams(window.location.search);
     gare_id = params.get("id");
 
