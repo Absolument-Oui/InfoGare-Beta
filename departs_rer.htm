@@ -16,7 +16,7 @@
     <div class="rows rows-departures" id="rows" onclick="fullScreen();">
         <div class="row-background" id="bg" hidden></div>
        <marquee id="loader" scrollamount="15"><img id="caisse-1"><img style="vertical-align: bottom;" id="caisse-2"><img id="caisse-3"></marquee>
-        <center><div id="error_loading" hidden><img src="images/loading/Error.gif"></div></center>
+        <center><div id="error_loading" data-toggle="modal" data-target="#error_dlg" hidden><img src="images/loading/Error.gif"></div></center>
         <div class="row-group row-group-bar row-group-bar-purple">
             <div class="row">
                 <div class="col-first">
@@ -36,6 +36,25 @@
         </div>
 
     </div>
+    <div class="modal" tabindex="-1" role="dialog" aria-labelledby="error_dlg_title" id="error_dlg">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="h1 modal-title" id="error_dlg_title">Détails de l'erreur</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label for="error_caused_by">Causée par</label>
+              <input class="form-control" type="text" id="error_caused_by" disabled>
+              <br>
+              <label for="error_stacktrace">Stacktrace</label>
+              <textarea class="form-control" id="error_stacktrace" disabled></textarea>
+            </div>
+          </div>
+        </div>
+      </div>      
     
     <!-- SCRIPTS -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>

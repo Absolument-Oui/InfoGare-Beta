@@ -2893,7 +2893,9 @@ function clock(){
 	return true;
 }
 
-clock();
+if (location.pathname == ('/train.htm' || '/rer.htm' || '/departs.htm' || '/arrives.htm' || '/departs_rer.htm' || '/infos.htm')) {
+    clock();
+}
 
 
 // TRAIN
