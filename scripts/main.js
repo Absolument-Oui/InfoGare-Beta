@@ -2738,7 +2738,7 @@ function loadInfos() {
     });
 }
 
-function loadParams() {
+function loadProfileParams() {
     database.child("users").child(uid).get().then((snapshot) => {
         if (snapshot.val().openmethod) {
             document.getElementById('openinwindow').checked = true;
