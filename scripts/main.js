@@ -825,10 +825,6 @@ function loadQuais(userid, pairId, gid) {
                         var train_logo = document.createElement('div');
                         var text_number = document.createElement('span');
                         var col_second_second = document.createElement('div');
-
-                        
-
-                        break;
                     }
                 });
             }
