@@ -786,8 +786,6 @@ function checkGare(state) {
 
 
 // ACCES QUAI
-const database = firebase.database().ref('users');
-
 function loadQuais(userid, pairId, gid) {
     var quais = new Array();
     var quai1pos, quai2pos, quai1, quai2;
@@ -880,8 +878,6 @@ function toggleDarkmode() {
 
 
 // ARRIVES
-const database = firebase.database().ref();
-
 var list = new Array();
 
 function loadArrives(user_id, id){
@@ -1246,7 +1242,6 @@ function loadArrives(user_id, id){
 
 
 // DEPARTS RER
-const database = firebase.database().ref();
 var list = new Array();
 
 var uid;
@@ -1523,8 +1518,6 @@ function checkInfos(gid) {
 
 
 // DEPARTS
-const database = firebase.database().ref();
-
 var list = new Array();
 var time_before_show = 0;
 var time_after_hide = 0;
@@ -2032,7 +2025,6 @@ function setError(caused_by, stacktrace) {
 }
 
 // GARE RER
-const database = firebase.database().ref();
 var uid = undefined;
 
 var gare_id = null;
@@ -2347,8 +2339,6 @@ function importCSV(file) {
 
 
 // INFOS
-const database = firebase.database().ref('users');
-
 function loadInfos(userid, gid) {
     database.child(userid).child('gares').child(gid).get().then((snapshot) => {
         document.getElementById('infos').innerText = snapshot.val().infos;
@@ -2729,8 +2719,6 @@ function modifAff(tid) {
 
 // PROFILE
 var uid = undefined;
-const database = firebase.database().ref();
-
 function modifParams() {
     database.child("users").child(uid).update({
         openmethod: document.getElementById('openinwindow').checked,
@@ -2930,8 +2918,6 @@ clock();
 
 
 // TRAIN
-const database = firebase.database().ref();
-
 function loadTrain(uid) {
     var params = new URLSearchParams(location.search);
     database.child("users").child(uid).child("gares").child(params.get('gid')).child("trains").child(params.get('tid')).get().then((snapshot) => {
@@ -3173,8 +3159,6 @@ function loadTrain(uid) {
 
 
 // USERS
-const database = firebase.database().ref('users');
-
 var uid = '';
 
 firebase.auth().onAuthStateChanged((user) => {
