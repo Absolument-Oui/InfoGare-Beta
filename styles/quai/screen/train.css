@@ -742,6 +742,10 @@ a {
     z-index: 0;
 }
 
+.rows .row-group-train .row:nth-of-type(2) .col-third {
+    background: #51124a;
+}
+
 .rows .row-group-train.row-group-train-third .row:nth-of-type(2) {
     height: 25%;
 }
