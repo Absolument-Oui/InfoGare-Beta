@@ -13,8 +13,8 @@
 </head>
 <body onload="createLoader();">
 
-    <div id="row" class="rows row-screen rows-departures" onclick="fullScreen();">
-        <div id="rowgroupbar" class="row-group row-group-bar row-group-bar row-group-bar-yellow">
+    <div id="row" class="rows rows-departures" onclick="fullScreen();">
+        <div id="rowgroupbar" class="row-group row-group-bar row-group-bar-yellow row-group-bar-purple">
             <div class="row">
                 <div class="col-first">
                     <div class="bar-informations text-scroll-x scroll-x animation-scroll-x" style="animation-duration: 12.30s; padding-left: 100%;" id="infos"></div>
@@ -31,8 +31,8 @@
                 </div>
             </div>
         </div>
-        <div class="row-group row-group-train">
-           <marquee id="loader" scrollamount="15"><img id="caisse-1"><img style="vertical-align: bottom;" id="caisse-2"><img id="caisse-3"></marquee>
+        <div class="row-group row-group-train row-group-train-third">
+           <!--<marquee id="loader" scrollamount="15"><img id="caisse-1"><img style="vertical-align: bottom;" id="caisse-2"><img id="caisse-3"></marquee>!-->
             <div class="row">
                 <div class="col-first">
                     <div class="row-background"></div>
@@ -49,11 +49,26 @@
                 </div>
                 <div class="col-second">
                     <div class="col-second-container">
-                        <table class="train-stations scroll-y">
+                        <table class="train-stations train-stations-solo train-stations-reduced scroll-y">
                             <tbody id="gares">
                                 
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-third">
+                    <div class="train-track">
+                        <div class="train-track-title">Voie</div>
+                        <div class="train-track-track">1</div>
+                        <div class="train-track-bottom"></div>
+                    </div>
+                    <div class="train-wagons">
+                       <div class="train-wagons-line"></div> 
+                       <div class="train-wagons-train train-wagons-trains-reduced">
+                           <div class="train-wagons-train-title train-wagons-train-title-yellow">Test</div>
+                       </div>
                     </div>
                 </div>
             </div>
