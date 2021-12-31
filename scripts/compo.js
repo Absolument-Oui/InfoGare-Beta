@@ -9,18 +9,27 @@ var compo = document.getElementById('compo_area');
 add_motrice.onclick = function() {
     var motrice = document.createElement('div');
     motrice.setAttribute('class', 'train-wagons-train-wagon train-loco');
+    motrice.onclick = function() {
+        compo.removeChild(motrice);
+    }
     compo.appendChild(motrice);
 }
 
 add_tgv_l.onclick = function() {
     var tgv = document.createElement('div');
     tgv.setAttribute('class', 'train-wagons-train-wagon train-tgv-l');
+    tgv.onclick = function() {
+        compo.removeChild(tgv);
+    }
     compo.appendChild(tgv);
 }
 
 add_tgv_r.onclick = function() {
     var tgv = document.createElement('div');
     tgv.setAttribute('class', 'train-wagons-train-wagon train-tgv-r');
+    tgv.onclick = function() {
+        compo.removeChild(tgv);
+    }
     compo.appendChild(tgv);
 }
 
@@ -36,5 +45,8 @@ add_wagon.onclick = function() {
 add_wagon_bar.onclick = function() {
     var wagon = document.createElement('div');
     wagon.setAttribute('class', 'train-wagons-train-wagon train-wagon-bar');
+    wagon.onclick = function() {
+        compo.removeChild(wagon);
+    }
     compo.appendChild(wagon);
 }

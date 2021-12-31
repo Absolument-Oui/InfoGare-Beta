@@ -5,6 +5,7 @@
     background-repeat: no-repeat;
     background-position: bottom center;
     display: inline-block;
+    cursor: pointer;
 }
 
 .train-wagons-train-wagon.train-loco {
