@@ -15,8 +15,8 @@ add_motrice.onclick = function() {
         compo.removeChild(motrice);
         writeCompo();
     }
-    writeCompo();
     compo.appendChild(motrice);
+    writeCompo();
 }
 
 add_tgv_l.onclick = function() {
@@ -26,8 +26,8 @@ add_tgv_l.onclick = function() {
         compo.removeChild(tgv);
         writeCompo();
     }
-    writeCompo();
     compo.appendChild(tgv);
+    writeCompo();
 }
 
 add_tgv_r.onclick = function() {
@@ -37,8 +37,8 @@ add_tgv_r.onclick = function() {
         compo.removeChild(tgv);
         writeCompo();
     }
-    writeCompo();
     compo.appendChild(tgv);
+    writeCompo();
 }
 
 add_wagon.onclick = function() {
@@ -48,8 +48,8 @@ add_wagon.onclick = function() {
         compo.removeChild(wagon);
         writeCompo();
     }
-    writeCompo();
     compo.appendChild(wagon);
+    writeCompo();
 }
 
 add_wagon_bar.onclick = function() {
@@ -59,13 +59,13 @@ add_wagon_bar.onclick = function() {
         compo.removeChild(wagon);
         writeCompo();
     }
-    writeCompo();
     compo.appendChild(wagon);
+    writeCompo();
 }
 
 function writeCompo() {
     compo_list = [];
-    $('#compo_compo').children('.train-wagons-train-wagon').each(function() {
+    $('#compo_area').children('.train-wagons-train-wagon').each(function() {
         var classList = $(this).attr('class');
         console.log(classList);
         compo_list.push(classList[1]);
