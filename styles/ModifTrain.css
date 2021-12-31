@@ -1,4 +1,5 @@
 .train-wagons-train-wagon.train-loco {
     width: 9.1vh;
+    height: auto;
     background-image: url(../images/screen/wagons/loco.svg);
 }
