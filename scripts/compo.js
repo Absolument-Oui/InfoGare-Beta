@@ -65,7 +65,7 @@ add_wagon_bar.onclick = function() {
 
 function writeCompo() {
     compo_list = [];
-    $('#compo_compo').children().each(function() {
+    $('#compo_compo').children('.train-wagons-train-wagon').each(function() {
         var classList = $(this).attr('class');
         console.log(classList);
         compo_list.push(classList[1]);
