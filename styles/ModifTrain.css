@@ -2,4 +2,7 @@
     width: 9.1vh;
     height: 8vh;
     background-image: url(../images/screen/wagons/loco.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
 }
