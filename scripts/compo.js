@@ -67,7 +67,6 @@ function writeCompo() {
     compo_list = [];
     $('#compo_area').children('.train-wagons-train-wagon').each(function() {
         var classList = $(this).attr('class');
-        console.log(classList);
-        compo_list.push(classList[1]);
+        compo_list.push(classList.split(' ')[1]);
     });
 }
