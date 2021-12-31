@@ -1,17 +1,16 @@
-.train-wagons-train-wagon.train-loco {
+.train-wagons-train-wagon {
     width: 9.1vh;
     height: 8vh;
-    background-image: url(../images/screen/wagons/loco.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom center;
+    display: inline-block;
+}
+
+.train-wagons-train-wagon.train-loco {
+    background-image: url(../images/screen/wagons/loco.svg);
 }
 
 .train-wagons-train-wagon.train-tgv-l {
-    width: 9.1vh;
-    height: 8vh;
     background-image: url(../images/screen/wagons/tgv-l.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom center;
 }
