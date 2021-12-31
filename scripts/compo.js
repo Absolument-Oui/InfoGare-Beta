@@ -11,3 +11,9 @@ add_motrice.onclick = function() {
     motrice.setAttribute('class', 'train-wagons-train-wagon train-loco');
     compo.appendChild(motrice);
 }
+
+add_tgv_l.onclick = function() {
+    var tgv = document.createElement('div');
+    tgv.setAttribute('class', 'train-wagons-train-wagon train-tgv-l');
+    compo.appendChild(tgv);
+}
