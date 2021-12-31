@@ -15,8 +15,8 @@ add_motrice.onclick = function() {
         compo.removeChild(motrice);
         writeCompo();
     }
-    compo.appendChild(motrice);
     writeCompo();
+    compo.appendChild(motrice);
 }
 
 add_tgv_l.onclick = function() {
@@ -26,8 +26,8 @@ add_tgv_l.onclick = function() {
         compo.removeChild(tgv);
         writeCompo();
     }
-    compo.appendChild(tgv);
     writeCompo();
+    compo.appendChild(tgv);
 }
 
 add_tgv_r.onclick = function() {
@@ -37,8 +37,8 @@ add_tgv_r.onclick = function() {
         compo.removeChild(tgv);
         writeCompo();
     }
-    compo.appendChild(tgv);
     writeCompo();
+    compo.appendChild(tgv);
 }
 
 add_wagon.onclick = function() {
@@ -48,8 +48,8 @@ add_wagon.onclick = function() {
         compo.removeChild(wagon);
         writeCompo();
     }
-    compo.appendChild(wagon);
     writeCompo();
+    compo.appendChild(wagon);
 }
 
 add_wagon_bar.onclick = function() {
@@ -59,8 +59,8 @@ add_wagon_bar.onclick = function() {
         compo.removeChild(wagon);
         writeCompo();
     }
-    compo.appendChild(wagon);
     writeCompo();
+    compo.appendChild(wagon);
 }
 
 function writeCompo() {
