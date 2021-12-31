@@ -306,7 +306,8 @@ function modifTrain(tid) {
         from: document.getElementById('from_modify').value,
         alternance: document.getElementById('train_dynamic').value,
         hall: document.getElementById('train_hall').value,
-        alternancetype: infodynatype
+        alternancetype: infodynatype,
+        compo: compo_list
     }).then((snapshot) => {
         window.close();
     }).catch((error) => {
@@ -766,7 +767,8 @@ function createTrain() {
         voie: document.getElementById('train_voie').value,
         alternance: document.getElementById('train_dynamic').value,
         hall: document.getElementById('train_hall').value,
-        alternancetype: infodynatype
+        alternancetype: infodynatype,
+        compo: compo_list
     }).then((snapshot) => {
         document.location.reload();
     }).catch((error) => {
