@@ -17,3 +17,21 @@ add_tgv_l.onclick = function() {
     tgv.setAttribute('class', 'train-wagons-train-wagon train-tgv-l');
     compo.appendChild(tgv);
 }
+
+add_tgv_r.onclick = function() {
+    var tgv = document.createElement('div');
+    tgv.setAttribute('class', 'train-wagons-train-wagon train-tgv-r');
+    compo.appendChild(tgv);
+}
+
+add_wagon.onclick = function() {
+    var wagon = document.createElement('div');
+    wagon.setAttribute('class', 'train-wagons-train-wagon train-wagon');
+    compo.appendChild(wagon);
+}
+
+add_wagon_bar.onclick = function() {
+    var wagon = document.createElement('div');
+    wagon.setAttribute('class', 'train-wagons-train-wagon train-wagon-bar');
+    compo.appendChild(wagon);
+}
