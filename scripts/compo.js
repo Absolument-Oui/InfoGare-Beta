@@ -27,6 +27,9 @@ add_tgv_r.onclick = function() {
 add_wagon.onclick = function() {
     var wagon = document.createElement('div');
     wagon.setAttribute('class', 'train-wagons-train-wagon train-wagon');
+    wagon.onclick = function() {
+        compo.removeChild(wagon);
+    }
     compo.appendChild(wagon);
 }
 
