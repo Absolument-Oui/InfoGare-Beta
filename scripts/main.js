@@ -1475,16 +1475,6 @@ function getInfos(gid) {
     });
 }
 
-function checkInfos(gid) {
-
-    if (nowhour == trainhour && nowminutes == (trainminutes - alapproche)) {
-        console.log('It\'s time!');
-    }
-
-    setTimeout(10000);
-    checkInfos(gid);
-}
-
 
 // DEPARTS
 var list = new Array();
