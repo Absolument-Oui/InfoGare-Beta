@@ -2683,7 +2683,7 @@ function getLivree() {
     document.getElementById('param3').value = localStorage.getItem('livree');
 }
 
-function loadInfos() {
+function loadUserInfos() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             uid = user.uid;
