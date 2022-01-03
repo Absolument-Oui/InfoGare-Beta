@@ -17,22 +17,22 @@ function loadParams() {
         autoopenpanel = snapshot.val().autoopenpanel;
         if (!openmethod) {
             if (autoopenpanel) {
-                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm'+window.location.search+'&panel");');
-                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm'+window.location.search+'");');
+                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '&panel");');
+                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');
             } else {
-                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm'+window.location.search+'");');
-                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm'+window.location.search+'");');
+                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '");');
+                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');
             }
         } else {
             if (autoopenpanel) {
-                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm'+document.location.search+'&panel", "", "height=500,width=750");');
+                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + document.location.search + '&panel", "", "height=500,width=750");');
             }
         }
     });
 }
 
 function createGareLink(gid) {
-    var glink = "https://link.infogare.fr/?link=https://infogare.fr/gare.htm?uid="+uid+"%26id="+gid;
+    var glink = "https://link.infogare.fr/?link=https://infogare.fr/gare.htm?uid=" + uid + "%26id=" + gid;
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=AIzaSyCWi0EChm97lofJrhqBp6wRRtgQGKq8IEg", false);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -80,65 +80,65 @@ function loadGares(userid) {
                 var btn_public = document.createElement('button');
                 var btn_public_i = document.createElement('i');
                 var btn_public_span = document.createElement('span');
-                
+
                 title.appendChild(document.createTextNode(name));
-                id_div.appendChild(document.createTextNode('ID : '+id));
-                trains_div.appendChild(document.createTextNode(trains+' trains'));
+                id_div.appendChild(document.createTextNode('ID : ' + id));
+                trains_div.appendChild(document.createTextNode(trains + ' trains'));
                 if (type === 'neutral') {
                     type_div.appendChild(document.createTextNode('Gare normale'));
                 } else {
                     type_div.appendChild(document.createTextNode('Gare RER'));
                 }
-                
+
                 id_div.setAttribute('class', 'meta-list-item');
                 trains_div.setAttribute('class', 'meta-list-item separator');
                 type_div.setAttribute('class', 'meta-list-item separator separator');
-                
+
                 metalist.setAttribute('class', 'meta-list font-weight-medium');
                 metalist.appendChild(id_div);
                 metalist.appendChild(trains_div);
                 metalist.appendChild(type_div);
-                
+
                 managmentitemmain.setAttribute('class', 'management-item-main');
                 managmentitemmain.setAttribute('style', 'cursor: pointer;');
                 if (type === 'neutral') {
-                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare.htm?id='+id+'"');
+                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare.htm?id=' + id + '"');
                 } else {
-                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare_rer.htm?id='+id+'"');
+                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare_rer.htm?id=' + id + '"');
                 }
                 managmentitemmain.appendChild(title);
                 managmentitemmain.appendChild(metalist);
-                
+
                 icon.setAttribute('class', 'icons-itinerary-train-station icons-size-1x25');
                 icon.setAttribute('aria-hidden', 'true');
-                
+
                 managmentitemsymbol.setAttribute('class', 'management-item-symbol');
                 managmentitemsymbol.appendChild(icon);
-                
+
                 btn_del_i.setAttribute('class', 'icons-circle-delete');
                 btn_del_i.setAttribute('aria-hidden', 'true');
-                
+
                 btn_del_span.setAttribute('class', 'sr-only');
                 btn_del_span.appendChild(document.createTextNode('Supprimer'));
-                
+
                 btn_del.setAttribute('class', 'btn btn-options dropdown-toggle');
                 btn_del.setAttribute('data-toggle', 'modal');
                 btn_del.setAttribute('data-target', '#del');
-                btn_del.setAttribute('onclick', 'setGare('+id+'); document.getElementById("del_gare_name").appendChild(document.createTextNode("'+name+'"));');
+                btn_del.setAttribute('onclick', 'setGare(' + id + '); document.getElementById("del_gare_name").appendChild(document.createTextNode("' + name + '"));');
                 btn_del.setAttribute('title', 'Supprimer la gare');
                 btn_del.appendChild(btn_del_i);
                 btn_del.appendChild(btn_del_span);
-                
+
                 btn_modify_i.setAttribute('class', 'icons-pencil');
                 btn_modify_i.setAttribute('aria-hidden', 'true');
-                
+
                 btn_modify_span.setAttribute('class', 'sr-only');
                 btn_modify_span.appendChild(document.createTextNode('Modifier'));
-                
+
                 btn_modify.setAttribute('class', 'btn btn-options dropdown-toggle');
                 btn_modify.setAttribute('data-toggle', 'modal')
                 btn_modify.setAttribute('data-target', '#modif_gare');
-                btn_modify.setAttribute('onclick', 'prepModifGare('+id+');');
+                btn_modify.setAttribute('onclick', 'prepModifGare(' + id + ');');
                 btn_modify.setAttribute('title', 'Modifier la gare');
                 btn_modify.appendChild(btn_modify_i);
                 btn_modify.appendChild(btn_modify_span);
@@ -152,29 +152,29 @@ function loadGares(userid) {
                 btn_public.setAttribute('class', 'btn btn-options dropdown-toggle');
                 btn_public.setAttribute('data-toggle', 'modal');
                 btn_public.setAttribute('data-target', '#share');
-                btn_public.setAttribute('onclick', 'prepSharing('+id+');');
+                btn_public.setAttribute('onclick', 'prepSharing(' + id + ');');
                 btn_public.setAttribute('title', 'Partager la gare');
                 btn_public.appendChild(btn_public_i);
                 btn_public.appendChild(btn_public_span);
-                
+
                 managmentitemaction.setAttribute('class', 'management-item-action');
                 managmentitemaction.appendChild(btn_public);
                 managmentitemaction.appendChild(btn_modify);
                 managmentitemaction.appendChild(btn_del);
-                
+
                 managmentitemcontent.setAttribute('class', 'management-item-content');
                 managmentitemcontent.appendChild(managmentitemsymbol);
                 managmentitemcontent.appendChild(managmentitemmain);
                 managmentitemcontent.appendChild(managmentitemaction);
-                
+
                 listgroupitem.setAttribute('class', 'list-group-item management-item');
                 listgroupitem.appendChild(managmentitemcontent);
-                
+
                 document.getElementById('gares').appendChild(listgroupitem);
             });
             document.getElementById('gares').hidden = false;
             document.getElementById('loader').style.display = 'none';
-        }else{
+        } else {
             document.getElementById('gares_div').appendChild(document.createTextNode('Aucune gare pour le moment ;)'));
             document.getElementById('loader').style.display = 'none';
         }
@@ -188,7 +188,7 @@ function loadGares(userid) {
 function prepModifGare(gid) {
     database.child("users").child(uid).child("gares").child(gid).get().then((snapshot) => {
         document.getElementById('modif_gare_name').value = snapshot.val().name;
-        document.getElementById('modify_gare_btn').setAttribute('onclick', 'modifyGare('+snapshot.val().id+');');
+        document.getElementById('modify_gare_btn').setAttribute('onclick', 'modifyGare(' + snapshot.val().id + ');');
         document.getElementById('modif_gare_infos').value = snapshot.val().infos;
         if (snapshot.val().infostype === 'flash') {
             document.getElementById('modif_gare_infos_type_2').checked = true;
@@ -212,7 +212,7 @@ function prepSharing(gid) {
             loadQR(snapshot.val().link);
             document.getElementById('share_link').value = snapshot.val().link;
         }
-        document.getElementById('share_validate').setAttribute('onclick', 'modifSharing('+snapshot.val().id+');');
+        document.getElementById('share_validate').setAttribute('onclick', 'modifSharing(' + snapshot.val().id + ');');
     });
 }
 
@@ -245,7 +245,7 @@ function prepModifTrain(tid) {
         document.getElementById('train_voie').value = snapshot.val().voie;
         var gares = snapshot.val().gares;
         var from = snapshot.val().from;
-        
+
         document.getElementById('from_modify').value = from;
         document.getElementById('gares_modify').value = gares;
 
@@ -259,8 +259,8 @@ function prepModifTrain(tid) {
         } else {
             document.getElementById('train_dynamic_type_1').checked = true;
         }
-        
-        document.getElementById('validate').setAttribute('onclick', 'modifTrain('+tid+');');
+
+        document.getElementById('validate').setAttribute('onclick', 'modifTrain(' + tid + ');');
         document.getElementById('validate').innerText = 'Modifier';
 
         document.getElementById('loader').style.display = 'none';
@@ -273,7 +273,7 @@ function prepModifTrain(tid) {
 
 function modifTrain(tid) {
     var retardtype;
-    
+
     if (document.getElementById('train_alheure').checked == true) {
         retardtype = 'alheure';
     } else if (document.getElementById('train_retindet').checked == true) {
@@ -291,7 +291,7 @@ function modifTrain(tid) {
     } else {
         infodynatype = 'normal';
     }
-    
+
     database.child("users").child(uid).child("gares").child(gare_id).child("trains").child(tid).update({
         number: document.getElementById('train_number').value,
         destination: document.getElementById('train_dest').value,
@@ -401,12 +401,12 @@ function createGare(name) {
     });
 }
 
-function loadGare(userid){
+function loadGare(userid) {
     var params = new URLSearchParams(window.location.search);
     gare_id = params.get("id");
     database.child("users").child(userid).child("gares").child(params.get("id")).get().then((snapshot) => {
         if (snapshot.exists()) {
-            document.title = 'InfoGare - '+snapshot.val().name;
+            document.title = 'InfoGare - ' + snapshot.val().name;
             database.child("users").child(userid).child("gares").child(params.get("id")).child("trains").get().then((snapshot) => {
                 if (snapshot.exists()) {
                     snapshot.forEach((childsnapshot) => {
@@ -436,23 +436,23 @@ function loadGare(userid){
                         var btndupli = document.createElement('button');
                         var btndupliicon = document.createElement('i');
                         var spandupli = document.createElement('span');
-                        
+
                         title.appendChild(document.createTextNode(dest));
                         provli.appendChild(document.createTextNode('Provenance : ' + prov));
                         traintypeli.appendChild(document.createTextNode(traintype));
                         hourli.appendChild(document.createTextNode(hourarrive + ' > ' + hourdepart));
-                        
+
                         provli.setAttribute('class', 'meta-list-item');
-                        
+
                         hourli.setAttribute('class', 'meta-list-item separator');
-                                                
+
                         traintypeli.setAttribute('class', 'meta-list-item separator');
-                        
+
                         metalist.setAttribute('class', 'meta-list font-weight-medium');
                         metalist.appendChild(provli);
                         metalist.appendChild(hourli);
                         metalist.appendChild(traintypeli);
-                        
+
                         managmentitemmain.setAttribute('class', 'management-item-main');
 
                         var train_hourarrive = childsnapshot.val().hourarrive;
@@ -469,86 +469,86 @@ function loadGare(userid){
                         if (openmethod) {
                             if (userid == uid) {
                                 if (train_hourarrive != undefined && train_hourdepart != undefined) {
-                                    managmentitemmain.setAttribute('onclick', 'loadChooser('+gare_id+', '+id+');');
+                                    managmentitemmain.setAttribute('onclick', 'loadChooser(' + gare_id + ', ' + id + ');');
                                 } else if (train_hourdepart != undefined) {
-                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid='+gare_id+'&tid='+id+'&instance=departures", "", "height=500,width=750");');
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid=' + gare_id + '&tid=' + id + '&instance=departures", "", "height=500,width=750");');
                                 } else {
-                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid='+gare_id+'&tid='+id+'&instance=arrivals", "", "height=500,width=750");');
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid=' + gare_id + '&tid=' + id + '&instance=arrivals", "", "height=500,width=750");');
                                 }
                             } else {
                                 if (train_hourdepart != undefined && train_hourarrive != undefined) {
-                                    managmentitemmain.setAttribute('onclick', 'loadChooser('+gare_id+', '+id+');');
+                                    managmentitemmain.setAttribute('onclick', 'loadChooser(' + gare_id + ', ' + id + ');');
                                 } else if (train_hourdepart != undefined) {
-                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid='+userid+'&gid='+gare_id+'&tid='+id+'&instance=departures", "", "height=500,width=750");');
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid=' + userid + '&gid=' + gare_id + '&tid=' + id + '&instance=departures", "", "height=500,width=750");');
                                 } else {
-                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid='+userid+'&gid='+gare_id+'&tid='+id+'&instance=arrivals", "", "height=500,width=750");');
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid=' + userid + '&gid=' + gare_id + '&tid=' + id + '&instance=arrivals", "", "height=500,width=750");');
                                 }
                             }
                         } else {
                             if (userid == uid) {
                                 if (train_hourarrive != undefined && train_hourdepart != undefined) {
-                                    managmentitemmain.setAttribute('onclick', 'loadChooser('+gare_id+', '+id+');');
+                                    managmentitemmain.setAttribute('onclick', 'loadChooser(' + gare_id + ', ' + id + ');');
                                 } else if (train_hourdepart != undefined) {
-                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid='+gare_id+'&tid='+id+'&instance=departures");');
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid=' + gare_id + '&tid=' + id + '&instance=departures");');
                                 } else {
-                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid='+gare_id+'&tid='+id+'&instance=arrivals");');
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?gid=' + gare_id + '&tid=' + id + '&instance=arrivals");');
                                 }
                             } else {
                                 if (train_hourdepart != undefined && train_hourarrive != undefined) {
-                                    managmentitemmain.setAttribute('onclick', 'loadChooser('+gare_id+', '+id+');');
+                                    managmentitemmain.setAttribute('onclick', 'loadChooser(' + gare_id + ', ' + id + ');');
                                 } else if (train_hourdepart != undefined) {
-                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid='+userid+'&gid='+gare_id+'&tid='+id+'&instance=departures");');
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid=' + userid + '&gid=' + gare_id + '&tid=' + id + '&instance=departures");');
                                 } else {
-                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid='+userid+'&gid='+gare_id+'&tid='+id+'&instance=arrivals");');
+                                    managmentitemmain.setAttribute('onclick', 'window.open("train.htm?uid=' + userid + '&gid=' + gare_id + '&tid=' + id + '&instance=arrivals");');
                                 }
                             }
                         }
                         managmentitemmain.setAttribute('style', 'cursor: pointer;');
                         managmentitemmain.appendChild(title);
                         managmentitemmain.appendChild(metalist);
-                        
+
                         icon.setAttribute('class', 'icons-itinerary-train icons-size-1x25');
                         icon.setAttribute('aria-hidden', 'true');
-                        
+
                         managmentitemsymbol.setAttribute('class', 'management-item-symbol');
                         managmentitemsymbol.appendChild(icon);
-                        
+
                         btnmodify.setAttribute('class', 'btn btn-options dropdown-toggle');
                         btnmodify.setAttribute('type', 'button');
                         btnmodify.setAttribute('title', 'Modifier le train');
-                        btnmodify.setAttribute('onclick', 'window.open("modif_train.htm?gid='+gare_id+'&tid='+id+'&action=modify", "", "height=500,width=750");');
+                        btnmodify.setAttribute('onclick', 'window.open("modif_train.htm?gid=' + gare_id + '&tid=' + id + '&action=modify", "", "height=500,width=750");');
                         btnmodify.setAttribute('data-toggle', 'modal');
                         btnmodify.setAttribute('data-target', '#train');
-                        
+
                         btnmodifyicon.setAttribute('class', 'icons-pencil');
                         btnmodifyicon.setAttribute('aria-hidden', 'true');
-                        
+
                         spanmodify.setAttribute('class', 'sr-only');
                         spanmodify.appendChild(document.createTextNode('Modifier'));
-                        
+
                         btnmodify.appendChild(btnmodifyicon);
                         btnmodify.appendChild(spanmodify);
-                        
+
                         btndel.setAttribute('class', 'btn btn-options dropdown-toggle');
                         btndel.setAttribute('type', 'button');
                         btndel.setAttribute('title', 'Supprimer le train');
                         btndel.setAttribute('onclick', 'document.getElementById("btn_del").setAttribute("onclick", "delTrain(' + id + ');");');
                         btndel.setAttribute('data-toggle', 'modal');
                         btndel.setAttribute('data-target', '#del_train');
-                        
+
                         btndelicon.setAttribute('class', 'icons-circle-delete');
                         btndelicon.setAttribute('aria-hidden', 'true');
-                        
+
                         spandel.setAttribute('class', 'sr-only');
                         spandel.appendChild(document.createTextNode('Supprimer'));
-                        
+
                         btndel.appendChild(btndelicon);
                         btndel.appendChild(spandel);
 
                         btndupli.setAttribute('class', 'btn btn-options dropdown-toggle');
                         btndupli.setAttribute('type', 'button');
                         btndupli.setAttribute('title', 'Dupliquer le train');
-                        btndupli.setAttribute('onclick', 'prepDupliTrain('+id+');');
+                        btndupli.setAttribute('onclick', 'prepDupliTrain(' + id + ');');
                         btndupli.setAttribute('data-toggle', 'modal');
                         btndupli.setAttribute('data-target', '#train');
 
@@ -560,7 +560,7 @@ function loadGare(userid){
 
                         btndupli.appendChild(btndupliicon);
                         btndupli.appendChild(spandupli);
-                                          
+
                         managmentitemaction.setAttribute('class', 'managerment-item-action');
                         managmentitemaction.appendChild(btnmodify);
                         managmentitemaction.appendChild(btndupli);
@@ -572,10 +572,10 @@ function loadGare(userid){
                         if (userid == uid) {
                             managmentitemcontent.appendChild(managmentitemaction);
                         }
-                        
+
                         listgroupitem.setAttribute('class', 'list-group-item management-item');
                         listgroupitem.appendChild(managmentitemcontent);
-                        
+
                         document.getElementById('trains').appendChild(listgroupitem);
                     });
                     document.getElementById('trains').hidden = false;
@@ -597,11 +597,11 @@ function loadGare(userid){
 
 function loadChooser(gid, tid) {
     if (openmethod) {
-        document.getElementById('departure_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=departures", "", "height=500,width=750");');
-        document.getElementById('arrival_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=arrivals", "", "height=500,width=750");');
+        document.getElementById('departure_btn').setAttribute('onclick', 'window.open("train.htm?gid=' + gid + '&tid=' + tid + '&instance=departures", "", "height=500,width=750");');
+        document.getElementById('arrival_btn').setAttribute('onclick', 'window.open("train.htm?gid=' + gid + '&tid=' + tid + '&instance=arrivals", "", "height=500,width=750");');
     } else {
-        document.getElementById('departure_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=departures");');
-        document.getElementById('arrival_btn').setAttribute('onclick', 'window.open("train.htm?gid='+gid+'&tid='+tid+'&instance=arrivals");');
+        document.getElementById('departure_btn').setAttribute('onclick', 'window.open("train.htm?gid=' + gid + '&tid=' + tid + '&instance=departures");');
+        document.getElementById('arrival_btn').setAttribute('onclick', 'window.open("train.htm?gid=' + gid + '&tid=' + tid + '&instance=arrivals");');
     }
     $('#choose_instance').modal('show');
 }
@@ -654,7 +654,7 @@ function dupliTrain() {
         rtype = 'alheure';
     } else if (document.getElementById('train_retindet').checked) {
         rtype = 'retindet';
-    } else if(document.getElementById('train_ret').checked) {
+    } else if (document.getElementById('train_ret').checked) {
         rtype = 'ret';
     } else if (document.getElementById('train_suppr').checked) {
         rtype = 'suppr';
@@ -717,15 +717,15 @@ function createTrain() {
     } else {
         infodynatype = 'normal';
     }
-    
+
     var x = document.getElementById('gares');
     var y = document.getElementById('from');
     var i, j;
-    
+
     for (i = 0; i < x.length; i++) {
         gares = gares + x.options[i].value + "|";
     }
-    
+
     for (j = 0; j < y.length; j++) {
         from = from + y.options[j].value + "|";
     }
@@ -751,7 +751,7 @@ function createTrain() {
         alert('Vous devez entrer un temps de retard !');
         return false;
     }
-    
+
     database.child("users").child(uid).child("gares").child(gare_id).child("trains").child(trainid).set({
         id: trainid,
         destination: document.getElementById('train_dest').value,
@@ -779,14 +779,14 @@ function createTrain() {
 
 var active_train;
 
-function loadTrainModification(id){
+function loadTrainModification(id) {
     active_train = id;
-    
+
 }
 
 function checkGare(state) {
     document.getElementById('gare_rer_edit').hidden = state;
-    document.getElementById('gare_edit').hidden =! state;
+    document.getElementById('gare_edit').hidden = !state;
 }
 
 
@@ -817,9 +817,9 @@ function loadQuais(userid, pairId, gid) {
                 quais.sort((a, b) => {
                     var x = a.hourdepart.toLowerCase();
                     var y = b.hourdepart.toLowerCase();
-                    if (x < y) {return -1;}
-                    if (x > y) {return 1;}
-                    return 0;        
+                    if (x < y) { return -1; }
+                    if (x > y) { return 1; }
+                    return 0;
                 });
 
                 quais.forEach((value, index, array) => {
@@ -845,7 +845,7 @@ function loadQuais(userid, pairId, gid) {
 // ARRIVES
 var list = new Array();
 
-function loadArrives(user_id, id){
+function loadArrives(user_id, id) {
     var ref = database.child("users").child(user_id).child("gares").child(id).child("trains");
     ref.get().then((snapshot) => {
         snapshot.forEach((child) => {
@@ -867,8 +867,8 @@ function loadArrives(user_id, id){
         list.sort((a, b) => {
             var x = a.hourarrive.toLowerCase();
             var y = b.hourarrive.toLowerCase();
-            if (x < y) {return -1;}
-            if (x > y) {return 1;}
+            if (x < y) { return -1; }
+            if (x > y) { return 1; }
             return 0;
         });
         var i = 0;
@@ -877,7 +877,7 @@ function loadArrives(user_id, id){
                 // Root
                 var firstrow = document.createElement('div');
                 var secondrow = document.createElement('div');
-                
+
                 // First Row
                 var firstcol_firstrow = document.createElement('div');
                 var secondfirstcol_firstrow = document.createElement('div');
@@ -885,10 +885,10 @@ function loadArrives(user_id, id){
                 var secondthirdcol_firstrow = document.createElement('div');
                 var thirdcol_firstrow = document.createElement('div');
                 var col_hide = document.createElement('div');
-                
+
                 // First Col
                 var logo = document.createElement('div');
-                
+
                 // Second First Col
                 var animationblink = document.createElement('div');
                 var animationblink1 = document.createElement('div');
@@ -896,26 +896,26 @@ function loadArrives(user_id, id){
                 var type = document.createElement('span');
                 var br = document.createElement('br');
                 var number = document.createElement('span');
-                
+
                 // Second Third Col
                 var dest = document.createElement('span');
 
                 //Col Hide
                 var col_hide_inner = document.createElement('div');
                 var alternance = document.createElement('div');
-                
+
                 // Third Col
                 var track = document.createElement('div');
                 var voie = document.createElement('span');
-                
+
                 // Second Row
                 var firstcol_secondrow = document.createElement('div');
                 var secondcol_secondrow = document.createElement('div');
                 var thirdcol_secondrow = document.createElement('div');
-                
+
                 // Second Col
                 var gares = document.createElement('div');
-                
+
                 // Values
                 const train_destination = value["provenance"];
                 const train_hour = value["hourarrive"];
@@ -927,11 +927,11 @@ function loadArrives(user_id, id){
                 const train_voie = value["voie"];
                 const train_alternance = value["alternance"];
                 const train_hall = value["hall"];
-                
+
                 var gares_split = train_gares.substr(0, train_gares.length - 1).split("|");
                 var retard, textfeature;
                 var animation_time = 5.30 * gares_split.length;
-                
+
                 if (train_retard_type === 'alheure') {
                     retard = 'à l\'heure';
                     textfeature = 1;
@@ -939,7 +939,7 @@ function loadArrives(user_id, id){
                     retard = 'ret. indet.';
                     textfeature = 3;
                 } else if (train_retard_type === 'ret') {
-                    retard = 'retard '+train_retard_time+' min.';
+                    retard = 'retard ' + train_retard_time + ' min.';
                     textfeature = 3;
                 } else {
                     retard = 'supprimé';
@@ -961,13 +961,13 @@ function loadArrives(user_id, id){
 
                     col_hide.appendChild(col_hide_inner);
                 }
-                
+
                 gares_split.forEach((item, index) => {
                     var span = document.createElement('span');
                     span.appendChild(document.createTextNode(item));
                     gares.appendChild(span);
                 });
-                
+
                 if (train_type === 'TER') {
                     logo.setAttribute('class', 'train-logo train-logo-ter');
                 } else if (train_type === 'TGV') {
@@ -1040,19 +1040,19 @@ function loadArrives(user_id, id){
                     logo.setAttribute('class', 'train-logo train-logo-tram-train');
                 } else if (train_type === 'Zou') {
                     logo.setAttribute('class', 'train-logo train-logo-zou');
-                } else {            
+                } else {
                     logo.setAttribute('class', 'train-logo train-logo-sncf');
                 }
-                
+
                 firstcol_firstrow.setAttribute('class', 'col-first');
                 firstcol_firstrow.appendChild(logo);
-                
+
                 animationblink.setAttribute('class', 'animation-blink');
                 animationblink1.setAttribute('class', 'animation-blink-1');
                 type.setAttribute('class', 'text-type');
                 if (train_type === 'SNCF (logo 1985)') {
                     type.appendChild(document.createTextNode('Train SNCF'));
-                } else if (train_type === 'SNCF (logo 1992)'){
+                } else if (train_type === 'SNCF (logo 1992)') {
                     type.appendChild(document.createTextNode('Train SNCF'));
                 } else if (train_type === 'SNCF (carmillon)') {
                     type.appendChild(document.createTextNode('Train SNCF'));
@@ -1061,29 +1061,29 @@ function loadArrives(user_id, id){
                 }
                 number.setAttribute('class', 'text-number');
                 number.appendChild(document.createTextNode(train_number));
-                animationblink2.setAttribute('class', 'animation-blink-2 text-features-'+textfeature);
+                animationblink2.setAttribute('class', 'animation-blink-2 text-features-' + textfeature);
                 animationblink2.appendChild(document.createTextNode(retard));
                 animationblink1.appendChild(type);
                 animationblink1.appendChild(br);
                 animationblink1.appendChild(number);
                 animationblink.appendChild(animationblink1);
                 animationblink.appendChild(animationblink2);
-                
+
                 secondfirstcol_firstrow.appendChild(animationblink);
                 secondfirstcol_firstrow.setAttribute('class', 'col-second-first');
-                
+
                 secondsecondcol_firstrow.appendChild(document.createTextNode(train_hour.replace(':', 'h')));
                 secondsecondcol_firstrow.setAttribute('class', 'col-second-second text-time');
-                
+
                 dest.appendChild(document.createTextNode(train_destination));
                 dest.setAttribute('class', '');
-                
+
                 secondthirdcol_firstrow.appendChild(dest);
                 secondthirdcol_firstrow.setAttribute('class', 'col-second-third');
-                                
+
                 if (value['hall'] === undefined) {
                     voie.appendChild(document.createTextNode(train_voie));
-                
+
                     track.appendChild(voie);
                     track.setAttribute('class', 'train-track train-track-view voie');
 
@@ -1094,7 +1094,7 @@ function loadArrives(user_id, id){
                     thirdcol_firstrow.setAttribute('class', 'col-third');
                 } else if (value['hall'] === "") {
                     voie.appendChild(document.createTextNode(train_voie));
-                
+
                     track.appendChild(voie);
                     track.setAttribute('class', 'train-track train-track-view voie');
 
@@ -1128,7 +1128,7 @@ function loadArrives(user_id, id){
                     hall.appendChild(hall_2);
 
                     voie.appendChild(document.createTextNode(train_voie));
-                
+
                     track.appendChild(voie);
                     track.setAttribute('class', 'train-track train-track-view voie animation-blink-1');
 
@@ -1139,39 +1139,39 @@ function loadArrives(user_id, id){
 
                     thirdcol_firstrow.setAttribute('class', 'col-third animation-blink');
                 }
-                
+
                 firstrow.appendChild(firstcol_firstrow);
                 firstrow.appendChild(secondfirstcol_firstrow);
                 firstrow.appendChild(secondsecondcol_firstrow);
                 firstrow.appendChild(secondthirdcol_firstrow);
                 firstrow.appendChild(col_hide);
                 firstrow.appendChild(thirdcol_firstrow);
-                
+
                 if (i < 2) {
                     firstcol_secondrow.setAttribute('class', 'col-first');
-                    
+
                     if (train_gares.length < 30) {
                         gares.setAttribute('class', 'train-stations text-scroll-x');
                         gares.setAttribute('style', 'padding-left: 0%;');
                     } else {
                         gares.setAttribute('class', 'train-stations text-scroll-x scroll-x animation-scroll-x');
-                        gares.setAttribute('style', 'animation-duration: '+animation_time+'s; padding-left: 100%;');
+                        gares.setAttribute('style', 'animation-duration: ' + animation_time + 's; padding-left: 100%;');
                     }
                     secondcol_secondrow.appendChild(gares);
                     secondcol_secondrow.setAttribute('class', 'col-second');
-                    
+
                     thirdcol_secondrow.setAttribute('class', 'col-third');
-                    
+
                     secondrow.appendChild(firstcol_secondrow);
                     secondrow.appendChild(secondcol_secondrow);
                     secondrow.appendChild(thirdcol_secondrow);
                 }
-                    
+
                 firstrow.setAttribute('class', 'row');
                 secondrow.setAttribute('class', 'row');
-                
+
                 var rowgroup = document.createElement('div');
-                if (i < 2){
+                if (i < 2) {
                     rowgroup.setAttribute('class', 'row-group row-train row-group-2');
                 } else {
                     rowgroup.setAttribute('class', 'row-group row-train');
@@ -1180,13 +1180,13 @@ function loadArrives(user_id, id){
                 if (i < 2) {
                     rowgroup.appendChild(secondrow);
                 }
-                
+
                 document.getElementById('rows').appendChild(rowgroup);
-                
+
                 i++;
-            }            
+            }
         });
-        
+
         database.child("users").child(user_id).child("gares").child(id).get().then((snapshot) => {
             if (snapshot.val().infos.length > 35) {
                 document.getElementById('infos').setAttribute('class', 'bar-informations');
@@ -1198,6 +1198,7 @@ function loadArrives(user_id, id){
             document.getElementById('loader').style.display = 'none';
 
             scrollX();
+            clock();
         });
     }).catch((error) => {
         setError("Chargement des arrivés", error.stack);
@@ -1212,7 +1213,7 @@ var list = new Array();
 
 var uid;
 
-function loadTrainsRer(user_id, id){
+function loadTrainsRer(user_id, id) {
     uid = user_id;
     var ref = database.child("users").child(user_id).child("gares").child(id).child("trains");
     ref.get().then((snapshot) => {
@@ -1235,27 +1236,27 @@ function loadTrainsRer(user_id, id){
         list.sort((a, b) => {
             var x = a.hourdepart.toLowerCase();
             var y = b.hourdepart.toLowerCase();
-            if (x < y) {return -1;}
-            if (x > y) {return 1;}
+            if (x < y) { return -1; }
+            if (x > y) { return 1; }
             return 0;
         });
         var i = 0;
         list.forEach((value, index, array) => {
-            if(i < 7) {
+            if (i < 7) {
                 // Root
                 var firstrow = document.createElement('div');
                 var secondrow = document.createElement('div');
-                
+
                 // First Row
                 var firstcol_firstrow = document.createElement('div');
                 var secondfirstcol_firstrow = document.createElement('div');
                 var secondsecondcol_firstrow = document.createElement('div');
                 var secondthirdcol_firstrow = document.createElement('div');
                 var thirdcol_firstrow = document.createElement('div');
-                
+
                 // First Col
                 var logo = document.createElement('div');
-                
+
                 // Second First Col
                 var animationblink = document.createElement('div');
                 var animationblink1 = document.createElement('div');
@@ -1263,22 +1264,22 @@ function loadTrainsRer(user_id, id){
                 var type = document.createElement('span');
                 var br = document.createElement('br');
                 var number = document.createElement('span');
-                
+
                 // Second Third Col
                 var dest = document.createElement('span');
-                
+
                 // Third Col
                 var track = document.createElement('div');
                 var voie = document.createElement('span');
-                
+
                 // Second Row
                 var firstcol_secondrow = document.createElement('div');
                 var secondcol_secondrow = document.createElement('div');
                 var thirdcol_secondrow = document.createElement('div');
-                
+
                 // Second Col
                 var gares = document.createElement('div');
-                
+
                 // Values
                 const train_destination = value["destination"];
                 const train_number = value["number"];
@@ -1290,11 +1291,11 @@ function loadTrainsRer(user_id, id){
                 const train_length = value["length"];
                 const train_hour = value["hourdepart"];
                 const train_hour_mode = value["hourmode"];
-                
+
                 var gares_split = train_gares.substr(0, train_gares.length - 1).split("|");
                 var retard, textfeature;
                 var animation_time = 5.30 * gares_split.length;
-                
+
                 if (train_retard_type === 'alheure') {
                     retard = 'à l\'heure';
                     textfeature = 1;
@@ -1302,19 +1303,19 @@ function loadTrainsRer(user_id, id){
                     retard = 'ret. indet.';
                     textfeature = 3;
                 } else if (train_retard_type === 'ret') {
-                    retard = 'retard '+train_retard_time+' min.';
+                    retard = 'retard ' + train_retard_time + ' min.';
                     textfeature = 3;
                 } else {
                     retard = 'supprimé';
                     textfeature = 3;
                 }
-                
+
                 gares_split.forEach((item, index) => {
                     var span = document.createElement('span');
                     span.appendChild(document.createTextNode(item));
                     gares.appendChild(span);
                 });
-                
+
                 if (train_type === 'RER A') {
                     logo.setAttribute('class', 'train-logo train-logo-rer-a');
                 } else if (train_type === 'RER B') {
@@ -1325,30 +1326,30 @@ function loadTrainsRer(user_id, id){
                     logo.setAttribute('class', 'train-logo train-logo-rer-d');
                 } else if (train_type === 'RER E') {
                     logo.setAttribute('class', 'train-logo train-logo-rer-e');
-                } else {            
+                } else {
                     logo.setAttribute('class', 'train-logo train-logo-sncf');
                 }
-                
+
                 firstcol_firstrow.setAttribute('class', 'col-first');
                 firstcol_firstrow.appendChild(logo);
-                
+
                 animationblink.setAttribute('class', 'animation-blink');
                 animationblink1.setAttribute('class', 'animation-blink-1');
                 type.setAttribute('class', 'text-type');
                 type.appendChild(document.createTextNode(train_mission));
                 number.setAttribute('class', 'text-number');
                 number.appendChild(document.createTextNode(train_number));
-                animationblink2.setAttribute('class', 'animation-blink-2 text-features-'+textfeature);
+                animationblink2.setAttribute('class', 'animation-blink-2 text-features-' + textfeature);
                 animationblink2.appendChild(document.createTextNode(retard));
                 animationblink1.appendChild(type);
                 animationblink1.appendChild(br);
                 animationblink1.appendChild(number);
                 animationblink.appendChild(animationblink1);
                 animationblink.appendChild(animationblink2);
-                
+
                 secondfirstcol_firstrow.appendChild(animationblink);
                 secondfirstcol_firstrow.setAttribute('class', 'col-second-first');
-                
+
                 secondsecondcol_firstrow.setAttribute('class', 'col-second-second animation-blink');
 
                 if (train_hour_mode === 'Heure') {
@@ -1372,48 +1373,48 @@ function loadTrainsRer(user_id, id){
                     secondsecondcol_firstrow.appendChild(second_animationblink2);
                 }
 
-                
+
                 dest.appendChild(document.createTextNode(train_destination));
                 dest.setAttribute('class', '');
-                
+
                 secondthirdcol_firstrow.appendChild(dest);
                 secondthirdcol_firstrow.setAttribute('class', 'col-second-third');
-                
+
                 if (train_length === 'trainlong') {
                     track.setAttribute('class', 'rer train-lng train-long');
                 } else {
                     track.setAttribute('class', 'rer train-lng train-court');
                 }
-                
+
                 thirdcol_firstrow.appendChild(track);
                 thirdcol_firstrow.setAttribute('class', 'col-third');
-                
+
                 firstrow.appendChild(firstcol_firstrow);
                 firstrow.appendChild(secondfirstcol_firstrow);
                 firstrow.appendChild(secondsecondcol_firstrow);
                 firstrow.appendChild(secondthirdcol_firstrow);
                 firstrow.appendChild(thirdcol_firstrow);
-                
+
                 if (i < 2) {
                     firstcol_secondrow.setAttribute('class', 'col-first');
-                    
+
                     gares.setAttribute('class', 'train-stations text-scroll-x scroll-x animation-scroll-x');
-                    gares.setAttribute('style', 'animation-duration: '+animation_time+'s; padding-left: 100%;');
+                    gares.setAttribute('style', 'animation-duration: ' + animation_time + 's; padding-left: 100%;');
                     secondcol_secondrow.appendChild(gares);
                     secondcol_secondrow.setAttribute('class', 'col-second');
-                    
+
                     thirdcol_secondrow.setAttribute('class', 'col-third');
-                    
+
                     secondrow.appendChild(firstcol_secondrow);
                     secondrow.appendChild(secondcol_secondrow);
                     secondrow.appendChild(thirdcol_secondrow);
                 }
-                    
+
                 firstrow.setAttribute('class', 'row');
                 secondrow.setAttribute('class', 'row');
-                
+
                 var rowgroup = document.createElement('div');
-                if (i < 2){
+                if (i < 2) {
                     rowgroup.setAttribute('class', 'row-group row-train row-group-2');
                 } else {
                     rowgroup.setAttribute('class', 'row-group row-train');
@@ -1422,13 +1423,13 @@ function loadTrainsRer(user_id, id){
                 if (i < 2) {
                     rowgroup.appendChild(secondrow);
                 }
-                
+
                 document.getElementById('rows').appendChild(rowgroup);
-                
+
                 i++;
             }
         });
-        
+
         database.child("users").child(user_id).child("gares").child(id).get().then((snapshot) => {
             if (snapshot.val().infos.length > 35) {
                 document.getElementById('infos').setAttribute('class', 'bar-informations');
@@ -1442,6 +1443,7 @@ function loadTrainsRer(user_id, id){
             scrollX();
             getInfos(id);
             checkInfos(id);
+            clock();
         });
     }).catch((error) => {
         setError("Chargement des départs RER", error.stack);
@@ -1489,7 +1491,7 @@ var list = new Array();
 var time_before_show = 0;
 var time_after_hide = 0;
 
-function loadTrains(user_id, id){
+function loadTrains(user_id, id) {
 
     database.child('users').child(user_id).child('gares').child(id).get().then((snapshot) => {
         time_before_show = snapshot.val().timebeforeshow;
@@ -1499,7 +1501,7 @@ function loadTrains(user_id, id){
     var group = document.createElement('div');
     group.setAttribute('id', 'group');
     var ref = firebase.database().ref("users/" + user_id + "/gares/" + id + "/trains");
-    var infos = firebase.database().ref("users/"+user_id+"/gares/"+id);
+    var infos = firebase.database().ref("users/" + user_id + "/gares/" + id);
 
     infos.on('child_changed', (snapshot) => {
         var txt = snapshot.val();
@@ -1507,7 +1509,7 @@ function loadTrains(user_id, id){
     });
 
     ref.on('child_changed', (snapshot) => {
-        location.href="departs.htm?id="+id;
+        location.href = "departs.htm?id=" + id;
     });
 
     ref.get().then((snapshot) => {
@@ -1519,7 +1521,7 @@ function loadTrains(user_id, id){
                 } else {
                     showed = child.val().show;
                 }
-                
+
                 var voieshowed;
 
                 if (child.val().showvoie === undefined) {
@@ -1548,18 +1550,18 @@ function loadTrains(user_id, id){
         list.sort((a, b) => {
             var x = a.hourdepart.toLowerCase();
             var y = b.hourdepart.toLowerCase();
-            if (x < y) {return -1;}
-            if (x > y) {return 1;}
+            if (x < y) { return -1; }
+            if (x > y) { return 1; }
             return 0;
         });
         var i = 0;
         list.forEach((value, index, array) => {
             if (i != 7) {
-                if (value["show"]){
+                if (value["show"]) {
                     // Root
                     var firstrow = document.createElement('div');
                     var secondrow = document.createElement('div');
-                    
+
                     // First Row
                     var firstcol_firstrow = document.createElement('div');
                     var secondfirstcol_firstrow = document.createElement('div');
@@ -1567,10 +1569,10 @@ function loadTrains(user_id, id){
                     var secondthirdcol_firstrow = document.createElement('div');
                     var thirdcol_firstrow = document.createElement('div');
                     var col_hide = document.createElement('div');
-                    
+
                     // First Col
                     var logo = document.createElement('div');
-                    
+
                     // Second First Col
                     var animationblink = document.createElement('div');
                     var animationblink1 = document.createElement('div');
@@ -1578,26 +1580,26 @@ function loadTrains(user_id, id){
                     var type = document.createElement('span');
                     var br = document.createElement('br');
                     var number = document.createElement('span');
-                    
+
                     // Second Third Col
                     var dest = document.createElement('span');
 
                     // Col Hide
                     var col_hide_inner = document.createElement('div');
                     var alternance = document.createElement('div');
-                    
+
                     // Third Col
                     var track = document.createElement('div');
                     var voie = document.createElement('span');
-                    
+
                     // Second Row
                     var firstcol_secondrow = document.createElement('div');
                     var secondcol_secondrow = document.createElement('div');
                     var thirdcol_secondrow = document.createElement('div');
-                    
+
                     // Second Col
                     var gares = document.createElement('div');
-                    
+
                     // Values
                     const train_destination = value["destination"];
                     const train_hour = value["hourdepart"];
@@ -1610,11 +1612,11 @@ function loadTrains(user_id, id){
                     const train_alternance = value["alternance"];
                     const train_hall = value["hall"];
                     const alternance_type = value["alternancetype"];
-                    
+
                     var gares_split = train_gares.substr(0, train_gares.length - 1).split("|");
                     var retard, textfeature;
                     var animation_time = 5.30 * gares_split.length;
-                    
+
                     if (train_retard_type === 'alheure') {
                         retard = 'à l\'heure';
                         textfeature = 1;
@@ -1622,7 +1624,7 @@ function loadTrains(user_id, id){
                         retard = 'ret. indet.';
                         textfeature = 3;
                     } else if (train_retard_type === 'ret') {
-                        retard = 'retard '+train_retard_time+' min.';
+                        retard = 'retard ' + train_retard_time + ' min.';
                         textfeature = 3;
                     } else {
                         retard = 'supprimé';
@@ -1630,7 +1632,7 @@ function loadTrains(user_id, id){
                     }
 
                     col_hide.setAttribute('class', 'col-hide');
-                    
+
                     if (train_alternance === "") {
 
                     } else if (train_alternance === undefined) {
@@ -1638,19 +1640,19 @@ function loadTrains(user_id, id){
                     } else {
                         alternance.setAttribute('class', 'train-information-dynamic train-information-dynamic-yellow animation-dynamic');
                         alternance.innerText = train_alternance;
-                        
+
                         col_hide_inner.setAttribute('class', 'col-hide-inner');
                         col_hide_inner.appendChild(alternance);
 
                         col_hide.appendChild(col_hide_inner);
                     }
-                    
+
                     gares_split.forEach((item, index) => {
                         var span = document.createElement('span');
                         span.appendChild(document.createTextNode(item));
                         gares.appendChild(span);
                     });
-                    
+
                     if (train_type === 'TER') {
                         logo.setAttribute('class', 'train-logo train-logo-ter');
                     } else if (train_type === 'TGV') {
@@ -1730,16 +1732,16 @@ function loadTrains(user_id, id){
                     } else {
                         logo.setAttribute('class', 'train-logo train-logo-sncf');
                     }
-                    
+
                     firstcol_firstrow.setAttribute('class', 'col-first');
                     firstcol_firstrow.appendChild(logo);
-                    
+
                     animationblink.setAttribute('class', 'animation-blink');
                     animationblink1.setAttribute('class', 'animation-blink-1');
                     type.setAttribute('class', 'text-type');
                     if (train_type === 'SNCF (logo 1985)') {
                         type.appendChild(document.createTextNode('Train SNCF'));
-                    } else if (train_type === 'SNCF (logo 1992)'){
+                    } else if (train_type === 'SNCF (logo 1992)') {
                         type.appendChild(document.createTextNode('Train SNCF'));
                     } else if (train_type === 'SNCF (carmillon)') {
                         type.appendChild(document.createTextNode('Train SNCF'));
@@ -1748,17 +1750,17 @@ function loadTrains(user_id, id){
                     }
                     number.setAttribute('class', 'text-number');
                     number.appendChild(document.createTextNode(train_number));
-                    animationblink2.setAttribute('class', 'animation-blink-2 text-features-'+textfeature);
+                    animationblink2.setAttribute('class', 'animation-blink-2 text-features-' + textfeature);
                     animationblink2.appendChild(document.createTextNode(retard));
                     animationblink1.appendChild(type);
                     animationblink1.appendChild(br);
                     animationblink1.appendChild(number);
                     animationblink.appendChild(animationblink1);
                     animationblink.appendChild(animationblink2);
-                    
+
                     secondfirstcol_firstrow.appendChild(animationblink);
                     secondfirstcol_firstrow.setAttribute('class', 'col-second-first');
-                    
+
                     if (train_retard_type === 'alheure') {
                         secondsecondcol_firstrow.appendChild(document.createTextNode(train_hour.replace(':', 'h')));
                         secondsecondcol_firstrow.setAttribute('class', 'col-second-second text-time');
@@ -1770,7 +1772,7 @@ function loadTrains(user_id, id){
                         var hourandret = Math.floor(minutes + retard);
 
                         if (hourandret > 59) {
-                            var quotient = Math.floor(hourandret/60);
+                            var quotient = Math.floor(hourandret / 60);
                             var rest = hourandret % 60;
                             hour += quotient;
                             hourandret = rest;
@@ -1792,13 +1794,13 @@ function loadTrains(user_id, id){
                         secondsecondcol_firstrow.appendChild(second_animationblink2);
                         secondsecondcol_firstrow.appendChild(second_animationblink1);
                     }
-                    
+
                     dest.appendChild(document.createTextNode(train_destination));
                     dest.setAttribute('class', '');
-                    
+
                     secondthirdcol_firstrow.appendChild(dest);
                     secondthirdcol_firstrow.setAttribute('class', 'col-second-third');
-                    
+
 
                     if (train_type === 'Car TER') {
                         voie.setAttribute('class', 'train-track train-track-car');
@@ -1808,7 +1810,7 @@ function loadTrains(user_id, id){
                     } else {
                         if (value['hall'] === undefined) {
                             voie.appendChild(document.createTextNode(train_voie));
-                        
+
                             track.appendChild(voie);
                             track.setAttribute('class', 'train-track train-track-view voie');
 
@@ -1819,7 +1821,7 @@ function loadTrains(user_id, id){
                             thirdcol_firstrow.setAttribute('class', 'col-third');
                         } else if (value['hall'] === "") {
                             voie.appendChild(document.createTextNode(train_voie));
-                        
+
                             track.appendChild(voie);
                             track.setAttribute('class', 'train-track train-track-view voie');
 
@@ -1853,7 +1855,7 @@ function loadTrains(user_id, id){
                             hall.appendChild(hall_2);
 
                             voie.appendChild(document.createTextNode(train_voie));
-                        
+
                             track.appendChild(voie);
                             track.setAttribute('class', 'train-track train-track-view voie animation-blink-1');
 
@@ -1865,8 +1867,8 @@ function loadTrains(user_id, id){
                             thirdcol_firstrow.setAttribute('class', 'col-third animation-blink');
                         }
                     }
-                    
-                                        
+
+
                     if (train_alternance === "") {
 
                     } else if (train_alternance === undefined) {
@@ -1878,40 +1880,40 @@ function loadTrains(user_id, id){
                             alternance.setAttribute('class', ' train-information-dynamic train-information-dynamic-yellow animation-dynamic');
                         }
                         alternance.innerText = train_alternance;
-                        
+
                         col_hide_inner.setAttribute('class', 'col-hide-inner');
                         col_hide_inner.appendChild(alternance);
 
                         col_hide.appendChild(col_hide_inner);
                     }
-                    
+
                     firstrow.appendChild(firstcol_firstrow);
                     firstrow.appendChild(secondfirstcol_firstrow);
                     firstrow.appendChild(secondsecondcol_firstrow);
                     firstrow.appendChild(secondthirdcol_firstrow);
                     firstrow.appendChild(col_hide);
                     firstrow.appendChild(thirdcol_firstrow);
-                    
+
                     if (i < 2) {
                         firstcol_secondrow.setAttribute('class', 'col-first');
-                        
+
                         if (train_gares.length < 30) {
                             gares.setAttribute('class', 'train-stations text-scroll-x');
                             gares.setAttribute('style', 'padding-left: 0%;');
                         } else {
                             gares.setAttribute('class', 'train-stations text-scroll-x scroll-x animation-scroll-x');
-                            gares.setAttribute('style', 'animation-duration: '+animation_time+'s; padding-left: 100%;');
+                            gares.setAttribute('style', 'animation-duration: ' + animation_time + 's; padding-left: 100%;');
                         }
                         secondcol_secondrow.appendChild(gares);
                         secondcol_secondrow.setAttribute('class', 'col-second');
-                        
+
                         thirdcol_secondrow.setAttribute('class', 'col-third');
-                        
+
                         secondrow.appendChild(firstcol_secondrow);
                         secondrow.appendChild(secondcol_secondrow);
                         secondrow.appendChild(thirdcol_secondrow);
                     }
-                        
+
                     firstrow.setAttribute('class', 'row');
                     secondrow.setAttribute('class', 'row');
 
@@ -1921,27 +1923,27 @@ function loadTrains(user_id, id){
                     data_time.setHours(train_hour.substr(0, 2), train_hour.substr(3, 2) + time_before_show);
                     data_time2.setHours(train_hour.substr(0, 2), train_hour.substr(3, 2) + time_after_hide);
                     var rowgroup = document.createElement('div');
-                    if (i < 2){
+                    if (i < 2) {
                         rowgroup.setAttribute('class', 'row-group row-train row-group-2');
                     } else {
                         rowgroup.setAttribute('class', 'row-group row-train');
                     }
-                    rowgroup.setAttribute('data-timeshow', data_time.getTime()/1000);
-                    rowgroup.setAttribute('data-timehide', data_time2.getTime()/1000)
+                    rowgroup.setAttribute('data-timeshow', data_time.getTime() / 1000);
+                    rowgroup.setAttribute('data-timehide', data_time2.getTime() / 1000)
                     rowgroup.appendChild(firstrow);
                     if (i < 2) {
                         rowgroup.appendChild(secondrow);
                     }
-                    
+
                     group.appendChild(rowgroup);
-                    
-                    i++;            
+
+                    i++;
                 }
             }
-        });        
+        });
         document.getElementById('group').remove();
         document.getElementById('rows').appendChild(group);
-        
+
         database.child("users").child(user_id).child("gares").child(id).get().then((snapshot) => {
             if (snapshot.val().infos.length > 35) {
                 document.getElementById('infos').setAttribute('class', 'bar-informations');
@@ -1950,7 +1952,7 @@ function loadTrains(user_id, id){
 
             document.getElementById('bg').hidden = false;
             //document.getElementById('loader').style.display = 'none';
-            
+
             scrollX();
             clock();
         });
@@ -1961,20 +1963,20 @@ function loadTrains(user_id, id){
     });
 }
 
-function autoRow(){
-	var timestamp = Date.now()/1000;
+function autoRow() {
+    var timestamp = Date.now() / 1000;
 
-	$('.row-group').each(function(){
+    $('.row-group').each(function () {
         console.log($(this).data('timehide') + ' <=> ' + timestamp);
-		if($(this).data('timehide') <= timestamp){
-			clearInterval('autoRowRun');
+        if ($(this).data('timehide') <= timestamp) {
+            clearInterval('autoRowRun');
 
-			$(this).addClass('row-group-hidden');
-			$(this).removeClass('row-group');
+            $(this).addClass('row-group-hidden');
+            $(this).removeClass('row-group');
 
-			autoRowRun = setInterval(autoRow, 10000, 0);
-			return false;
-		} else if ($(this).data('timeshow') >= timestamp) {
+            autoRowRun = setInterval(autoRow, 10000, 0);
+            return false;
+        } else if ($(this).data('timeshow') >= timestamp) {
             clearInterval('autoRowRun');
 
             $(this).addClass('row-group');
@@ -1983,7 +1985,7 @@ function autoRow(){
             autoRowRun = setInterval(autoRow, 10000, 0);
             return false;
         }
-	});
+    });
 }
 
 
@@ -2004,7 +2006,7 @@ function loadParams() {
     database.child("users").child(uid).get().then((snapshot) => {
         openmethod = snapshot.val().openmethod;
         if (!openmethod) {
-            document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs_rer.htm'+window.location.search+'");');
+            document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs_rer.htm' + window.location.search + '");');
         }
     });
 }
@@ -2027,7 +2029,7 @@ function prepModifTrainRer(tid) {
         } else {
             document.getElementById('modif_train_suppr').checked = true;
         }
-        if(snapshot.val().length === 'traincourt') {
+        if (snapshot.val().length === 'traincourt') {
             document.getElementById('modiftraincourt').checked = true;
         } else {
             document.getElementById('modiftrainlong').checked = true;
@@ -2041,22 +2043,22 @@ function prepModifTrainRer(tid) {
             var btn_close = document.createElement('button');
             var btn_close_span = document.createElement('span');
             var bnt_close_i = document.createElement('i');
-            
+
             text_span.setAttribute('class', 'chips chips-label');
             text_span.innerText = item;
-            
+
             btn_close_span.setAttribute('class', 'sr-only');
-            
+
             bnt_close_i.setAttribute('class', 'icons-close');
             bnt_close_i.setAttribute('aria-hidden', 'true');
-            
+
             btn_close.setAttribute('class', 'chips chips-btn chips-only-icon');
             btn_close.appendChild(btn_close_span);
             btn_close.appendChild(bnt_close_i);
-            
+
             chips_group.appendChild(text_span);
             chips_group.appendChild(btn_close);
-            
+
             option.value = item;
             option.innerText = item;
             option.selected = true;
@@ -2064,14 +2066,14 @@ function prepModifTrainRer(tid) {
             //document.getElementById('chips').insertBefore(chips_group, document.getElementById('addreceivers2'));
             //document.getElementById('modif_train_gares').appendChild(option);
         });
-        
-        document.getElementById('validate2').setAttribute('onclick', 'modifTrain('+tid+');');
+
+        document.getElementById('validate2').setAttribute('onclick', 'modifTrain(' + tid + ');');
     });
 }
 
 function modifTrainRer(tid) {
     var retardtype;
-    
+
     if (document.getElementById('modif_train_alheure').checked == true) {
         retardtype = 'alheure';
     } else if (document.getElementById('modif_train_retindet').checked == true) {
@@ -2081,15 +2083,15 @@ function modifTrainRer(tid) {
     } else {
         retardtype = 'suppr';
     }
-    
+
     var lng;
-    
+
     if (document.getElementById('modiftrainlong').checked === true) {
         lng = 'trainlong';
     } else {
         lng = 'trainlong';
     }
-    
+
     database.child("users").child(uid).child("gares").child(gare_id).child("trains").child(tid).update({
         number: document.getElementById('modif_train_number').value,
         dest: document.getElementById('modif_train_dest').value,
@@ -2119,13 +2121,13 @@ function delTrainRer(tid) {
     });
 }
 
-function loadGareRer(userid){
+function loadGareRer(userid) {
     uid = userid;
     var params = new URLSearchParams(window.location.search);
     gare_id = params.get("id");
     database.child("users").child(uid).child("gares").child(params.get("id")).get().then((snapshot) => {
         if (snapshot.exists()) {
-            document.title = 'InfoGare - '+snapshot.val().name;
+            document.title = 'InfoGare - ' + snapshot.val().name;
             database.child("users").child(uid).child("gares").child(params.get("id")).child("trains").get().then((snapshot) => {
                 if (snapshot.exists()) {
                     snapshot.forEach((childsnapshot) => {
@@ -2149,67 +2151,67 @@ function loadGareRer(userid){
                         var btndel = document.createElement('button');
                         var btndelicon = document.createElement('i');
                         var spandel = document.createElement('span');
-                        
+
                         title.appendChild(document.createTextNode(dest));
                         traintypeli.appendChild(document.createTextNode(traintype));
                         hourli.appendChild(document.createTextNode(hour));
-                        
+
                         hourli.setAttribute('class', 'meta-list-item');
-                                                
+
                         traintypeli.setAttribute('class', 'meta-list-item separator');
-                        
+
                         metalist.setAttribute('class', 'meta-list font-weight-medium');
                         metalist.appendChild(hourli);
                         metalist.appendChild(traintypeli);
-                        
+
                         managmentitemmain.setAttribute('class', 'management-item-main');
                         if (openmethod) {
-                            managmentitemmain.setAttribute('onclick', 'window.open("rer.htm?gid='+gare_id+'&tid='+id+'", "", "height=500,width=750");');
+                            managmentitemmain.setAttribute('onclick', 'window.open("rer.htm?gid=' + gare_id + '&tid=' + id + '", "", "height=500,width=750");');
                         } else {
-                            managmentitemmain.setAttribute('onclick', 'window.open("rer.htm?gid='+gare_id+'&tid='+id+'");');
+                            managmentitemmain.setAttribute('onclick', 'window.open("rer.htm?gid=' + gare_id + '&tid=' + id + '");');
                         }
                         managmentitemmain.setAttribute('style', 'cursor: pointer;');
                         managmentitemmain.appendChild(title);
                         managmentitemmain.appendChild(metalist);
-                        
+
                         icon.setAttribute('class', 'icons-itinerary-train icons-size-1x25');
                         icon.setAttribute('aria-hidden', 'true');
-                        
+
                         managmentitemsymbol.setAttribute('class', 'management-item-symbol');
                         managmentitemsymbol.appendChild(icon);
-                        
+
                         btnmodify.setAttribute('class', 'btn btn-options dropdown-toggle');
                         btnmodify.setAttribute('type', 'button');
                         btnmodify.setAttribute('title', 'Modifier le train');
-                        btnmodify.setAttribute('onclick', 'prepModifTrain('+id+');');
+                        btnmodify.setAttribute('onclick', 'prepModifTrain(' + id + ');');
                         btnmodify.setAttribute('data-toggle', 'modal');
                         btnmodify.setAttribute('data-target', '#modif_train');
-                        
+
                         btnmodifyicon.setAttribute('class', 'icons-pencil');
                         btnmodifyicon.setAttribute('aria-hidden', 'true');
-                        
+
                         spanmodify.setAttribute('class', 'sr-only');
                         spanmodify.appendChild(document.createTextNode('Modifier'));
-                        
+
                         btnmodify.appendChild(btnmodifyicon);
                         btnmodify.appendChild(spanmodify);
-                        
+
                         btndel.setAttribute('class', 'btn btn-options dropdown-toggle');
                         btndel.setAttribute('type', 'button');
                         btndel.setAttribute('title', 'Supprimer le train');
                         btndel.setAttribute('onclick', 'document.getElementById("btn_del").setAttribute("onclick", "delTrain(' + id + ');");');
                         btndel.setAttribute('data-toggle', 'modal');
                         btndel.setAttribute('data-target', '#del_train');
-                        
+
                         btndelicon.setAttribute('class', 'icons-circle-delete');
                         btndelicon.setAttribute('aria-hidden', 'true');
-                        
+
                         spandel.setAttribute('class', 'sr-only');
                         spandel.appendChild(document.createTextNode('Supprimer'));
-                        
+
                         btndel.appendChild(btndelicon);
                         btndel.appendChild(spandel);
-                                          
+
                         managmentitemaction.setAttribute('class', 'managerment-item-action');
                         managmentitemaction.appendChild(btnmodify);
                         managmentitemaction.appendChild(btndel);
@@ -2218,10 +2220,10 @@ function loadGareRer(userid){
                         managmentitemcontent.appendChild(managmentitemsymbol);
                         managmentitemcontent.appendChild(managmentitemmain);
                         managmentitemcontent.appendChild(managmentitemaction);
-                        
+
                         listgroupitem.setAttribute('class', 'list-group-item management-item');
                         listgroupitem.appendChild(managmentitemcontent);
-                        
+
                         document.getElementById('trains').appendChild(listgroupitem);
                     });
                     document.getElementById('trains').hidden = false;
@@ -2258,23 +2260,23 @@ function createTrainRer() {
     } else {
         rettype = 'suppr';
     }
-    
+
     var lng = undefined;
     if (document.getElementById('traincourt').checked == true) {
         lng = 'traincourt';
     } else {
         lng = 'trainlong';
     }
-    
+
     var gares = "";
-    
+
     var x = document.getElementById('gares');
     var i;
-    
+
     for (i = 0; i < x.length; i++) {
         gares = gares + x.options[i].value + "|";
     }
-    
+
     database.child("users").child(uid).child("gares").child(gare_id).child("trains").child(trainid).set({
         id: trainid,
         destination: document.getElementById('train_dest').value,
@@ -2294,16 +2296,16 @@ function createTrainRer() {
 
 var active_train;
 
-function loadTrainModification(id){
+function loadTrainModification(id) {
     active_train = id;
-    
+
 }
 
 
 // IMPORT
 function importCSV(file) {
     Papa.parse(file, {
-        complete: function(results){
+        complete: function (results) {
             console.log(results.data);
         }
     });
@@ -2320,6 +2322,8 @@ function loadInfos(userid, gid) {
         } else {
             document.getElementById('row').setAttribute('class', 'row-group row-group-informations row-group-informations-1');
         }
+
+        clock();
     })
 }
 
@@ -2366,9 +2370,9 @@ function createLoader() {
         livree = "Neutre";
     }
 
-    document.getElementById('caisse-1').src = 'images/loading/'+livree+'/caisse-1/'+caisses_list[rdom]['caisse-1'];
-    document.getElementById('caisse-2').src = 'images/loading/'+livree+'/caisse-2/'+caisses_list[rdom]['caisse-2'];
-    document.getElementById('caisse-3').src = 'images/loading/'+livree+'/caisse-3/'+caisses_list[rdom]['caisse-3'];
+    document.getElementById('caisse-1').src = 'images/loading/' + livree + '/caisse-1/' + caisses_list[rdom]['caisse-1'];
+    document.getElementById('caisse-2').src = 'images/loading/' + livree + '/caisse-2/' + caisses_list[rdom]['caisse-2'];
+    document.getElementById('caisse-3').src = 'images/loading/' + livree + '/caisse-3/' + caisses_list[rdom]['caisse-3'];
 }
 
 
@@ -2377,69 +2381,69 @@ firebase.auth().languageCode = 'fr';
 
 var user = undefined;
 
-document.getElementById('login_btn').onclick = function() {
-  location.href = 'https://auth.infogare.fr/redirect.htm?returnurl=' + encodeURIComponent(location.href)+'&service=infogare&version=beta';
+document.getElementById('login_btn').onclick = function () {
+    location.href = 'https://auth.infogare.fr/redirect.htm?returnurl=' + encodeURIComponent(location.href) + '&service=infogare&version=beta';
 }
 
 function loginWithToken(token) {
-  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-  .then(() => {
-    firebase.auth().signInWithCustomToken(token).then((user) => {
-      console.log(user.user.displayName);
-      window.location.href = location.pathname;
-    });
-  });
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+        .then(() => {
+            firebase.auth().signInWithCustomToken(token).then((user) => {
+                console.log(user.user.displayName);
+                window.location.href = location.pathname;
+            });
+        });
 }
 
 function checkLogin() {
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        document.getElementById('mnu_login').hidden = true;
-        document.getElementById('mnu_gares').hidden = false;
-        document.getElementById('mnu_compte').hidden = false;
-        document.getElementById('mnu_username').innerText = user.displayName;
-        document.getElementById('mnu_users').hidden = false;
-        document.getElementById('mnu_logout').hidden = false;
-        if (user.photoURL) {
-          document.getElementById('mnu_user_photo').src = user.photoURL;
-          document.getElementById('mnu_user_photo').style.display = 'block';
-          document.getElementById('mnu_user_no_photo').style.display = 'none';
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            document.getElementById('mnu_login').hidden = true;
+            document.getElementById('mnu_gares').hidden = false;
+            document.getElementById('mnu_compte').hidden = false;
+            document.getElementById('mnu_username').innerText = user.displayName;
+            document.getElementById('mnu_users').hidden = false;
+            document.getElementById('mnu_logout').hidden = false;
+            if (user.photoURL) {
+                document.getElementById('mnu_user_photo').src = user.photoURL;
+                document.getElementById('mnu_user_photo').style.display = 'block';
+                document.getElementById('mnu_user_no_photo').style.display = 'none';
+            }
+            if (location.host === 'beta.infogare.fr') {
+                checkBeta(user.uid);
+            }
+            this.user = user;
+        } else {
+            document.getElementById('mnu_login').hidden = false;
+            document.getElementById('mnu_gares').hidden = true;
+            document.getElementById('mnu_compte').hidden = true;
+            document.getElementById('mnu_username').innerText = 'Non connecté';
+            document.getElementById('mnu_users').hidden = true;
+            document.getElementById('mnu_logout').hidden = true;
+            if (location.host === 'beta.infogare.fr') {
+                checkBeta(user.uid);
+            }
         }
-        if (location.host === 'beta.infogare.fr') {
-          checkBeta(user.uid);
-        }
-        this.user = user;
-      } else {
-        document.getElementById('mnu_login').hidden = false;
-        document.getElementById('mnu_gares').hidden = true;
-        document.getElementById('mnu_compte').hidden = true;
-        document.getElementById('mnu_username').innerText = 'Non connecté';
-        document.getElementById('mnu_users').hidden = true;
-        document.getElementById('mnu_logout').hidden = true;
-        if (location.host === 'beta.infogare.fr') {
-          checkBeta(user.uid);
-        }
-      }
     });
 }
 
 function logout() {
     firebase.auth().signOut().then(() => {
-      window.location.href="index.htm";
+        window.location.href = "index.htm";
     }).catch((error) => {
-      setError("Déconnexion", error.stack);
-      document.getElementById('error_loading').hidden = false;
-      document.getElementById('loader').style.display = 'none';
+        setError("Déconnexion", error.stack);
+        document.getElementById('error_loading').hidden = false;
+        document.getElementById('loader').style.display = 'none';
     });
 }
 
 function checkBeta(userid) {
-  firebase.database().ref('users/'+userid).get().then((snapshot) => {
-    if (!snapshot.val().beta) {
-      logout();
-      window.location.replace('beta_access_refused.htm');
-    }
-  })
+    firebase.database().ref('users/' + userid).get().then((snapshot) => {
+        if (!snapshot.val().beta) {
+            logout();
+            window.location.replace('beta_access_refused.htm');
+        }
+    })
 }
 
 
@@ -2457,7 +2461,7 @@ var gare_id = params.get('id');
 var db;
 
 function setDb(user_id) {
-    db = firebase.database().ref("users/"+user_id+"/gares/"+gare_id);
+    db = firebase.database().ref("users/" + user_id + "/gares/" + gare_id);
 }
 
 function closePanel() {
@@ -2502,66 +2506,66 @@ function loadPanelTrains() {
                         var btndel = document.createElement('button');
                         var btndelicon = document.createElement('i');
                         var spandel = document.createElement('span');
-                        
+
                         title.appendChild(document.createTextNode(dest));
                         provli.appendChild(document.createTextNode('Provenance : ' + prov));
                         traintypeli.appendChild(document.createTextNode(traintype));
                         hourli.appendChild(document.createTextNode(hourarrive + ' > ' + hourdepart));
-                        
+
                         provli.setAttribute('class', 'meta-list-item');
-                        
+
                         hourli.setAttribute('class', 'meta-list-item separator');
-                                                
+
                         traintypeli.setAttribute('class', 'meta-list-item separator');
-                        
+
                         metalist.setAttribute('class', 'meta-list font-weight-medium');
                         metalist.appendChild(provli);
                         metalist.appendChild(hourli);
                         metalist.appendChild(traintypeli);
-                        
+
                         managmentitemmain.setAttribute('class', 'management-item-main');
                         managmentitemmain.setAttribute('style', 'cursor: pointer;');
                         managmentitemmain.appendChild(title);
                         managmentitemmain.appendChild(metalist);
-                        
+
                         icon.setAttribute('class', 'icons-itinerary-train icons-size-1x25');
                         icon.setAttribute('aria-hidden', 'true');
-                        
+
                         managmentitemsymbol.setAttribute('class', 'management-item-symbol');
                         managmentitemsymbol.appendChild(icon);
-                        
+
                         btnmodify.setAttribute('class', 'btn btn-options dropdown-toggle');
                         btnmodify.setAttribute('type', 'button');
                         btnmodify.setAttribute('title', 'Modifier le retard');
-                        btnmodify.setAttribute('onclick', 'prepModifRet('+id+');');
+                        btnmodify.setAttribute('onclick', 'prepModifRet(' + id + ');');
                         btnmodify.setAttribute('data-toggle', 'modal');
                         btnmodify.setAttribute('data-target', '#modif_ret');
-                        
+
                         btnmodifyicon.setAttribute('class', 'icons-clock');
                         btnmodifyicon.setAttribute('aria-hidden', 'true');
-                        
+
                         spanmodify.setAttribute('class', 'sr-only');
                         spanmodify.appendChild(document.createTextNode('Modifier le retard'));
-                        
+
                         btnmodify.appendChild(btnmodifyicon);
                         btnmodify.appendChild(spanmodify);
-                        
+
                         btndel.setAttribute('class', 'btn btn-options dropdown-toggle');
                         btndel.setAttribute('type', 'button');
                         btndel.setAttribute('title', 'Modifier l\'affichage');
-                        btndel.setAttribute('onclick', 'prepModifAff('+id+');');
+                        btndel.setAttribute('onclick', 'prepModifAff(' + id + ');');
                         btndel.setAttribute('data-toggle', 'modal');
                         btndel.setAttribute('data-target', '#modif_aff');
-                        
+
                         btndelicon.setAttribute('class', 'icons-filters');
                         btndelicon.setAttribute('aria-hidden', 'true');
-                        
+
                         spandel.setAttribute('class', 'sr-only');
                         spandel.appendChild(document.createTextNode('Modifier l\'affichage'));
-                        
+
                         btndel.appendChild(btndelicon);
                         btndel.appendChild(spandel);
-                                          
+
                         managmentitemaction.setAttribute('class', 'managerment-item-action');
                         managmentitemaction.appendChild(btnmodify);
                         managmentitemaction.appendChild(btndel);
@@ -2570,10 +2574,10 @@ function loadPanelTrains() {
                         managmentitemcontent.appendChild(managmentitemsymbol);
                         managmentitemcontent.appendChild(managmentitemmain);
                         managmentitemcontent.appendChild(managmentitemaction);
-                        
+
                         listgroupitem.setAttribute('class', 'list-group-item management-item');
                         listgroupitem.appendChild(managmentitemcontent);
-                        
+
                         document.getElementById('trains').appendChild(listgroupitem);
                     });
                     document.getElementById('trains').hidden = false;
@@ -2605,7 +2609,7 @@ function prepModifRet(tid) {
 
         document.getElementById('modif_ret_time').value = snapshot.val().retardtime;
 
-        document.getElementById('modif_ret_val').setAttribute('onclick', 'modifRet('+tid+');');
+        document.getElementById('modif_ret_val').setAttribute('onclick', 'modifRet(' + tid + ');');
     });
 }
 
@@ -2646,7 +2650,7 @@ function prepModifAff(tid) {
 
         document.getElementById('modif_aff_voie_voie').value = snapshot.val().voie;
 
-        document.getElementById('modif_aff_val').setAttribute('onclick', 'modifAff('+tid+');');
+        document.getElementById('modif_aff_val').setAttribute('onclick', 'modifAff(' + tid + ');');
     });
 }
 
@@ -2667,7 +2671,7 @@ function modifParams() {
         autoopenpanel: document.getElementById('activated').checked,
         newsletter: document.getElementById('newsletteryes').checked,
     }).then((snapshot) => {
-        
+
     });
 }
 
@@ -2680,23 +2684,23 @@ function getLivree() {
 }
 
 function loadInfos() {
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             uid = user.uid;
             loadParams();
             getLivree();
-            firebase.database().ref('users/'+uid+'/gares').get().then((snapshot) => {
+            firebase.database().ref('users/' + uid + '/gares').get().then((snapshot) => {
                 var childs = 0;
                 document.getElementById('gares_nbr').innerText = snapshot.numChildren();
                 snapshot.forEach((child) => {
-                    childs +=  child.child('trains').numChildren();
+                    childs += child.child('trains').numChildren();
                 });
                 document.getElementById('trains_nbr').innerText = childs;
             }).catch((error) => {
                 setError("Chargement des infos", error.stack);
                 document.getElementById('error_loading').hidden = false;
             });
-            firebase.database().ref('users/'+uid).update({
+            firebase.database().ref('users/' + uid).update({
                 email: user.email
             });
         }
@@ -2733,129 +2737,129 @@ function loadProfileParams() {
 
 // QR CODE
 function loadQR(url) {
-    document.getElementById('qr').src= 'https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl='+url;
+    document.getElementById('qr').src = 'https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=' + url;
 }
 
 
 // SCREEN
-$(document).ready(function() { 
-	$(document.body).dblclick(function() { 
-		fullScreen();
-	}); 
-}); 
+$(document).ready(function () {
+    $(document.body).dblclick(function () {
+        fullScreen();
+    });
+});
 
 
 /* -- sidebar -- */
 
-function toggleSidebar(direction, id){
-	if($("body").hasClass("acvs")) return;
-	if(direction == null){
-		$(document.body).removeClass('toggle-left toggle-right');
-	}else{
-		if(direction == 'right'){
-			$(document.body).removeClass('toggle-left');
-		}
-		$(document.body).toggleClass('toggle-'+direction);
-	}
+function toggleSidebar(direction, id) {
+    if ($("body").hasClass("acvs")) return;
+    if (direction == null) {
+        $(document.body).removeClass('toggle-left toggle-right');
+    } else {
+        if (direction == 'right') {
+            $(document.body).removeClass('toggle-left');
+        }
+        $(document.body).toggleClass('toggle-' + direction);
+    }
 }
 
 /* -- scrollX -- */
 
-function scrollX(){
+function scrollX() {
 
-	$('.scroll-x').each(function(){
-	
-		var distance = $(this).width()+$(this).parent().width() + 10;
-		
-		if($(this).width()>$(this).parent().width()){
-			$(this).addClass('animation-scroll-x');
-			$(this).css({
-				'-webkit-animation-duration' : (distance/150)+'s',
-				'animation-duration' : (distance/150)+'s',
-				'padding-left' : '100%'
-			});
-		}else{
-			$(this).css({
-				'padding-left' : '100%'
-			});
-		}
-	});
+    $('.scroll-x').each(function () {
+
+        var distance = $(this).width() + $(this).parent().width() + 10;
+
+        if ($(this).width() > $(this).parent().width()) {
+            $(this).addClass('animation-scroll-x');
+            $(this).css({
+                '-webkit-animation-duration': (distance / 150) + 's',
+                'animation-duration': (distance / 150) + 's',
+                'padding-left': '100%'
+            });
+        } else {
+            $(this).css({
+                'padding-left': '100%'
+            });
+        }
+    });
 }
 
 scrollX();
 
 /* -- scrollY -- */
 
-function scrollY(limit){
+function scrollY(limit) {
 
-	var elem = $('.scroll-y');
-	var elemHeight = elem.height();
-	var parentHeight = elem.parent().height();
-	var elemHeightRelative  = elemHeight/parentHeight*100;
-	
-	if (elemHeightRelative>limit && limit < 100){
-		var distance = (elemHeight-(parentHeight/1.1))/$(window).height()*100;
-		var time     = distance/6+10;
-		var delay    = 5/time*100;
-		
-		$("<style type='text/css'> @keyframes scrollY{ 0%, "+delay+"%{ transform:translateY(0%); } "+(100-delay)+"%, 100%{ transform:translateY(-"+distance+"vh); } } </style>").appendTo("head");
-		$(elem).css({
-			'animation' : 'scrollY '+time+'s linear infinite 0s'
-		});
-	}else{
-		$(elem).css({
-			'animation' : 'none'
-		});
-	}
+    var elem = $('.scroll-y');
+    var elemHeight = elem.height();
+    var parentHeight = elem.parent().height();
+    var elemHeightRelative = elemHeight / parentHeight * 100;
+
+    if (elemHeightRelative > limit && limit < 100) {
+        var distance = (elemHeight - (parentHeight / 1.1)) / $(window).height() * 100;
+        var time = distance / 6 + 10;
+        var delay = 5 / time * 100;
+
+        $("<style type='text/css'> @keyframes scrollY{ 0%, " + delay + "%{ transform:translateY(0%); } " + (100 - delay) + "%, 100%{ transform:translateY(-" + distance + "vh); } } </style>").appendTo("head");
+        $(elem).css({
+            'animation': 'scrollY ' + time + 's linear infinite 0s'
+        });
+    } else {
+        $(elem).css({
+            'animation': 'none'
+        });
+    }
 }
 
 /* -- fullScreen -- */
 
-function fullScreen(){
-	if(
-		(document.fullScreenElement && document.fullScreenElement !== null) ||
-		(!document.mozFullScreen && !document.webkitIsFullScreen)){
-			if(document.documentElement.requestFullScreen){  
-				document.documentElement.requestFullScreen();  
-			}else if(document.documentElement.mozRequestFullScreen){  
-				document.documentElement.mozRequestFullScreen();  
-			}else if(document.documentElement.webkitRequestFullScreen){  
-				document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-			}  
-	}else{  
-		if(document.cancelFullScreen){
-			document.cancelFullScreen();
-		}else if(document.mozCancelFullScreen) {
-			document.mozCancelFullScreen();
-		}else if(document.webkitCancelFullScreen) {
-			document.webkitCancelFullScreen();
-		}
-	}
+function fullScreen() {
+    if (
+        (document.fullScreenElement && document.fullScreenElement !== null) ||
+        (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+        if (document.documentElement.requestFullScreen) {
+            document.documentElement.requestFullScreen();
+        } else if (document.documentElement.mozRequestFullScreen) {
+            document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.webkitRequestFullScreen) {
+            document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+        }
+    } else {
+        if (document.cancelFullScreen) {
+            document.cancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+        }
+    }
 }
 
 /* -- clock -- */
 
-function clock(){
-	date = new Date;
-	date.setHours(date.getHours()+(date.getTimezoneOffset()/-60));
-	
-	h = date.getUTCHours();
-	if(h<10){
-		h = '0'+h;
-	}
-	$('#clock-hours').html(h);
-	m = date.getUTCMinutes();
-	if(m<10){
-		m = '0'+m;
-	}
-	$('#clock-minutes').html(m);
-	s = date.getUTCSeconds();
-	if(s<10){
-		s = '0'+s;
-	}
-	$('#clock-seconds').html(s);
-	setTimeout('clock("clock");','1000');
-	return true;
+function clock() {
+    date = new Date;
+    date.setHours(date.getHours() + (date.getTimezoneOffset() / -60));
+
+    h = date.getUTCHours();
+    if (h < 10) {
+        h = '0' + h;
+    }
+    $('#clock-hours').html(h);
+    m = date.getUTCMinutes();
+    if (m < 10) {
+        m = '0' + m;
+    }
+    $('#clock-minutes').html(m);
+    s = date.getUTCSeconds();
+    if (s < 10) {
+        s = '0' + s;
+    }
+    $('#clock-seconds').html(s);
+    setTimeout('clock("clock");', '1000');
+    return true;
 }
 
 if (location.pathname == ('/train.htm' || '/rer.htm' || '/departs.htm' || '/arrives.htm' || '/departs_rer.htm' || '/infos.htm')) {
@@ -2896,7 +2900,7 @@ function loadTrain(uid) {
                 train_hour = snapshot.val().hourdepart.replace(':', 'h');
                 gares = snapshot.val().gares.substr(0, snapshot.val().gares.length - 1).split("|");
             }
-            
+
             if (train_type === 'TER') {
                 logo.setAttribute('class', 'train-logo train-logo-ter');
             } else if (train_type === 'TGV') {
@@ -2969,10 +2973,10 @@ function loadTrain(uid) {
                 logo.setAttribute('class', 'train-logo train-logo-tram-train');
             } else if (train_type === 'Zou') {
                 logo.setAttribute('class', 'train-logo train-logo-zou');
-            } else {            
+            } else {
                 logo.setAttribute('class', 'train-logo train-logo-sncf');
             }
-            
+
             if (snapshot.val().retardtype === 'alheure') {
                 var hour = document.createElement('div');
                 var alheure = document.createElement('div');
@@ -3047,7 +3051,7 @@ function loadTrain(uid) {
                 document.getElementById('train_ret').appendChild(animblink);
             }
 
-            gares.forEach((item, index) => { 
+            gares.forEach((item, index) => {
                 if (item != "") {
                     var tr = document.createElement('tr');
                     var trainstationcolumn = document.createElement('td');
@@ -3069,9 +3073,9 @@ function loadTrain(uid) {
                     tr.appendChild(trainstationstation);
                     document.getElementById('gares').appendChild(tr);
 
-                    if (snapshot.val().alternance === undefined){
-                        
-                    }else if (snapshot.val().alternance === "") {
+                    if (snapshot.val().alternance === undefined) {
+
+                    } else if (snapshot.val().alternance === "") {
 
                     } else {
                         if (snapshot.val().alternancetype === 'normal') {
@@ -3085,18 +3089,18 @@ function loadTrain(uid) {
             });
         });
     });
-    
+
     database.child("users").child(uid).child("gares").child(params.get('gid')).get().then((snapshot) => {
         if (snapshot.val().infos.length > 35) {
             document.getElementById('infos').setAttribute('class', 'bar-informations');
         }
 
         if (document.getElementById('infos').innerHTML === "") {
-            document.getElementById('infos').innerHTML = snapshot.val().infos.replace('\n', ' &nbsp;');    
+            document.getElementById('infos').innerHTML = snapshot.val().infos.replace('\n', ' &nbsp;');
         }
-        
+
         document.getElementById('loader').style.display = 'none';
-        
+
         scrollX();
         scrollY(80);
         clock();
@@ -3155,7 +3159,7 @@ function getAllUsers() {
 
                 card.setAttribute('class', 'card overflow-hidden');
                 card.style.cursor = 'pointer';
-                card.setAttribute('onclick', 'location.href="user.htm?id='+child.key+'";');
+                card.setAttribute('onclick', 'location.href="user.htm?id=' + child.key + '";');
 
                 col.setAttribute('class', 'col-md-4')
 
@@ -3178,7 +3182,7 @@ function getAllUsers() {
                 col.appendChild(card);
 
                 row.appendChild(col);
-                
+
                 i++;
             }
         });
@@ -3212,45 +3216,45 @@ function getUser(id) {
                 var metalist = document.createElement('ul');
                 var trains_div = document.createElement('li');
                 var type_div = document.createElement('li');
-                
+
                 title.appendChild(document.createTextNode(name));
-                trains_div.appendChild(document.createTextNode(trains+' trains'));
+                trains_div.appendChild(document.createTextNode(trains + ' trains'));
                 if (type === 'neutral') {
                     type_div.appendChild(document.createTextNode('Gare normale'));
                 } else {
                     type_div.appendChild(document.createTextNode('Gare RER'));
                 }
-                
+
                 trains_div.setAttribute('class', 'meta-list-item');
                 type_div.setAttribute('class', 'meta-list-item separator separator');
-                
+
                 metalist.setAttribute('class', 'meta-list font-weight-medium');
                 metalist.appendChild(trains_div);
                 metalist.appendChild(type_div);
-                
+
                 managmentitemmain.setAttribute('class', 'management-item-main');
                 managmentitemmain.setAttribute('style', 'cursor: pointer;');
                 if (type === 'neutral') {
-                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare.htm?id='+childsnapshot.key+'&uid='+id+'"');
+                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare.htm?id=' + childsnapshot.key + '&uid=' + id + '"');
                 } else {
-                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare_rer.htm?id='+childsnapshot.key+'&uid='+id+'"');
+                    managmentitemmain.setAttribute('onclick', 'window.location.href="gare_rer.htm?id=' + childsnapshot.key + '&uid=' + id + '"');
                 }
                 managmentitemmain.appendChild(title);
                 managmentitemmain.appendChild(metalist);
-                
+
                 icon.setAttribute('class', 'icons-itinerary-train-station icons-size-1x25');
                 icon.setAttribute('aria-hidden', 'true');
-                
+
                 managmentitemsymbol.setAttribute('class', 'management-item-symbol');
                 managmentitemsymbol.appendChild(icon);
-                            
+
                 managmentitemcontent.setAttribute('class', 'management-item-content');
                 managmentitemcontent.appendChild(managmentitemsymbol);
                 managmentitemcontent.appendChild(managmentitemmain);
-                
+
                 listgroupitem.setAttribute('class', 'list-group-item management-item');
                 listgroupitem.appendChild(managmentitemcontent);
-                
+
                 document.getElementById('gares').appendChild(listgroupitem);
             }
         });
@@ -3288,7 +3292,7 @@ const COMMITS_API_BETA = "https://api.github.com/repos/Absolument-Oui/InfoGare-B
 var req = new XMLHttpRequest();
 
 function getVersion() {
-    if (location.host==="infogare.fr"){
+    if (location.host === "infogare.fr") {
         req.open('GET', COMMITS_API, false);
         req.onload = ((e) => {
             var response = JSON.parse(req.response);
@@ -3296,12 +3300,12 @@ function getVersion() {
             var message = item.commit.message;
             console.log(message);
             var version = message.split('\n');
-    
+
             document.getElementById('version').innerText = version[0];
         });
         req.send('');
     }
-    if (location.host==="beta.infogare.fr"){
+    if (location.host === "beta.infogare.fr") {
         req.open('GET', COMMITS_API_BETA, false);
         req.onload = ((e) => {
             var response = JSON.parse(req.response);
@@ -3309,7 +3313,7 @@ function getVersion() {
             var message = item.commit.message;
             console.log(message);
             var version = message.split('\n');
-    
+
             document.getElementById('version').innerText = version[0];
         });
         req.send('');
@@ -3318,7 +3322,7 @@ function getVersion() {
 
 function getAllVersions() {
     var response = JSON.parse(req.response);
-    for(let i = 0; i < response.length; i++) {
+    for (let i = 0; i < response.length; i++) {
         let div = document.createElement('div');
         let h1 = document.createElement('h1');
         let p = document.createElement('p');
