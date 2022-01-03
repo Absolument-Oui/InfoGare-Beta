@@ -5,14 +5,13 @@
     <title>InfoGare</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <link rel="Stylesheet" href="styles/Global.css" type="text/css" />
-    <link title="Light mode" href="scripts/bootstrap-sncf-metier/bootstrap-sncf.min.css" rel="stylesheet">
-    <link title="Dark mode" href="scripts/bootstrap-sncf-metier/bootstrap-sncf.darkmode.min.css" rel="stylesheet alternate">
+    <link title="Dark mode" href="scripts/bootstrap-sncf-metier/bootstrap-sncf.darkmode.min.css" rel="stylesheet">
     <link rel="icon" href="images/favicon.png" size="16x16" type="image/png" />
     <link rel="icon" href="images/favicon.png" size="32x32" type="image/png" />
     <meta name="robots" content="noindex">
     <meta name="googlebot" content="noindex">
 </head>
-<body onload="getVersion(); createLoader(); checkLogin();">
+<body background="images/bg.gif" onload="getVersion(); createLoader(); checkLogin();">
 <div>
   <div class="mastheader">
     <div class="mastheader-logo">
@@ -74,7 +73,6 @@
               <li class="dropdown-item" id="mnu_gares"><a href="gares.htm">Mes gares</a></li>
               <li class="dropdown-item" id="mnu_login"><a id="login_btn">Se connecter</a></li>
               <li class="dropdown-item" id="mnu_users"><a href="users.htm">Utilisateurs</a></li>
-              <li class="dropdown-item darkmode-btn"><a href="#" onclick="toggleDarkmode();">Mode clair/sombre</a></li>
               <li class="dropdown-item" id="mnu_logout"><a href="#" data-toggle="modal" data-target="#logout">Se déconnecter</a></li>
             </ul>
           </div>
@@ -741,7 +739,6 @@
     <script src="scripts/jquery/jquery.js"></script>
     <script src="scripts/bootstrap-sncf-metier/bootstrap-sncf.min.js"></script>
     <script src="scripts/initialize.js"></script>
-    <script src="scripts/appareance.js"></script>
     <script src="scripts/main.js"></script>
 
     <script>
