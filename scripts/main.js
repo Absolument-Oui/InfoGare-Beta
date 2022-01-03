@@ -1442,7 +1442,6 @@ function loadTrainsRer(user_id, id) {
 
             scrollX();
             getInfos(id);
-            checkInfos(id);
             clock();
         });
     }).catch((error) => {
