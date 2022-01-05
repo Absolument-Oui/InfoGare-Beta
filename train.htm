@@ -1,6 +1,8 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <title>Train</title>
     <link rel=Stylesheet href="styles/quai/screen/train.css" type="text/css" />
@@ -11,13 +13,15 @@
     <meta name="robots" content="noindex">
     <meta name="googlebot" content="noindex">
 </head>
+
 <body onload="createLoader();">
 
     <div id="row" class="rows rows-departures" onclick="fullScreen();">
         <div id="rowgroupbar" class="row-group row-group-bar row-group-bar-yellow row-group-bar-purple">
             <div class="row">
                 <div class="col-first">
-                    <div class="bar-informations text-scroll-x scroll-x animation-scroll-x" style="animation-duration: 12.30s; padding-left: 100%;" id="infos"></div>
+                    <div class="bar-informations text-scroll-x scroll-x animation-scroll-x"
+                        style="animation-duration: 12.30s; padding-left: 100%;" id="infos"></div>
                 </div>
                 <div class="col-second">
                     <div class="bar-clock">
@@ -31,8 +35,10 @@
                 </div>
             </div>
         </div>
-        <div id="rowgroup" class="row-group row-group-train"> <!--row-group-train-third-->
-           <marquee id="loader" scrollamount="15"><img id="caisse-1"><img style="vertical-align: bottom;" id="caisse-2"><img id="caisse-3"></marquee>
+        <div id="rowgroup" class="row-group row-group-train">
+            <!--row-group-train-third-->
+            <marquee id="loader" scrollamount="15"><img id="caisse-1"><img style="vertical-align: bottom;"
+                    id="caisse-2"><img id="caisse-3"></marquee>
             <div class="row">
                 <div class="col-first">
                     <div class="row-background"></div>
@@ -55,7 +61,7 @@
                     <div class="col-second-container">
                         <table class="train-stations train-stations-solo train-stations-reduced scroll-y">
                             <tbody id="gares">
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -69,16 +75,16 @@
                         <div class="train-track-bottom"></div>
                     </div>
                     <div class="train-wagons">
-                       <div class="train-wagons-line"></div> 
-                       <div class="train-wagons-align train-wagons-align-center">
-                           <div class="train-wagons-trains train-wagons-trains-reduced">
-                               <div class="train-wagons-train">
-                                   <div class="train-wagons-train-title train-wagons-train-title-yellow">TEST</div>
-                                   <div class="train-wagons-train-wagon train-tgv-l"></div>
+                        <div class="train-wagons-line"></div>
+                        <div class="train-wagons-align train-wagons-align-center">
+                            <div class="train-wagons-trains train-wagons-trains-reduced">
+                                <div class="train-wagons-train">
+                                    <div class="train-wagons-train-title train-wagons-train-title-yellow">TEST</div>
+                                    <div class="train-wagons-train-wagon train-tgv-l"></div>
 
-                               </div>
-                           </div>
-                       </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -97,22 +103,23 @@
     <script src="scripts/main.js"></script>
 
     <script>
-        firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-              var params = new URLSearchParams(window.location.search);
-              if (params.has('uid')) {
-                  loadTrain(params.get('uid'));
-              } else {
-                loadTrain(user.uid);
-              }
-          } else {
-            var params = new URLSearchParams(window.location.search);
-            if (params.has('uid')) {
-                loadTrain(params.get('uid'));
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                var params = new URLSearchParams(window.location.search);
+                if (params.has('uid')) {
+                    loadTrain(params.get('uid'));
+                } else {
+                    loadTrain(user.uid);
+                }
+            } else {
+                var params = new URLSearchParams(window.location.search);
+                if (params.has('uid')) {
+                    loadTrain(params.get('uid'));
+                }
             }
-          }
         });
     </script>
 
 </body>
+
 </html>

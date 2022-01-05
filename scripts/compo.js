@@ -8,10 +8,10 @@ var compo = document.getElementById('compo_area');
 var compo_list = [];
 
 
-add_motrice.onclick = function() {
+add_motrice.onclick = function () {
     var motrice = document.createElement('div');
     motrice.setAttribute('class', 'train-wagons-train-wagon train-loco');
-    motrice.onclick = function() {
+    motrice.onclick = function () {
         compo.removeChild(motrice);
         writeCompo();
     }
@@ -19,10 +19,10 @@ add_motrice.onclick = function() {
     writeCompo();
 }
 
-add_tgv_l.onclick = function() {
+add_tgv_l.onclick = function () {
     var tgv = document.createElement('div');
     tgv.setAttribute('class', 'train-wagons-train-wagon train-tgv-l');
-    tgv.onclick = function() {
+    tgv.onclick = function () {
         compo.removeChild(tgv);
         writeCompo();
     }
@@ -30,10 +30,10 @@ add_tgv_l.onclick = function() {
     writeCompo();
 }
 
-add_tgv_r.onclick = function() {
+add_tgv_r.onclick = function () {
     var tgv = document.createElement('div');
     tgv.setAttribute('class', 'train-wagons-train-wagon train-tgv-r');
-    tgv.onclick = function() {
+    tgv.onclick = function () {
         compo.removeChild(tgv);
         writeCompo();
     }
@@ -41,10 +41,10 @@ add_tgv_r.onclick = function() {
     writeCompo();
 }
 
-add_wagon.onclick = function() {
+add_wagon.onclick = function () {
     var wagon = document.createElement('div');
     wagon.setAttribute('class', 'train-wagons-train-wagon train-wagon');
-    wagon.onclick = function() {
+    wagon.onclick = function () {
         compo.removeChild(wagon);
         writeCompo();
     }
@@ -52,10 +52,10 @@ add_wagon.onclick = function() {
     writeCompo();
 }
 
-add_wagon_bar.onclick = function() {
+add_wagon_bar.onclick = function () {
     var wagon = document.createElement('div');
     wagon.setAttribute('class', 'train-wagons-train-wagon train-wagon-bar');
-    wagon.onclick = function() {
+    wagon.onclick = function () {
         compo.removeChild(wagon);
         writeCompo();
     }
@@ -65,7 +65,7 @@ add_wagon_bar.onclick = function() {
 
 function writeCompo() {
     compo_list = [];
-    $('#compo_area').children('.train-wagons-train-wagon').each(function() {
+    $('#compo_area').children('.train-wagons-train-wagon').each(function () {
         var classList = $(this).attr('class');
         compo_list.push(classList.split(' ')[1]);
     });
