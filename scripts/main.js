@@ -3328,3 +3328,11 @@ function getAllVersions() {
         document.getElementById('versions').appendChild(div);
     };
 }
+
+function detectAndroid() {
+    var ua = navigator.userAgent.toLowerCase();
+    var isAndroid = ua.indexOf('android') > -1;
+    if (isAndroid) {
+        $('#mobile_app').modal('show');
+    }
+}

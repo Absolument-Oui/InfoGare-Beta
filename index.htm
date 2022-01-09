@@ -18,7 +18,7 @@
 	<meta http-equiv="content-language" content="fr-fr">
 </head>
 
-<body background="images/bg.gif" onload="getVersion(); checkLogin();" class="light">
+<body background="images/bg.gif" onload="detectAndroid(); getVersion(); checkLogin();" class="light">
 	<div>
 		<br><br><br>
 		<div class="mastheader">
@@ -143,6 +143,22 @@
 				<div class="modal-body">
 					<p>Avant de continuer, nous voulons vous signaler que ce site utilise des cookies afin de vous
 						donner une meilleure expérience.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="mobile_app_title" id="mobile_app">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="h1 modal-title" id="mobile_app_title">Hey toi !</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Nous vous conseillons d'utiliser l'application Android disponible <a href="https://link.infogare.fr/Android">ici</a> à l'instar du site Internet.</p>
 				</div>
 			</div>
 		</div>
