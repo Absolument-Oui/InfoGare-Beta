@@ -263,7 +263,12 @@ function prepModifTrain(tid) {
         snapshot.val().compo.forEach((childSnapshot) => {
             var compo_wagon = document.createElement('div');
             compo_wagon.setAttribute('class', 'train-wagons-train-wagon ' + childSnapshot);
+            compo_wagon.onclick = () => {
+                document.getElementById('compo_area').removeChild(compo_wagon);
+                writeCompo();
+            }
             document.getElementById('compo_area').appendChild(compo_wagon);
+            writeCompo();
         });
 
         document.getElementById('validate').setAttribute('onclick', 'modifTrain(' + tid + ');');
