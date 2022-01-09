@@ -260,6 +260,12 @@ function prepModifTrain(tid) {
             document.getElementById('train_dynamic_type_1').checked = true;
         }
 
+        snapshot.val().compo.forEach((child) => {
+            var compo_wagon = document.createElement('div');
+            compo_wagon.setAttribute('class', 'train-wagons-train-wagon '+child.val());
+            document.getElementById('compo_area').appendChild(compo_wagon);
+        })
+
         document.getElementById('validate').setAttribute('onclick', 'modifTrain(' + tid + ');');
         document.getElementById('validate').innerText = 'Modifier';
 
