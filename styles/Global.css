@@ -25,6 +25,10 @@
     margin-bottom: 75px;
 }
 
+.main-content .modal {
+    margin-top: 150px;
+}
+
 #loader {
     vertical-align: bottom;
 }
