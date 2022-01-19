@@ -638,12 +638,13 @@ function prepDupliTrain(tid) {
         document.getElementById('train_voie').value = snapshot.val().voie;
         document.getElementById('from_modify').value = snapshot.val().from;
         document.getElementById('gares_modify').value = snapshot.val().gares;
-        document.getElementById('train_alternance').value = snapshot.val().alternance;
+        document.getElementById('train_dynamic').value = snapshot.val().alternance;
         document.getElementById('train_hall').value = snapshot.val().hall;
         document.getElementById('from_modify_div').hidden = false;
         document.getElementById('gares_modify_div').hidden = false;
         document.getElementById('chips').hidden = true;
         document.getElementById('chips2').hidden = true;
+        document.getElementById('train_hall').value = snapshot.val().hall;
         if (snapshot.val().alternancetype === 'normal') {
             document.getElementById('train_dynamic_type_2').checked = true;
         } else {
