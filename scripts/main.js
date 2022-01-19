@@ -1435,6 +1435,12 @@ function loadTrainsRer(user_id, id) {
                     rowgroup.appendChild(secondrow);
                 }
 
+                var now = new Date();
+                var date_to_add = value["hourdepart"].split(':');
+                var depart_date = new Date(now.getFullYear, now.getMonth, now.getDay, date_to_add[0], date_to_add[1], 0, 0);
+
+                rowgroup.setAttribute('data-time', '');
+
                 document.getElementById('rows').appendChild(rowgroup);
 
                 i++;
@@ -3072,19 +3078,31 @@ function loadTrain(uid) {
                     tr.appendChild(trainstationcolumn);
                     tr.appendChild(trainstationstation);
                     document.getElementById('gares').appendChild(tr);
+                }
 
-                    if (snapshot.val().alternance === undefined) {
+                if (snapshot.val().alternance === undefined) {
 
-                    } else if (snapshot.val().alternance === "") {
+                } else if (snapshot.val().alternance === "") {
 
+                } else {
+                    if (snapshot.val().alternancetype === 'normal') {
+                        document.getElementById('infos').innerHTML = snapshot.val().alternance;
+                        document.getElementById('rowgroupbar').setAttribute('class', 'row-group row-group-bar row-group-bar');
                     } else {
-                        if (snapshot.val().alternancetype === 'normal') {
-                            document.getElementById('infos').innerHTML = snapshot.val().alternance;
-                            document.getElementById('rowgroupbar').setAttribute('class', 'row-group row-group-bar row-group-bar');
-                        } else {
-                            document.getElementById('infos').innerHTML = snapshot.val().alternance;
-                        }
+                        document.getElementById('infos').innerHTML = snapshot.val().alternance;
                     }
+                }
+
+                if (snapshot.val().compo.hasChildren()) {
+                    document.getElementById('rowgroup').setAttribute('class', 'row-group row-group-train row-group-train-third');
+                    document.getElementById('compo').style.display = 'block';
+                    document.getElementById('compo_voie').innerText = snapshot.val().voie;
+                    document.getElementById('compo_title').innerText = snapshot.val().destination;
+                    snapshot.val().compo.forEach((childSnapshot) => {
+                        var compo_wagon = document.createElement('div');
+                        compo_wagon.setAttribute('class', 'train-wagons-train-wagon ' + childSnapshot);
+                        document.getElementById('compo_area').appendChild(compo_wagon);
+                    });
                 }
             });
         });
