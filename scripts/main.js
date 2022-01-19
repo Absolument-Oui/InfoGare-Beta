@@ -559,7 +559,7 @@ function loadGare(userid) {
                         btndupli.setAttribute('class', 'btn btn-options dropdown-toggle');
                         btndupli.setAttribute('type', 'button');
                         btndupli.setAttribute('title', 'Dupliquer le train');
-                        btndupli.setAttribute('onclick', 'prepDupliTrain(' + id + ');');
+                        btndupli.setAttribute('onclick', 'window.open("modif_train.htm?gid=' + gare_id + '&tid=' + id + '&action=duplicate", "", "height=500,width=750");');
                         btndupli.setAttribute('data-toggle', 'modal');
                         btndupli.setAttribute('data-target', '#train');
 
