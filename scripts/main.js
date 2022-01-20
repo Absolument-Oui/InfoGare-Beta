@@ -2759,21 +2759,6 @@ $(document).ready(function () {
     });
 });
 
-
-/* -- sidebar -- */
-
-function toggleSidebar(direction, id) {
-    if ($("body").hasClass("acvs")) return;
-    if (direction == null) {
-        $(document.body).removeClass('toggle-left toggle-right');
-    } else {
-        if (direction == 'right') {
-            $(document.body).removeClass('toggle-left');
-        }
-        $(document.body).toggleClass('toggle-' + direction);
-    }
-}
-
 /* -- scrollX -- */
 
 function scrollX() {
@@ -3369,4 +3354,17 @@ function detectAndroid() {
     if (isAndroid) {
         $('#mobile_app').modal('show');
     }
+}
+
+function checkDay() {
+    var today = new Date().getDay();
+
+    $('.row-group').each(function(){
+        clearInterval('checkDayRun');
+
+        if ($(this).data('day') !== today) {
+            $(this).addClass('row-group-hidden');
+            checkDayRun = setInterval(checkDay, 1000, 0);
+        }
+    });
 }
