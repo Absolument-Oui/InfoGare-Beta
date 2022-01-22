@@ -3088,9 +3088,6 @@ function loadTrain(uid) {
                 }
 
                 if (snapshot.val().compo !== undefined) {
-                    document.getElementById('compo_area_area').childNodes.forEach((childNope, number, parent) => {
-                        childNope.remove();
-                    });
                     document.getElementById('rowgroup').setAttribute('class', 'row-group row-group-train row-group-train-third');
                     document.getElementById('stations').setAttribute('class', 'train-stations train-stations-solo train-stations-reduced scroll-y');
                     document.getElementById('compo').style.display = 'table';
