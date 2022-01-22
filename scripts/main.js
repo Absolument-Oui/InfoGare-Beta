@@ -260,16 +260,20 @@ function prepModifTrain(tid) {
             document.getElementById('train_dynamic_type_1').checked = true;
         }
 
-        snapshot.val().compo.forEach((childSnapshot) => {
-            var compo_wagon = document.createElement('div');
-            compo_wagon.setAttribute('class', 'train-wagons-train-wagon ' + childSnapshot);
-            compo_wagon.onclick = () => {
-                document.getElementById('compo_area').removeChild(compo_wagon);
+        if (snapshot.val().compo !== undefined) {
+
+            snapshot.val().compo.forEach((childSnapshot) => {
+                var compo_wagon = document.createElement('div');
+                compo_wagon.setAttribute('class', 'train-wagons-train-wagon ' + childSnapshot);
+                compo_wagon.onclick = () => {
+                    document.getElementById('compo_area').removeChild(compo_wagon);
+                    writeCompo();
+                }
+                document.getElementById('compo_area').appendChild(compo_wagon);
                 writeCompo();
-            }
-            document.getElementById('compo_area').appendChild(compo_wagon);
-            writeCompo();
-        });
+            });
+
+        }
 
         document.getElementById('validate').setAttribute('onclick', 'modifTrain(' + tid + ');');
         document.getElementById('validate').innerText = 'Modifier';
@@ -3083,7 +3087,7 @@ function loadTrain(uid) {
                     }
                 }
 
-                if (snapshot.val().compo.hasChildren()) {
+                if (snapshot.val().compo !== undefined) {
                     document.getElementById('rowgroup').setAttribute('class', 'row-group row-group-train row-group-train-third');
                     document.getElementById('compo').style.display = 'block';
                     document.getElementById('compo_voie').innerText = snapshot.val().voie;
