@@ -2477,7 +2477,7 @@ var gare_id = params.get('id');
 var db;
 
 function setDb(user_id) {
-    console.log(gare_id);
+    gare_id = params.get('id');
     db = firebase.database().ref("users/" + user_id + "/gares/" + gare_id);
 }
 
