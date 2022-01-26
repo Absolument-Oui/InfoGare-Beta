@@ -139,7 +139,7 @@
 		firebase.auth().onAuthStateChanged(function (user) {
 			if (user) {
 				setDb(user.uid);
-				loadTrains();
+				loadPanelTrains();
 			} else {
 
 			}

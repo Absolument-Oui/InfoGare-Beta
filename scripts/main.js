@@ -1969,6 +1969,7 @@ function loadTrains(user_id, id) {
             //document.getElementById('loader').style.display = 'none';
 
             scrollX();
+            checkDay();
             clock();
         });
     }).catch((error) => {
@@ -3086,7 +3087,6 @@ function loadTrain(uid) {
                         document.getElementById('infos').innerHTML = snapshot.val().alternance;
                     }
                 }
-
             });
             if (snapshot.val().compo !== undefined) {
                 document.getElementById('rowgroup').setAttribute('class', 'row-group row-group-train row-group-train-third');
@@ -3365,11 +3365,9 @@ function checkDay() {
     var today = new Date().getDay();
 
     $('.row-group').each(function(){
-        clearInterval('checkDayRun');
 
         if ($(this).data('day') !== today) {
             $(this).addClass('row-group-hidden');
-            checkDayRun = setInterval(checkDay, 1000, 0);
         }
     });
 }
