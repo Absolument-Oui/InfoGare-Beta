@@ -3449,11 +3449,11 @@ function detectAndroid() {
 function checkDay() {
     var today = new Date().getDay();
 
-    $('#group').each(function(){
+    $('#group').each(function(index, element){
 
-        if ($(this).data('day') !== today) {
-            if ($(this).data('day') !== '') {
-                $(this).addClass('row-group-hidden');
+        if ($(element).data('day') !== today) {
+            if ($(element).data('day') !== '') {
+                $(element).addClass('row-group-hidden');
             }
         }
     });
