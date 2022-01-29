@@ -3451,9 +3451,9 @@ function checkDay() {
 
     $('#group').each(function(){
 
-        if ($(this).data('day') !== today) {
-            if ($(this).data('day') !== undefined) {
-                $(this).addClass('row-group-hidden');
+        if (this.data('day') !== today) {
+            if (this.data('day') !== undefined) {
+                this.addClass('row-group-hidden');
             }
         }
     });
