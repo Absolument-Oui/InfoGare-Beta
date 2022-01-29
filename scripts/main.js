@@ -307,6 +307,36 @@ function modifTrain(tid) {
         infodynatype = 'normal';
     }
 
+    var days = new Array(7);
+
+    if (document.getElementById('train_days_monday').checked) {
+        days.push('1');
+    }
+
+    if (document.getElementById('train_days_tuesday').checked) {
+        days.push('2');
+    }
+
+    if (document.getElementById('train_days_wednesday').checked) {
+        days.push('3');
+    }
+
+    if (document.getElementById('train_days_thursday').checked) {
+        days.push('4');
+    }
+
+    if (document.getElementById('train_days_friday').checked) {
+        days.push('5');
+    }
+
+    if (document.getElementById('train_days_saturday').checked) {
+        days.push('6');
+    }
+
+    if (document.getElementById('train_days_sunday').checked) {
+        days.push('7');
+    }
+
     database.child("users").child(uid).child("gares").child(gare_id).child("trains").child(tid).update({
         number: document.getElementById('train_number').value,
         destination: document.getElementById('train_dest').value,
@@ -322,7 +352,8 @@ function modifTrain(tid) {
         alternance: document.getElementById('train_dynamic').value,
         hall: document.getElementById('train_hall').value,
         alternancetype: infodynatype,
-        compo: compo_list
+        compo: compo_list,
+        days: days.toString()
     }).then((snapshot) => {
         window.close();
     }).catch((error) => {
