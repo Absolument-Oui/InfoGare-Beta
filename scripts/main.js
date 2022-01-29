@@ -278,7 +278,7 @@ function prepModifTrain(tid) {
         var days = snapshot.val().days.split(',');
 
         days.forEach(element => {
-            if (element === 1) {
+            if (element === '1') {
                 document.getElementById('train_days_monday').checked = true;
             } else if (element === '2') {
                 document.getElementById('train_days_tuesday').checked = true;
@@ -2052,7 +2052,7 @@ function loadTrains(user_id, id) {
             //document.getElementById('loader').style.display = 'none';
 
             scrollX();
-            //checkDay();
+            checkDay();
             clock();
         });
     }).catch((error) => {
@@ -3452,7 +3452,9 @@ function checkDay() {
     $('.row-group').each(function(){
 
         if ($(this).data('day') !== today) {
-            $(this).addClass('row-group-hidden');
+            if ($(this).data('day') !== '') {
+                $(this).addClass('row-group-hidden');
+            }
         }
     });
 }
