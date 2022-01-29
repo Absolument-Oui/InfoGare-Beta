@@ -3449,7 +3449,7 @@ function detectAndroid() {
 function checkDay() {
     var today = new Date().getDay();
 
-    $('#group').each(function(index, element){
+    $('group').each(function(index, element){
 
         if ($(element).data('day') !== today) {
             if ($(element).data('day') !== '') {
