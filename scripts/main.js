@@ -280,17 +280,17 @@ function prepModifTrain(tid) {
         days.forEach(element => {
             if (element === 1) {
                 document.getElementById('train_days_monday').checked = true;
-            } else if (element === 2) {
+            } else if (element === '2') {
                 document.getElementById('train_days_tuesday').checked = true;
-            } else if (element === 3) {
+            } else if (element === '3') {
                 document.getElementById('train_days_wednesday').checked = true;
-            } else if (element === 4) {
+            } else if (element === '4') {
                 document.getElementById('train_days_thursday').checked = true;
-            } else if (element === 5) {
+            } else if (element === '5') {
                 document.getElementById('train_days_friday').checked = true;
-            } else if (element === 6) {
+            } else if (element === '6') {
                 document.getElementById('train_days_saturday').checked = true;
-            } else if (element === 7) {
+            } else if (element === '7') {
                 document.getElementById('train_days_sunday').checked = true;
             }
         });
@@ -328,7 +328,7 @@ function modifTrain(tid) {
         infodynatype = 'normal';
     }
 
-    var days = new Array(7);
+    var days = new Array();
 
     if (document.getElementById('train_days_monday').checked) {
         days.push('1');
