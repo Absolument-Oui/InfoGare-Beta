@@ -3456,7 +3456,7 @@ function checkDay() {
     $('.row-train').each(function(){
 
         if ($(this).data('day') !== today) {
-            if ($(this).data('day') !== '') {
+            if ($(this).data('day') !== undefined) {
                 $(this).addClass('row-group-hidden');
             }
         }
