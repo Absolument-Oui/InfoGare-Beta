@@ -2417,7 +2417,7 @@ function importCSV(file) {
 // INFOS
 function loadInfos(userid, gid) {
     database.child(userid).child('gares').child(gid).get().then((snapshot) => {
-        document.getElementById('infos').innerText = snapshot.val().infos;
+        //document.getElementById('infos').innerText = snapshot.val().infos;
 
         if (snapshot.val().infostype === 'flash') {
             document.getElementById('row').setAttribute('class', 'row-group row-group-informations row-group-informations-2');
@@ -2426,7 +2426,7 @@ function loadInfos(userid, gid) {
         }
 
         clock();
-    })
+    });
 }
 
 
