@@ -3460,6 +3460,7 @@ function checkDay() {
         var days = days1.split(',');
 
         days.forEach(element => {
+            console.log(element, today);
             if (element !== today) {
                 if (element === undefined) {
                     $(this).addClass('row-group-hidden');
