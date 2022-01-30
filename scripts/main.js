@@ -1641,7 +1641,8 @@ function loadTrains(user_id, id) {
                     showvoie: voieshowed,
                     alternance: child.val().alternance,
                     hall: child.val().hall,
-                    alternancetype: child.val().alternancetype
+                    alternancetype: child.val().alternancetype,
+                    days: child.val().days
                 });
             }
         });
@@ -1710,6 +1711,7 @@ function loadTrains(user_id, id) {
                     const train_alternance = value["alternance"];
                     const train_hall = value["hall"];
                     const alternance_type = value["alternancetype"];
+                    const days = value["days"];
 
                     var gares_split = train_gares.substr(0, train_gares.length - 1).split("|");
                     var retard, textfeature;
@@ -2967,6 +2969,8 @@ function loadTrain(uid) {
             if (train_type === "SNCF (logo 1985)") {
                 document.getElementById('train_type').innerText = "Train SNCF";
             } else if (train_type === "SNCF (logo 1992)") {
+                document.getElementById('train_type').innerText = "Train SNCF";
+            } else if (train_type === "SNCF (carmillon)") {
                 document.getElementById('train_type').innerText = "Train SNCF";
             } else {
                 document.getElementById('train_type').innerText = train_type;
