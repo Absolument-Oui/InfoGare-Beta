@@ -3455,10 +3455,12 @@ function checkDay() {
 
     $('.row-train').each(function(){
 
-        if ($(this).data('day') !== today) {
-            if ($(this).data('day') !== undefined) {
+        var days = $(this).data('day').split(',');
+
+        days.forEach(element => {
+            if (element !== today) {
                 $(this).addClass('row-group-hidden');
-            }
-        }
+            }    
+        });
     });
 }
