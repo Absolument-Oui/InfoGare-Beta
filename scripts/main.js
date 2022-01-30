@@ -3462,7 +3462,7 @@ function checkDay() {
 
         days.forEach(element => {
             console.log(element, today + 1);
-            if (element !== undefined) {
+            if (element !== 'undefined') {
                 if (element !== today + 1) {
                     $(this).addClass('row-group-hidden');
                 }
