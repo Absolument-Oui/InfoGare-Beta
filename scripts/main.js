@@ -3452,7 +3452,8 @@ function detectAndroid() {
 }
 
 function checkDay() {
-    var today = new Date().getDay();
+    var today_date = new Date();
+    var today = today_date.getDay();
 
     $('.row-train').each(function(){
 
