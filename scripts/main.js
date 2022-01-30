@@ -3455,7 +3455,8 @@ function checkDay() {
 
     $('.row-train').each(function(){
 
-        var days = $(this).data('day').split(',');
+        var days1 = $(this).data('day');
+        var days = days1.split(',');
 
         days.forEach(element => {
             if (element !== today) {
