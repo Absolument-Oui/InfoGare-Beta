@@ -3461,7 +3461,9 @@ function checkDay() {
 
         days.forEach(element => {
             if (element !== today) {
-                $(this).addClass('row-group-hidden');
+                if (element === undefined) {
+                    $(this).addClass('row-group-hidden');
+                }
             }    
         });
     });
