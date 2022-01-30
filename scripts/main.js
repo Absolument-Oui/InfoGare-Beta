@@ -2028,6 +2028,7 @@ function loadTrains(user_id, id) {
                     } else {
                         rowgroup.setAttribute('class', 'row-group row-train');
                     }
+                    rowgroup.setAttribute('data-day', days);
                     rowgroup.setAttribute('data-timeshow', data_time.getTime() / 1000);
                     rowgroup.setAttribute('data-timehide', data_time2.getTime() / 1000)
                     rowgroup.appendChild(firstrow);
