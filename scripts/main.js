@@ -3461,8 +3461,8 @@ function checkDay() {
         var days = days1.split(',');
 
         days.forEach(element => {
-            console.log(element, today);
-            if (element !== today) {
+            console.log(element, today + 1);
+            if (element !== today + 1) {
                 if (element === undefined) {
                     $(this).addClass('row-group-hidden');
                 }
