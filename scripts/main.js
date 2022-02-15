@@ -300,10 +300,10 @@ function prepModifTrain(tid) {
         document.getElementById('validate').innerText = 'Modifier';
 
         document.getElementById('loader').style.display = 'none';
-    //}).catch((error) => {
-        //setError('Préparation de la modification du train', error.stack);
-        //document.getElementById('error_loading').hidden = false;
-        //document.getElementById('loader').style.display = 'none';
+    }).catch((error) => {
+        setError('Préparation de la modification du train', error.stack);
+        document.getElementById('error_loading').hidden = false;
+        document.getElementById('loader').style.display = 'none';
     })
 }
 
@@ -2285,7 +2285,7 @@ function loadGareRer(userid) {
                         btnmodify.setAttribute('class', 'btn btn-options dropdown-toggle');
                         btnmodify.setAttribute('type', 'button');
                         btnmodify.setAttribute('title', 'Modifier le train');
-                        btnmodify.setAttribute('onclick', 'prepModifTrain(' + id + ');');
+                        btnmodify.setAttribute('onclick', 'prepModifTrainRer(' + id + ');');
                         btnmodify.setAttribute('data-toggle', 'modal');
                         btnmodify.setAttribute('data-target', '#modif_train');
 
