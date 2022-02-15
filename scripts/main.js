@@ -301,7 +301,7 @@ function prepModifTrain(tid) {
 
         document.getElementById('loader').style.display = 'none';
     }).catch((error) => {
-        setError('Préparation de la modification du train', error.stack);
+        //setError('Préparation de la modification du train', error.stack);
         document.getElementById('error_loading').hidden = false;
         document.getElementById('loader').style.display = 'none';
     })
