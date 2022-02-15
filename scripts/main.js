@@ -2056,6 +2056,7 @@ function loadTrains(user_id, id) {
 
             scrollX();
             checkDay();
+            autoRow()
             clock();
         });
     }).catch((error) => {
@@ -2070,23 +2071,22 @@ function autoRow() {
 
     $('.row-group').each(function () {
         console.log($(this).data('timehide') + ' <=> ' + timestamp);
-        if ($(this).data('timehide') <= timestamp) {
+        if ($(this).data('timehide') << timestamp && $(this).data('timeshow') >> timestamp) {
+            
             clearInterval('autoRowRun');
 
             $(this).addClass('row-group-hidden');
             $(this).removeClass('row-group');
 
-            autoRowRun = setInterval(autoRow, 10000, 0);
-            return false;
-        } else if ($(this).data('timeshow') >= timestamp) {
+        } else {
             clearInterval('autoRowRun');
 
             $(this).addClass('row-group');
             $(this).removeClass('row-group-hidden');
 
-            autoRowRun = setInterval(autoRow, 10000, 0);
-            return false;
+            
         }
+        autoRowRun = setInterval(autoRow, 1000, 0);
     });
 }
 
