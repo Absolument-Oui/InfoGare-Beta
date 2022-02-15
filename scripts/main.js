@@ -300,10 +300,10 @@ function prepModifTrain(tid) {
         document.getElementById('validate').innerText = 'Modifier';
 
         document.getElementById('loader').style.display = 'none';
-    }).catch((error) => {
+    //}).catch((error) => {
         //setError('Préparation de la modification du train', error.stack);
-        document.getElementById('error_loading').hidden = false;
-        document.getElementById('loader').style.display = 'none';
+        //document.getElementById('error_loading').hidden = false;
+        //document.getElementById('loader').style.display = 'none';
     })
 }
 
