@@ -2071,7 +2071,7 @@ function autoRow() {
 
     $('.row-group.row-train').each(function () {
         console.log($(this).data('timehide') + ' <=> ' + timestamp);
-        if ($(this).data('timehide') << timestamp && $(this).data('timeshow') >> timestamp) {
+        if ($(this).data('timehide') >> timestamp && $(this).data('timeshow') << timestamp) {
             
             clearInterval('autoRowRun');
 
