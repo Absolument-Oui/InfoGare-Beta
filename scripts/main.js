@@ -2069,7 +2069,7 @@ function loadTrains(user_id, id) {
 function autoRow() {
     var timestamp = Date.now() / 1000;
 
-    $('.row-group.row-train').each(function () {
+    $('.row-train').each(function () {
         console.log($(this).data('timehide') + ' <=> ' + timestamp);
         if ($(this).data('timehide') << timestamp && $(this).data('timeshow') >> timestamp) {
             
@@ -2086,6 +2086,7 @@ function autoRow() {
         }
         autoRowRun = setInterval(autoRow, 1000, 0);
     });
+    
 }
 
 
