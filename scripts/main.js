@@ -2071,19 +2071,17 @@ function autoRow() {
 
     $('.row-group.row-train').each(function () {
         console.log($(this).data('timehide') + ' <=> ' + timestamp);
-        if ($(this).data('timehide') >> timestamp && $(this).data('timeshow') << timestamp) {
+        if ($(this).data('timehide') << timestamp && $(this).data('timeshow') >> timestamp) {
             
+            clearInterval('autoRowRun');
+            
+            $(this).addClass('row-group');
+            $(this).removeClass('row-group-hidden');
+        } else {
             clearInterval('autoRowRun');
 
             $(this).addClass('row-group-hidden');
             $(this).removeClass('row-group');
-
-        } else {
-            clearInterval('autoRowRun');
-
-            $(this).addClass('row-group');
-            $(this).removeClass('row-group-hidden');
-
             
         }
         autoRowRun = setInterval(autoRow, 1000, 0);
