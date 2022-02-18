@@ -2070,7 +2070,8 @@ function autoRow() {
     var timestamp = Date.now() / 1000;
 
     $('.row-train').each(function () {
-        console.log($(this).data('timehide') + ' <=> ' + timestamp);
+        console.log('TimeHide : ' + $(this).data('timehide') + ' <=> ' + timestamp);
+        console.log('TimeShow : ' + $(this).data('timeshow') + ' <=> ' + timestamp);
         if ($(this).data('timehide') >> timestamp && $(this).data('timeshow') << timestamp) {
             
             clearInterval('autoRowRun');
