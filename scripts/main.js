@@ -1145,6 +1145,14 @@ function loadArrives(user_id, id) {
                     logo.setAttribute('class', 'train-logo train-logo-tram-train');
                 } else if (train_type === 'Zou') {
                     logo.setAttribute('class', 'train-logo train-logo-zou');
+                } else if (train_type === 'Teoz') {
+                    logo.setAttribute('class', 'train-logo train-logo-teoz');
+                } else if (train_type === 'Lunea') {
+                    logo.setAttribute('class', 'train-logo train-logo-lunea');
+                } else if (train_type === 'Trenitalia') {
+                    logo.setAttribute('class', 'train-logo train-logo-trenitalia');
+                } else if (train_type === 'Frecciarossa') {
+                    logo.setAttribute('class', 'train-logo train-logo-frecciarossa');
                 } else {
                     logo.setAttribute('class', 'train-logo train-logo-sncf');
                 }
@@ -1831,6 +1839,14 @@ function loadTrains(user_id, id) {
                         logo.setAttribute('class', 'train-logo train-logo-tram-train');
                     } else if (train_type === 'Zou') {
                         logo.setAttribute('class', 'train-logo train-logo-zou');
+                    } else if (train_type === 'Teoz') {
+                        logo.setAttribute('class', 'train-logo train-logo-teoz');
+                    } else if (train_type === 'Lunea') {
+                        logo.setAttribute('class', 'train-logo train-logo-lunea');
+                    } else if (train_type === 'Trenitalia') {
+                        logo.setAttribute('class', 'train-logo train-logo-trenitalia');
+                    } else if (train_type === 'Frecciarossa') {
+                        logo.setAttribute('class', 'train-logo train-logo-frecciarossa');    
                     } else {
                         logo.setAttribute('class', 'train-logo train-logo-sncf');
                     }
@@ -3066,6 +3082,14 @@ function loadTrain(uid) {
                 logo.setAttribute('class', 'train-logo train-logo-tram-train');
             } else if (train_type === 'Zou') {
                 logo.setAttribute('class', 'train-logo train-logo-zou');
+            } else if (train_type === 'Teoz') {
+                logo.setAttribute('class', 'train-logo train-logo-teoz');
+            } else if (train_type === 'Lunea') {
+                logo.setAttribute('class', 'train-logo train-logo-lunea');
+            } else if (train_type === 'Trenitalia') {
+                logo.setAttribute('class', 'train-logo train-logo-trenitalia');
+            } else if (train_type === 'Frecciarossa') {
+                logo.setAttribute('class', 'train-logo train-logo-frecciarossa');
             } else {
                 logo.setAttribute('class', 'train-logo train-logo-sncf');
             }
