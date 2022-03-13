@@ -2066,7 +2066,7 @@ function loadTrains(user_id, id) {
             clock();
         });
     }).catch((error) => {
-        setError("Chargement des départs", error.stack);
+        //setError("Chargement des départs", error.stack);
         document.getElementById('error_loading').hidden = false;
         console.error(error);
     });
