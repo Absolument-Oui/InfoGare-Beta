@@ -1833,7 +1833,7 @@ function loadTrains(user_id, id) {
                         logo.setAttribute('class', 'train-logo train-logo-tram-train');
                     } else if (train_type === 'Zou') {
                         logo.setAttribute('class', 'train-logo train-logo-zou');
-                    } else if (train-type === 'OuiGo Classique') {
+                    } else if (train_type === 'OuiGo Classique') {
                         logo.setAttribute('class', 'train-logo train-logo-ouigo-classique');
                     } else {
                         logo.setAttribute('class', 'train-logo train-logo-sncf');
