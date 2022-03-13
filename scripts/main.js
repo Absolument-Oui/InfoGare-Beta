@@ -295,7 +295,6 @@ function prepModifTrain(tid) {
                     document.getElementById('train_days_sunday').checked = true;
                 }
             });
-
         }
 
         document.getElementById('validate').setAttribute('onclick', 'modifTrain(' + tid + ');');
@@ -408,7 +407,8 @@ function modifyGare(gid) {
         aquai: document.getElementById('modif_aquai').value,
         hourmode: hm,
         timebeforeshow: document.getElementById('modify_gare_edit_time_1').value,
-        timeafterhide: document.getElementById('modify_gare_edit_time_2').value
+        timeafterhide: document.getElementById('modify_gare_edit_time_2').value,
+        defil: document.getElementById('modify_gare_defilement').value
     }).then((snapshot) => {
         document.location.reload();
     }).catch((error) => {
@@ -1145,6 +1145,8 @@ function loadArrives(user_id, id) {
                     logo.setAttribute('class', 'train-logo train-logo-tram-train');
                 } else if (train_type === 'Zou') {
                     logo.setAttribute('class', 'train-logo train-logo-zou');
+                } else if (train-type === 'OuiGo Classique') {
+                    logo.setAttribute('class', 'train-logo train-logo-ouigo-classique');
                 } else {
                     logo.setAttribute('class', 'train-logo train-logo-sncf');
                 }
@@ -1831,6 +1833,8 @@ function loadTrains(user_id, id) {
                         logo.setAttribute('class', 'train-logo train-logo-tram-train');
                     } else if (train_type === 'Zou') {
                         logo.setAttribute('class', 'train-logo train-logo-zou');
+                    } else if (train-type === 'OuiGo Classique') {
+                        logo.setAttribute('class', 'train-logo train-logo-ouigo-classique');
                     } else {
                         logo.setAttribute('class', 'train-logo train-logo-sncf');
                     }
@@ -3066,6 +3070,8 @@ function loadTrain(uid) {
                 logo.setAttribute('class', 'train-logo train-logo-tram-train');
             } else if (train_type === 'Zou') {
                 logo.setAttribute('class', 'train-logo train-logo-zou');
+            } else if (train_type === 'OuiGo Classique') {
+                logo.setAttribute('class', 'train-logo train-logo-ouigo-classique');
             } else {
                 logo.setAttribute('class', 'train-logo train-logo-sncf');
             }

@@ -1000,6 +1000,10 @@ a {
     background-image: url(../../../images/screen/common/logo-ouigo.svg);
 }
 
+.train-logo.train-logo-ouigo-classique {
+    background-image: url(../../../images/screen/common/logo-ouigo-classique.svg);
+}
+
 .train-logo.train-logo-ler {
     background-image: url(../../../images/screen/common/logo-ler.svg);
 }
