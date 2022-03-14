@@ -1308,9 +1308,10 @@ function loadArrives(user_id, id) {
             clock();
         });
     }).catch((error) => {
-        setError("Chargement des arrivés", error.stack);
+        //setError("Chargement des arrivés", error.stack);
         document.getElementById('error_loading').hidden = false;
         document.getElementById('loader').style.display = 'none';
+        console.error(error);
     })
 }
 
