@@ -2063,6 +2063,9 @@ function loadTrains(user_id, id) {
             //document.getElementById('loader').style.display = 'none';
 
             scrollX();
+            if (snapshot.val().defilement) {
+                scrollY(80);
+            }
             checkDay();
             autoRow()
             clock();
