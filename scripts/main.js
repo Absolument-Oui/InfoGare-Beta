@@ -197,6 +197,7 @@ function prepModifGare(gid) {
         }
         document.getElementById('modify_gare_edit_time_1').value = snapshot.val().timebeforeshow;
         document.getElementById('modify_gare_edit_time_2').value = snapshot.val().timeafterhide;
+        document.getElementById('modify_gare_defilement').value = snapshot.val().defilement;
     }).catch((error) => {
         setError('Préparation de la modification de la gare', error.stack);
         document.getElementById('error_loading').hidden = false;
@@ -408,7 +409,7 @@ function modifyGare(gid) {
         hourmode: hm,
         timebeforeshow: document.getElementById('modify_gare_edit_time_1').value,
         timeafterhide: document.getElementById('modify_gare_edit_time_2').value,
-        defil: document.getElementById('modify_gare_defilement').value
+        defilement: document.getElementById('modify_gare_defilement').value
     }).then((snapshot) => {
         document.location.reload();
     }).catch((error) => {
