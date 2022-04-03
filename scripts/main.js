@@ -3490,3 +3490,85 @@ function checkDay() {
         });
     });
 }
+
+function loadTrainsEva(userid) {
+    var params = new URLSearchParams(window.location.search);
+    var gid = params.get('id');
+    database.child('users').child(userid).child('gares').child(gid).child('trains').get().then((snapshot) => {
+        var i = 0;
+        snapshot.forEach((child) => {
+            if (i < 4) {
+                var train_hour = child.val().hourdepart;
+                var train_destination = child.val().destination;
+                var train_type = child.val().type;
+                var train_gares = child.val().gares.split('|');
+                var train_voie = child.val().voie;
+                var train_number = child.val().number;
+
+                var row = document.createElement('div');
+                var first_col = document.createElement('div');
+                var second_col = document.createElement('div');
+                var third_col = document.createElement('div');
+                var fourth_col = document.createElement('div');
+                var hour = document.createElement('div');
+                var destination = document.createElement('div');
+                var gares = document.createElement('div');
+                var via = document.createElement('div');
+                var voie = document.createElement('div');
+                var text_voie = document.createElement('span');
+                var voie_number = document.createElement('span');
+                var type = document.createElement('div');
+                var number = document.createElement('div');
+
+                row.setAttribute('class', 'row');
+                first_col.setAttribute('class', 'first-col');
+                second_col.setAttribute('class', 'second-col');
+                third_col.setAttribute('class', 'third-col');
+                fourth_col.setAttribute('class', 'fourth-col');
+                hour.setAttribute('class', 'hour');
+                destination.setAttribute('class', 'dest');
+                gares.setAttribute('class', 'gares');
+                via.setAttribute('class', 'via');
+                voie.setAttribute('class', 'voie');
+                text_voie.setAttribute('class', 'text-voie');
+                voie_number.setAttribute('class', 'number');
+                type.setAttribute('class', 'type');
+                number.setAttribute('class', 'number');
+
+
+                hour.innerText = train_hour;
+                destination.innerText = train_destination;
+                via.innerText = 'via';
+                text_voie.innerText = 'Voie';
+                voie_number.innerText = train_voie;
+                type.innerText = train_type;
+                number.innerText = train_number;
+
+                first_col.appendChild(hour);
+                second_col.appendChild(destination);
+                gares.appendChild(via);
+                
+                train_gares.forEach(element => {
+                    var gare = document.createElement('div');
+                    gare.setAttribute('class', 'gare');
+                    gare.innerText = element;
+                    gares.appendChild(gare);
+                });
+
+                second_col.appendChild(gares);
+                voie.appendChild(text_voie);
+                voie.appendChild(voie_number);
+                third_col.appendChild(voie);
+                fourth_col.appendChild(type);
+                fourth_col.appendChild(number);
+                row.appendChild(first_col);
+                row.appendChild(second_col);
+                row.appendChild(third_col);
+                row.appendChild(fourth_col);
+
+                document.getElementsByClassName('rows-group')[0].appendChild(row);
+                i++;
+            }
+        });
+    });
+}
