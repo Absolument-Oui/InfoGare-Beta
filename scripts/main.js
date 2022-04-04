@@ -198,6 +198,7 @@ function prepModifGare(gid) {
         document.getElementById('modify_gare_edit_time_1').value = snapshot.val().timebeforeshow;
         document.getElementById('modify_gare_edit_time_2').value = snapshot.val().timeafterhide;
         document.getElementById('modify_gare_defilement').checked = snapshot.val().defilement;
+        document.getElementById('modif_gare_screen').value = snapshot.val().screen;
     }).catch((error) => {
         setError('Préparation de la modification de la gare', error.stack);
         document.getElementById('error_loading').hidden = false;
@@ -409,7 +410,8 @@ function modifyGare(gid) {
         hourmode: hm,
         timebeforeshow: document.getElementById('modify_gare_edit_time_1').value,
         timeafterhide: document.getElementById('modify_gare_edit_time_2').value,
-        defilement: document.getElementById('modify_gare_defilement').checked
+        defilement: document.getElementById('modify_gare_defilement').checked,
+        screen: document.getElementById('modif_gare_screen').value
     }).then((snapshot) => {
         document.location.reload();
     }).catch((error) => {
@@ -465,7 +467,8 @@ function createGare(name) {
         aquai: document.getElementById('aquai').value,
         hourmode: hm,
         timebeforeshow: document.getElementById('gare_edit_time_1').value,
-        timeafterhide: document.getElementById('gare_edit_time_2').value
+        timeafterhide: document.getElementById('gare_edit_time_2').value,
+        screen: document.getElementById('gare_screen').value
     }).then((snapshot) => {
         document.location.reload();
     });
@@ -2091,9 +2094,9 @@ function autoRow() {
         console.log('TimeHide : ' + $(this).data('timehide') + ' <=> ' + timestamp);
         console.log('TimeShow : ' + $(this).data('timeshow') + ' <=> ' + timestamp);
         if ($(this).data('timehide') << timestamp && $(this).data('timeshow') >> timestamp) {
-            
+
             clearInterval('autoRowRun');
-            
+
             $(this).addClass('row-group');
             $(this).removeClass('row-group-hidden');
         } else {
@@ -2101,11 +2104,11 @@ function autoRow() {
 
             $(this).addClass('row-group-hidden');
             $(this).removeClass('row-group');
-            
+
         }
         autoRowRun = setInterval(autoRow, 1000, 0);
     });
-    
+
 }
 
 
@@ -3475,7 +3478,7 @@ function checkDay() {
     var today_date = new Date();
     var today = today_date.getDay();
 
-    $('.row-train').each(function(){
+    $('.row-train').each(function () {
 
         var days1 = $(this).data('day');
         var days = days1.split(',');
@@ -3486,7 +3489,7 @@ function checkDay() {
                 if (element !== today + 1) {
                     $(this).addClass('row-group-hidden');
                 }
-            }    
+            }
         });
     });
 }
@@ -3539,7 +3542,7 @@ function loadTrainsEva(userid) {
                 hour.innerText = train_hour;
                 destination.innerText = train_destination;
                 via.innerText = 'via';
-                text_voie.innerText = 'Voie';
+                text_voie.innerText = 'Voie ';
                 voie_number.innerText = train_voie;
                 type.innerText = train_type;
                 number.innerText = train_number;
@@ -3547,12 +3550,14 @@ function loadTrainsEva(userid) {
                 first_col.appendChild(hour);
                 second_col.appendChild(destination);
                 gares.appendChild(via);
-                
+
                 train_gares.forEach(element => {
-                    var gare = document.createElement('div');
-                    gare.setAttribute('class', 'gare');
-                    gare.innerText = element;
-                    gares.appendChild(gare);
+                    if (element !== '') {
+                        var gare = document.createElement('div');
+                        gare.setAttribute('class', 'gare');
+                        gare.innerText = element;
+                        gares.appendChild(gare);
+                    }
                 });
 
                 second_col.appendChild(gares);
