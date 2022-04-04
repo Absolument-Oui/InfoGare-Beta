@@ -539,6 +539,15 @@ function loadGare(userid) {
                             train_hourdepart = undefined;
                         }
 
+                        if (!openmethod && childSnapshot.val().screen === 'EVA') {
+                            document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '");');
+                            document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');
+                        } else {
+                            document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '", "", "height=500,width=750");');
+                            document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '", "", "height=500,width=750");');
+                        }
+
+
                         if (openmethod) {
                             if (userid == uid) {
                                 if (train_hourarrive != undefined && train_hourdepart != undefined) {
@@ -651,6 +660,7 @@ function loadGare(userid) {
 
                         document.getElementById('trains').appendChild(listgroupitem);
                     });
+
                     document.getElementById('trains').hidden = false;
                     document.getElementById('loader').style.display = 'none';
                 } else {
