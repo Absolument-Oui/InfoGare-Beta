@@ -539,7 +539,7 @@ function loadGare(userid) {
                             train_hourdepart = undefined;
                         }
 
-                        if (!openmethod && childSnapshot.val().screen === 'EVA') {
+                        if (!openmethod && childsnapshot.val().screen === 'EVA') {
                             document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '");');
                             document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');
                         } else {
