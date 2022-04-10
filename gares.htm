@@ -530,7 +530,7 @@
 	<script>
 		var params = new URLSearchParams(location.search);
 		if (params.has('token')) {
-			if (token !== undefined) {
+			if (params.get('token') !== undefined) {
 				loginWithToken(params.get('token'));
 			} else {
 				alert('Erreur lors de la récupération du jeton de connexion');
