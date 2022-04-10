@@ -85,7 +85,7 @@
 							<ul>
 								<li class="dropdown-item" id="mnu_compte" hidden><a href="compte.htm">Préférences</a></li>
 								<li class="dropdown-item" id="mnu_gares" hidden><a href="gares.htm">Mes gares</a></li>
-								<li class="dropdown-item" id="mnu_login" hidden><a id="login_btn">Se connecter</a></li>
+								<li class="dropdown-item" id="mnu_login" hidden><a id="login_btn" style="cursor: pointer;">Se connecter</a></li>
 								<li class="dropdown-item" id="mnu_users" hidden><a href="users.htm">Utilisateurs</a></li>
 								<li class="dropdown-item" id="mnu_logout" hidden><a href="#" data-toggle="modal"
 										data-target="#logout">Se déconnecter</a></li>
@@ -378,7 +378,11 @@
 
 			var params = new URLSearchParams(location.search);
 			if (params.has('token')) {
-				loginWithToken(params.get('token'));
+				if (token !== undefined) {
+					loginWithToken(params.get('token'));
+				} else {
+					alert('Erreur lors de la récupération du jeton de connexion');
+				}
 			}
 
 			if (localStorage.getItem('cookies_accepted') === undefined) {
