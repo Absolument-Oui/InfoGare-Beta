@@ -530,14 +530,14 @@
 	<script>
 		var params = new URLSearchParams(location.search);
 		if (params.has('token')) {
-			if (params.get('token') !== undefined) {
+			if (params.get('token') !== 'undefined') {
 				loginWithToken(params.get('token'));
 			} else {
 				alert('Erreur lors de la récupération du jeton de connexion');
 			}
 		}
 
-		if (localStorage.getItem('cookies_accepted') === undefined) {
+		if (localStorage.getItem('cookies_accepted') === null) {
 			$('#cookies').modal('show');
 		}
 

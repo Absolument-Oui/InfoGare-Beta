@@ -117,7 +117,7 @@
 	<script src="scripts/main.js"></script>
 
 	<script>
-		if (localStorage.getItem('cookies_accepted') === undefined) {
+		if (localStorage.getItem('cookies_accepted') === null) {
 			$('#cookies').modal('show');
 		}
 
