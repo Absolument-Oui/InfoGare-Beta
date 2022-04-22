@@ -1095,6 +1095,14 @@ a {
     background-image: url(../../../images/screen/quai/logo-trenitalia-color.svg);
 }
 
+.train-logo.train-logo-cfl {
+    background-image: url(../../../images/screen/quai/logo-cfl-color.svg);
+}
+
+.train-logo.train-logo-sncb {
+    background-image: url(../../../images/screen/quai/logo-sncb-color.svg);
+}
+
 /* -- time -- */
 
 .train-time .text-time-hours {

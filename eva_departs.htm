@@ -4,6 +4,7 @@
     <title>EVA TEST</title>
     <link href="styles/departs/screen/eva.css" rel="stylesheet" type="text/css">
     <link href="styles/fonts/Achemine/style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
     <div class="rows">
@@ -18,9 +19,13 @@
             </div>
         </div>
         <div class="rows-group">
-            <!--<div class="row">
+            <div class="row">
                 <div class="first-col">
                     <div class="hour">12:00</div>
+                    <div class="retard-box">
+                        <div class="retard-icon"></div>
+                        <div class="retard-text">à l'heure</div>
+                    </div>
                 </div>
                 <div class="second-col">
                     <div class="dest">Metz-ville</div>
@@ -107,7 +112,7 @@
                     <div class="type">TER</div>
                     <div class="number">837505</div>
                 </div>
-            </div>!-->
+            </div>
         </div>
         
     </div>
@@ -126,7 +131,7 @@
 
     <script>
         firebase.auth().onAuthStateChanged(function (user) {
-            loadTrainsEva(user.uid);
+            //loadTrainsEva(user.uid);
         });
     </script>
 </body>

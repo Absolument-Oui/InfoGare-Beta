@@ -1161,6 +1161,10 @@ function loadArrives(user_id, id) {
                     logo.setAttribute('class', 'train-logo train-logo-zou');
                 } else if (train_type === 'OuiGo Classique') {
                     logo.setAttribute('class', 'train-logo train-logo-ouigo-classique');
+                } else if (train_type === 'CFL') {
+                    logo.setAttribute('class', 'train-logo train-logo-cfl');
+                } else if (train_type === 'SNCB') {
+                    logo.setAttribute('class', 'train-logo train-logo-sncb');
                 } else {
                     logo.setAttribute('class', 'train-logo train-logo-sncf');
                 }
@@ -1856,6 +1860,10 @@ function loadTrains(user_id, id) {
                             logo.setAttribute('class', 'train-logo train-logo-zou');
                         } else if (train_type === 'OuiGo Classique') {
                             logo.setAttribute('class', 'train-logo train-logo-ouigo-classique');
+                        } else if (train_type === 'CFL') {
+                            logo.setAttribute('class', 'train-logo train-logo-cfl');
+                        } else if (train_type === 'SNCB') {
+                            logo.setAttribute('class', 'train-logo train-logo-sncb');
                         } else {
                             logo.setAttribute('class', 'train-logo train-logo-sncf');
                         }
@@ -3097,6 +3105,10 @@ function loadTrain(uid) {
                 logo.setAttribute('class', 'train-logo train-logo-zou');
             } else if (train_type === 'OuiGo Classique') {
                 logo.setAttribute('class', 'train-logo train-logo-ouigo-classique');
+            } else if (train_type === 'CFL') {
+                logo.setAttribute('class', 'train-logo train-logo-cfl');
+            } else if (train_type === 'SNCB') {
+                logo.setAttribute('class', 'train-logo train-logo-sncb');
             } else {
                 logo.setAttribute('class', 'train-logo train-logo-sncf');
             }
@@ -3517,6 +3529,8 @@ function loadTrainsEva(userid) {
                 var train_gares = child.val().gares.split('|');
                 var train_voie = child.val().voie;
                 var train_number = child.val().number;
+                var train_retard_type = child.val().retardtype;
+                var train_retard_time = child.val().retardtime;
 
                 var row = document.createElement('div');
                 var first_col = document.createElement('div');
@@ -3569,6 +3583,10 @@ function loadTrainsEva(userid) {
                         gares.appendChild(gare);
                     }
                 });
+
+                if (train_retard_type === 'alheure') {
+                    
+                }
 
                 second_col.appendChild(gares);
                 voie.appendChild(text_voie);

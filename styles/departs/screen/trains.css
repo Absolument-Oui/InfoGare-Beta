@@ -1206,6 +1206,14 @@ a {
     background-image: url(../../../images/screen/common/logo-trenitalia.svg);
 }
 
+.train-logo.train-logo-cfl {
+    background-image: url(../../../images/screen/common/logo-cfl.svg);
+}
+
+.train-logo.train-logo-sncb {
+    background-image: url(../../../images/screen/common/logo-sncb.svg);
+}
+
 
 /* -- rer --*/
 
