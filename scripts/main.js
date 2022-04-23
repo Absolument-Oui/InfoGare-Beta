@@ -539,12 +539,22 @@ function loadGare(userid) {
                             train_hourdepart = undefined;
                         }
 
-                        if (!openmethod && childsnapshot.val().screen === 'EVA') {
-                            document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '");');
-                            document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');
+                        if (!openmethod) {
+                            if (childsnapshot.val().screen === "EVA") {
+                                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '");');
+                                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');
+                            } else {
+                                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '");');
+                                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');    
+                            }
                         } else {
-                            document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '", "", "height=500,width=750");');
-                            document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '", "", "height=500,width=750");');
+                            if (childsnapshot.val().screen === "EVA") {
+                                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '", "", "height=500,width=750");');
+                                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '", "", "height=500,width=750");');
+                            } else {
+                                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '", "", "height=500,width=750");');
+                                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '", "", "height=500,width=750");');
+                            }
                         }
 
 
