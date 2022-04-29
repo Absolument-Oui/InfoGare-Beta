@@ -17,15 +17,15 @@ function loadParams() {
         autoopenpanel = snapshot.val().autoopenpanel;
         if (!openmethod) {
             if (autoopenpanel) {
-                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '&panel");');
+                //document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '&panel");');
                 document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');
             } else {
-                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '");');
+                //document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '");');
                 document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');
             }
         } else {
             if (autoopenpanel) {
-                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + document.location.search + '&panel", "", "height=500,width=750");');
+                //document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + document.location.search + '&panel", "", "height=500,width=750");');
             }
         }
     });
@@ -479,7 +479,27 @@ function loadGare(userid) {
     gare_id = params.get("id");
     database.child("users").child(userid).child("gares").child(params.get("id")).get().then((snapshot) => {
         if (snapshot.exists()) {
-            document.title = 'InfoGare - ' + snapshot.val().name;
+            document.title = 'InfoGare - ' + snapshot.val().name;                     
+            console.log(snapshot.val().screen);
+
+            if (!openmethod) {
+                if (snapshot.val().screen == "EVA") {
+                    document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '");');
+                    document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');
+                } else {
+                    document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '");');
+                    document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');    
+                }
+            } else {
+                if (snapshot.val().screen == "EVA") {
+                    document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '", "", "height=500,width=750");');
+                    document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '", "", "height=500,width=750");');
+                } else {
+                    document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '", "", "height=500,width=750");');
+                    document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '", "", "height=500,width=750");');
+                }
+            }
+
             database.child("users").child(userid).child("gares").child(params.get("id")).child("trains").get().then((snapshot) => {
                 if (snapshot.exists()) {
                     snapshot.forEach((childsnapshot) => {
@@ -537,24 +557,6 @@ function loadGare(userid) {
 
                         if (train_hourdepart === "") {
                             train_hourdepart = undefined;
-                        }
-
-                        if (!openmethod) {
-                            if (childsnapshot.val().screen === "EVA") {
-                                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '");');
-                                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');
-                            } else {
-                                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '");');
-                                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '");');    
-                            }
-                        } else {
-                            if (childsnapshot.val().screen === "EVA") {
-                                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '", "", "height=500,width=750");');
-                                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '", "", "height=500,width=750");');
-                            } else {
-                                document.getElementById('showdeparts').setAttribute('onclick', 'window.open("departs.htm' + window.location.search + '", "", "height=500,width=750");');
-                                document.getElementById('showarrives').setAttribute('onclick', 'window.open("arrives.htm' + window.location.search + '", "", "height=500,width=750");');
-                            }
                         }
 
 
