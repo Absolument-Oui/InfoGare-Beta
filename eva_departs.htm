@@ -19,12 +19,13 @@
             </div>
         </div>
         <div class="rows-group">
-            <div class="row">
+            <!--<div class="row">
                 <div class="first-col">
                     <div class="hour">12:00</div>
-                    <div class="retard-box">
-                        <div class="retard-icon"></div>
-                        <div class="retard-text">à l'heure</div>
+                    <div class="retard-box supprime">
+                        <div class="retard-icon supprime"></div>
+                        <div class="retard-text blink1">supprimé</div>
+                        <div class="retard-text blink2">Train</div>
                     </div>
                 </div>
                 <div class="second-col">
@@ -112,7 +113,7 @@
                     <div class="type">TER</div>
                     <div class="number">837505</div>
                 </div>
-            </div>
+            </div>!-->
         </div>
         
     </div>
@@ -131,7 +132,7 @@
 
     <script>
         firebase.auth().onAuthStateChanged(function (user) {
-            loadTrainsEva(user.uid);
+            //loadTrainsEva(user.uid);
         });
     </script>
 </body>

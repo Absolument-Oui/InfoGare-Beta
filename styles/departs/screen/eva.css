@@ -164,6 +164,7 @@ body {
     margin-bottom: 5%;
     margin-left: 5%;
     margin-right: 5%;
+    vertical-align: middle;
 }
 
 .rows .rows-group .row .first-col .retard-box.retard {
@@ -171,22 +172,54 @@ body {
     background-color: rgb(245, 135, 73);
 }
 
+.rows .rows-group .row .first-col .retard-box.supprime {
+    border-color: rgb(235, 24, 59);
+    background-color: rgb(235, 24, 59);
+    color: white;
+}
+
 .rows .rows-group .row .first-col .retard-box .retard-icon {
-    height: 3vh;
-    width: 3vh;
+    margin-left: 5%;
+    margin-top: 2.5%;
+    height: 3.5vh;
+    width: 3.5vh;
     -moz-background-size: contain;
     -o-background-size: contain;
     -webkit-background-size: contain;
     background-size: contain;
-    background: url(../../../images/screen/eva/horloge.svg) no-repeat center;
+    background: no-repeat center;
     display: inline-block;
+}
+
+.rows .rows-group .row .first-col .retard-box .retard-icon.alheure {
+    background-image: url(../../../images/screen/eva/horloge.svg);
+}
+
+.rows .rows-group .row .first-col .retard-box .retard-icon.supprime {
+    background-image: url(../../../images/screen/eva/horloge_white.svg);
 }
 
 .rows .rows-group .row .first-col .retard-box .retard-text {
     font-size: 4.5em;
     font-weight: bold;
-    color:rgb(0, 8, 47);
     display: inline-block;
+}
+
+.rows .rows-group .row .first-col .retard-box .retard-text.blink2,
+.rows .rows-group .row .first-col .retard-box .retard-text.blink1 {
+    will-change: visibility;
+    animation: blink 4s steps(2, start) infinite;
+    -webkit-animation: blink 4s steps(2, start) infinite;
+}
+
+.rows .rows-group .row .first-col .retard-box .retard-text.blink.blink1 {
+    position: relative;
+}
+
+.rows .rows-group .row .first-col .retard-box .retard-text.blink2 {
+    visibility: hidden;
+    animation-delay: 2s;
+    -webkit-animation-delay: 2s;
 }
 
 .rows .rows-group .row .second-col .dest {

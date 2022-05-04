@@ -480,8 +480,6 @@ function loadGare(userid) {
     database.child("users").child(userid).child("gares").child(params.get("id")).get().then((snapshot) => {
         if (snapshot.exists()) {
             document.title = 'InfoGare - ' + snapshot.val().name;                     
-            console.log(snapshot.val().screen);
-
             if (!openmethod) {
                 if (snapshot.val().screen == "EVA") {
                     document.getElementById('showdeparts').setAttribute('onclick', 'window.open("eva_departs.htm' + window.location.search + '");');
