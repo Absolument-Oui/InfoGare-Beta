@@ -534,6 +534,7 @@
 				loginWithToken(params.get('token'));
 			} else {
 				alert('Erreur lors de la récupération du jeton de connexion');
+				window.location.href = window.location.href.split('?')[0];
 			}
 		}
 

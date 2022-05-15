@@ -1351,6 +1351,10 @@ var uid;
 
 function loadTrainsRer(user_id, id) {
     uid = user_id;
+    var gare_hour_mode;
+    database.child("users").child(user_id).child("gares").child(id).get().then((snap) => {
+        gare_hour_mode = snap.val().hourmode;
+    });
     var ref = database.child("users").child(user_id).child("gares").child(id).child("trains");
     ref.get().then((snapshot) => {
         snapshot.forEach((child) => {
@@ -1490,7 +1494,18 @@ function loadTrainsRer(user_id, id) {
 
                 if (train_hour_mode === 'Heure') {
                     secondsecondcol_firstrow.setAttribute('class', 'col-second-second text-time');
-                    secondsecondcol_firstrow.appendChild(document.createTextNode(train_hour));
+                    if (gare_hour_mode === 'show_remaining') {
+                        //calculate minutes remaining between now and the train's departure
+                        var now = new Date();
+                        var departure = new Date();
+                        departure.setHours(train_hour.replace('h', ':').split(':')[0]);
+                        departure.setMinutes(train_hour.replace('h', ':').split(':')[1]);
+                        var diff = (departure - now);
+                        var minutes = Math.round((diff/1000)/60);
+                        secondsecondcol_firstrow.appendChild(document.createTextNode(minutes + ' min.'));
+                    } else {
+                        secondsecondcol_firstrow.appendChild(document.createTextNode(train_hour));
+                    }
                 } else {
                     var second_animationblink1 = document.createElement('div');
                     var second_animationblink2 = document.createElement('div');
@@ -1503,7 +1518,18 @@ function loadTrainsRer(user_id, id) {
                     }
 
                     second_animationblink2.setAttribute('class', 'text-time animation-blink-2');
-                    second_animationblink2.appendChild(document.createTextNode(train_hour.replace(':', 'h')));
+                    if (gare_hour_mode === 'show_remaining') {
+                        //calculate minutes remaining between now and the train's departure
+                        var now = new Date();
+                        var departure = new Date();
+                        departure.setHours(train_hour.replace('h', ':').split(':')[0]);
+                        departure.setMinutes(train_hour.replace('h', ':').split(':')[1]);
+                        var diff = (departure - now);
+                        var minutes = Math.round((diff/1000)/60);
+                        second_animationblink2.appendChild(document.createTextNode(minutes + ' min.'));
+                    } else {
+                        second_animationblink2.appendChild(document.createTextNode(train_hour.replace(':', 'h')));
+                    }
 
                     secondsecondcol_firstrow.appendChild(second_animationblink1);
                     secondsecondcol_firstrow.appendChild(second_animationblink2);
@@ -1587,7 +1613,7 @@ function loadTrainsRer(user_id, id) {
             clock();
         });
     }).catch((error) => {
-        setError("Chargement des départs RER", error.stack);
+        //setError("Chargement des départs RER", error.stack);
         document.getElementById('error_loading').hidden = false;
         document.getElementById('loader').style.display = 'none';
 
