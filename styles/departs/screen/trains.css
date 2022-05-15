@@ -716,6 +716,10 @@ a {
     font-weight: bold;
 }
 
+.text-time.minutes {
+    font-size: 5em;
+}
+
 .text-time.retard {
     color: #f9a200;
 }
@@ -861,6 +865,10 @@ a {
 
 .rows .row-group-2 .row:nth-of-type(1) .text-time {
     font-size: 7.5em;
+}
+
+.rows .row-group-2 .row:nth-of-type(1) .text-time.minutes {
+    font-size: 5em;
 }
 
 .rows .row-group-2 .row:nth-of-type(1) .train-track {

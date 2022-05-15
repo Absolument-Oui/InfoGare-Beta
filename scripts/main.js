@@ -1350,6 +1350,7 @@ var list = new Array();
 var uid;
 
 function loadTrainsRer(user_id, id) {
+    list = new Array();
     uid = user_id;
     var gare_hour_mode;
     database.child("users").child(user_id).child("gares").child(id).get().then((snap) => {
@@ -1359,18 +1360,20 @@ function loadTrainsRer(user_id, id) {
     ref.get().then((snapshot) => {
         snapshot.forEach((child) => {
             if (child.val().hourdepart != "") {
-                list.push({
-                    number: child.val().number,
-                    destination: child.val().destination,
-                    hourdepart: child.val().hourdepart,
-                    type: child.val().type,
-                    gares: child.val().gares,
-                    retardtime: child.val().retardtime,
-                    retardtype: child.val().retardtype,
-                    mission: child.val().mission,
-                    length: child.val().length,
-                    hourmode: child.val().hourmode
-                });
+                if (getRERDisplay(child.val().hourdepart)) {
+                    list.push({
+                        number: child.val().number,
+                        destination: child.val().destination,
+                        hourdepart: child.val().hourdepart,
+                        type: child.val().type,
+                        gares: child.val().gares,
+                        retardtime: child.val().retardtime,
+                        retardtype: child.val().retardtype,
+                        mission: child.val().mission,
+                        length: child.val().length,
+                        hourmode: child.val().hourmode
+                    });
+                }
             }
         });
         list.sort((a, b) => {
@@ -1381,6 +1384,8 @@ function loadTrainsRer(user_id, id) {
             return 0;
         });
         var i = 0;
+        //delete all div with class row
+        document.getElementById('rows-grp').innerHTML = "";
         list.forEach((value, index, array) => {
             if (i < 7) {
                 // Root
@@ -1495,6 +1500,7 @@ function loadTrainsRer(user_id, id) {
                 if (train_hour_mode === 'Heure') {
                     secondsecondcol_firstrow.setAttribute('class', 'col-second-second text-time');
                     if (gare_hour_mode === 'show_remaining') {
+                        secondsecondcol_firstrow.setAttribute('class', 'col-second-second text-time minutes');
                         //calculate minutes remaining between now and the train's departure
                         var now = new Date();
                         var departure = new Date();
@@ -1519,6 +1525,7 @@ function loadTrainsRer(user_id, id) {
 
                     second_animationblink2.setAttribute('class', 'text-time animation-blink-2');
                     if (gare_hour_mode === 'show_remaining') {
+                        second_animationblink2.setAttribute('class', 'text-time minutes animation-blink-2');
                         //calculate minutes remaining between now and the train's departure
                         var now = new Date();
                         var departure = new Date();
@@ -1592,7 +1599,7 @@ function loadTrainsRer(user_id, id) {
 
                 rowgroup.setAttribute('data-time', '');
 
-                document.getElementById('rows').appendChild(rowgroup);
+                document.getElementById('rows-grp').appendChild(rowgroup);
 
                 i++;
             }
@@ -1609,8 +1616,9 @@ function loadTrainsRer(user_id, id) {
             document.getElementById('loader').style.display = 'none';
 
             scrollX();
-            getInfos(id);
+            //getInfos(id);
             clock();
+            setInterval(loadTrainsRer(user_id, id), 10000);
         });
     }).catch((error) => {
         //setError("Chargement des départs RER", error.stack);
@@ -1621,6 +1629,26 @@ function loadTrainsRer(user_id, id) {
     });
 }
 
+function getRERDisplay(hourdepart) {
+    //difference between now and the train's departure
+    var now = new Date();
+    var departure = new Date();
+    departure.setHours(hourdepart.replace('h', ':').split(':')[0]);
+    departure.setMinutes(hourdepart.replace('h', ':').split(':')[1]);
+    var diff = (departure - now);
+    var minutes = Math.round((diff/1000)/60);
+
+    //console.info(nowhour + ' : ' + nowminutes + ' > ' + trainhour + ' : ' + trainminutes);
+
+    //if the train hour is passed, we don't display it
+    if (minutes < 0) {
+        return false;
+    } else {
+        return true;
+    }
+
+}
+
 var nowhour, nowminutes, trainhour, trainminutes;
 var alapproche, aquai;
 
@@ -1628,11 +1656,18 @@ function getInfos(gid) {
     database.child("users").child(uid).child("gares").child(gid).get().then((snapshot) => {
         database.child("users").child(uid).child("gares").child(gid).child("trains").get().then((snapshot) => {
             snapshot.forEach((child) => {
-                nowhour = new Date().getHours();
-                nowminutes = new Date().getMinutes();
+                //difference between now and the train's departure
+                var now = new Date();
+                var departure = new Date();
+                departure.setHours(child.val().hourdepart.replace('h', ':').split(':')[0]);
+                departure.setMinutes(child.val().hourdepart.replace('h', ':').split(':')[1]);
+                var diff = (departure - now);
+                var minutes = Math.round((diff/1000)/60);
 
-                trainhour = child.val().hourdepart.substr(0, 2);
-                trainminutes = child.val().hourdepart.substr(3, 5);
+                //if the train hour is passed, we don't display it
+                if (minutes < 0) {
+                    return;
+                }
 
                 console.info(nowhour + ' : ' + nowminutes + ' > ' + trainhour + ' : ' + trainminutes);
             });
