@@ -1618,7 +1618,7 @@ function loadTrainsRer(user_id, id) {
             scrollX();
             //getInfos(id);
             clock();
-            setInterval(loadTrainsRer(user_id, id), 10000);
+            setInterval(loadTrainsRer, 10000, user_id, id);
         });
     }).catch((error) => {
         //setError("Chargement des départs RER", error.stack);
