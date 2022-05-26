@@ -80,7 +80,8 @@
 						<ul>
 							<li class="dropdown-item" id="mnu_compte"><a href="compte.htm">Préférences</a></li>
 							<li class="dropdown-item" id="mnu_gares"><a href="gares.htm">Mes gares</a></li>
-							<li class="dropdown-item" id="mnu_login"><a id="login_btn" style="cursor: pointer;">Se connecter</a></li>
+							<li class="dropdown-item" id="mnu_login"><a id="login_btn" style="cursor: pointer;">Se
+									connecter</a></li>
 							<li class="dropdown-item" id="mnu_users"><a href="users.htm">Utilisateurs</a></li>
 							<li class="dropdown-item" id="mnu_logout"><a href="#" data-toggle="modal"
 									data-target="#logout">Se déconnecter</a></li>
@@ -197,8 +198,10 @@
 						<div class="select-control">
 							<div class="input-group" data-role="select-toggle">
 								<p class="form-control is-placeholder  d-flex align-items-center"
-									data-role="placeholder" data-selected-prefix="Sélection actuelle">Sélectionner le type d'affichage</p>
-								<select class="sr-only" id="gare_screen" data-role="input" tabindex="-1" aria-hidden="true">
+									data-role="placeholder" data-selected-prefix="Sélection actuelle">Sélectionner le
+									type d'affichage</p>
+								<select class="sr-only" id="gare_screen" data-role="input" tabindex="-1"
+									aria-hidden="true">
 									<option selected data-role="default-hidden-option" disabled hidden>Normal</option>
 									<option data-id="1">Normal</option>
 									<option data-id="2">EVA</option>
@@ -311,14 +314,16 @@
 					<label for="modif_gare_type">Type de gare</label>
 					<p id="modif_gare_type">Impossible de changer de type de gare. Recréez-en une nouvelle à la place
 					</p>
-					
+
 					<label for="modif_gare_screen">Type d'affichage</label>
 					<div class="select-improved" data-component="select-exclusive">
 						<div class="select-control">
 							<div class="input-group" data-role="select-toggle">
 								<p class="form-control is-placeholder  d-flex align-items-center"
-									data-role="placeholder" data-selected-prefix="Sélection actuelle">Sélectionner le type d'affichage</p>
-								<select class="sr-only" id="modif_gare_screen" data-role="input" tabindex="-1" aria-hidden="true">
+									data-role="placeholder" data-selected-prefix="Sélection actuelle">Sélectionner le
+									type d'affichage</p>
+								<select class="sr-only" id="modif_gare_screen" data-role="input" tabindex="-1"
+									aria-hidden="true">
 									<option selected data-role="default-hidden-option" disabled hidden>Normal</option>
 									<option data-id="1">Normal</option>
 									<option data-id="2">EVA</option>
@@ -361,7 +366,7 @@
 							name="modif_gare_infos_type">
 						<label class="custom-control-label font-weight-medium" for="modif_gare_infos_type_2">Flash
 							circulation</label>
-					</div><br>
+					</div><br><br>
 					<div id="modif_gare_rer_edit" hidden>
 						<label for="modif_gare_rer_edit_alapproche">Temps vant affichage de "à l'aproche"</label>
 						<div class="form-control-container">
@@ -376,20 +381,17 @@
 								placeholder="Entrez le nombre de minutes avant l'affichage">
 							<span class="form-control-state"></span>
 						</div><br>
-						<label for="modif_gare_rer_edit_hour">Type d'heure</label>
-						<div class="form-control-container" id="modif_gare_rer_edit_hour">
-							<div class="custom-control custom-radio">
-								<input type="radio" id="gare_rer_edit_hour_1" name="gare_rer_edit_hour"
-									class="custom-control-input">
-								<label class="custom-control-label font-weight-medium"
-									for="gare_rer_edit_hour_1">Afficher l'heure d'arrivée</label>
-							</div>
-							<div class="custom-control custom-radio">
-								<input type="radio" id="gare_rer_edit_hour_2" name="gare_rer_edit_hour"
-									class="custom-control-input">
-								<label class="custom-control-label font-weight-medium"
-									for="gare_rer_edit_hour_2">Afficher le temps d'attente</label>
-							</div>
+						<label>Type d'heure</label>
+						<div class="custom-control custom-radio" id="modif_gare_hour_type">
+							<input type="radio" id="modif_gare_hour_type_1" class="custom-control-input"
+								name="modif_gare_hour_type">
+							<label class="custom-control-label font-weight-medium"
+								for="modif_gare_hour_type_1">Afficher l'heure</label>
+						</div>
+						<div class="custom-control custom-radio">
+							<input type="radio" id="modif_gare_hour_type_2" class="custom-control-input"
+								name="modif_gare_hour_type">
+							<label class="custom-control-label font-weight-medium" for="modif_gare_hour_type_2">Afficher le temps d'attente</label>
 						</div>
 					</div><br>
 					<div id="modify_gare_edit">
@@ -404,10 +406,10 @@
 							<input type="number" class="form-control" id="modify_gare_edit_time_2"
 								placeholder="Entrez le nombre de minutes">
 							<span class="form-control-state"></span>
-						</div><br>
+						</div>
 					</div><br>
 					<div class="inline">
-						<label>Défilement vertical des tableaux</label>
+						<label>Défilement vertical des tableaux</label><br>
 						<label for="modify_gare_defilement" class="switch-control">
 							<span class="sr-only">On/off Switch</span>
 							<input id="modify_gare_defilement" type="checkbox" class="sr-only">

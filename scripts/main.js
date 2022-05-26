@@ -187,6 +187,9 @@ function loadGares(userid) {
 
 function prepModifGare(gid) {
     database.child("users").child(uid).child("gares").child(gid).get().then((snapshot) => {
+        if (snapshot.val().type === 'RER') {
+            document.getElementById('modif_gare_rer_edit').hidden = false;
+        }
         document.getElementById('modif_gare_name').value = snapshot.val().name;
         document.getElementById('modify_gare_btn').setAttribute('onclick', 'modifyGare(' + snapshot.val().id + ');');
         document.getElementById('modif_gare_infos').value = snapshot.val().infos;
@@ -199,6 +202,11 @@ function prepModifGare(gid) {
         document.getElementById('modify_gare_edit_time_2').value = snapshot.val().timeafterhide;
         document.getElementById('modify_gare_defilement').checked = snapshot.val().defilement;
         document.getElementById('modif_gare_screen').value = snapshot.val().screen;
+        if (snapshot.val().hourmode === 'show_remaining') {
+            document.getElementById('modif_gare_hour_type_2').checked = true;
+        } else {
+            document.getElementById('modif_gare_hour_type_1').checked = true;
+        }
     }).catch((error) => {
         setError('Préparation de la modification de la gare', error.stack);
         document.getElementById('error_loading').hidden = false;
@@ -388,10 +396,10 @@ function modifTrain(tid) {
 
 function modifyGare(gid) {
     var hm;
-    if (document.getElementById('gare_rer_edit_hour_1').checked) {
-        hm = 'showhour';
+    if (document.getElementById('modif_gare_hour_type_1').checked) {
+        hm = 'show_hour';
     } else {
-        hm = 'showremaining';
+        hm = 'show_remaining';
     }
 
     var it;
