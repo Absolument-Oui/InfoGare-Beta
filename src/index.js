@@ -6,6 +6,7 @@ import { getDatabase } from 'firebase/database';
 import { getAuth, signInWithCustomToken } from 'firebase/auth';
 
 import App from './App';
+import { HashRouter } from 'react-router-dom';
 
 
 const fbapp = initializeApp({
@@ -25,7 +26,13 @@ const auth = getAuth(fbapp);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 auth.onAuthStateChanged(user => {
-	root.render(<App user={user} auth={auth} />);
+	root.render(
+		<React.StrictMode>
+			<HashRouter>
+				<App user={user} auth={auth} />
+			</HashRouter>
+		</React.StrictMode>
+	);
 });
 
 if (document.location.search) {
