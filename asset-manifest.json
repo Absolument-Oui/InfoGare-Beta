@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.00754f35.css",
-    "main.js": "/static/js/main.31df9fe0.js",
+    "main.js": "/static/js/main.da966cf9.js",
     "static/media/logo-eurostar-color.svg": "/static/media/logo-eurostar-color.4ad4a1b7c9456b50501b.svg",
     "static/media/logo-trenitalia-color.svg": "/static/media/logo-trenitalia-color.e38b8a7ca44af53340bc.svg",
     "static/media/logo-trenitalia.svg": "/static/media/logo-trenitalia.0ece386f7819986f46ae.svg",
@@ -162,10 +162,10 @@
     "static/media/logo-sbb.svg": "/static/media/logo-sbb.4f7a144f5a5a091d3b98.svg",
     "static/media/logo-db.svg": "/static/media/logo-db.46f109ab15895e810560.svg",
     "main.00754f35.css.map": "/static/css/main.00754f35.css.map",
-    "main.31df9fe0.js.map": "/static/js/main.31df9fe0.js.map"
+    "main.da966cf9.js.map": "/static/js/main.da966cf9.js.map"
   },
   "entrypoints": [
     "static/css/main.00754f35.css",
-    "static/js/main.31df9fe0.js"
+    "static/js/main.da966cf9.js"
   ]
 }
