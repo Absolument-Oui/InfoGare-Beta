@@ -1,0 +1,209 @@
+@use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/icon-button/icon-button";
+@use "@material/dialog";
+@use "@material/ripple/mdc-ripple";
+@use "@material/button/mdc-button";
+@use "@material/button";
+@use "@material/textfield";
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/notched-outline/mdc-notched-outline";
+@use "@material/line-ripple/mdc-line-ripple";
+@use "@material/card";
+@use "@material/radio/styles";
+@use "@material/form-field";
+@use "@material/list/mdc-list";
+@use "@material/list";
+@use "@material/menu-surface/mdc-menu-surface";
+@use "@material/menu/mdc-menu";
+
+@include icon-button.core-styles;
+@include dialog.core-styles;
+@include textfield.core-styles;
+@include card.core-styles;
+@include form-field.core-styles;
+
+@import "material-icons/iconfont/material-icons.scss";
+@import url(./assets/css/departs/screen/trains.css);
+@import url(./assets/css/informations/screen/informations.css);
+@import url(./assets/css/quai/screen/train.css);
+@import url(./assets/fonts/Achemine/style.css);
+
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    color: #f2f2f2;
+}
+
+.main-content {
+    margin: 25px;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.app-bar {
+    background-color: #333;
+}
+
+.mdc-top-app-bar__section img,
+.mdc-top-app-bar__section .mdc-top-app-bar__title {
+    cursor: pointer;
+    color: #f2f2f2;
+}
+
+a:any-link {
+    text-decoration: none;
+}
+
+.big-icon {
+    font-size: 128px;
+}
+
+.center {
+    text-align: center;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.primary {
+    @include button.container-fill-color(#006f94);
+}
+
+.primary-dark {
+    @include button.container-fill-color(#003a79);
+}
+
+.profile-pict {
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.gare-card {
+    @include card.fill-color(#003a79);
+    width: 22%;
+    min-width: 315px;
+    display: inline-table;
+    margin: 5px;
+    line-height: 1.5;
+}
+
+.gare-card__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.gare-card__subtitle {
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.gare-card__button {
+    @include button.ink-color(#0080aa);
+}
+
+.full-width {
+    width: 100%;
+}
+
+.menu-item {
+    height: 48px;
+}
+
+.menu-item-text {
+    margin: auto 0;
+}
+
+.menu-item.departs {
+    margin: auto 0;
+    background-image: url(./assets/img/common/screen_departs.png);
+    height: 16px;
+    width: 24px;
+    background-size: cover;
+    margin-right: 5px;
+}
+
+.menu-item.arrives {
+    margin: auto 0;
+    background-image: url(./assets/img/common/screen_arrives.png);
+    height: 16px;
+    width: 24px;
+    background-size: cover;
+    margin-right: 5px;
+}
+
+.menu-item.infos {
+    margin: auto 0;
+    background-image: url(./assets/img/common/screen_infos.png);
+    height: 16px;
+    width: 24px;
+    background-size: cover;
+    margin-right: 5px;
+}
+
+.menu-item.quai {
+    margin: auto 0;
+    background-image: url(./assets/img/common/screen_quai.png);
+    height: 16px;
+    width: 24px;
+    background-size: cover;
+    margin-right: 5px;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+.gare-card-media-sncf {
+    background-image: url(./assets/img/common/SNCF.svg);
+    background-size: 50%;
+    padding-top: 56.25%;
+}
+
+.gare-card-media-sncf::before {
+    margin-top: 0;
+}
+
+.gare-card-media-ratp {
+    background-image: url(./assets/img/common/RATP.svg);
+    background-size: 25%;
+    padding-top: 56.25%;
+}
+
+.gare-card-media-ratp::before {
+    margin-top: 0;
+}
+
+.train-card-ter {
+    background-image: url(./assets/img/screen/quai/logo-ter-color.svg);
+    background-size: 50%;
+    padding-top: 56.25%;
+}
+
+.train-card-ter::before {
+    margin-top: 0;
+}
+
+.train-card-sncf {
+    background-image: url(./assets/img/common/SNCF.svg);
+    background-size: 50%;
+    padding-top: 56.25%;
+}
+
+.train-card-sncf::before {
+    margin-top: 0;
+}
+
+#departs .departs, #arrives .arrives {
+}
+
+.informations {
+}
+
+.quai {
+    @import url(./assets/css/departs/screen/quai.css);
+}
