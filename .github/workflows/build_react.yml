@@ -13,6 +13,9 @@ jobs:
       matrix:
         node-versions: [16.x]
 
+    env:
+      CI: false
+
     steps:
       - uses: actions/checkout@v2
       
