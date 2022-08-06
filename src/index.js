@@ -26,13 +26,7 @@ const auth = getAuth(fbapp);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 auth.onAuthStateChanged(user => {
-	root.render(
-		<React.StrictMode>
-			<HashRouter>
-				<App user={user} auth={auth} />
-			</HashRouter>
-		</React.StrictMode>
-	);
+	root.render(<App user={user} auth={auth} />);
 });
 
 if (document.location.search) {
