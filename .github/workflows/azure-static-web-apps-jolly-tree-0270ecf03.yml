@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup CI Environment (NodeJS: ${{ matris.node-version }})
+      - name: 'Setup CI Environment (NodeJS: ${{ matris.node-version }})'
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
