@@ -1,9 +1,4 @@
 {
-    "routes": [
-        {
-            "route": "/account"
-        }
-    ],
     "navigationFallback": {
         "rewrite": "/index.html"
     }

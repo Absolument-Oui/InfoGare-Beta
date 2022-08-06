@@ -219,6 +219,7 @@ class QuaiPage extends Component {
                 tr.appendChild(stationColumn);
                 tr.appendChild(stationStation);
                 this.stationsRef.current.appendChild(tr);
+                i++;
             });
 
             const type = snapshot.child('type').val();

@@ -20,6 +20,8 @@ class TrainPage extends Component {
         this.typeRef = React.createRef();
         this.typeIconRef = React.createRef();
         this.garesRef = React.createRef();
+        this.quaiRef = React.createRef();
+        this.numTrainRef = React.createRef();
     }
 
     render() {
@@ -56,7 +58,7 @@ class TrainPage extends Component {
                                 <span ref={this.hourDepartRef}></span>
                             </td>
                             <td>
-                                <div style={{ width: '35px', display: 'inline-block' }} className='train-logo' ref={this.typeIconRef}></div>&nbsp;<span style={{ marginTop: '15px', position: 'absolute' }} ref={this.typeRef}></span>
+                                <div style={{ width: '100%' }} className='train-logo' ref={this.typeIconRef}></div>
                             </td>
                         </tr>
                     </tbody>
@@ -67,8 +69,26 @@ class TrainPage extends Component {
                             <th><h3>Gares desservies</h3></th>
                         </tr>
                     </thead>
-                    <tbody className='train-stations train-stations-solo' ref={this.garesRef} style={{ fontSize: '2em' }}>
+                    <tbody ref={this.garesRef} style={{ fontSize: '2em' }}>
 
+                    </tbody>
+                </table><br/>
+                <table style={{ width: '100%' }}>
+                    <thead>
+                        <tr style={{ textAlign: 'left'}}>
+                            <th><h3>Quai</h3></th>
+                            <th><h3>Numéro de train</h3></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style={{ width: '50%'}}>
+                                <span ref={this.quaiRef}></span>
+                            </td>
+                            <td style={{ width: '50%'}}>
+                                <span ref={this.numTrainRef}></span>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -90,7 +110,8 @@ class TrainPage extends Component {
             this.destRef.current.innerText = train.child('destination').val();
             this.hourDepartRef.current.innerText = train.child('hourdepart').val() ? train.child('hourdepart').val() : '-';
             this.hourArriveRef.current.innerText = train.child('hourarrive').val() ? train.child('hourarrive').val() : '-';
-            this.typeRef.current.innerText = train.child('type').val();
+            this.quaiRef.current.innerText = train.child('quai').val() ? train.child('quai').val() : '-';
+            this.numTrainRef.current.innerText = train.child('number').val();
             var gares2 = train.child('gares').val().split('|');
             var gares = train.child('from').val().split('|');
             gares.forEach(element => {

@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom/client';
 import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 import { getAuth, signInWithCustomToken } from 'firebase/auth';
+import { getAnalytics } from 'firebase/analytics';
 
 import App from './App';
-import { HashRouter } from 'react-router-dom';
 
 
 const fbapp = initializeApp({
@@ -19,6 +19,8 @@ const fbapp = initializeApp({
 	appId: "1:984551924335:web:7a6ba46c0cafd4f8eb639a",
 	measurementId: "G-54QXGBEX7E"
 });
+
+const analytics = getAnalytics(fbapp);
 
 const db = getDatabase(fbapp);
 const auth = getAuth(fbapp);

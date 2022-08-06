@@ -36,7 +36,11 @@ class LogoutDialog extends Component {
 
     logout() {
         console.log('logout');
-        signOut(this.props.auth);
+        signOut(this.props.auth).then(() => {
+            window.location.href = '/';
+        }).catch(error => {
+            console.log(error);
+        });
     }
 }
 

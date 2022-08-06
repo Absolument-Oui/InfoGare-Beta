@@ -16,7 +16,7 @@ class TrainCard extends Component {
     render() {
         return (
             <div className="gare-card mdc-card mdc-card--outlined">
-                <div className="mdc-card__media mdc-card__media--16-9"ref={this.mediaRef}></div>
+                <div className="mdc-card__media mdc-card__media--16-9 train-card" ref={this.mediaRef}></div>
                 <div className="mdc-card__primary-action">
                     <div className="gare-card__title">{this.props.dest}</div>
                     <div className="gare-card__subtitle">{this.props.time}</div>
@@ -52,8 +52,99 @@ class TrainCard extends Component {
         const editGareBtn = new MDCRipple(this.editTrainBtn.current);
         const deleteGareBtn = new MDCRipple(this.deleteTrainBtn.current);
 
-        if (this.props.type === 'TER') {
+        const type = this.props.type;
+        if (type === 'TER') {
             this.mediaRef.current.classList.add('train-card-ter');
+        } else if (type === 'SNCF (carmillon)') {
+            this.mediaRef.current.classList.add('train-card-sncf');
+        } else if (type === 'inOui') {
+            this.mediaRef.current.classList.add('train-card-inoui');
+        } else if (type === 'TGV') {
+            this.mediaRef.current.classList.add('train-card-tgv');
+        } else if (type === 'ICE') {
+            this.mediaRef.current.classList.add('train-card-ice');
+        } else if (type === 'TGV Lyria') {
+            this.mediaRef.current.classList.add('train-card-lyria');
+        } else if (type === 'OuiGo') {
+            this.mediaRef.current.classList.add('train-card-ouigo');
+        } else if (type === 'OuiGo Classique') {
+            this.mediaRef.current.classList.add('train-card-ouigo-classique');
+        } else if (type === 'Fluo Grand Est') {
+            this.mediaRef.current.classList.add('train-card-fluo');
+        } else if (type === 'TER Occitanie') {
+            this.mediaRef.current.classList.add('train-card-occitanie');
+        } else if (type === 'Intercité') {
+            this.mediaRef.current.classList.add('train-card-intercite');
+        } else if (type === 'Aléop') {
+            this.mediaRef.current.classList.add('train-card-aleop');
+        } else if (type === 'TER Auvergne Rhône Alpes') {
+            this.mediaRef.current.classList.add('train-card-auvergne-rhone-alpes');
+        } else if (type === 'BreizhGo') {
+            this.mediaRef.current.classList.add('train-card-breizhgo');
+        } else if (type === 'DB') {
+            this.mediaRef.current.classList.add('train-card-db');
+        } else if (type === 'TER Hauts de France') {
+            this.mediaRef.current.classList.add('train-card-ter-hauts-de-france');
+        } else if (type === 'Lio') {
+            this.mediaRef.current.classList.add('train-card-lio');
+        } else if (type === 'TER Metrolor') {
+            this.mediaRef.current.classList.add('train-card-ter-metrolor');
+        } else if (type === 'Mobigo') {
+            this.mediaRef.current.classList.add('train-card-mobigo');
+        } else if (type === 'Nomad') {
+            this.mediaRef.current.classList.add('train-card-nomad');
+        } else if (type === 'Rémi') {
+            this.mediaRef.current.classList.add('train-card-remi');
+        } else if (type === 'Renfe Ave') {
+            this.mediaRef.current.classList.add('train-card-renfe-ave');
+        } else if (type === 'SBB') {
+            this.mediaRef.current.classList.add('train-card-sbb');
+        } else if (type === 'SNCF (logo 1985)') {
+            this.mediaRef.current.classList.add('train-card-sncf-1985');
+        } else if (type === 'SNCF (logo 1992)') {
+            this.mediaRef.current.classList.add('train-card-sncf-1992');
+        } else if (type === 'TER Alsace') {
+            this.mediaRef.current.classList.add('train-card-ter-alsace');
+        } else if (type === 'TER Aquitaine') {
+            this.mediaRef.current.classList.add('train-card-ter-aquitaine');
+        } else if (type === 'TER Basse Normandie') {
+            this.mediaRef.current.classList.add('train-card-ter-basse-normandie');
+        } else if (type === 'TER Bourgogne') {
+            this.mediaRef.current.classList.add('train-card-ter-bourgogne');
+        } else if (type === 'TER Bretagne') {
+            this.mediaRef.current.classList.add('train-card-ter-bretagne');
+        } else if (type === 'TER Centre') {
+            this.mediaRef.current.classList.add('train-card-ter-centre');
+        } else if (type === 'TER Languedoc Roussillon') {
+            this.mediaRef.current.classList.add('train-card-ter-languedoc-roussillon');
+        } else if (type === 'TER Midi Pyrénées') {
+            this.mediaRef.current.classList.add('train-card-ter-midi-pyrenees');
+        } else if (type === 'TER Nord Pas de Calais') {
+            this.mediaRef.current.classList.add('train-card-ter-nord-pas-de-calais');
+        } else if (type === 'TER Poitou Charentes') {
+            this.mediaRef.current.classList.add('train-card-ter-poitou-charentes');
+        } else if (type === 'Thello') {
+            this.mediaRef.current.classList.add('train-card-thello');
+        } else if (type === 'Tram train') {
+            this.mediaRef.current.classList.add('train-card-tram-train');
+        } else if (type === 'Zou') {
+            this.mediaRef.current.classList.add('train-card-zou');
+        } else if (type === 'Eurostar') {
+            this.mediaRef.current.classList.add('train-card-eurostar');
+        } else if (type === 'Thalys') {
+            this.mediaRef.current.classList.add('train-card-thalys');
+        } else if (type === 'Lunea') {
+            this.mediaRef.current.classList.add('train-card-lunea');
+        } else if (type === 'Teoz') {
+            this.mediaRef.current.classList.add('train-card-teoz');
+        } else if (type === 'Frecciarossa') {
+            this.mediaRef.current.classList.add('train-card-frecciarossa');
+        } else if (type === 'Trenitalia') {
+            this.mediaRef.current.classList.add('train-card-trenitalia');
+        } else if (type === 'CFL') {
+            this.mediaRef.current.classList.add('train-card-cfl');
+        } else if (type === 'SNCB') {
+            this.mediaRef.current.classList.add('train-card-sncb');
         } else {
             this.mediaRef.current.classList.add('train-card-sncf');
         }

@@ -29,7 +29,7 @@ class OneRowDepart extends Component {
                             <div className='animation-blink-2' ref={this.textFeatures}>{this.props.timing}</div>
                         </div>
                     </div>
-                    <div className='col-second-second ' ref={this.timeRef}></div>
+                    <div className='col-second-second' ref={this.timeRef}></div>
                     <div className='col-second-third'>
                         <span>{this.props.gare}</span>
                     </div>

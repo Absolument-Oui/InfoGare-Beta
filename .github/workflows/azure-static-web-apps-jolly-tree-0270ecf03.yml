@@ -52,6 +52,14 @@ jobs:
           output_location: 'build'
           skip_app_build: true
 
+      - name: Discord Webhook Action
+        uses: tsickert/discord-webhook@v4.0.0
+        with:
+          webhook-url: ${{ secrets.WEBHOOKURL }}
+          content: "La nouvelle version bêta (${{ github.event.head_commit.message }}) est disponible sur https://beta.infogare.fr"
+          username: "InfoGare"
+          avatar_url: "https://github.com/Absolument-Oui/InfoGare-Beta/blob/website/public/favicon.png?raw=true"
+
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
