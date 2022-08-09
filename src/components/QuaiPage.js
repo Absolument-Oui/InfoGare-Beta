@@ -24,7 +24,7 @@ class QuaiPage extends Component {
     render() {
         return (
             <div className='rows rows-departures'>
-                <div className='row-group row-group-bar'>
+                <div className='row-group row-group-bar quai'>
                     <div className='row'>
                         <div className='col-first'>
                             <div className='bar-informations text-scroll-x' ref={this.infosRef}></div>
@@ -44,7 +44,7 @@ class QuaiPage extends Component {
                 <div className='row-group row-group-train'>
                     <div className='row'>
                         <div className='col-first'>
-                            <div className='row-background row-background-quai'></div>
+                            <div className='row-background quai row-background-quai'></div>
                             <div className='quai train-logo' ref={this.trainLogoRef}></div>
                             <div className='train-time' ref={this.trainTimeRef}>
                                 <div className='text-time-hours' ref={this.timeHoursRef}></div>

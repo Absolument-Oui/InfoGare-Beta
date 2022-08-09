@@ -58,7 +58,7 @@ jobs:
           webhook-url: ${{ secrets.WEBHOOKURL }}
           content: "La nouvelle version bêta (${{ github.event.head_commit.message }}) est disponible sur https://beta.infogare.fr"
           username: "InfoGare"
-          avatar_url: "https://github.com/Absolument-Oui/InfoGare-Beta/blob/website/public/favicon.png?raw=true"
+          avatar_url: "https://raw.githubusercontent.com/Absolument-Oui/InfoGare-Beta/website/public/favicon.png"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

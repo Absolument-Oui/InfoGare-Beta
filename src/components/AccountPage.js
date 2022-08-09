@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { MDCRipple, MDCRippleFoundation } from '@material/ripple';
+import { MDCRipple } from '@material/ripple';
+import { MDCDialog } from '@material/dialog';
 
 import "../index.scss";
 import GareCard from './GareCard';
-import EditGareDialog from './EditGareDialog';
-import { child, get, getDatabase, ref, update } from 'firebase/database';
-import { getAuth } from 'firebase/auth';
-import { param } from 'jquery';
+import { child, get, getDatabase, ref } from 'firebase/database';
+import NewGareDialog from './NewGareDialog';
 
 class AccountPage extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-        const editbtn_ = new MDCRippleFoundation(document.querySelector('#editbtn'));
     }
 
     render() {
@@ -27,9 +25,12 @@ class AccountPage extends Component {
                     <h1 id='username' className='inline-block'>Nom d'utilisateur</h1>&nbsp;&nbsp;<button className='mdc-icon-button material-icons inline-block' id='editBtn'><div className='mdc-icon-button__ripple'>edit</div></button>
                     <br />
                     <h3 id='email' className='inline-block'>Email</h3>
+                    <br />
+                    <button className='mdc-icon-button material-icons ripple-upgrade' id='newGare'><div className='mdc-icon-button__ripple'>add</div></button>
                     <div id='cards'>
 
                     </div>
+                    <NewGareDialog />
                 </div>
             </div>
         );
@@ -49,6 +50,12 @@ class AccountPage extends Component {
         const editBtn = new MDCRipple(document.querySelector('#editBtn'));
         editBtn.listen('click', () => {
             window.open('https://auth.infogare.fr/account.htm', '', 'width=750,height=750');
+        });
+
+        const newGareBtn = new MDCRipple(document.querySelector('#newGare'));
+        newGareBtn.listen('click', () => {
+            const newGareDialog = new MDCDialog(document.querySelector('#newGareDialog'));
+            newGareDialog.open();
         });
 
         const root = createRoot(document.getElementById('cards'));

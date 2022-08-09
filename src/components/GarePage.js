@@ -12,6 +12,7 @@ import EditGareDialog from './EditGareDialog'
 import DeleteGareDialog from './DeleteGareDialog';
 import TrainCard from './TrainCard';
 import { createRoot } from 'react-dom/client';
+import NewTrainDialog from './NewTrainDialog';
 
 class GarePage extends Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class GarePage extends Component {
         return (
             <div className='main-content center'>
                 <h1 id='gareName'></h1>
-                <button className='mdc-icon-button material-icons' id='showBtn'>visibility</button><button className='mdc-icon-button material-icons' id='editBtn'>edit</button><button className='mdc-icon-button material-icons' id='deleteBtn'>delete</button>
+                <button className='mdc-icon-button material-icons' id='showBtn'>visibility</button><button className='mdc-icon-button material-icons' id='addBtn'>add</button><button className='mdc-icon-button material-icons' id='editBtn'>edit</button><button className='mdc-icon-button material-icons' id='deleteBtn'>delete</button>
                 <div id='showMenu' className='mdc-menu mdc-menu-surface'>
                     <ul className='mdc-list' role='menu' aria-hidden='true' aria-orientation='vertical' tabIndex='0'>
                         <li className='menu-item mdc-list-item' role='menuitem'>
@@ -47,6 +48,7 @@ class GarePage extends Component {
                 <div id='trains'></div>
                 <EditGareDialog uid={getAuth().currentUser.uid} id={this.props.id} />
                 <DeleteGareDialog id={this.props.id} />
+                <NewTrainDialog gid={this.props.id} />
             </div>
         );
     }
@@ -74,6 +76,12 @@ class GarePage extends Component {
             showMenu.setFixedPosition(true);
             showMenu.setAnchorElement(document.querySelector('#showBtn'));
             showMenu.open = true;
+        });
+
+        const addBtn = new MDCRipple(document.querySelector('#addBtn'));
+        addBtn.listen('click', () => {
+            const dialog = new MDCDialog(document.querySelector('#newTrainDialog'));
+            dialog.open();
         });
 
         const editBtn = new MDCRipple(document.querySelector('#editBtn'));

@@ -708,7 +708,7 @@ a {
 
 /* -- background -- */
 
-.row-background {
+.row-background.quai {
     position: absolute !important;
     right: 0;
     bottom: 0;
@@ -785,8 +785,8 @@ a {
     background-image: url(../../../img/screen/quai/row-background-departure.svg);
 }
 
-.rows.rows-departures .row-group-bar,
-.rows.rows-transilien .row-group-bar {
+.rows.rows-departures .row-group-bar.quai,
+.rows.rows-transilien .row-group-bar.quai {
     background: #004394;
 }
 
