@@ -9,13 +9,14 @@
 @use "@material/notched-outline/mdc-notched-outline";
 @use "@material/line-ripple/mdc-line-ripple";
 @use "@material/card";
-@use "@material/radio/styles";
+@use "@material/radio/styles" as radio;
 @use "@material/form-field";
 @use "@material/list/mdc-list";
 @use "@material/list";
 @use "@material/menu-surface/mdc-menu-surface";
 @use "@material/menu/mdc-menu";
 @use "@material/select/mdc-select";
+@use "@material/chips/styles" as chips;
 
 @include icon-button.core-styles;
 @include dialog.core-styles;
@@ -228,9 +229,9 @@ a:any-link {
     background-image: url(./assets/img/screen/quai/logo-occitanie-color.svg);
 }
 
-/*.train-card-intercite {
-    background-image: url(./assets/img/screen/quai/logo-intercites-color.svg);
-}*/
+.train-card-intercite {
+    background-image: url(./assets/img/screen/quai/logo-intercite-color.svg);
+}
 
 .train-card-ouigo {
     background-image: url(./assets/img/screen/quai/logo-ouigo-color.svg);
@@ -290,6 +291,14 @@ a:any-link {
 
 .train-card-sbb {
     background-image: url(./assets/img/screen/quai/logo-sbb-color.svg);
+}
+
+.train-card-sncf-1937 {
+    background-image: url(./assets/img/screen/quai/logo-sncf1937-color.svg);
+}
+
+.train-card-sncf-1972 {
+    background-image: url(./assets/img/screen/quai/logo-sncf1972-color.svg);
 }
 
 .train-card-sncf-1985 {
@@ -421,4 +430,34 @@ a:any-link {
 
 .quai {
     @import url(./assets/css/departs/screen/quai.css);
+}
+
+.train-wagons {
+    width: 9.1vh;
+    height: 8vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.train-wagons.train-loco {
+    background-image: url(./assets/img/screen/wagons/loco.svg);
+}
+
+.train-wagons.train-tgv-l {
+    background-image: url(./assets/img/screen/wagons/tgv-l.svg);
+}
+
+.train-wagons.train-tgv-r {
+    background-image: url(./assets/img/screen/wagons/tgv-r.svg);
+}
+
+.train-wagons.train-wagon {
+    background-image: url(./assets/img/screen/wagons/wagon.svg);
+}
+
+.train-wagons.train-wagon-bar {
+    background-image: url(./assets/img/screen/wagons/wagon-bar.svg);
 }

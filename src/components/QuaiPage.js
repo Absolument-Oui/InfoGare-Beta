@@ -149,13 +149,13 @@ class QuaiPage extends Component {
 
         get(db, '').then(snapshot => {
             if (snapshot.child('retardtype').val() === 'alheure') {
-                this.timeHoursRef.current.innerHTML = snapshot.child('hourdepart').val();
+                this.timeHoursRef.current.innerHTML = snapshot.child('hourdepart').val().replace(':', 'h');
                 this.timeOntimeRef.current.innerHTML = 'à l\'heure';
             } else if (snapshot.child('retardtype').val() === 'supprime') {
                 const colMerged = document.createElement('div', { class: 'col-second-merged animation-blink' });
                 const animationBlink1 = document.createElement('span', { class: 'animation-blink-1' });
                 const textTimeHours = document.createElement('div', { class: 'text-time-hours' });
-                textTimeHours.innerHTML = snapshot.child('hourdepart').val();
+                textTimeHours.innerHTML = snapshot.child('hourdepart').val().replace(':', 'h');
                 const animationBlink2 = document.createElement('span', { class: 'animation-blink-2' });
                 const textTimeOntime = document.createElement('div', { class: 'text-time-ontime' });
                 textTimeOntime.innerHTML = 'supprimé';
@@ -168,7 +168,7 @@ class QuaiPage extends Component {
                 const colMerged = document.createElement('div', { class: 'col-second-merged animation-blink' });
                 const animationBlink1 = document.createElement('span', { class: 'animation-blink-1' });
                 const textTimeHours = document.createElement('div', { class: 'text-time-hours' });
-                textTimeHours.innerHTML = snapshot.child('hourdepart').val();
+                textTimeHours.innerHTML = snapshot.child('hourdepart').val().replace(':', 'h');
                 const animationBlink2 = document.createElement('span', { class: 'animation-blink-2' });
                 const textTimeOntime = document.createElement('div', { class: 'text-time-ontime' });
                 textTimeOntime.innerHTML = 'ret. indet.';
@@ -185,7 +185,7 @@ class QuaiPage extends Component {
                 animationBlink1.classList.add('animation-blink-1');
                 const textTimeHours = document.createElement('div');
                 textTimeHours.classList.add('text-time-hours');
-                textTimeHours.innerHTML = snapshot.child('hourdepart').val();
+                textTimeHours.innerHTML = snapshot.child('hourdepart').val().replace(':', 'h');
                 const animationBlink2 = document.createElement('span');
                 animationBlink2.classList.add('animation-blink-2');
                 const textTimeOntime = document.createElement('div');
@@ -200,8 +200,7 @@ class QuaiPage extends Component {
             this.stationRef.current.innerHTML = snapshot.child('destination').val();
             this.numberRef.current.innerHTML = snapshot.child('number').val();
 
-            const garesRaw = snapshot.child('gares').val().split('|');
-            const gares = garesRaw.filter(gare => gare !== '');
+            const gares = snapshot.child('gares').val();
 
             var i = 0;
             gares.forEach(gare => {

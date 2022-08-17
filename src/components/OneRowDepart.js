@@ -48,7 +48,7 @@ class OneRowDepart extends Component {
         if (this.props.timing === 'à l\'heure') {
             this.textFeatures.current.classList.add('text-features-1');
             this.timeRef.current.classList.add('text-time');
-            this.timeRef.current.innerText = this.props.time;
+            this.timeRef.current.innerText = this.props.time.replace(':', 'h');
         } else if (this.props.timing.includes('retard')) {
             var hour = Math.floor(this.props.time.substr(0, 2));
             var minutes = Math.floor(this.props.time.substr(3, 4));
@@ -74,7 +74,7 @@ class OneRowDepart extends Component {
             divRetard.innerText = hour + 'h' + timeWithRetard;
             const divTime = document.createElement('div');
             divTime.className = 'text-time animation-blink-1';
-            divTime.innerText = this.props.time;
+            divTime.innerText = this.props.time.replace(':', 'h');
             this.timeRef.current.appendChild(divRetard);
             this.timeRef.current.appendChild(divTime);
         } else {
@@ -83,7 +83,7 @@ class OneRowDepart extends Component {
             this.timeRef.current.classList.add('animation-blink');
             const divRetard = document.createElement('div');
             divRetard.className = 'text-time retard animation-blink-2';
-            divRetard.innerText = this.props.time;
+            divRetard.innerText = this.props.time.replace(':', 'h');
             const divTime = document.createElement('div');
             divTime.className = 'text-time animation-blink-1';
             divTime.innerText = this.props.time;
