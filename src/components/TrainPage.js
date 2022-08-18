@@ -112,8 +112,8 @@ class TrainPage extends Component {
             this.hourArriveRef.current.innerText = train.child('hourarrive').val() ? train.child('hourarrive').val() : '-';
             this.quaiRef.current.innerText = train.child('quai').val() ? train.child('quai').val() : '-';
             this.numTrainRef.current.innerText = train.child('number').val();
-            var gares2 = train.child('gares').val().split('|');
-            var gares = train.child('from').val().split('|');
+            var gares2 = train.child('gares').val();
+            var gares = train.child('from').val();
             gares.forEach(element => {
                 if (element !== '') {
                     this.garesRef.current.innerHTML += '<span>' + element + '</span> > ';

@@ -54,8 +54,14 @@ class TwoRowDepart extends Component {
     }
 
     componentDidMount() {
-        const gares = this.props.gares;
+        var gares = this.props.gares;
         const elements = [];
+        if (gares.constructor === String) {
+            gares = gares.split('|').filter(function (el) {
+                return el.length > 0;
+            });
+        }
+
         gares.forEach(element => {
             elements.push(<span>{element}</span>);
         });

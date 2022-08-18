@@ -126,7 +126,7 @@ class EditGareDialog extends Component {
             const db = ref(getDatabase(), 'users/' + this.props.uid + '/gares');
             get(child(db, this.props.id)).then(gare => {
                 gareName.getDefaultFoundation().setValue(gare.child('name').val());
-                gareInfo.getDefaultFoundation().setValue(gare.child('infos').val());
+                gareInfo.getDefaultFoundation().setValue(gare.child('infos').val().replace('<br>', '\n'));
                 gareAffichageType1.checked = gare.child('screen').val() === 'Normal';
                 gareAffichageType2.checked = gare.child('screen').val() === 'EVA';
                 gareInfosType1.checked = gare.child('infostype').val() === 'informations';
@@ -151,7 +151,7 @@ class EditGareDialog extends Component {
 
         update(ref(db, 'users/' + this.props.uid + '/gares/' + this.props.id), {
             name: gareName.value,
-            infos: gareInfo.value,
+            infos: gareInfo.value.split('\n').join('<br>'),
             screen: gareAffichageType1.checked ? 'Normal' : 'EVA',
             infostype: gareInfosType1.checked ? 'informations' : 'flash',
         }).then(() => {

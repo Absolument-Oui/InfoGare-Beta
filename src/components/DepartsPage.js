@@ -127,7 +127,7 @@ class DepartsPage extends Component {
         get(ref(db, 'users/' + uid + '/gares/' + id)).then(data => {
             const elements = [];
             var i = 0;
-            this.infosText.current.innerHTML = data.child('infos').val();
+            this.infosText.current.innerHTML = data.child('infos').val().replaceAll('<br>', '&nbsp;');
             const trains = query(ref(db, 'users/' + uid + '/gares/' + id + '/trains'), orderByChild('hourdepart'));
             get(trains).then(departs => {
                 departs.forEach(train => {
