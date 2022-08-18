@@ -5,9 +5,10 @@ import { getAuth } from 'firebase/auth';
 import { MDCRipple } from '@material/ripple';
 import { MDCMenu } from '@material/menu';
 import { MDCList } from '@material/list';
-import $ from 'jquery';
+import { MDCDialog } from '@material/dialog';
 
 import "../index.scss";
+import DeleteTrainDialog from './DeleteTrainDialog';
 
 class TrainPage extends Component {
     constructor(props) {
@@ -91,6 +92,7 @@ class TrainPage extends Component {
                         </tr>
                     </tbody>
                 </table>
+                <DeleteTrainDialog gid={this.props.gid} id={this.props.id} />
             </div>
         );
     }
@@ -114,6 +116,18 @@ class TrainPage extends Component {
             this.numTrainRef.current.innerText = train.child('number').val();
             var gares2 = train.child('gares').val();
             var gares = train.child('from').val();
+
+            if (gares2.constructor === String) {
+                gares2 = gares2.split('|').filter(function(el) {
+                    return el.length > 0;
+                });
+            }
+            if (gares.constructor === String) {
+                gares = gares.split('|').filter(function(el) {
+                    return el.length > 0;
+                });
+            }
+
             gares.forEach(element => {
                 if (element !== '') {
                     this.garesRef.current.innerHTML += '<span>' + element + '</span> > ';
@@ -239,6 +253,12 @@ class TrainPage extends Component {
             if (event.detail.index === 0) {
                 window.location.href = '/gare/' + this.props.gid + '/train/' + this.props.id + '/quai';
             }
+        });
+
+        const deleteBtn = new MDCRipple(document.getElementById('deleteBtn'));
+        deleteBtn.listen('click', () => {
+            const deleteDialog = new MDCDialog(document.querySelector('#deleteTrainDialog'));
+            deleteDialog.open();
         });
     }
 }

@@ -27,7 +27,7 @@ class DepartsPage extends Component {
                 <div className='row-group row-group-bar'>
                     <div className='row'>
                         <div className='col-first'>
-                            <div className='bar-informations text-scroll-x' ref={this.infosText}>Test</div>
+                            <div className='bar-informations text-scroll-x' ref={this.infosText}></div>
                         </div>
                         <div className='col-second'>
                             <div className='bar-clock'>
