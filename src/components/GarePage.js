@@ -22,30 +22,32 @@ class GarePage extends Component {
 
     render() {
         return (
-            <div className='main-content center'>
-                <h1 id='gareName'></h1>
-                <button className='mdc-icon-button material-icons' id='showBtn'>visibility</button><button className='mdc-icon-button material-icons' id='addBtn'>add</button><button className='mdc-icon-button material-icons' id='editBtn'>edit</button><button className='mdc-icon-button material-icons' id='deleteBtn'>delete</button>
-                <div id='showMenu' className='mdc-menu mdc-menu-surface'>
-                    <ul className='mdc-list' role='menu' aria-hidden='true' aria-orientation='vertical' tabIndex='0'>
-                        <li className='menu-item mdc-list-item' role='menuitem'>
-                            <span className='menu-item departs'></span>
-                            <span className='menu-item-text mdc-list-item__text'>Départs</span>
-                            <span className='mdc-list-item__ripple'></span>
-                        </li>
-                        <li className='menu-item mdc-list-item' role='menuitem'>
-                            <span className='menu-item arrives'></span>
-                            <span className='menu-item-text mdc-list-item__text'>Arrivées</span>
-                            <span className='mdc-list-item__ripple'></span>
-                        </li>
-                        <li className='menu-item mdc-list-item' role='menuitem'>
-                            <span className='menu-item infos'></span>
-                            <span className='menu-item-text mdc-list-item__text'>Infos</span>
-                            <span className='mdc-list-item__ripple'></span>
-                        </li>
-                    </ul>
+            <div className='main-content'>
+                <div className='center'>
+                    <h1 id='gareName'></h1>
+                    <button className='mdc-icon-button material-icons' id='showBtn'>visibility</button><button className='mdc-icon-button material-icons' id='addBtn'>add</button><button className='mdc-icon-button material-icons' id='editBtn'>edit</button><button className='mdc-icon-button material-icons' id='deleteBtn'>delete</button>
+                    <div id='showMenu' className='mdc-menu mdc-menu-surface'>
+                        <ul className='mdc-list' role='menu' aria-hidden='true' aria-orientation='vertical' tabIndex='0'>
+                            <li className='menu-item mdc-list-item' role='menuitem'>
+                                <span className='menu-item departs'></span>
+                                <span className='menu-item-text mdc-list-item__text'>Départs</span>
+                                <span className='mdc-list-item__ripple'></span>
+                            </li>
+                            <li className='menu-item mdc-list-item' role='menuitem'>
+                                <span className='menu-item arrives'></span>
+                                <span className='menu-item-text mdc-list-item__text'>Arrivées</span>
+                                <span className='mdc-list-item__ripple'></span>
+                            </li>
+                            <li className='menu-item mdc-list-item' role='menuitem'>
+                                <span className='menu-item infos'></span>
+                                <span className='menu-item-text mdc-list-item__text'>Infos</span>
+                                <span className='mdc-list-item__ripple'></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <br /><br />
+                    <div id='trains'></div>
                 </div>
-                <br /><br />
-                <div id='trains'></div>
                 <EditGareDialog uid={getAuth().currentUser.uid} id={this.props.id} />
                 <DeleteGareDialog id={this.props.id} />
                 <NewTrainDialog gid={this.props.id} />

@@ -9,6 +9,7 @@ import { MDCDialog } from '@material/dialog';
 
 import "../index.scss";
 import DeleteTrainDialog from './DeleteTrainDialog';
+import EditTrainDialog from './EditTrainDialog';
 
 class TrainPage extends Component {
     constructor(props) {
@@ -92,6 +93,7 @@ class TrainPage extends Component {
                         </tr>
                     </tbody>
                 </table>
+                <EditTrainDialog gid={this.props.gid} id={this.props.id} />
                 <DeleteTrainDialog gid={this.props.gid} id={this.props.id} />
             </div>
         );
@@ -253,6 +255,12 @@ class TrainPage extends Component {
             if (event.detail.index === 0) {
                 window.location.href = '/gare/' + this.props.gid + '/train/' + this.props.id + '/quai';
             }
+        });
+
+        const editBtn = new MDCRipple(document.getElementById('editBtn'));
+        editBtn.listen('click', () => {
+            const editDialog = new MDCDialog(document.getElementById('editTrainDialog'));
+            editDialog.open();
         });
 
         const deleteBtn = new MDCRipple(document.getElementById('deleteBtn'));
