@@ -24,7 +24,7 @@ class EditGareDialog extends Component {
 
     render() {
         return (
-            <div className="mdc-dialog mdc-dialog--fullscreen" id="editGareDialog" ref={this.editGareDialog}>
+            <div className="mdc-dialog mdc-dialog--fullscreen" id={'edit-' + this.props.componentRef} ref={this.editGareDialog}>
                 <div className='mdc-dialog__container'>
                     <div className="mdc-dialog__surface" role="dialog" aria-modal="true" aria-labelledby='editGareDialogTitle' aria-describedby='editGareDialgoContent'>
                         <div className="mdc-dialog__header">
@@ -126,7 +126,7 @@ class EditGareDialog extends Component {
             const db = ref(getDatabase(), 'users/' + this.props.uid + '/gares');
             get(child(db, this.props.id)).then(gare => {
                 gareName.getDefaultFoundation().setValue(gare.child('name').val());
-                gareInfo.getDefaultFoundation().setValue(gare.child('infos').val().replace('<br>', '\n'));
+                gareInfo.getDefaultFoundation().setValue(gare.child('infos').val().replaceAll('<br>', '\n'));
                 gareAffichageType1.checked = gare.child('screen').val() === 'Normal';
                 gareAffichageType2.checked = gare.child('screen').val() === 'EVA';
                 gareInfosType1.checked = gare.child('infostype').val() === 'informations';

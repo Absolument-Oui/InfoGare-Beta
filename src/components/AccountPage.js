@@ -69,7 +69,7 @@ class AccountPage extends Component {
                 } else {
                     gareType = 'Gare RER';
                 }
-                const card = React.createElement(GareCard, { uid: this.props.user.uid, name: gare.child('name').val(), type: gareType, number: gare.child('trains').size, key: gare.key, id: gare.key });
+                const card = <GareCard key={elements.length} uid={this.props.user.uid} name={gare.child('name').val()} type={gareType} number={gare.child('trains').size} id={gare.key} />;
                 elements.push(card);
             });
             root.render(elements);

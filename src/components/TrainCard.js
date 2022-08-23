@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 import { MDCRipple } from '@material/ripple';
+import { MDCDialog } from '@material/dialog';
+
+import EditTrainDialog from './EditTrainDialog';
+import DeleteTrainDialog from './DeleteTrainDialog';
 
 class TrainCard extends Component {
     constructor(props) {
@@ -39,6 +43,8 @@ class TrainCard extends Component {
                         </button>
                     </div>
                 </div>
+                <EditTrainDialog gid={this.props.gid} id={this.props.id} componentRef={this.props.id} />
+                <DeleteTrainDialog gid={this.props.gid} id={this.props.id} componentRef={this.props.id} />
             </div>
         );
     }
@@ -51,6 +57,16 @@ class TrainCard extends Component {
 
         const editGareBtn = new MDCRipple(this.editTrainBtn.current);
         const deleteGareBtn = new MDCRipple(this.deleteTrainBtn.current);
+
+        editGareBtn.listen('click', () => {
+            const dialog = new MDCDialog(document.getElementById('edit-' + this.props.id));
+            dialog.open();
+        });
+
+        deleteGareBtn.listen('click', () => {
+            const dialog = new MDCDialog(document.getElementById('delete-' + this.props.id));
+            dialog.open();
+        })
 
         const type = this.props.type;
         if (type === 'TER') {

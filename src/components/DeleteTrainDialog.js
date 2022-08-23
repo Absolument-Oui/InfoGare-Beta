@@ -17,7 +17,7 @@ class DeleteTrainDialog extends Component {
 
     render() {
         return (
-            <div className="mdc-dialog" id="deleteTrainDialog" ref={this.deleteDialogRef}>
+            <div className="mdc-dialog" id={'delete-' + this.props.componentRef} ref={this.deleteDialogRef}>
                 <div className='mdc-dialog__container'>
                     <div className="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby='delete-dialog-title' aria-describedby='logout-dialog-content'>
                         <h2 className="mdc-dialog__title" id='delete-dialog-title'>Supprimer</h2>

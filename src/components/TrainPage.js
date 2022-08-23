@@ -93,8 +93,8 @@ class TrainPage extends Component {
                         </tr>
                     </tbody>
                 </table>
-                <EditTrainDialog gid={this.props.gid} id={this.props.id} />
-                <DeleteTrainDialog gid={this.props.gid} id={this.props.id} />
+                <EditTrainDialog gid={this.props.gid} id={this.props.id} componentRef={this.props.id} />
+                <DeleteTrainDialog gid={this.props.gid} id={this.props.id} componentRef={this.props.id} />
             </div>
         );
     }
@@ -259,13 +259,13 @@ class TrainPage extends Component {
 
         const editBtn = new MDCRipple(document.getElementById('editBtn'));
         editBtn.listen('click', () => {
-            const editDialog = new MDCDialog(document.getElementById('editTrainDialog'));
+            const editDialog = new MDCDialog(document.getElementById('edit-' + this.props.id));
             editDialog.open();
         });
 
         const deleteBtn = new MDCRipple(document.getElementById('deleteBtn'));
         deleteBtn.listen('click', () => {
-            const deleteDialog = new MDCDialog(document.querySelector('#deleteTrainDialog'));
+            const deleteDialog = new MDCDialog(document.getElementById('delete-' + this.props.id));
             deleteDialog.open();
         });
     }

@@ -49,7 +49,7 @@ class GarePage extends Component {
                     <div id='trains'></div>
                 </div>
                 <EditGareDialog uid={getAuth().currentUser.uid} id={this.props.id} />
-                <DeleteGareDialog id={this.props.id} />
+                <DeleteGareDialog id={this.props.id} componentRef={this.props.id} />
                 <NewTrainDialog gid={this.props.id} />
             </div>
         );
@@ -65,7 +65,7 @@ class GarePage extends Component {
             const elements = [];
             gare.child('trains').forEach(train => {
                 if (train.child('hourdepart').val() !== "") {
-                    elements.push(<TrainCard key={train.key} id={train.key} dest={train.child('destination').val()} number={train.child('number').val()} type={train.child('type').val()} time={train.child('hourdepart').val()} />);
+                    elements.push(<TrainCard key={train.key} id={train.key} gid={this.props.id} dest={train.child('destination').val()} number={train.child('number').val()} type={train.child('type').val()} time={train.child('hourdepart').val()} />);
                 }
             });
             const root = createRoot(document.getElementById('trains'));
@@ -94,7 +94,7 @@ class GarePage extends Component {
 
         const deleteBtn = new MDCRipple(document.querySelector('#deleteBtn'));
         deleteBtn.listen('click', () => {
-            const deleteDialog = new MDCDialog(document.querySelector('#deleteGareDialog'));
+            const deleteDialog = new MDCDialog(document.getElementById(this.props.id));
             deleteDialog.open();
         });
 

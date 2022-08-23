@@ -5,6 +5,7 @@ import {MDCDialog} from "@material/dialog";
 
 import "../index.scss";
 import EditGareDialog from "./EditGareDialog";
+import DeleteGareDialog from "./DeleteGareDialog";
 import { createRoot } from "react-dom/client";
 import { toHaveDisplayValue } from "@testing-library/jest-dom/dist/matchers";
 
@@ -50,7 +51,8 @@ class GareCard extends Component {
                     </div>
                 </div>
                 <div id="dialogPlace"></div>
-                <EditGareDialog id={this.props.id} uid={this.props.uid} ref={this.dialogRef} />
+                <EditGareDialog key={this.props.id} id={this.props.id} uid={this.props.uid} componentRef={this.props.id} />
+                <DeleteGareDialog id={this.props.id} componentRef={this.props.id} />
             </div>
         );
     }
@@ -62,12 +64,13 @@ class GareCard extends Component {
         });
         const editBtn = new MDCRipple(this.editGareBtn.current);
         editBtn.listen('click', () => {
-            const dialog = new MDCDialog(document.querySelector('#editGareDialog'));
+            const dialog = new MDCDialog(document.getElementById('edit-' + this.props.id));
             dialog.open();
         });
         const deleteBtn = new MDCRipple(this.deleteGareBtn.current);
         deleteBtn.listen('click', () => {
-
+            const dialog = new MDCDialog(document.getElementById('delete-' + this.props.id));
+            dialog.open();
         });
         if (this.props.type === 'Gare classique') {
             this.mediaRef.current.classList.add('gare-card-media-sncf');

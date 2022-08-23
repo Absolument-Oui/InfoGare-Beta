@@ -62,7 +62,7 @@ class EditTrainDialog extends Component {
 
     render() {
         return (
-            <div className="mdc-dialog mdc-dialog--fullscreen" id="editTrainDialog" ref={this.dialogRef}>
+            <div className="mdc-dialog mdc-dialog--fullscreen" id={'edit-' + this.props.componentRef} ref={this.dialogRef}>
                 <div className='mdc-dialog__container'>
                     <div className="mdc-dialog__surface" role="dialog" aria-modal="true" aria-labelledby='newGareDialogTitle' aria-describedby='newGareDialgContent'>
                         <div className="mdc-dialog__header">
