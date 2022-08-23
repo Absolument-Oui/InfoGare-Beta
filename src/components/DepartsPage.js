@@ -121,6 +121,14 @@ class DepartsPage extends Component {
     }
 
     componentDidMount() {
+        window.screen.orientation.lock('landscape').then(() => {
+            if (document.body.requestFullscreen) {
+                document.body.requestFullscreen();
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+
         const db = getDatabase();
         const uid = getAuth().currentUser.uid;
         const id = this.props.id;
@@ -131,7 +139,7 @@ class DepartsPage extends Component {
             const trains = query(ref(db, 'users/' + uid + '/gares/' + id + '/trains'), orderByChild('hourdepart'));
             get(trains).then(departs => {
                 departs.forEach(train => {
-                    if (train.child('hourdepart').val().length > 0) {
+                    if (train.child('hourdepart').val()) {
                         let timing;
                         if (train.child('retardtype').val() === 'alheure') {
                             timing = 'à l\'heure';

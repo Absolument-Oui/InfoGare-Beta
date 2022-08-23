@@ -120,6 +120,14 @@ class ArrivePage extends Component {
     }
 
     componentDidMount() {
+        window.screen.orientation.lock('landscape').then(() => {
+            if (document.body.requestFullscreen) {
+                document.body.requestFullscreen();
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+        
         const db = getDatabase();
         const uid = getAuth().currentUser.uid;
         const id = this.props.id;

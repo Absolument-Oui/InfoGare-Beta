@@ -144,6 +144,14 @@ class QuaiPage extends Component {
     }
 
     componentDidMount() {
+        window.screen.orientation.lock('landscape').then(() => {
+            if (document.body.requestFullscreen) {
+                document.body.requestFullscreen();
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+
         const uid = getAuth().currentUser.uid;
         const db = ref(getDatabase(), 'users/' + uid + '/gares/' + this.props.gid + '/trains/' + this.props.id);
 
