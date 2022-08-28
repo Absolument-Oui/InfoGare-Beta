@@ -11,6 +11,7 @@ import ArrivePage from './components/ArrivesPage';
 import InfosPage from './components/InfosPage';
 import TrainPage from './components/TrainPage';
 import QuaiPage from './components/QuaiPage';
+import GareRERPage from './components/GareRERPage';
 
 class App extends Component {
     render() {
@@ -29,6 +30,9 @@ class App extends Component {
                         <Route path=":id/infos" element={<InfosPage id={window.location.pathname.split('/')[2]} />} />
                         <Route path=":id/train/:trainId" element={<TrainPage gid={window.location.pathname.split('/')[2]} id={window.location.pathname.split('/')[4]} />} />
                         <Route path=":id/train/:trainId/quai" element={<QuaiPage gid={window.location.pathname.split('/')[2]} id={window.location.pathname.split('/')[4]} />} />
+                    </Route>
+                    <Route path="/gareRER">
+                        <Route path="*" element={<GareRERPage id={window.location.pathname.split('/')[2]} />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

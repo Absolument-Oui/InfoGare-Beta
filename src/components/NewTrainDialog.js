@@ -54,6 +54,8 @@ class NewTrainDialog extends Component {
         this.trainRetard2RadioRef = React.createRef();
         this.trainRetard3RadioRef = React.createRef();
         this.trainRetard4RadioRef = React.createRef();
+        this.addGareDestinationRef = React.createRef();
+        this.addGareProvenanceRef = React.createRef();
 
         this.addChip = this.addChip.bind(this);
 
@@ -203,7 +205,10 @@ class NewTrainDialog extends Component {
                                     </div>
                                     <div className='mdc-notched-outline__trailing'></div>
                                 </div>
-                            </div><br /><br />
+                            </div>
+                            <button className='full-width mdc-button mdc-button--raised' ref={this.addGareProvenanceRef}>
+                                <span className='mdc-button__label'>Ajouter</span>
+                            </button><br /><br />
                             <span className="mdc-evolution-chip-set" role="grid" ref={this.trainGaresProvenanceRef}>
                                 <span className="mdc-evolution-chip-set__chips" role="presentation" ref={this.trainGaresProvenanceChipsRef} id="chips-provenance"></span>
                             </span>
@@ -217,7 +222,10 @@ class NewTrainDialog extends Component {
                                     </div>
                                     <div className='mdc-notched-outline__trailing'></div>
                                 </div>
-                            </div><br /><br />
+                            </div>
+                            <button className='full-width mdc-button mdc-button--raised' ref={this.addGareDestinationRef}>
+                                <span className='mdc-button__label'>Ajouter</span>
+                            </button><br /><br />
                             <span className="mdc-evolution-chip-set" role="grid" ref={this.trainGaresDestinationRef}>
                                 <span className="mdc-evolution-chip-set__chips" role="presentation" ref={this.trainGaresDestinationChipsRef} id="chips-destination"></span>
                             </span>
@@ -300,7 +308,7 @@ class NewTrainDialog extends Component {
                                 <span className="mdc-button__ripple"></span>
                                 <span className="mdc-button__label">Wagon bar</span>
                             </button>
-                            <div style={{border: '1px solid black', width: '100%', height: '100px', alignItems: 'center', backgroundColor: 'gray'}} id='train-compo' ref={this.trainCompoRef}></div>
+                            <div style={{ border: '1px solid black', width: '100%', height: '100px', alignItems: 'center', backgroundColor: 'gray' }} id='train-compo' ref={this.trainCompoRef}></div>
                         </div>
                         <footer className="mdc-dialog__actions">
                             <button className="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">Annuler</button>
@@ -597,6 +605,14 @@ class NewTrainDialog extends Component {
         const trainInfoType2 = new MDCFormField(this.trainInfoType2Ref.current);
         const trainInfoType1Radio = new MDCRadio(this.trainInfoType1RadioRef.current);
         const trainInfoType2Radio = new MDCRadio(this.trainInfoType2RadioRef.current);
+        const addGareDestination = new MDCRipple(this.addGareDestinationRef.current);
+        const addGareProvenance = new MDCRipple(this.addGareProvenanceRef.current);
+
+
+        if (!navigator.userAgent.toLowerCase().match(/mobile/i)) {
+            this.addGareDestinationRef.current.style.display = 'none';
+            this.addGareProvenanceRef.current.style.display = 'none';
+        }
 
 
         trainRetard1.input = trainRetard1Radio;
@@ -652,6 +668,14 @@ class NewTrainDialog extends Component {
             this.trainCompoRef.current.appendChild(wagon);
         });
 
+        addGareDestination.listen('click', () => {
+            this.addChip(trainGaresDestinationInput.value, 'chips-destination');
+        });
+        
+        addGareProvenance.listen('click', () => {
+            this.addChip(trainGaresProvenanceInput.value, 'chips-provenance');
+        })
+
         trainGaresProvenance.listen('MDCChip:interaction', (event) => {
             console.log(event.target);
             const chip = event.target;
@@ -664,7 +688,7 @@ class NewTrainDialog extends Component {
             typesMenu.open = !typesMenu.open;
         });
 
-        
+
         dialog.listen('MDCDialog:closing', (event) => {
             if (event.detail.action === 'accept') {
                 if (trainProvenance.value === '' && trainDestination.value === '') {

@@ -205,7 +205,7 @@ class EditTrainDialog extends Component {
                                 </div>
                             </div><br /><br />
                             <span className="mdc-evolution-chip-set" role="grid" ref={this.trainGaresProvenanceRef}>
-                                <span className="mdc-evolution-chip-set__chips" role="presentation" ref={this.trainGaresProvenanceChipsRef} id="chips-provenance"></span>
+                                <span className="mdc-evolution-chip-set__chips" role="presentation" ref={this.trainGaresProvenanceChipsRef} id="edit-chips-provenance"></span>
                             </span>
                             <h5>Destination</h5>
                             <div className="full-width mdc-text-field mdc-text-field--outlined" ref={this.trainGaresDestinationInputRef}>
@@ -219,7 +219,7 @@ class EditTrainDialog extends Component {
                                 </div>
                             </div><br /><br />
                             <span className="mdc-evolution-chip-set" role="grid" ref={this.trainGaresDestinationRef}>
-                                <span className="mdc-evolution-chip-set__chips" role="presentation" ref={this.trainGaresDestinationChipsRef} id="chips-destination"></span>
+                                <span className="mdc-evolution-chip-set__chips" role="presentation" ref={this.trainGaresDestinationChipsRef} id="edit-chips-destination"></span>
                             </span>
                             <hr />
                             <h2>Voie et hall</h2>
@@ -627,10 +627,10 @@ class EditTrainDialog extends Component {
             trainRetard3Radio.checked = train.child('retardtype').val() === 'retindet';
             trainRetard4Radio.checked = train.child('retardtype').val() === 'suppr';
             train.child('gares').forEach(gare => {
-                this.addChip(gare.val(), 'chips-destination');
+                this.addChip(gare.val(), 'edit-chips-destination');
             });
             train.child('from').forEach(gare => {
-                this.addChip(gare.val(), 'chips-provenance');
+                this.addChip(gare.val(), 'edit-chips-provenance');
             });
             train.child('compo').forEach(compo => {
                 const wagon = document.createElement('div');

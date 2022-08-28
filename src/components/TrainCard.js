@@ -161,6 +161,16 @@ class TrainCard extends Component {
             this.mediaRef.current.classList.add('train-card-cfl');
         } else if (type === 'SNCB') {
             this.mediaRef.current.classList.add('train-card-sncb');
+        } else if (type === 'RER A') {
+            this.mediaRef.current.classList.add('train-card-rer-a');
+        } else if (type === 'RER B') {
+            this.mediaRef.current.classList.add('train-card-rer-b');
+        } else if (type === 'RER C') {
+            this.mediaRef.current.classList.add('train-card-rer-c');
+        } else if (type === 'RER D') {
+            this.mediaRef.current.classList.add('train-card-rer-d');
+        } else if (type === 'RER E') {
+            this.mediaRef.current.classList.add('train-acrd-rer-e');
         } else {
             this.mediaRef.current.classList.add('train-card-sncf');
         }

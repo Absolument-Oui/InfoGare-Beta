@@ -60,7 +60,11 @@ class GareCard extends Component {
     componentDidMount() {
         const showBtn = new MDCRipple(this.showGareBtn.current);
         showBtn.listen('click', () => {
-            window.location.href = `/gare/${this.props.id}`;
+            if (this.props.type === 'Gare classique') {
+                window.location.href = `/gare/${this.props.id}`;
+            } else {
+                window.location.href = `/gareRER/${this.props.id}`;
+            }
         });
         const editBtn = new MDCRipple(this.editGareBtn.current);
         editBtn.listen('click', () => {
