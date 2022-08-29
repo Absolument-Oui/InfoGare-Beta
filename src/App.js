@@ -12,6 +12,7 @@ import InfosPage from './components/InfosPage';
 import TrainPage from './components/TrainPage';
 import QuaiPage from './components/QuaiPage';
 import GareRERPage from './components/GareRERPage';
+import DepartsRERPage from './components/DepartsRERPage';
 
 class App extends Component {
     render() {
@@ -33,6 +34,7 @@ class App extends Component {
                     </Route>
                     <Route path="/gareRER">
                         <Route path="*" element={<GareRERPage id={window.location.pathname.split('/')[2]} />} />
+                        <Route path=":id/departs" element={<DepartsRERPage id={window.location.pathname.split('/')[2]} />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
