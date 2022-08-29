@@ -31,18 +31,27 @@ class EditTrainRERDialog extends Component {
         this.typesMenu = React.createRef();
         this.affichageMenu = React.createRef();
         this.trainGaresInputRef = React.createRef();
+        this.trainRetard1Ref = React.createRef();
+        this.trainRetard1RadioRef = React.createRef();
+        this.trainRetard2Ref = React.createRef();
+        this.trainRetard2RadioRef = React.createRef();
+        this.trainRetard3Ref = React.createRef();
+        this.trainRetard3RadioRef = React.createRef();
+        this.trainRetard4Ref = React.createRef();
+        this.trainRetard4RadioRef = React.createRef();
+        this.trainRetardTimeRef = React.createRef();
     }
 
     render() {
         return (
-            <div className="mdc-dialog mdc-dialog--fullscreen" id="editTrainRERDialog" ref={this.dialogRef}>
+            <div className="mdc-dialog mdc-dialog--fullscreen" id={"edit-" + this.props.id} ref={this.dialogRef}>
                 <div className='mdc-dialog__container'>
-                    <div className="mdc-dialog__surface" role="dialog" aria-modal="true" aria-labelledby='editTrainRERDialogTitle' aria-describedby='editTrainRERContent'>
+                    <div className="mdc-dialog__surface" role="dialog" aria-modal="true" aria-labelledby='newTrainRERDialogTitle' aria-describedby='newTrainRERContent'>
                         <div className="mdc-dialog__header">
-                            <h2 className="mdc-dialog__title" id="editTrainRERTitle">Modifier le train</h2>
+                            <h2 className="mdc-dialog__title" id="newTrainRERTitle">Nouveau train</h2>
                             <button className="mdc-icon-button material-icons mdc-dialog__close" data-mdc-dialog-action="close">close</button>
                         </div>
-                        <div className="mdc-dialog__content" id="editTrainRERContent">
+                        <div className="mdc-dialog__content" id="newTrainRERContent">
                             <br />
                             <div className="full-width mdc-text-field mdc-text-field--outlined" ref={this.trainNumberRef}>
                                 <input className="mdc-text-field__input" id="trainNumber" type="number" />
@@ -88,25 +97,25 @@ class EditTrainRERDialog extends Component {
                             <span>Longueur du train</span><br />
                             <div className="mdc-form-field" ref={this.trainLongueur1Ref}>
                                 <div className='mdc-radio' ref={this.trainLongueur1RadioRef}>
-                                    <input type="radio" id="newTrainLongueur1" name="newTrainLongueurs" className="mdc-radio__native-control" />
+                                    <input type="radio" id="editTrainLongueur1" name="editTrainLongueurs" className="mdc-radio__native-control" />
                                     <div className="mdc-radio__background">
                                         <div className="mdc-radio__outer-circle"></div>
                                         <div className="mdc-radio__inner-circle"></div>
                                     </div>
                                     <div className="mdc-radio__ripple"></div>
                                 </div>
-                                <label htmlFor="newTrainLongueur1" className="mdc-radio__label">Train court</label>
+                                <label htmlFor="editTrainLongueur1" className="mdc-radio__label">Train court</label>
                             </div>
                             <div className="mdc-form-field" ref={this.trainLongueur2Ref}>
                                 <div className='mdc-radio' ref={this.trainLongueur2RadioRef}>
-                                    <input type="radio" id="newTrainLongueur2" name="newTrainLongueurs" className="mdc-radio__native-control" />
+                                    <input type="radio" id="editTrainLongueur2" name="editTrainLongueurs" className="mdc-radio__native-control" />
                                     <div className="mdc-radio__background">
                                         <div className="mdc-radio__outer-circle"></div>
                                         <div className="mdc-radio__inner-circle"></div>
                                     </div>
                                     <div className="mdc-radio__ripple"></div>
                                 </div>
-                                <label htmlFor="newTrainLongueur2" className="mdc-radio__label">Train long</label>
+                                <label htmlFor="editTrainLongueur2" className="mdc-radio__label">Train long</label>
                             </div>
                             <div className="full-width mdc-text-field mdc-text-field--outlined" ref={this.selectAffichageRef}>
                                 <input className="mdc-text-field__input" id="selectType" type="text" readOnly />
@@ -129,6 +138,62 @@ class EditTrainRERDialog extends Component {
                                     <div className="mdc-notched-outline__trailing"></div>
                                 </div>
                             </div><br /><br />
+                            <span>Retard</span><br />
+                            <div className="mdc-form-field" ref={this.trainRetard1Ref}>
+                                <div className='mdc-radio' ref={this.trainRetard1RadioRef}>
+                                    <input type="radio" id="editTrainRetard1" name="editTrainRetards" className="mdc-radio__native-control" />
+                                    <div className="mdc-radio__background">
+                                        <div className="mdc-radio__outer-circle"></div>
+                                        <div className="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div className="mdc-radio__ripple"></div>
+                                </div>
+                                <label htmlFor="editTrainRetard1" className="mdc-radio__label">à l'heure</label>
+                            </div>
+                            <div className="mdc-form-field" ref={this.trainRetard2Ref}>
+                                <div className='mdc-radio' ref={this.trainRetard2RadioRef}>
+                                    <input type="radio" id="editTrainRetard2" name="ediTrainRetards" className="mdc-radio__native-control" />
+                                    <div className="mdc-radio__background">
+                                        <div className="mdc-radio__outer-circle"></div>
+                                        <div className="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div className="mdc-radio__ripple"></div>
+                                </div>
+                                <label htmlFor="editTrainRetard2" className="mdc-radio__label">ret. indet.</label>
+                            </div>
+                            <div className="mdc-form-field" ref={this.trainRetard3Ref}>
+                                <div className='mdc-radio' ref={this.trainRetard3RadioRef}>
+                                    <input type="radio" id="editTrainRetard3" name="editTrainRetards" className="mdc-radio__native-control" />
+                                    <div className="mdc-radio__background">
+                                        <div className="mdc-radio__outer-circle"></div>
+                                        <div className="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div className="mdc-radio__ripple"></div>
+                                </div>
+                                <label htmlFor="editTrainRetard3" className="mdc-radio__label">retard</label>
+                            </div>
+                            <div className="mdc-form-field" ref={this.trainRetard4Ref}>
+                                <div className='mdc-radio' ref={this.trainRetard4RadioRef}>
+                                    <input type="radio" id="editTrainRetard4" name="editTrainRetards" className="mdc-radio__native-control" />
+                                    <div className="mdc-radio__background">
+                                        <div className="mdc-radio__outer-circle"></div>
+                                        <div className="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div className="mdc-radio__ripple"></div>
+                                </div>
+                                <label htmlFor="editTrainRetard4" className="mdc-radio__label">supprimé</label>
+                            </div><br /><br />
+                            <div className="full-width mdc-text-field mdc-text-field--outlined" ref={this.trainRetardTimeRef}>
+                                <input className="mdc-text-field__input" id="trainGares" type="number" defaultValue="0" />
+                                <div className='mdc-text-field__affix mdc-text-field__affix--suffix'>min</div>
+                                <div className="mdc-notched-outline">
+                                    <div className="mdc-notched-outline__leading"></div>
+                                    <div className="mdc-notched-outline__notch">
+                                        <label htmlFor="trainGares" className="mdc-floating-label">Temps de retard</label>
+                                    </div>
+                                    <div className='mdc-notched-outline__trailing'></div>
+                                </div>
+                            </div><br /><br />
                             <span>Gares desservies</span>
                             <div className="full-width mdc-text-field mdc-text-field--outlined" ref={this.trainGaresInputRef}>
                                 <input className="mdc-text-field__input" id="trainGares" type="text" onKeyUpCapture={(e) => { if (e.key === "Enter") { this.addChip(e.target.value, 'chips-gares'); } }} />
@@ -141,12 +206,12 @@ class EditTrainRERDialog extends Component {
                                 </div>
                             </div><br /><br />
                             <span className="mdc-evolution-chip-set" role="grid" ref={this.trainGaresRef}>
-                                <span className="mdc-evolution-chip-set__chips" role="presentation" ref={this.trainGaresChipsRef} id="chips-gares"></span>
+                                <span className="mdc-evolution-chip-set__chips" role="presentation" ref={this.trainGaresChipsRef} id="edit-chips-gares"></span>
                             </span>
                         </div>
                         <footer className="mdc-dialog__actions">
                             <button className="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">Annuler</button>
-                            <button className="mdc-button mdc-dialog__button" data-mdc-dialog-action="accept">Créer</button>
+                            <button className="mdc-button mdc-dialog__button" data-mdc-dialog-action="accept">Valider</button>
                         </footer>
                     </div>
                 </div>
@@ -238,29 +303,50 @@ class EditTrainRERDialog extends Component {
         const typesMenu = new MDCMenu(this.typesMenu.current);
         const affichageMenu = new MDCMenu(this.affichageMenu.current);
         const trainGaresInput = new MDCTextField(this.trainGaresInputRef.current);
-        const trainId = this.props.id;
-        const db = ref(getDatabase(), 'users/' + getAuth().currentUser.uid + '/gares/' + this.props.gid + '/trains/' + trainId);
+        const trainRetard1 = new MDCFormField(this.trainRetard1Ref.current);
+        const trainRetard2 = new MDCFormField(this.trainRetard2Ref.current);
+        const trainRetard3 = new MDCFormField(this.trainRetard3Ref.current);
+        const trainRetard4 = new MDCFormField(this.trainRetard4Ref.current);
+        const trainRetard1Radio = new MDCRadio(this.trainRetard1RadioRef.current);
+        const trainRetard2Radio = new MDCRadio(this.trainRetard2RadioRef.current);
+        const trainRetard3Radio = new MDCRadio(this.trainRetard3RadioRef.current);
+        const trainRetard4Radio = new MDCRadio(this.trainRetard4RadioRef.current);
+        const trainRetardTime = new MDCTextField(this.trainRetardTimeRef.current);
+        const db = ref(getDatabase(), 'users/' + getAuth().currentUser.uid + '/gares/' + this.props.gid + '/trains/' + this.props.id);
 
         trainLongueur1.input = trainLongueur1Radio;
         trainLongueur2.input = trainLongueur2Radio;
 
-        get(child(db)).then((data) => {
+        trainRetard1.input = trainRetard1Radio;
+        trainRetard2.input = trainRetard2Radio;
+        trainRetard3.input = trainRetard3Radio;
+        trainRetard4.input = trainRetard4Radio;
+
+        get(db).then((data) => {
             trainNumber.getDefaultFoundation().setValue(data.child('number').val());
             trainMission.getDefaultFoundation().setValue(data.child('mission').val());
             trainDepart.getDefaultFoundation().setValue(data.child('hourdepart').val());
             trainDestination.getDefaultFoundation().setValue(data.child('destination').val());
             selectType.getDefaultFoundation().setValue(data.child('type').val());
             selectAffichage.getDefaultFoundation().setValue(data.child('hourmode').val());
-            if (data.child('gares') instanceof JSON) {
-                data.child('gares').forEach((gare) => {
-                    this.addChip(gare, 'chips-gares');
-                });
-            } else {
-                data.child('gares').val().split('|').forEach((gare) => {
-                    this.addChip(gare, 'chips-gares');
+            trainLongueur1Radio.checked = data.child('length').val() === 'trainlong';
+            trainLongueur2Radio.checked = data.child('length').val() === 'traincourt';
+            trainRetard1Radio.checked = data.child('retardtype').val() === 'alheure';
+            trainRetard2Radio.checked = data.child('retardtype').val() === 'retindet';
+            trainRetard3Radio.checked = data.child('retardtype').val() === 'ret';
+            trainRetard4Radio.checked = data.child('retardtype').val() === 'supprimé';
+            var gares = data.child('gares').val();
+            const elements = [];
+            if (gares.constructor === String) {
+                gares = gares.split('|').filter(function (el) {
+                    return el.length > 0;
                 });
             }
-        })
+
+            gares.forEach(element => {
+                this.addChip(element, 'edit-chips-gares');
+            });
+        });
 
         typesMenu.setAnchorElement(this.dropBtnRef.current);
         typesMenu.setAbsolutePosition(true);
@@ -310,22 +396,43 @@ class EditTrainRERDialog extends Component {
                     return;
                 }
 
+                let retardType;
+                if (trainRetard1Radio.checked) {
+                    retardType = 'alheure';
+                } else if (trainRetard2Radio.checked) {
+                    retardType = 'retindet';
+                } else if (trainRetard3Radio.checked) {
+                    retardType = 'ret';
+                } else {
+                    retardType = 'supprimé';
+                }
+
+                let length;
+                if (trainLongueur1Radio.checked) {
+                    length = 'trainlong';
+                } else {
+                    length = 'traincourt';
+                }
+
                 var gares = [];
-                for (var i = 0; i < document.getElementById('chips-gares').childElementCount; i++) {
-                    gares.push(document.getElementById('chips-gares').children[i].children[0].children[0].children[1].innerText);
+                for (var i = 0; i < document.getElementById('edit-chips-gares').childElementCount; i++) {
+                    gares.push(document.getElementById('edit-chips-gares').children[i].children[0].children[0].children[1].innerText);
                 }
                 console.log(gares);
 
 
                 update(db, {
-                    id: trainId,
+                    id: this.props.id,
                     number: trainNumber.value,
                     destination: trainDestination.value,
                     type: selectType.value,
                     hourdepart: trainDepart.value,
                     gares: gares,
                     hourmode: selectAffichage.value,
-                    mission: trainMission.value
+                    mission: trainMission.value,
+                    retardtype: retardType,
+                    retardtime: trainRetardTime.value,
+                    length: length
                 }).then(() => {
                     window.location.reload();
                 }).catch((error) => {

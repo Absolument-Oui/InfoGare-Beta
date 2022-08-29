@@ -65,7 +65,7 @@ class TwoRowDepartRER extends Component {
             elements.push(<span>{element}</span>);
         });
 
-        if (this.props.timing === 'a l\'heure') {
+        if (this.props.timing === 'à l\'heure') {
             this.textFeatures.current.classList.add('text-features-1');
         } else {
             this.textFeatures.current.classList.add('text-features-3');
@@ -77,13 +77,13 @@ class TwoRowDepartRER extends Component {
         } else if (this.props.timeMode === 'A quai') {
             this.timeRef.current.classList.add('animation-blink');
             const html = `<div class="rer-hour-mode animation-blink-1">à quai</div><div class="text-time animation-blink-2">${this.props.time}</div>`;
-            const elem = document.createElement();
+            const elem = document.createElement("div");
             elem.innerHTML = html;
             this.timeRef.current.appendChild(elem);
         } else if (this.props.timeMode === 'A l\'approche') {
             this.timeRef.current.classList.add('animation-blink');
             const html = `<div class="rer-hour-mode animation-blink-1">à l'approche</div><div class="text-time animation-blink-2">${this.props.time}</div>`;
-            const elem = document.createElement();
+            const elem = document.createElement("div");
             elem.innerHTML = html;
             this.timeRef.current.appendChild(elem);
         }

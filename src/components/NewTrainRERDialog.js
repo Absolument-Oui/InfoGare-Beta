@@ -31,6 +31,15 @@ class NewTrainRERDialog extends Component {
         this.typesMenu = React.createRef();
         this.affichageMenu = React.createRef();
         this.trainGaresInputRef = React.createRef();
+        this.trainRetard1Ref = React.createRef();
+        this.trainRetard1RadioRef = React.createRef();
+        this.trainRetard2Ref = React.createRef();
+        this.trainRetard2RadioRef = React.createRef();
+        this.trainRetard3Ref = React.createRef();
+        this.trainRetard3RadioRef = React.createRef();
+        this.trainRetard4Ref = React.createRef();
+        this.trainRetard4RadioRef = React.createRef();
+        this.trainRetardTimeRef = React.createRef();
     }
 
     render() {
@@ -127,6 +136,62 @@ class NewTrainRERDialog extends Component {
                                         <label htmlFor="trainMission" className="mdc-floating-label">Heure de départ</label>
                                     </div>
                                     <div className="mdc-notched-outline__trailing"></div>
+                                </div>
+                            </div><br /><br />
+                            <span>Retard</span><br />
+                            <div className="mdc-form-field" ref={this.trainRetard1Ref}>
+                                <div className='mdc-radio' ref={this.trainRetard1RadioRef}>
+                                    <input type="radio" id="newTrainRetard1" name="newTrainRetards" className="mdc-radio__native-control" />
+                                    <div className="mdc-radio__background">
+                                        <div className="mdc-radio__outer-circle"></div>
+                                        <div className="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div className="mdc-radio__ripple"></div>
+                                </div>
+                                <label htmlFor="newTrainRetard1" className="mdc-radio__label">à l'heure</label>
+                            </div>
+                            <div className="mdc-form-field" ref={this.trainRetard2Ref}>
+                                <div className='mdc-radio' ref={this.trainRetard2RadioRef}>
+                                    <input type="radio" id="newTrainRetard2" name="newTrainRetards" className="mdc-radio__native-control" />
+                                    <div className="mdc-radio__background">
+                                        <div className="mdc-radio__outer-circle"></div>
+                                        <div className="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div className="mdc-radio__ripple"></div>
+                                </div>
+                                <label htmlFor="newTrainRetard2" className="mdc-radio__label">ret. indet.</label>
+                            </div>
+                            <div className="mdc-form-field" ref={this.trainRetard3Ref}>
+                                <div className='mdc-radio' ref={this.trainRetard3RadioRef}>
+                                    <input type="radio" id="newTrainRetard3" name="newTrainRetards" className="mdc-radio__native-control" />
+                                    <div className="mdc-radio__background">
+                                        <div className="mdc-radio__outer-circle"></div>
+                                        <div className="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div className="mdc-radio__ripple"></div>
+                                </div>
+                                <label htmlFor="newTrainRetard3" className="mdc-radio__label">retard</label>
+                            </div>
+                            <div className="mdc-form-field" ref={this.trainRetard4Ref}>
+                                <div className='mdc-radio' ref={this.trainRetard4RadioRef}>
+                                    <input type="radio" id="newTrainRetard4" name="newTrainRetards" className="mdc-radio__native-control" />
+                                    <div className="mdc-radio__background">
+                                        <div className="mdc-radio__outer-circle"></div>
+                                        <div className="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div className="mdc-radio__ripple"></div>
+                                </div>
+                                <label htmlFor="newTrainRetard4" className="mdc-radio__label">supprimé</label>
+                            </div><br /><br />
+                            <div className="full-width mdc-text-field mdc-text-field--outlined" ref={this.trainRetardTimeRef}>
+                                <input className="mdc-text-field__input" id="trainGares" type="number" defaultValue="0" />
+                                <div className='mdc-text-field__affix mdc-text-field__affix--suffix'>min</div>
+                                <div className="mdc-notched-outline">
+                                    <div className="mdc-notched-outline__leading"></div>
+                                    <div className="mdc-notched-outline__notch">
+                                        <label htmlFor="trainGares" className="mdc-floating-label">Temps de retard</label>
+                                    </div>
+                                    <div className='mdc-notched-outline__trailing'></div>
                                 </div>
                             </div><br /><br />
                             <span>Gares desservies</span>
@@ -238,9 +303,23 @@ class NewTrainRERDialog extends Component {
         const typesMenu = new MDCMenu(this.typesMenu.current);
         const affichageMenu = new MDCMenu(this.affichageMenu.current);
         const trainGaresInput = new MDCTextField(this.trainGaresInputRef.current);
+        const trainRetard1 = new MDCFormField(this.trainRetard1Ref.current);
+        const trainRetard2 = new MDCFormField(this.trainRetard2Ref.current);
+        const trainRetard3 = new MDCFormField(this.trainRetard3Ref.current);
+        const trainRetard4 = new MDCFormField(this.trainRetard4Ref.current);
+        const trainRetard1Radio = new MDCRadio(this.trainRetard1RadioRef.current);
+        const trainRetard2Radio = new MDCRadio(this.trainRetard2RadioRef.current);
+        const trainRetard3Radio = new MDCRadio(this.trainRetard3RadioRef.current);
+        const trainRetard4Radio = new MDCRadio(this.trainRetard4RadioRef.current);
+        const trainRetardTime = new MDCTextField(this.trainRetardTimeRef.current);
 
         trainLongueur1.input = trainLongueur1Radio;
         trainLongueur2.input = trainLongueur2Radio;
+
+        trainRetard1.input = trainRetard1Radio;
+        trainRetard2.input = trainRetard2Radio;
+        trainRetard3.input = trainRetard3Radio;
+        trainRetard4.input = trainRetard4Radio;
 
         typesMenu.setAnchorElement(this.dropBtnRef.current);
         typesMenu.setAbsolutePosition(true);
@@ -290,6 +369,24 @@ class NewTrainRERDialog extends Component {
                     return;
                 }
 
+                let retardType;
+                if (trainRetard1Radio.checked) {
+                    retardType = 'alheure';
+                } else if (trainRetard2Radio.checked) {
+                    retardType = 'retindet';
+                } else if (trainRetard3Radio.checked) {
+                    retardType = 'ret';
+                } else {
+                    retardType = 'supprimé';
+                }
+
+                let length;
+                if (trainLongueur1Radio.checked) {
+                    length = 'trainlong';
+                } else {
+                    length = 'traincourt';
+                }
+
                 var gares = [];
                 for (var i = 0; i < document.getElementById('chips-gares').childElementCount; i++) {
                     gares.push(document.getElementById('chips-gares').children[i].children[0].children[0].children[1].innerText);
@@ -307,7 +404,10 @@ class NewTrainRERDialog extends Component {
                     hourdepart: trainDepart.value,
                     gares: gares,
                     hourmode: selectAffichage.value,
-                    mission: trainMission.value
+                    mission: trainMission.value,
+                    retardtype: retardType,
+                    retardtime: trainRetardTime.value,
+                    length: length
                 }).then(() => {
                     window.location.reload();
                 }).catch((error) => {
