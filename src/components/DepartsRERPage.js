@@ -157,9 +157,9 @@ class DepartsRERPage extends Component {
                         }
 
                         if (i < 2) {
-                            elements.push(<TwoRowDepartRER key={train.id} type={train.child('type').val()} mission={train.child('mission').val()} number={train.child('number').val()} timing={timing} time={train.child('hourdepart').val()} timeMode={train.child('hourmode').val()} retard={train.child('retardtime').val()} gare={train.child('destination').val()} gares={train.child('gares').val()} />);
+                            elements.push(<TwoRowDepartRER key={train.id} type={train.child('type').val()} mission={train.child('mission').val()} trainLng={train.child('length').val()} number={train.child('number').val()} timing={timing} time={train.child('hourdepart').val()} timeMode={train.child('hourmode').val()} retard={train.child('retardtime').val()} gare={train.child('destination').val()} gares={train.child('gares').val()} />);
                         } else if (i > 2 && i < 8) {
-                            elements.push(<OneRowDepartRER key={train.id} type={train.child('type').val()} mission={train.child('mission').val()} number={train.child('number').val()} timing={timing} time={train.child('hourdepart').val()} timeMode={train.child('hourmode').val()} retard={train.child('retardtime').val()} gare={train.child('destination').val()} />);
+                            elements.push(<OneRowDepartRER key={train.id} type={train.child('type').val()} mission={train.child('mission').val()} trainLng={train.child('length').val()} number={train.child('number').val()} timing={timing} time={train.child('hourdepart').val()} timeMode={train.child('hourmode').val()} retard={train.child('retardtime').val()} gare={train.child('destination').val()} />);
                         }
                         i++;
                     }

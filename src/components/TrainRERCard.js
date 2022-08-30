@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { MDCRipple } from '@material/ripple';
 import { MDCDialog } from '@material/dialog';
 import EditTrainRERDialog from './EditTrainRERDialog';
-import DeleteTrainDialog from './DeleteTrainDialog';
+import DeleteTrainRERDialog from './DeleteTrainRERDialog';
 
 class TrainRERCard extends Component {
     constructor(props) {
@@ -43,7 +43,7 @@ class TrainRERCard extends Component {
                     </div>
                 </div>
                 <EditTrainRERDialog gid={this.props.gid} id={this.props.id} />
-                <DeleteTrainDialog gid={this.props.gid} id={this.props.id} componentRef={this.props.id} />
+                <DeleteTrainRERDialog gid={this.props.gid} id={this.props.id} componentRef={this.props.id} />
             </div>
         );
     }
