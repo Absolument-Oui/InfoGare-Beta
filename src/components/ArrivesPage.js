@@ -6,7 +6,7 @@ import "../index.scss";
 
 import OneRowDepart from './OneRowDepart';
 import TwoRowDepart from './TwoRowDepart';
-import { get, getDatabase, orderByChild, query, ref } from 'firebase/database';
+import { get, getDatabase, onValue, orderByChild, query, ref } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 import { createRoot } from 'react-dom/client';
 
@@ -127,15 +127,15 @@ class ArrivePage extends Component {
         }).catch((error) => {
             console.error(error);
         });
-        
+
         const db = getDatabase();
         const uid = getAuth().currentUser.uid;
         const id = this.props.id;
+        const trains = query(ref(db, 'users/' + uid + '/gares/' + id + '/trains'), orderByChild('hourarrive'));
         get(ref(db, 'users/' + uid + '/gares/' + id)).then(data => {
             const elements = [];
             var i = 0;
             this.infosText.current.innerHTML = data.child('infos').val().replaceAll('<br>', '&nbsp;');
-            const trains = query(ref(db, 'users/' + uid + '/gares/' + id + '/trains'), orderByChild('hourarrive'));
             get(trains).then(departs => {
                 departs.forEach(train => {
                     if (train.child('hourarrive').val().length > 0) {
@@ -162,6 +162,35 @@ class ArrivePage extends Component {
                 root.render(elements);
             });
         });
+
+        onValue(trains, (departs) => {
+            const elements = [];
+            var i = 0;
+            departs.forEach(train => {
+                if (train.child('hourarrive').val().length > 0) {
+                    let timing;
+                    if (train.child('retardtype').val() === 'alheure') {
+                        timing = 'à l\'heure';
+                    } else if (train.child('retardtype').val() === 'retindet') {
+                        timing = 'ret. indet.';
+                    } else if (train.child('retardtype').val() === 'ret') {
+                        timing = 'retard ' + train.child('retardtime').val() + ' min.';
+                    } else {
+                        timing = 'supprimé';
+                    }
+
+                    if (i < 2) {
+                        elements.push(<TwoRowDepart key={train.id} type={train.child('type').val()} number={train.child('number').val()} timing={timing} time={train.child('hourarrive').val()} track={train.child('voie').val()} gare={train.child('provenance').val()} gares={train.child('from').val()} />);
+                    } else if (i > 2 && i < 8) {
+                        elements.push(<OneRowDepart key={train.id} type={train.child('type').val()} number={train.child('number').val()} timing={timing} time={train.child('hourarrive').val()} track={train.child('voie').val()} gare={train.child('provenance').val()} />);
+                    }
+                    i++;
+                }
+            });
+            const root = createRoot(document.getElementById('group'));
+            root.render(elements);
+        })
+
         this.clock();
         this.checkScroll();
     }

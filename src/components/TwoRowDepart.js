@@ -107,7 +107,7 @@ class TwoRowDepart extends Component {
             divRetard.innerText = this.props.time.replace(':', 'h');
             const divTime = document.createElement('div');
             divTime.className = 'text-time animation-blink-1';
-            divTime.innerText = this.props.time;
+            divTime.innerText = this.props.time.replace(':', 'h');
             this.timeRef.current.appendChild(divRetard);
             this.timeRef.current.appendChild(divTime);
         }

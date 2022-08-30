@@ -49,7 +49,7 @@ class AccountPage extends Component {
         }
         const editBtn = new MDCRipple(document.querySelector('#editBtn'));
         editBtn.listen('click', () => {
-            window.open('https://auth.infogare.fr/account.htm', '', 'width=750,height=750');
+            window.open('https://auth.infogare.fr/v2/account', '', 'width=750,height=750');
         });
 
         const newGareBtn = new MDCRipple(document.querySelector('#newGare'));

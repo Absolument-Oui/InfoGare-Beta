@@ -409,9 +409,9 @@ class EditTrainRERDialog extends Component {
 
                 let length;
                 if (trainLongueur1Radio.checked) {
-                    length = 'trainlong';
-                } else {
                     length = 'traincourt';
+                } else {
+                    length = 'trainlong';
                 }
 
                 var gares = [];
