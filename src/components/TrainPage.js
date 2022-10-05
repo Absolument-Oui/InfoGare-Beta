@@ -119,12 +119,12 @@ class TrainPage extends Component {
             var gares2 = train.child('gares').val();
             var gares = train.child('from').val();
 
-            if (gares2.constructor === String) {
+            if (typeof(gares) === "string") {
                 gares2 = gares2.split('|').filter(function(el) {
                     return el.length > 0;
                 });
             }
-            if (gares.constructor === String) {
+            if (typeof(gares) === "string") {
                 gares = gares.split('|').filter(function(el) {
                     return el.length > 0;
                 });
