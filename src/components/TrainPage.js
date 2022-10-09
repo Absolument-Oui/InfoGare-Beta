@@ -114,7 +114,7 @@ class TrainPage extends Component {
             this.destRef.current.innerText = train.child('destination').val();
             this.hourDepartRef.current.innerText = train.child('hourdepart').val() ? train.child('hourdepart').val() : '-';
             this.hourArriveRef.current.innerText = train.child('hourarrive').val() ? train.child('hourarrive').val() : '-';
-            this.quaiRef.current.innerText = train.child('quai').val() ? train.child('quai').val() : '-';
+            this.quaiRef.current.innerText = train.child('voie').val() ? train.child('voie').val() : '-';
             this.numTrainRef.current.innerText = train.child('number').val();
             var gares2 = train.child('gares').val();
             var gares = train.child('from').val();
@@ -124,23 +124,28 @@ class TrainPage extends Component {
                     return el.length > 0;
                 });
             }
+
             if (typeof(gares) === "string") {
                 gares = gares.split('|').filter(function(el) {
                     return el.length > 0;
                 });
             }
 
-            gares.forEach(element => {
-                if (element !== '') {
-                    this.garesRef.current.innerHTML += '<span>' + element + '</span> > ';
-                }
-            });
+            if (gares != null) {
+                gares.forEach(element => {
+                    if (element !== '') {
+                        this.garesRef.current.innerHTML += '<span>' + element + '</span> > ';
+                    }
+                });
+            }
             this.garesRef.current.innerHTML += '<span style="font-weight: bold; font-style: oblique">' + gareName + '</span> > ';
-            gares2.forEach(element => {
-                if (element !== '') {
-                    this.garesRef.current.innerHTML += '<span>' + element + '</span> > ';
-                }
-            });
+            if (gares2 != null) {
+                gares2.forEach(element => {
+                    if (element !== '') {
+                        this.garesRef.current.innerHTML += '<span>' + element + '</span> > ';
+                    }
+                });
+            }
             type = train.child('type').val();
             if (type === 'TER') {
                 this.typeIconRef.current.classList.add('train-logo-ter');

@@ -705,19 +705,16 @@ class NewTrainDialog extends Component {
                 for (var i = 0; i < document.getElementById('chips-provenance').childElementCount; i++) {
                     garesProv.push(document.getElementById('chips-provenance').children[i].children[0].children[0].children[1].innerText);
                 }
-                console.log(garesProv);
 
                 var garesDest = [];
                 for (var j = 0; j < document.getElementById('chips-destination').childElementCount; j++) {
                     garesDest.push(document.getElementById('chips-destination').children[j].children[0].children[0].children[1].innerText);
                 }
-                console.log(garesDest);
 
                 var compo = [];
                 for (var k = 0; k < document.getElementById('train-compo').childElementCount; k++) {
                     compo.push(document.getElementById('train-compo').children[k].classList[1]);
                 }
-                console.log(compo);
 
                 var retardType;
                 if (trainRetard1Radio.checked) {
@@ -729,13 +726,12 @@ class NewTrainDialog extends Component {
                 } else if (trainRetard4Radio.checked) {
                     retardType = 'suppr';
                 }
-                console.log(retardType);
 
                 var trainInfoType;
-                if (trainInfoType1Radio.checked) {
-                    trainInfoType = 'normal';
-                } else if (trainInfoType2Radio.checked) {
+                if (trainInfoType2Radio.checked) {
                     trainInfoType = 'flashcircu';
+                } else {
+                    trainInfoType = 'normal';
                 }
 
                 const trainId = Math.floor(Math.random() * 1000000);
