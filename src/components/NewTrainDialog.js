@@ -24,6 +24,7 @@ class NewTrainDialog extends Component {
         this.selectTypeRef = React.createRef();
         this.dropBtnRef = React.createRef();
         this.typesMenu = React.createRef();
+        this.trainTypeName = React.createRef();
         this.trainHourDeparture = React.createRef();
         this.trainHourArrival = React.createRef();
         this.trainDelayRef = React.createRef();
@@ -111,6 +112,16 @@ class NewTrainDialog extends Component {
                                     <div className="mdc-notched-outline__leading"></div>
                                     <div className="mdc-notched-outline__notch">
                                         <label htmlFor="selectType" className="mdc-floating-label">Type</label>
+                                    </div>
+                                    <div className="mdc-notched-outline__trailing"></div>
+                                </div>
+                            </div><br /><br />
+                            <div className="full-width mdc-text-field mdc-text-field--outlined" ref={this.trainTypeName}>
+                                <input className="mdc-text-field__input" id="trainTypeName" type="text" />
+                                <div className="mdc-notched-outline">
+                                    <div className="mdc-notched-outline__leading"></div>
+                                    <div className="mdc-notched-outline__notch">
+                                        <label htmlFor="trainTypeName" className="mdc-floating-label">Type personnalisé</label>
                                     </div>
                                     <div className="mdc-notched-outline__trailing"></div>
                                 </div>
@@ -578,6 +589,7 @@ class NewTrainDialog extends Component {
         const selectType = new MDCTextField(this.selectTypeRef.current);
         const dropBtn = new MDCRipple(this.dropBtnRef.current);
         const typesMenu = new MDCMenu(this.typesMenu.current);
+        const typeName = new MDCTextField(this.trainTypeName.current);
         const trainHourDeparture = new MDCTextField(this.trainHourDeparture.current);
         const trainHourArrival = new MDCTextField(this.trainHourArrival.current);
         const trainDelay = new MDCTextField(this.trainDelayRef.current);
@@ -743,6 +755,7 @@ class NewTrainDialog extends Component {
                     destination: trainDestination.value,
                     provenance: trainProvenance.value,
                     type: selectType.value,
+                    typename: typeName.value,
                     hourdepart: trainHourDeparture.value,
                     hourarrive: trainHourArrival.value,
                     retardtime: trainDelay.value,

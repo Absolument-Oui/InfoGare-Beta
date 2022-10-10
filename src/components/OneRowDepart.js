@@ -191,6 +191,10 @@ class OneRowDepart extends Component {
         } else {
             this.logoRef.current.classList.add('train-logo-sncf');
         }
+
+        if (this.props.typename != null) {
+            this.typeRef.current.innerText = this.props.typename;
+        }
     }
 }
 
