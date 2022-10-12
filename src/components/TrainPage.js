@@ -140,9 +140,12 @@ class TrainPage extends Component {
             }
             this.garesRef.current.innerHTML += '<span style="font-weight: bold; font-style: oblique">' + gareName + '</span> > ';
             if (gares2 != null) {
+                var i = 1;
                 gares2.forEach(element => {
                     if (element !== '') {
-                        this.garesRef.current.innerHTML += '<span>' + element + '</span> > ';
+                        if (i === 2) { this.garesRef.current.innerHTML += ' > '; }
+                        this.garesRef.current.innerHTML += '<span>' + element + '</span>';
+                        i = 2;
                     }
                 });
             }
