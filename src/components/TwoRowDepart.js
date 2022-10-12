@@ -62,9 +62,11 @@ class TwoRowDepart extends Component {
             });
         }
 
-        gares.forEach(element => {
-            elements.push(<span>{element}</span>);
-        });
+        if (gares != null) {
+            gares.forEach(element => {
+                elements.push(<span>{element}</span>);
+            });
+        }
 
         if (this.props.timing === 'à l\'heure') {
             this.textFeatures.current.classList.add('text-features-1');
