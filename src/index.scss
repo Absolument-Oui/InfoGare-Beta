@@ -422,12 +422,6 @@ a:any-link {
     margin-top: 0;
 }
 
-#departs .departs, #arrives .arrives {
-}
-
-.informations {
-}
-
 .quai {
     @import url(./assets/css/departs/screen/quai.css);
 }
@@ -460,4 +454,11 @@ a:any-link {
 
 .train-wagons.train-wagon-bar {
     background-image: url(./assets/img/screen/wagons/wagon-bar.svg);
+}
+
+.inpage-form {
+    @include textfield.ink-color(white);
+    @include textfield.label-color(lightgrey);
+    @include textfield.outline-color(grey);
+    @include textfield.hover-outline-color(white);
 }

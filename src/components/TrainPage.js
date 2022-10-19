@@ -10,6 +10,7 @@ import { MDCDialog } from '@material/dialog';
 import "../index.scss";
 import DeleteTrainDialog from './DeleteTrainDialog';
 import EditTrainDialog from './EditTrainDialog';
+import GoogleAd from './GoogleAd';
 
 class TrainPage extends Component {
     constructor(props) {
@@ -43,6 +44,7 @@ class TrainPage extends Component {
                     </div>
                 </div>
                 <br /><br />
+                <GoogleAd dlot="8153124166" />
                 <table style={{ width: '100%' }}>
                     <thead>
                         <tr style={{ textAlign: 'left' }}>

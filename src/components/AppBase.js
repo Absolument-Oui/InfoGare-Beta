@@ -10,7 +10,6 @@ class AppBase extends Component {
 				<AppBar user={this.props.user} auth={this.props.auth} />
 				<div className="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
 					<main className="main-content" id="main-content">
-						<GoogleAd />
 						<Outlet />
 					</main>
 				</div>
