@@ -25,13 +25,15 @@ class App extends Component {
                         <Route path="account" element={<AccountPage user={this.props.user} />} />
                         <Route path="bug-report" element={<IssuePage />} />
                         <Route path='*' element={<NoPage />} />
+                        <Route path="/gare">
+                            <Route path="*" element={<GarePage id={window.location.pathname.split('/')[2]} />} />
+                            <Route path=":id/train/:trainId" element={<TrainPage gid={window.location.pathname.split('/')[2]} id={window.location.pathname.split('/')[4]} />} />
+                        </Route>
                     </Route>
                     <Route path="/gare">
-                        <Route path="*" element={<GarePage id={window.location.pathname.split('/')[2]} />} />
                         <Route path=":id/departs" element={<DepartsPage id={window.location.pathname.split('/')[2]} />} />
                         <Route path=":id/arrives" element={<ArrivePage id={window.location.pathname.split('/')[2]} />} />
                         <Route path=":id/infos" element={<InfosPage id={window.location.pathname.split('/')[2]} />} />
-                        <Route path=":id/train/:trainId" element={<TrainPage gid={window.location.pathname.split('/')[2]} id={window.location.pathname.split('/')[4]} />} />
                         <Route path=":id/train/:trainId/quai" element={<QuaiPage gid={window.location.pathname.split('/')[2]} id={window.location.pathname.split('/')[4]} />} />
                     </Route>
                     <Route path="/gareRER">

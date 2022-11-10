@@ -25,6 +25,7 @@ class TrainPage extends Component {
         this.garesRef = React.createRef();
         this.quaiRef = React.createRef();
         this.numTrainRef = React.createRef();
+        this.hallRef = React.createRef();
     }
 
     render() {
@@ -87,7 +88,8 @@ class TrainPage extends Component {
                     <tbody>
                         <tr>
                             <td style={{ width: '50%'}}>
-                                <span ref={this.quaiRef}></span>
+                                <div className="train-page-hall"><small>hall</small><br /><br /><h1 ref={this.hallRef}></h1></div>&nbsp;
+                                <div className="train-page-track"><span ref={this.quaiRef}></span></div>
                             </td>
                             <td style={{ width: '50%'}}>
                                 <span ref={this.numTrainRef}></span>
@@ -116,6 +118,7 @@ class TrainPage extends Component {
             this.destRef.current.innerText = train.child('destination').val();
             this.hourDepartRef.current.innerText = train.child('hourdepart').val() ? train.child('hourdepart').val() : '-';
             this.hourArriveRef.current.innerText = train.child('hourarrive').val() ? train.child('hourarrive').val() : '-';
+            this.hallRef.current.innerText = train.child('hall').val() ? train.child('hall').val() : '-';
             this.quaiRef.current.innerText = train.child('voie').val() ? train.child('voie').val() : '-';
             this.numTrainRef.current.innerText = train.child('number').val();
             var gares2 = train.child('gares').val();
