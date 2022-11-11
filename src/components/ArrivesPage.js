@@ -151,9 +151,9 @@ class ArrivePage extends Component {
                         }
 
                         if (i < 2) {
-                            elements.push(<TwoRowDepart key={train.id} type={train.child('type').val()} typename={train.child('typename').val()} number={train.child('number').val()} timing={timing} time={train.child('hourarrive').val()} track={train.child('voie').val()} gare={train.child('provenance').val()} gares={train.child('from').val()} />);
+                            elements.push(<TwoRowDepart key={train.id} type={train.child('type').val()} typename={train.child('typename').val()} number={train.child('number').val()} timing={timing} time={train.child('hourarrive').val()} track={train.child('voie').val()} hall={train.child('hall').val()} gare={train.child('provenance').val()} gares={train.child('from').val()} />);
                         } else if (i < 7) {
-                            elements.push(<OneRowDepart key={train.id} type={train.child('type').val()} typename={train.child('typename').val()} number={train.child('number').val()} timing={timing} time={train.child('hourarrive').val()} track={train.child('voie').val()} gare={train.child('provenance').val()} />);
+                            elements.push(<OneRowDepart key={train.id} type={train.child('type').val()} typename={train.child('typename').val()} number={train.child('number').val()} timing={timing} time={train.child('hourarrive').val()} track={train.child('voie').val()} hall={train.child('hall').val()} gare={train.child('provenance').val()} />);
                         }
                         i++;
                     }
