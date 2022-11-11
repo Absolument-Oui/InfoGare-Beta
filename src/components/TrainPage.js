@@ -159,7 +159,6 @@ class TrainPage extends Component {
                 this.typeIconRef.current.classList.add('train-logo-ter');
             } else if (type === 'SNCF (carmillon)') {
                 this.typeIconRef.current.classList.add('train-logo-sncf');
-                this.typeRef.current.innerText = 'Train SNCF';
             } else if (type === 'inOui') {
                 this.typeIconRef.current.classList.add('train-logo-inoui');
             } else if (type === 'TGV') {
@@ -204,10 +203,8 @@ class TrainPage extends Component {
                 this.typeIconRef.current.classList.add('train-logo-sbb');
             } else if (type === 'SNCF (logo 1985)') {
                 this.typeIconRef.current.classList.add('train-logo-sncf-1985');
-                this.typeRef.current.innerText = 'Train SNCF';
             } else if (type === 'SNCF (logo 1992)') {
                 this.typeIconRef.current.classList.add('train-logo-sncf-1992');
-                this.typeRef.current.innerText = 'Train SNCF';
             } else if (type === 'TER Alsace') {
                 this.typeIconRef.current.classList.add('train-logo-ter-alsace');
             } else if (type === 'TER Aquitaine') {

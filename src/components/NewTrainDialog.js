@@ -765,6 +765,7 @@ class NewTrainDialog extends Component {
                     hall: trainHall.value,
                     compo: compo,
                     retardtype: retardType,
+                    retardtime: trainDelay.value,
                     alternance: trainInfo.value,
                     alternancetype: trainInfoType
                 }).then(() => {

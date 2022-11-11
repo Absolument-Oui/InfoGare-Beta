@@ -49,17 +49,15 @@ class OneRowDepart extends Component {
             this.timeRef.current.classList.add('text-time');
             this.timeRef.current.innerText = this.props.time.replace(':', 'h');
         } else if (this.props.timing.includes('retard')) {
-            var hour = Math.floor(this.props.time.substr(0, 2));
+            var hour = Math.floor(this.props.time.substr(0, 2) * 60);
             var minutes = Math.floor(this.props.time.substr(3, 4));
             var retard = Math.floor(this.props.retard)
-            var timeWithRetard = Math.floor(minutes + retard);
+            var timeWithRetard = Math.floor(hour + minutes + retard);
 
-            if (timeWithRetard > 59) {
-                var quotient = Math.floor(timeWithRetard / 60);
-                var rest = timeWithRetard % 60;
-                hour += quotient;
-                timeWithRetard = rest;
-            }
+            var quotient = Math.floor(timeWithRetard / 60);
+            var rest = timeWithRetard % 60;
+            hour = quotient;
+            timeWithRetard = rest;
 
             if (timeWithRetard < 10) {
                 timeWithRetard = '0' + timeWithRetard;

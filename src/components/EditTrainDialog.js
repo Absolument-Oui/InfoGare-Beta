@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import createRoot from 'react-dom';
 
 import { MDCTextField } from '@material/textfield';
 import { MDCRipple } from '@material/ripple';
@@ -566,7 +565,7 @@ class EditTrainDialog extends Component {
             document.getElementById(chip).remove();
         }
         chipElem.innerHTML = HTML;
-        if (element == 'edit-chips-destination') {
+        if (element === 'edit-chips-destination') {
             this.trainGaresDestinationChipsRef.current.appendChild(chipElem);
         } else {
             this.trainGaresProvenanceChipsRef.current.appendChild(chipElem);
@@ -742,19 +741,16 @@ class EditTrainDialog extends Component {
                 for (var i = 0; i < this.trainGaresProvenanceChipsRef.current.childElementCount; i++) {
                     garesProv.push(this.trainGaresProvenanceChipsRef.current.children[i].children[0].children[0].children[1].innerText);
                 }
-                console.log(garesProv);
 
                 var garesDest = [];
                 for (var j = 0; j < this.trainGaresDestinationChipsRef.current.childElementCount; j++) {
                     garesDest.push(this.trainGaresDestinationChipsRef.current.children[j].children[0].children[0].children[1].innerText);
                 }
-                console.log(garesDest);
 
                 var compo = [];
                 for (var k = 0; k < this.trainCompoRef.current.childElementCount; k++) {
                     compo.push(this.trainCompoRef.current.children[k].classList[1]);
                 }
-                console.log(compo);
 
                 var retardType;
                 if (trainRetard1Radio.checked) {
@@ -766,7 +762,6 @@ class EditTrainDialog extends Component {
                 } else if (trainRetard4Radio.checked) {
                     retardType = 'suppr';
                 }
-                console.log(retardType);
 
                 var trainInfoType;
                 if (trainInfoType1Radio.checked) {
@@ -785,6 +780,7 @@ class EditTrainDialog extends Component {
                     alternance: trainInfo.value,
                     alternancetype: trainInfoType,
                     retardtype: retardType,
+                    retardtime: trainDelay.value,
                     gares: garesDest,
                     from: garesProv,
                     compo: compo,
