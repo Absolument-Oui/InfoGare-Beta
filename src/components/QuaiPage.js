@@ -140,7 +140,6 @@ class QuaiPage extends Component {
         }
         $('#clock-seconds').html(s);
         setInterval(this.clock, '1000');
-        return true;
     }
 
     componentDidMount() {
@@ -330,7 +329,7 @@ class QuaiPage extends Component {
                 this.trainLogoRef.current.classList.add('train-logo-sncf-color');
             }
 
-            if (snapshot.child('typename').val() != null) {
+            if (snapshot.child('typename').val() !== "" && snapshot.child('typename').val() !== undefined) {
                 this.typeRef.current.innerText = snapshot.child('typename').val();
             }
         });

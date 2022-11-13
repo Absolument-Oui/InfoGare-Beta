@@ -192,13 +192,12 @@ class ArrivePage extends Component {
         })
 
         this.clock();
-        this.checkScroll();
-    }
-
-    checkScroll() {
         this.scrollX();
         this.scrollY(50);
-        setInterval(this.checkScroll, '1000');
+        setInterval(() => {
+            this.scrollX();
+            this.scrollY(50);
+        }, 500);
     }
 }
 

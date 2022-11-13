@@ -624,6 +624,10 @@ class EditTrainDialog extends Component {
 
         const train = ref(getDatabase(), 'users/' + getAuth().currentUser.uid + '/gares/' + this.props.gid + '/trains/' + this.props.id);
 
+        
+        var retardType;
+        var trainInfoType;
+
         get(train).then(train => {
             trainNumber.value = train.child('number').val();
             trainDestination.value = train.child('destination').val();
@@ -637,15 +641,21 @@ class EditTrainDialog extends Component {
             trainInfo.value = train.child('alternance').val();
             trainInfoType1Radio.checked = train.child('alternancetype').val() === 'normal';
             trainInfoType2Radio.checked = train.child('alternancetype').val() === 'flashcircu';
+            trainInfoType = train.child('alternancetype').val();
+            retardType = train.child('retardtype').val();
             if (train.child('retardtype').val() === 'alheure') {
                 trainRetard1Radio.checked = true;
-            } else if (train.child('retardtype').val() === 'ret') {
+            } 
+            if (train.child('retardtype').val() === 'ret') {
                 trainRetard2Radio.checked = true;
-            } else if (train.child('retardtype').val() === 'retindet') {
+            } 
+            if (train.child('retardtype').val() === 'retindet') {
                 trainRetard3Radio.checked = true;
-            } else if (train.child('retardtype').val() === 'suppr') {
+            } 
+            if (train.child('retardtype').val() === 'suppr') {
                 trainRetard4Radio.checked = true;
             }
+    
 
             if (train.child('typename').val() != null) {
                 trainTypeName.value = train.child('typename').val();
@@ -752,7 +762,6 @@ class EditTrainDialog extends Component {
                     compo.push(this.trainCompoRef.current.children[k].classList[1]);
                 }
 
-                var retardType;
                 if (trainRetard1Radio.checked) {
                     retardType = 'alheure';
                 } else if (trainRetard2Radio.checked) {
@@ -763,10 +772,9 @@ class EditTrainDialog extends Component {
                     retardType = 'suppr';
                 }
 
-                var trainInfoType;
                 if (trainInfoType1Radio.checked) {
                     trainInfoType = 'normal';
-                } else if (trainInfoType2Radio.checked) {
+                } else {
                     trainInfoType = 'flashcircu';
                 }
 

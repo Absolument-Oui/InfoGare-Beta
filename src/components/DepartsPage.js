@@ -16,7 +16,6 @@ class DepartsPage extends Component {
         super(props);
         this.state = {};
 
-        this.checkScroll = this.checkScroll.bind(this);
         this.infosText = React.createRef();
     }
 
@@ -193,13 +192,12 @@ class DepartsPage extends Component {
         });
 
         this.clock();
-        this.checkScroll();
-    }
-
-    checkScroll() {
         this.scrollX();
         this.scrollY(50);
-        setInterval(this.checkScroll, '1000');
+        setInterval(() => {
+            this.scrollX();
+            this.scrollY(50);
+        }, 500);
     }
 }
 
