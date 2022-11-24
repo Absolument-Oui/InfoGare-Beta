@@ -94,6 +94,10 @@ a:any-link {
     line-height: 1.5;
 }
 
+.arrive {
+    @include card.fill-color(#0c5639);
+}
+
 .gare-card__title {
     font-size: 1.5rem;
     font-weight: 500;
@@ -104,8 +108,12 @@ a:any-link {
     font-weight: 400;
 }
 
-.gare-card__button {
+.gare-card__button.depart {
     @include button.ink-color(#0080aa);
+}
+
+.gare-card__button.arrive {
+    @include button.ink-color(#217a42);
 }
 
 .full-width {

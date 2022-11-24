@@ -15,11 +15,12 @@ class TrainCard extends Component {
         this.showTrainBtn = React.createRef();
         this.editTrainBtn = React.createRef();
         this.deleteTrainBtn = React.createRef();
+        this.cardRef = React.createRef();
     }
 
     render() {
         return (
-            <div className="gare-card mdc-card mdc-card--outlined">
+            <div className="gare-card mdc-card mdc-card--outlined" ref={this.cardRef}>
                 <div className="mdc-card__media mdc-card__media--16-9 train-card" ref={this.mediaRef}></div>
                 <div className="mdc-card__primary-action">
                     <div className="gare-card__title">{this.props.dest}</div>
@@ -66,7 +67,18 @@ class TrainCard extends Component {
         deleteGareBtn.listen('click', () => {
             const dialog = new MDCDialog(document.getElementById('delete-' + this.props.id));
             dialog.open();
-        })
+        });
+
+        if (this.props.arrive) {
+            this.cardRef.current.classList.add('arrive');
+            this.showTrainBtn.current.className = 'gare-card__button arrive mdc-button mdc-card__action mdc-card__action--button';
+            this.editTrainBtn.current.className = 'gare-card__button arrive mdc-button mdc-card__action mdc-card__action--button';
+            this.deleteTrainBtn.current.className = 'gare-card__button arrive mdc-button mdc-card__action mdc-card__action--button';
+        } else {
+            this.showTrainBtn.current.className = 'gare-card__button depart mdc-button mdc-card__action mdc-card__action--button';
+            this.editTrainBtn.current.className = 'gare-card__button depart mdc-button mdc-card__action mdc-card__action--button';
+            this.deleteTrainBtn.current.className = 'gare-card__button depart mdc-button mdc-card__action mdc-card__action--button';
+        }
 
         const type = this.props.type;
         if (type === 'TER') {
