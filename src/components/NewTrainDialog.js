@@ -637,7 +637,7 @@ class NewTrainDialog extends Component {
 
         trainCompoAddMotrice.listen('click', () => {
             const wagon = document.createElement('div');
-            wagon.className = 'train-wagons train-loco';
+            wagon.className = 'edit-train-wagons train-loco';
             wagon.onclick = () => {
                 wagon.remove();
             }
@@ -646,7 +646,7 @@ class NewTrainDialog extends Component {
 
         trainCompoAddTGVLeft.listen('click', () => {
             const wagon = document.createElement('div');
-            wagon.className = 'train-wagons train-tgv-l';
+            wagon.className = 'edit-train-wagons train-tgv-l';
             wagon.onclick = () => {
                 wagon.remove();
             }
@@ -655,7 +655,7 @@ class NewTrainDialog extends Component {
 
         trainCompoAddTGVRight.listen('click', () => {
             const wagon = document.createElement('div');
-            wagon.className = 'train-wagons train-tgv-r';
+            wagon.className = 'edit-train-wagons train-tgv-r';
             wagon.onclick = () => {
                 wagon.remove();
             }
@@ -664,7 +664,7 @@ class NewTrainDialog extends Component {
 
         trainCompoAddWagon.listen('click', () => {
             const wagon = document.createElement('div');
-            wagon.className = 'train-wagons train-wagon';
+            wagon.className = 'edit-train-wagons train-wagon';
             wagon.onclick = () => {
                 wagon.remove();
             }
@@ -673,7 +673,7 @@ class NewTrainDialog extends Component {
 
         trainCompoAddWagonBar.listen('click', () => {
             const wagon = document.createElement('div');
-            wagon.className = 'train-wagons train-wagon-bar';
+            wagon.className = 'edit-train-wagons train-wagon-bar';
             wagon.onclick = () => {
                 wagon.remove();
             }

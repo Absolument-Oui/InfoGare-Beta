@@ -19,6 +19,12 @@ class QuaiPage extends Component {
         this.typeRef = React.createRef();
         this.numberRef = React.createRef();
         this.stationsRef = React.createRef();
+        this.compoRef = React.createRef();
+        this.compoTrack = React.createRef();
+        this.compoTitle = React.createRef();
+        this.compoArea = React.createRef();
+        this.rowGroupRef = React.createRef();
+        this.stationsRef = React.createRef();
     }
 
     render() {
@@ -41,7 +47,7 @@ class QuaiPage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='row-group row-group-train'>
+                <div className='row-group row-group-train' ref={this.rowGroupRef}>
                     <div className='row'>
                         <div className='col-first'>
                             <div className='row-background quai row-background-quai'></div>
@@ -58,11 +64,33 @@ class QuaiPage extends Component {
                         </div>
                         <div className='col-second'>
                             <div className='col-second-container'>
-                                <table className='train-stations train-stations-solo scroll-y'>
+                                <table className='train-stations train-stations-solo scroll-y' ref={this.stationsRef}>
                                     <tbody ref={this.stationsRef}>
 
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='row' style={{display: 'none'}} ref={this.compoRef}>
+                        <div className='col-third'>
+                            <div className='train-wagons-track'>
+                                <div className='train-track-title'>Voie</div>
+                                <div className='train-track-track' ref={this.compoTrack}></div>
+                                <div className='train-track-bottom'></div>
+                            </div>
+                            <div className='train-wagons'>
+                                <div className='train-wagons-line'></div>
+                                <div className='train-wagons-align train-wagons-align-center'>
+                                    <div className='train-wagons-trains train-wagons-trains-reduced'>
+                                        <div className='train-wagons-train' >
+                                            <div className='train-wagons-train-title train-wagons-train-title-yellow' ref={this.compoTitle}></div>
+                                            <div ref={this.compoArea}>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -332,6 +360,21 @@ class QuaiPage extends Component {
             if (snapshot.child('typename').val() !== "" && snapshot.child('typename').val() !== undefined) {
                 this.typeRef.current.innerText = snapshot.child('typename').val();
             }
+
+            if (snapshot.child('compo').hasChildren()) {
+                snapshot.child('compo').forEach((compo) => {
+                    const wagon = document.createElement('div');
+                    wagon.setAttribute('class', 'train-wagons-train-wagon ' + compo.val());
+                    this.compoArea.current.appendChild(wagon);
+                });
+                this.compoRef.current.style.display = 'table';
+                this.compoTrack.current.innerText = snapshot.child('voie').val();
+                this.compoTitle.current.innerText = snapshot.child('destination').val();
+                this.rowGroupRef.current.setAttribute('class', 'row-group row-group-train row-group-train-third');
+                this.stationsRef.current.setAttribute('class', 'train-stations train-stations-solo train-stations-reduced scroll-y');
+            }
+
+            
         });
 
         this.clock();

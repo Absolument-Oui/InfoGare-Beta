@@ -26,6 +26,7 @@ class TrainPage extends Component {
         this.quaiRef = React.createRef();
         this.numTrainRef = React.createRef();
         this.hallRef = React.createRef();
+        this.compoRef = React.createRef();
     }
 
     render() {
@@ -97,6 +98,20 @@ class TrainPage extends Component {
                         </tr>
                     </tbody>
                 </table>
+                <table style={{ width: '100%' }}>
+                    <thead>
+                        <tr>
+                            <th><h3>Composition du train</h3></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align='center'>
+                                <div ref={this.compoRef}></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 <EditTrainDialog gid={this.props.gid} id={this.props.id} componentRef={this.props.id} />
                 <DeleteTrainDialog gid={this.props.gid} id={this.props.id} componentRef={this.props.id} />
             </div>
@@ -154,6 +169,13 @@ class TrainPage extends Component {
                     }
                 });
             }
+
+            train.child('compo').forEach(compo => {
+                const wagon = document.createElement('div');
+                wagon.className = 'edit-train-wagons no-pointer ' + compo.val();
+                this.compoRef.current.appendChild(wagon);
+            });
+
             type = train.child('type').val();
             if (type === 'TER') {
                 this.typeIconRef.current.classList.add('train-logo-ter');

@@ -426,7 +426,7 @@ a:any-link {
     @import url(./assets/css/departs/screen/quai.css);
 }
 
-.train-wagons {
+.edit-train-wagons {
     width: 9.1vh;
     height: 8vh;
     background-size: cover;
@@ -436,23 +436,27 @@ a:any-link {
     cursor: pointer;
 }
 
-.train-wagons.train-loco {
+.edit-train-wagons.no-pointer {
+    cursor: default;
+}
+
+.edit-train-wagons.train-loco {
     background-image: url(./assets/img/screen/wagons/loco.svg);
 }
 
-.train-wagons.train-tgv-l {
+.edit-train-wagons.train-tgv-l {
     background-image: url(./assets/img/screen/wagons/tgv-l.svg);
 }
 
-.train-wagons.train-tgv-r {
+.edit-train-wagons.train-tgv-r {
     background-image: url(./assets/img/screen/wagons/tgv-r.svg);
 }
 
-.train-wagons.train-wagon {
+.edit-train-wagons.train-wagon {
     background-image: url(./assets/img/screen/wagons/wagon.svg);
 }
 
-.train-wagons.train-wagon-bar {
+.edit-train-wagons.train-wagon-bar {
     background-image: url(./assets/img/screen/wagons/wagon-bar.svg);
 }
 
