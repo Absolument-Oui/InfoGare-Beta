@@ -37,8 +37,13 @@ class TrainPage extends Component {
                     <div id='showMenu' className='mdc-menu mdc-menu-surface'>
                         <ul className='mdc-list' role='menu' aria-hidden='true' aria-orientation='vertical' tabIndex='0'>
                             <li className='menu-item mdc-list-item' role='menuitem'>
-                                <span className='menu-item quai'></span>
-                                <span className='menu-item-text mdc-list-item__text'>Quai</span>
+                                <span className='menu-item quai-depart'></span>
+                                <span className='menu-item-text mdc-list-item__text'>Quai (départ)</span>
+                                <span className='mdc-list-item__ripple'></span>
+                            </li>
+                            <li className='menu-item mdc-list-item' role='menuitem'>
+                                <span className='menu-item quai-arrive'></span>
+                                <span className='menu-item-text mdc-list-item__text'>Quai (arrivée)</span>
                                 <span className='mdc-list-item__ripple'></span>
                             </li>
                         </ul>
@@ -263,7 +268,9 @@ class TrainPage extends Component {
         const showMenuList = new MDCList(document.querySelector('.mdc-list'));
         showMenuList.listen('MDCList:action', (event) => {
             if (event.detail.index === 0) {
-                window.location.href = '/gare/' + this.props.gid + '/train/' + this.props.id + '/quai';
+                window.location.href = '/gare/' + this.props.gid + '/train/' + this.props.id + '/quai/depart';
+            } else if (event.detail.index === 1) {
+                window.location.href = '/gare/' + this.props.gid + '/train/' + this.props.id + '/quai/arrive';
             }
         });
 

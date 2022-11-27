@@ -162,9 +162,18 @@ a:any-link {
     margin-right: 5px;
 }
 
-.menu-item.quai {
+.menu-item.quai-depart {
     margin: auto 0;
-    background-image: url(./assets/img/common/screen_quai.png);
+    background-image: url(./assets/img/common/screen_quai_departs.png);
+    height: 16px;
+    width: 24px;
+    background-size: cover;
+    margin-right: 5px;
+}
+
+.menu-item.quai-arrive {
+    margin: auto 0;
+    background-image: url(./assets/img/common/screen_quai_arrives.png);
     height: 16px;
     width: 24px;
     background-size: cover;

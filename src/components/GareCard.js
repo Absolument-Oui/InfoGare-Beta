@@ -36,15 +36,15 @@ class GareCard extends Component {
                 <div className="mdc-card__ripple"></div>
                 <div className="mdc-card__actions">
                     <div className="mdc-card__action-buttons">
-                        <button className="gare-card__button mdc-button mdc-card__action mdc-card__action--button" ref={this.showGareBtn}>
+                        <button className="gare-card__button depart mdc-button mdc-card__action mdc-card__action--button" ref={this.showGareBtn}>
                             <div className="mdc-button__ripple"></div>
                             <span className="mdc-button__label">Afficher</span>
                         </button>
-                        <button className="gare-card__button mdc-button mdc-card__action mdc-card__action--button" ref={this.editGareBtn}>
+                        <button className="gare-card__button depart mdc-button mdc-card__action mdc-card__action--button" ref={this.editGareBtn}>
                             <div className="mdc-button__ripple"></div>
                             <span className="mdc-button__label">Editer</span>
                         </button>
-                        <button className="gare-card__button mdc-button mdc-card__action mdc-card__action--button" ref={this.deleteGareBtn}>
+                        <button className="gare-card__button depart mdc-button mdc-card__action mdc-card__action--button" ref={this.deleteGareBtn}>
                             <div className="mdc-button__ripple"></div>
                             <span className="mdc-button__label">Supprimer</span>
                         </button>
