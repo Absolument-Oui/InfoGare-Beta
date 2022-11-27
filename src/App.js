@@ -34,7 +34,8 @@ class App extends Component {
                         <Route path=":id/departs" element={<DepartsPage id={window.location.pathname.split('/')[2]} />} />
                         <Route path=":id/arrives" element={<ArrivePage id={window.location.pathname.split('/')[2]} />} />
                         <Route path=":id/infos" element={<InfosPage id={window.location.pathname.split('/')[2]} />} />
-                        <Route path=":id/train/:trainId/quai" element={<QuaiPage gid={window.location.pathname.split('/')[2]} id={window.location.pathname.split('/')[4]} />} />
+                        <Route path=":id/train/:trainId/quai/depart" element={<QuaiPage mode="depart" gid={window.location.pathname.split('/')[2]} id={window.location.pathname.split('/')[4]} />} />
+                        <Route path=":id/train/:trainId/quai/arrive" element={<QuaiPage mode="arrive" gid={window.location.pathname.split('/')[2]} id={window.location.pathname.split('/')[4]} />} />
                     </Route>
                     <Route path="/gareRER">
                         <Route path="*" element={<GareRERPage id={window.location.pathname.split('/')[2]} />} />

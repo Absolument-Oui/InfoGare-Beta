@@ -15,7 +15,6 @@ class ArrivePage extends Component {
         super(props);
         this.state = {};
 
-        this.checkScroll = this.checkScroll.bind(this);
         this.infosText = React.createRef();
     }
 

@@ -812,7 +812,7 @@ a {
     background-image: url(../../../img/screen/quai/train-stations-margin-background-departure.svg);
 }
 
-.rows.rows-arrivals .row-background {
+.rows.rows-arrivals .row-background.row-background-quai {
     background-image: url(../../../img/screen/quai/row-background-arrival.svg);
 }
 

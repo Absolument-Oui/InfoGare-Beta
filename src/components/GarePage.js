@@ -68,6 +68,8 @@ class GarePage extends Component {
             gare.child('trains').forEach(train => {
                 if (train.child('hourdepart').val() !== "") {
                     elements.push(<TrainCard key={train.key} id={train.key} gid={this.props.id} dest={train.child('destination').val()} number={train.child('number').val()} type={train.child('type').val()} time={train.child('hourdepart').val()} />);
+                } else if (train.child('hourarrive').val() !== "") {
+                    elements.push(<TrainCard key={train.key} id={train.key} gid={this.props.id} dest={train.child('provenance').val()} number={train.child('number').val()} type={train.child('type').val()} time={train.child('hourarrive').val()} arrive={true} />);
                 }
             });
             const root = createRoot(document.getElementById('trains'));
