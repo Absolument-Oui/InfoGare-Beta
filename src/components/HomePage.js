@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../index.scss';
 
 import biglogo from '../assets/img/common/Logo_Noel.svg';
+import bonhomme from '../assets/img/common/bonhomme.svg';
 import instgramlogo from '../assets/img/common/logo_instagram.svg';
 import twitterlogo from '../assets/img/common/logo_twitter.svg';
 import discordlogo from '../assets/img/common/logo_discord.svg';
@@ -13,7 +14,7 @@ class HomePage extends Component {
             <div className='center'>
                 <div className='snows' id="snows"></div>
                 <GoogleAd slot="5523609982" />
-                <img src={biglogo} height="450" alt="InfoGare" />
+                <img src={biglogo} height="450" alt="InfoGare" id='logo' />
                 <h1>Bienvenue sur InfoGare !</h1>
                 <h3><code>Créer des infogares deviens facile</code></h3>
                 <div style={{ height: '100px' }}></div>
@@ -49,6 +50,18 @@ class HomePage extends Component {
             snow.className = 'snowflake';
             document.getElementById('snows').appendChild(snow);
         }
+        var logomode = 0;
+
+        var logo = document.getElementById('logo');
+        logo.onclick = function () {
+            if (logomode == 0) {
+                logo.src = bonhomme;
+                logomode = 1;
+            } else {
+                logo.src = biglogo;
+                logomode = 0;
+            }
+        };
     }
 }
 
