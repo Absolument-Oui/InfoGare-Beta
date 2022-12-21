@@ -290,9 +290,9 @@ class TrainPage extends Component {
         const showMenuList = new MDCList(document.querySelector('.mdc-list'));
         showMenuList.listen('MDCList:action', (event) => {
             if (event.detail.index === 0) {
-                window.location.href = '/gare/' + this.props.gid + '/train/' + this.props.id + '/quai/depart';
+                window.location.href = '/gare/' + this.props.gid + '/train/' + this.props.id + '/quai/depart/classique';
             } else if (event.detail.index === 1) {
-                window.location.href = '/gare/' + this.props.gid + '/train/' + this.props.id + '/quai/arrive';
+                window.location.href = '/gare/' + this.props.gid + '/train/' + this.props.id + '/quai/arrive/classique';
             }
         });
 

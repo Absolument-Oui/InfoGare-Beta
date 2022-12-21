@@ -26,6 +26,7 @@
 
 @import "material-icons/iconfont/material-icons.scss";
 @import url(./assets/css/departs/screen/trains.css);
+@import url(./assets/css/departs/screen/afl.css);
 @import url(./assets/css/informations/screen/informations.css);
 @import url(./assets/css/quai/screen/train.css);
 @import url(./assets/fonts/Achemine/style.css);
@@ -477,6 +478,11 @@ a:any-link {
     background-image: url(./assets/img/screen/wagons/wagon-bar.svg);
 }
 
+.edit-train-wagons.train-navette {
+    background-image: url(./assets/img/screen/wagons/navette.svg);
+    width: 16.8vh !important;
+}
+
 .inpage-form {
     @include textfield.ink-color(white);
     @include textfield.label-color(lightgrey);
@@ -520,4 +526,46 @@ a:any-link {
 .train-page-hall small {
     color: #000;
     font-size: 0.4em;
+}
+
+/* Snow */
+.snowflake {
+    --size: 1vw;
+    width: var(--size);
+    height: var(--size);
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: -5vh;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translate3d(var(--left-ini), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--left-end), 110vh, 0);
+    }
+}
+
+@for $i from 1 through 50 {
+    .snowflake:nth-child(#{$i}) {
+        --size: #{random(5) * 0.2}vw;
+        --left-ini: #{random(20) - 10}vw;
+        --left-end: #{random(20) - 10}vw;
+        left: #{random(100)}vw;
+        animation: snowfall #{5 + random(10)}s linear infinite;
+        animation-delay: -#{random(10)}s;
+    }
+}
+
+/* added small blur every 6 snowflakes*/
+.snowflake:nth-child(6n) {
+    filter: blur(1px);
+}
+
+.snows {
+    overflow: hidden;
+    position: relative;
 }

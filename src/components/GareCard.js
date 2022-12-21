@@ -61,9 +61,13 @@ class GareCard extends Component {
         const showBtn = new MDCRipple(this.showGareBtn.current);
         showBtn.listen('click', () => {
             if (this.props.type === 'Gare classique') {
-                window.location.href = `/gare/${this.props.id}`;
-            } else {
-                window.location.href = `/gareRER/${this.props.id}`;
+                if (this.props.screen === 'Normal') {
+                    window.location.href = `/gare/classique/${this.props.id}`;
+                }
+            } else if (this.props.type === 'Gare RER') {
+                window.location.href = `/gare/RER/${this.props.id}`;
+            } else if (this.props.type === 'Gare AFL') {
+                window.location.href = `/gare/AFL/${this.props.id}`;
             }
         });
         const editBtn = new MDCRipple(this.editGareBtn.current);
@@ -76,10 +80,11 @@ class GareCard extends Component {
             const dialog = new MDCDialog(document.getElementById('delete-' + this.props.id));
             dialog.open();
         });
-        if (this.props.type === 'Gare classique') {
-            this.mediaRef.current.classList.add('gare-card-media-sncf');
-        } else {
+        
+        if (this.props.type === 'Gare RER') {
             this.mediaRef.current.classList.add('gare-card-media-ratp');
+        } else {
+            this.mediaRef.current.classList.add('gare-card-media-sncf');
         }
     }
 }
