@@ -48,12 +48,14 @@ class RowDepartAFL extends Component {
             this.supplemRef.current.innerHTML = this.props.retardreason;
         } else {
             var compo = [];
-            this.props.compo.forEach(element => {
-                compo.push(<div className={'wagons wagon-' + element.substring(6)}></div>);
-            });
+            if (this.props.compo !== null) {
+                this.props.compo.forEach(element => {
+                    compo.push(<div className={'wagons wagon-' + element.substring(6)}></div>);
+                });
 
-            const root2 = createRoot(this.supplemRef.current);
-            root2.render(compo);
+                const root2 = createRoot(this.supplemRef.current);
+                root2.render(compo);
+            }
         }
 
         var gares = this.props.gares;
