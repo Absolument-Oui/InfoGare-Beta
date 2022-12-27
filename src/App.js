@@ -29,7 +29,7 @@ class App extends Component {
                         <Route path="bug-report" element={<IssuePage />} />
                         <Route path='*' element={<NoPage />} />
                         <Route path="/gare/classique/:id"element={<GarePage id={window.location.pathname.split('/')[3]} />} />
-                        <Route path="/gare/classique/:id/train/:trainId" element={<TrainPage gid={window.location.pathname.split('/')[3]} id={window.location.pathname.split('/')[4]} />} />
+                        <Route path="/gare/classique/:id/train/:trainId" element={<TrainPage gid={window.location.pathname.split('/')[3]} id={window.location.pathname.split('/')[5]} />} />
                         <Route path="/gare/AFL/:id" element={<GareAFL id={window.location.pathname.split('/')[3]} />} />
                         <Route path="/gare/RER/:id" element={<GareRERPage id={window.location.pathname.split('/')[3]} />} />
                     </Route>
@@ -37,8 +37,8 @@ class App extends Component {
                         <Route path=":id/departs" element={<DepartsPage id={window.location.pathname.split('/')[3]} />} />
                         <Route path=":id/arrives" element={<ArrivePage id={window.location.pathname.split('/')[3]} />} />
                         <Route path=":id/infos" element={<InfosPage id={window.location.pathname.split('/')[3]} />} />
-                        <Route path=":id/train/:trainId/quai/depart" element={<QuaiPage mode="depart" gid={window.location.pathname.split('/')[3]} id={window.location.pathname.split('/')[4]} />} />
-                        <Route path=":id/train/:trainId/quai/arrive" element={<QuaiPage mode="arrive" gid={window.location.pathname.split('/')[3]} id={window.location.pathname.split('/')[4]} />} />
+                        <Route path=":id/train/:trainId/quai/depart" element={<QuaiPage mode="depart" gid={window.location.pathname.split('/')[3]} id={window.location.pathname.split('/')[5]} />} />
+                        <Route path=":id/train/:trainId/quai/arrive" element={<QuaiPage mode="arrive" gid={window.location.pathname.split('/')[3]} id={window.location.pathname.split('/')[5]} />} />
                     </Route>
                     <Route path="/gare/AFL">
                         <Route path=":id/departs" element={<DepartsAFLPage id={window.location.pathname.split('/')[3]} />} />
