@@ -71,7 +71,7 @@ class AccountPage extends Component {
                 } else {
                     gareType = 'Gare RER';
                 }
-                const card = <GareCard key={elements.length} uid={this.props.user.uid} name={gare.child('name').val()} type={gareType} number={gare.child('trains').size} id={gare.key} />;
+                const card = <GareCard key={elements.length} uid={this.props.user.uid} name={gare.child('name').val()} type={gareType} number={gare.child('trains').size} id={gare.key} screen={gare.child('screen').val()} />;
                 elements.push(card);
             });
             root.render(elements);

@@ -19,6 +19,7 @@ class NewGareDialog extends Component {
         this.newGareRER = React.createRef();
         this.newGareAffichageType1 = React.createRef();
         this.newGareAffichageType2 = React.createRef();
+        this.newGareAffichageType3 = React.createRef();
         this.newGareInfos = React.createRef();
         this.newGareInfosType1 = React.createRef();
         this.newGareInfosType2 = React.createRef();
@@ -87,6 +88,17 @@ class NewGareDialog extends Component {
                                     <div className="mdc-radio__ripple"></div>
                                 </div>
                                 <label htmlFor="newGareAffichageType2" className="mdc-radio__label">EVA</label>
+                            </div>
+                            <div className='mdc-form-field'>
+                                <div className='mdc-radio' ref={this.newGareAffichageType3}>
+                                    <input type="radio" id="newGareAffichageType3" name="newGareAffichageType" className="mdc-radio__native-control" />
+                                    <div className="mdc-radio__background">
+                                        <div className="mdc-radio__outer-circle"></div>
+                                        <div className="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div className="mdc-radio__ripple"></div>
+                                </div>
+                                <label htmlFor="newGareAffichageType3" className="mdc-radio__label">AFL</label>
                             </div><br /><br />
                             <label className="full-width mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" ref={this.newGareInfos}>
                                 <div className='mdc-notched-outline'>
@@ -141,6 +153,7 @@ class NewGareDialog extends Component {
         const gareType2 = new MDCRadio(this.newGareRER.current);
         const gareAffichageType = new MDCRadio(this.newGareAffichageType1.current);
         const gareAffichageType2 = new MDCRadio(this.newGareAffichageType2.current);
+        const gareAffichageType3 = new MDCRadio(this.newGareAffichageType3.current);
         const gareInfosType = new MDCRadio(this.newGareInfosType1.current);
         const gareInfos = new MDCTextField(this.newGareInfos.current);
         const dialog = new MDCDialog(this.dialogRef.current);
@@ -166,6 +179,14 @@ class NewGareDialog extends Component {
                     alert('Veuillez entrer un nom pour la gare');
                     return;
                 }
+                let screen;
+                if (gareAffichageType.checked) {
+                    screen = 'Normal';
+                } else if (gareAffichageType2.checked) {
+                    screen = 'EVA';
+                } else {
+                    screen = 'AFL';
+                }
 
                 const gareId = Math.floor(Math.random() * 1000000);
 
@@ -173,7 +194,7 @@ class NewGareDialog extends Component {
                 set(db, {
                     name: gareName.value,
                     type: gareType.checked ? 'neutral' : 'RER',
-                    screen: gareAffichageType.checked ? 'Normal' : 'EVA',
+                    screen: screen,
                     infos: gareInfos.value,
                     infostype: gareInfosType.checked ? 'informations' : 'flash'
                 }).then(() => {

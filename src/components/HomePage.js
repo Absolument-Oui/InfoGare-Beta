@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../index.scss';
 
-import biglogo from '../assets/img/common/logo_v2.svg';
+import biglogo from '../assets/img/common/Logo_Noel.svg';
 import instgramlogo from '../assets/img/common/logo_instagram.svg';
 import twitterlogo from '../assets/img/common/logo_twitter.svg';
 import discordlogo from '../assets/img/common/logo_discord.svg';
@@ -11,6 +11,7 @@ class HomePage extends Component {
     render() {
         return (
             <div className='center'>
+                <div className='snows' id="snows"></div>
                 <GoogleAd slot="5523609982" />
                 <img src={biglogo} height="450" alt="InfoGare" />
                 <h1>Bienvenue sur InfoGare !</h1>
@@ -40,6 +41,14 @@ class HomePage extends Component {
                 </table>
             </div>
         );
+    }
+
+    componentDidMount() {
+        for (var i = 0; i < 100; i++) {
+            var snow = document.createElement('div');
+            snow.className = 'snowflake';
+            document.getElementById('snows').appendChild(snow);
+        }
     }
 }
 
