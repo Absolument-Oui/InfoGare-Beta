@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-<<<<<<< HEAD
-
-class DepartsAFLPage extends Component {
-=======
 import { get, getDatabase, query, orderByChild, ref } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 import { createRoot } from 'react-dom/client';
@@ -18,7 +14,6 @@ class DepartsAFLPage extends Component {
         this.rowsRef = React.createRef();
     }
 
->>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     render() {
         return(
             <div className='rows-afl'>
@@ -28,13 +23,8 @@ class DepartsAFLPage extends Component {
                         <div className='clock-blink'>:</div>
                         <span id='clock-minutes'>00</span>
                     </div>
-<<<<<<< HEAD
-                    <div className='title'>Metz-ville</div>
-                    <div className='logo'></div>
-=======
                     <div className='title' ref={this.titleRef}></div>
                     <div className='logo' ref={this.logoRef}></div>
->>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
                 </div>
                 <div className='rows'>
                     <div className='row-top'>
@@ -42,60 +32,7 @@ class DepartsAFLPage extends Component {
                         <div className='col-second'>N°</div>
                         <div className='col-third'>DESTINATION</div>
                     </div>
-<<<<<<< HEAD
-                    <div className='row'>
-                        <div className='row-first'>
-                            <div className='col-first'>18:15</div>
-                            <div className='col-second'>TER</div>
-                            <div className='col-third'>Nancy</div>
-                            <div className='col-fourth'>supprimé</div>
-                        </div>
-                        <div className='row-second'>
-                            <div className='col-first'></div>
-                            <div className='col-second'>837505</div>
-                            <div className='col-third'>
-                                <div className='gares text-scroll-x'>
-                                    <div className='gare'>Pagny-sur-Moselle</div>
-                                    <div className='gare'>Pont-à-Mousson</div>
-                                    <div className='gare'>Nancy-Ville</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='row-third'>
-                            <div className='col-first'></div>
-                            <div className='col-second'>Défaut de matériel</div>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='row-first'>
-                            <div className='col-first'>18:20</div>
-                            <div className='col-second'>TER</div>
-                            <div className='col-third'>Luxembourg</div>
-                            <div className='col-fourth'></div>
-                        </div>
-                        <div className='row-second'>
-                            <div className='col-first'></div>
-                            <div className='col-second'>837507</div>
-                            <div className='col-third'>
-                                <div className='gares text-scroll-x'>
-                                    <div className='gare'>Hagondange</div>
-                                    <div className='gare'>Uckange</div>
-                                    <div className='gare'>Thionville</div>
-                                    <div className='gare'>Bettembourg</div>
-                                    <div className='gare'>Howald</div>
-                                    <div className='gare'>Luxembourg</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='row-third'>
-                            <div className='col-first'></div>
-                            <div className='col-second'></div>
-                        </div>
-                    </div>
-                    <div className='row'></div>
-=======
                     <div id="rows"></div>
->>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
                 </div>
                 <div className='rows-foot'></div>
             </div>
@@ -104,11 +41,7 @@ class DepartsAFLPage extends Component {
 
     scrollX() {
 
-<<<<<<< HEAD
-        $('.text-scroll-x').each(function () {
-=======
         $('.afl-text-scroll-x').each(function () {
->>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
 
             var distance = $(this).width() + $(this).parent().width() + 10;
 
@@ -129,8 +62,6 @@ class DepartsAFLPage extends Component {
     }
 
     componentDidMount() {
-<<<<<<< HEAD
-=======
         const db = getDatabase();
         const uid = getAuth().currentUser.uid;
         const id = this.props.id;
@@ -260,7 +191,6 @@ class DepartsAFLPage extends Component {
                 root.render(elements);
             });
         });
->>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
         setInterval(() => {
             this.scrollX();
         }, 1000);

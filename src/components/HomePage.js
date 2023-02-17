@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../index.scss';
 
-import biglogo from '../assets/img/common/Logo_Noel.svg';
+import biglogo from '../assets/img/common/logo_v2.svg';
 import instgramlogo from '../assets/img/common/logo_instagram.svg';
 import twitterlogo from '../assets/img/common/logo_twitter.svg';
 import discordlogo from '../assets/img/common/logo_discord.svg';
@@ -44,15 +44,7 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
-<<<<<<< HEAD
-        for (var i = 0; i < 100; i++) {
-            var snow = document.createElement('div');
-            snow.className = 'snowflake';
-            document.getElementById('snows').appendChild(snow);
-        }
-=======
         
->>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     }
 }
 

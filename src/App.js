@@ -17,16 +17,13 @@ import IssuePage from './components/IssuePage';
 import DepartsAFLPage from './components/DepartsAFLPage';
 import ArrivesAFLPage from './components/ArrivesAFLPage';
 import GareAFL from './components/GareAFL';
-import DepartsAFLPage from './components/DepartsAFLPage';
-import ArrivesAFLPage from './components/ArrivesAFLPage';
-import GareAFL from './components/GareAFL';
 
 class App extends Component {
     render() {
         return (
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<AppBase user={this.props.user} auth={this.props.auth}  />}>
+                    <Route path="/" element={<AppBase user={this.props.user} auth={this.props.auth} />}>
                         <Route index element={<HomePage />} />
                         <Route path="account" element={<AccountPage user={this.props.user} />} />
                         <Route path="bug-report" element={<IssuePage />} />
@@ -47,9 +44,8 @@ class App extends Component {
                         <Route path=":id/departs" element={<DepartsAFLPage id={window.location.pathname.split('/')[3]} />} />
                         <Route path=":id/arrives" element={<ArrivesAFLPage id={window.location.pathname.split('/')[3]} />} />
                     </Route>
-                    <Route path="/gareRER">
-                        <Route path="*" element={<GareRERPage id={window.location.pathname.split('/')[2]} />} />
-                        <Route path=":id/departs" element={<DepartsRERPage id={window.location.pathname.split('/')[2]} />} />
+                    <Route path="/gare/RER">
+                        <Route path=":id/departs" element={<DepartsRERPage id={window.location.pathname.split('/')[3]} />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

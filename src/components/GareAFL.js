@@ -1,10 +1,4 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-
-class GareAFL extends Component {
-    render() {
-        return(null);
-=======
 import { createRoot } from "react-dom";
 import { getAuth } from "firebase/auth";
 import { getDatabase, child, ref, get } from "firebase/database";
@@ -108,7 +102,6 @@ class GareAFL extends Component {
                 window.location.href = "/gare/AFL/" + this.props.id + "/infos";
             }
         });
->>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     }
 }
 
