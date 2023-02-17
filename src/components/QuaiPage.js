@@ -66,7 +66,7 @@ class QuaiPage extends Component {
                         </div>
                         <div className='col-second'>
                             <div className='col-second-container'>
-                                <table className='train-stations train-stations-solo scroll-y'>
+                                <table className='train-stations train-stations-solo scroll-y' ref={this.stationsRef}>
                                     <tbody ref={this.stationsRef}>
 
                                     </tbody>

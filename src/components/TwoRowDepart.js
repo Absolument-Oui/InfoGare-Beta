@@ -44,7 +44,7 @@ class TwoRowDepart extends Component {
                 <div className='row'>
                     <div className='col-first'></div>
                     <div className='col-second'>
-                        <div className='text-scroll-x' ref={this.trainStations}></div>
+                        <div className='train-stations text-scroll-x' ref={this.trainStations}></div>
                     </div>
                     <div className='col-third'></div>
                 </div>
