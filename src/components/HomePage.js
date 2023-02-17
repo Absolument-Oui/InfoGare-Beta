@@ -13,7 +13,7 @@ class HomePage extends Component {
             <div className='center'>
                 <div className='snows' id="snows"></div>
                 <GoogleAd slot="5523609982" />
-                <img src={biglogo} height="450" alt="InfoGare" />
+                <img src={biglogo} height="450" alt="InfoGare" id='logo' />
                 <h1>Bienvenue sur InfoGare !</h1>
                 <h3><code>Créer des infogares deviens facile</code></h3>
                 <div style={{ height: '100px' }}></div>
@@ -44,11 +44,15 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         for (var i = 0; i < 100; i++) {
             var snow = document.createElement('div');
             snow.className = 'snowflake';
             document.getElementById('snows').appendChild(snow);
         }
+=======
+        
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     }
 }
 

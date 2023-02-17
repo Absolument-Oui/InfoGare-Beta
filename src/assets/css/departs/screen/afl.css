@@ -30,8 +30,12 @@ body {
     color: black;
     margin-left: 10px;
     margin-top: 25px;
+<<<<<<< HEAD
     /* display: inline-block; */
     display: table-cell;
+=======
+    display: inline-block;
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
 }
 
 .rows-afl .rows-head .text-time * {
@@ -43,8 +47,12 @@ body {
     font-size: 9em;
     font-weight: bolder;
     color: black;
+<<<<<<< HEAD
     /* display: inline-block; */
     display: table-cell;
+=======
+    display: inline-block;
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
 }
 
 .rows-afl .rows-head .logo {
@@ -55,8 +63,11 @@ body {
     height: 10vh;
     background-repeat: no-repeat;
     background-size: contain;
+<<<<<<< HEAD
     background-image: url(../../../img/screen/quai/logo-sncf-color.svg);
     /* display: inline-block; */
+=======
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     display: table-cell;
 }
 
@@ -71,20 +82,29 @@ body {
 
 .rows-afl .rows .row-top .col-first {
     width: 20vh;
+<<<<<<< HEAD
     /* display: inline-block; */
+=======
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     display: table-cell;
 }
 
 .rows-afl .rows .row-top .col-second {
     width: 30vh;
+<<<<<<< HEAD
     /* display: inline-block; */
+=======
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     display: table-cell;
     font-size: 5em;
     font-weight: lighter;
 }
 
 .rows-afl .rows .row-top .col-third {
+<<<<<<< HEAD
     /* display: inline-block; */
+=======
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     display: table-cell;
     font-size: 5em;
     font-weight: lighter;
@@ -95,7 +115,11 @@ body {
     padding-top: 15px;
 }
 
+<<<<<<< HEAD
 .rows-afl .rows .row:nth-of-type(even) {
+=======
+.rows-afl .rows .row:nth-of-type(odd) {
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     background-color: #003A79;
 }
 
@@ -119,7 +143,10 @@ body {
 .rows-afl .rows .row .row-first .col-first {
     padding-left: 15px;
     width: 20vh;
+<<<<<<< HEAD
     /* display: inline-block; */
+=======
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     display: table-cell;
     font-size: 6.5em;
     font-weight: lighter;
@@ -128,7 +155,10 @@ body {
 
 .rows-afl .rows .row .row-first .col-second {
     width: 30vh;
+<<<<<<< HEAD
     /* display: inline-block; */
+=======
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     display: table-cell;
     font-size: 6.5em;
     font-weight: lighter;
@@ -137,7 +167,10 @@ body {
 
 .rows-afl .rows .row .row-first .col-third {
     width: 40%;
+<<<<<<< HEAD
     /* display: inline-block; */
+=======
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     display: table-cell;
     font-size: 6.5em;
     font-weight: bold;
@@ -145,7 +178,10 @@ body {
 }
 
 .rows-afl .rows .row .row-first .col-fourth {
+<<<<<<< HEAD
     /* display: inline-block; */
+=======
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     display: table-cell;
     font-size: 6.5em;
     font-weight: 400;
@@ -155,13 +191,19 @@ body {
 .rows-afl .rows .row .row-second .col-first {
     padding-left: 15px;
     width: 20vh;
+<<<<<<< HEAD
     /* display: inline-block; */
+=======
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     display: table-cell;
 }
 
 .rows-afl .rows .row .row-second .col-second {
     width: 30vh;
+<<<<<<< HEAD
     /* display: inline-block; */
+=======
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     display: table-cell;
     font-size: 6em;
     font-weight: lighter;
@@ -169,7 +211,10 @@ body {
 }
 
 .rows-afl .rows .row .row-second .col-third {
+<<<<<<< HEAD
     /* display: inline-block; */
+=======
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     position: absolute;
     left: 50vh;
     right: 0;
@@ -208,7 +253,11 @@ body {
     display: none;
 }
 
+<<<<<<< HEAD
 .text-scroll-x {
+=======
+.afl-text-scroll-x {
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
     font-size: inherit !important;
 }
 
@@ -259,4 +308,46 @@ body {
     position: absolute;
     bottom: 0.5vh;
     left: 50%;
+<<<<<<< HEAD
 }
+=======
+}
+
+.wagons {
+    display: inline-block;
+    width: 8.2vh;
+    height: 7.5vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+}
+
+.wagons.wagon-tgv-l {
+    width: 9.1vh;
+    background-image: url(../../../img/screen/afl/tgv-l.svg);
+}
+
+.wagons.wagon-tgv-r {
+    width: 9.1vh;
+    background-image: url(../../../img/screen/afl/tgv-r.svg);
+}
+
+.wagons.wagon-loco {
+    width: 9.1vh;
+    background-image: url(../../../img/screen/afl/loco.svg);
+}
+
+.wagons.wagon-wagon {
+    background-image: url(../../../img/screen/afl/wagon.svg);
+}
+
+.wagons.wagon-wagon-bar {
+    background-image: url(../../../img/screen/afl/wagon-bar.svg);
+}
+
+.wagons.wagon-navette {
+    width: 16.8vh;
+    background-image: url(../../../img/screen/afl/navette.svg);
+}
+
+>>>>>>> 07df4752334b4bb0c9a6b97805f2e5785e1f0c30
