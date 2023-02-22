@@ -17,6 +17,8 @@ import IssuePage from './components/IssuePage';
 import DepartsAFLPage from './components/DepartsAFLPage';
 import ArrivesAFLPage from './components/ArrivesAFLPage';
 import GareAFL from './components/GareAFL';
+import UsersPage from './components/UsersPage';
+import DOonatePage from './components/DOonatePage';
 
 class App extends Component {
     render() {
@@ -32,6 +34,8 @@ class App extends Component {
                         <Route path="/gare/classique/:id/train/:trainId" element={<TrainPage gid={window.location.pathname.split('/')[3]} id={window.location.pathname.split('/')[5]} />} />
                         <Route path="/gare/AFL/:id" element={<GareAFL id={window.location.pathname.split('/')[3]} />} />
                         <Route path="/gare/RER/:id" element={<GareRERPage id={window.location.pathname.split('/')[3]} />} />
+                        <Route path="/users" element={<UsersPage />} />
+                        <Route path="/donate" element={<DOonatePage />} />
                     </Route>
                     <Route path="/gare/classique">
                         <Route path=":id/departs" element={<DepartsPage id={window.location.pathname.split('/')[3]} />} />

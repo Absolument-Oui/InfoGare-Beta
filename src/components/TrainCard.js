@@ -93,19 +93,19 @@ class TrainCard extends Component {
             this.mediaRef.current.classList.add('train-card-ice');
         } else if (type === 'TGV Lyria') {
             this.mediaRef.current.classList.add('train-card-lyria');
-        } else if (type === 'OuiGo') {
+        } else if (type === 'Ouigo') {
             this.mediaRef.current.classList.add('train-card-ouigo');
-        } else if (type === 'OuiGo Classique') {
+        } else if (type === 'Ouigo Classique') {
             this.mediaRef.current.classList.add('train-card-ouigo-classique');
-        } else if (type === 'Fluo Grand Est') {
+        } else if (type === 'TER Fluo') {
             this.mediaRef.current.classList.add('train-card-fluo');
         } else if (type === 'TER Occitanie') {
             this.mediaRef.current.classList.add('train-card-occitanie');
         } else if (type === 'Intercité') {
             this.mediaRef.current.classList.add('train-card-intercite');
-        } else if (type === 'Aléop') {
+        } else if (type === 'Aleop') {
             this.mediaRef.current.classList.add('train-card-aleop');
-        } else if (type === 'TER Auvergne Rhône Alpes') {
+        } else if (type === 'TER Auvergne') {
             this.mediaRef.current.classList.add('train-card-auvergne-rhone-alpes');
         } else if (type === 'BreizhGo') {
             this.mediaRef.current.classList.add('train-card-breizhgo');
@@ -121,12 +121,16 @@ class TrainCard extends Component {
             this.mediaRef.current.classList.add('train-card-mobigo');
         } else if (type === 'Nomad') {
             this.mediaRef.current.classList.add('train-card-nomad');
-        } else if (type === 'Rémi') {
+        } else if (type === 'Remi') {
             this.mediaRef.current.classList.add('train-card-remi');
         } else if (type === 'Renfe Ave') {
             this.mediaRef.current.classList.add('train-card-renfe-ave');
         } else if (type === 'SBB') {
             this.mediaRef.current.classList.add('train-card-sbb');
+        } else if (type === 'SNCF (logo 1937)') {
+            this.mediaRef.current.classList.add('train-card-sncf-1937');
+        } else if (type === 'SNCF (logo 1972)') {
+            this.mediaRef.current.classList.add('train-card-sncf-1972');
         } else if (type === 'SNCF (logo 1985)') {
             this.mediaRef.current.classList.add('train-card-sncf-1985');
         } else if (type === 'SNCF (logo 1992)') {
@@ -135,7 +139,7 @@ class TrainCard extends Component {
             this.mediaRef.current.classList.add('train-card-ter-alsace');
         } else if (type === 'TER Aquitaine') {
             this.mediaRef.current.classList.add('train-card-ter-aquitaine');
-        } else if (type === 'TER Basse Normandie') {
+        } else if (type === 'TER Basse-Normandie') {
             this.mediaRef.current.classList.add('train-card-ter-basse-normandie');
         } else if (type === 'TER Bourgogne') {
             this.mediaRef.current.classList.add('train-card-ter-bourgogne');
@@ -143,6 +147,8 @@ class TrainCard extends Component {
             this.mediaRef.current.classList.add('train-card-ter-bretagne');
         } else if (type === 'TER Centre') {
             this.mediaRef.current.classList.add('train-card-ter-centre');
+        } else if (type === 'TER Franche Comte') {
+            this.mediaRef.current.classList.add('train-card-ter-franche-comte');
         } else if (type === 'TER Languedoc Roussillon') {
             this.mediaRef.current.classList.add('train-card-ter-languedoc-roussillon');
         } else if (type === 'TER Midi Pyrénées') {

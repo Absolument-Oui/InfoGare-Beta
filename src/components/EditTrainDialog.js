@@ -846,7 +846,7 @@ class EditTrainDialog extends Component {
             } else if (event.detail.index === 18) {
                 selectType.getDefaultFoundation().setValue('inOui');
             } else if (event.detail.index === 19) {
-                selectType.getDefaultFoundation().setValue('Ouigo');
+                selectType.getDefaultFoundation().setValue('Ouio');
             } else if (event.detail.index === 20) {
                 selectType.getDefaultFoundation().setValue('Ouigo Classique');
             } else if (event.detail.index === 21) {

@@ -61,6 +61,18 @@ a:any-link {
     text-decoration: none;
 }
 
+@media screen and (max-width: 800px) {
+    .logo {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    .logo {
+        width: 50%;
+    }
+}
+
 .big-icon {
     font-size: 128px;
 }
