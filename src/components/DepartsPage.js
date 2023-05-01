@@ -166,7 +166,17 @@ class DepartsPage extends Component {
                     } else if (train.child('retardtype').val() === 'retindet') {
                         timing = 'ret. indet.';
                     } else if (train.child('retardtype').val() === 'ret') {
-                        timing = 'retard ' + train.child('retardtime').val() + ' min.';
+                        if (train.child('retardtime').val() > 60) {
+                            var time = train.child('retardtime').val();
+                            var hours = Math.floor(time / 60);
+                            var minutes = time % 60;
+                            if (minutes < 10) {
+                                minutes = '0' + minutes;
+                            }
+                            timing = 'retard <br>' + hours + 'h' + minutes;
+                        } else {
+                            timing = 'retard <br>' + train.child('retardtime').val() + ' min.';
+                        }
                     } else {
                         timing = 'supprimé';
                     }

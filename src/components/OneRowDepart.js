@@ -74,7 +74,7 @@ class OneRowDepart extends Component {
             divTime.innerText = this.props.time.replace(':', 'h');
             this.timeRef.current.appendChild(divRetard);
             this.timeRef.current.appendChild(divTime);
-        } else {
+        } else if (this.props.timing === 'ret indet.') {
             this.textFeatures.current.classList.add('text-features-3');
             this.timeRef.current.classList.add('text-time-retard');
             this.timeRef.current.classList.add('animation-blink');
@@ -86,6 +86,18 @@ class OneRowDepart extends Component {
             divTime.innerText = this.props.time.replace(':', 'h');
             this.timeRef.current.appendChild(divRetard);
             this.timeRef.current.appendChild(divTime);
+        } else {
+            this.textFeatures.current.classList.add('text-features-3');
+            this.timeRef.current.classList.add('text-time');
+            this.timeRef.current.classList.add('animation-blink');
+            const divRetard = document.createElement('div');
+            divRetard.className = 'animation-blink-2';
+            const divTime = document.createElement('div');
+            divTime.className = 'animation-blink-1';
+            divTime.innerText = this.props.time.replace(':', 'h');
+            this.timeRef.current.appendChild(divRetard);
+            this.timeRef.current.appendChild(divTime);
+
         }
 
         if (this.props.hall !== "" && this.props.hall !== undefined) {
