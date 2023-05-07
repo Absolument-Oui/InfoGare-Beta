@@ -110,7 +110,7 @@ class GarePage extends Component {
             } else if (event.detail.index === 1) {
                 window.location.href = "/gare/classique/" + this.props.id + "/arrives";
             } else if (event.detail.index === 2) {
-                window.location.href = "/gare/classique" + this.props.id + "/infos";
+                window.location.href = "/gare/classique/" + this.props.id + "/infos";
             }
         });
     }
