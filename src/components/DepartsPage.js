@@ -159,7 +159,7 @@ class DepartsPage extends Component {
             const elements = [];
             var i = 0;
             departs.forEach(train => {
-                if (train.child('hourdepart').val()) {
+                if (train.child('hourdepart').val() && train.child('show').val() !== false) {
                     let timing;
                     if (train.child('retardtype').val() === 'alheure') {
                         timing = 'à l\'heure';
