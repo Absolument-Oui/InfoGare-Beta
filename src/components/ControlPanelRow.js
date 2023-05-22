@@ -46,6 +46,12 @@ class ControlPanelRow extends Component {
             this.showBtn.current.innerHTML = 'visibility';
         }
 
+        if (this.props.departed === true) {
+            this.departBtn.current.innerHTML = 'train';
+        } else {
+            this.departBtn.current.innerHTML = 'arrow_outward';
+        }
+
         const type = this.props.type;
         if (type === 'TER') {
             this.logoRef.current.classList.add('train-card-ter');
@@ -152,6 +158,21 @@ class ControlPanelRow extends Component {
                 update(ref(getDatabase(), `users/${getAuth().currentUser.uid}/gares/${this.props.gid}/trains/${this.props.id}`), { show: !shown }).then(() => {
                     show.root.innerHTML = shown ? 'visibility_off' : 'visibility';
                     shown = !shown;
+                }).catch((error) => {
+                    console.log(error);
+                });
+            });
+        });
+
+        const departure = new MDCRipple(this.departBtn.current);
+        departure.unbounded = true;
+        departure.listen('click', () => {
+            var departed;
+            get(ref(getDatabase(), `users/${getAuth().currentUser.uid}/gares/${this.props.gid}/trains/${this.props.id}`)).then((snapshot) => { 
+                departed = snapshot.val().departure;
+                update(ref(getDatabase(), `users/${getAuth().currentUser.uid}/gares/${this.props.gid}/trains/${this.props.id}`), { departure: !departed }).then(() => {
+                    departure.root.innerHTML = departed ? 'train' : 'arrow_outward';
+                    departed = !departed;
                 }).catch((error) => {
                     console.log(error);
                 });

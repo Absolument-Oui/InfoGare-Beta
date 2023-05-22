@@ -47,15 +47,18 @@ class ControlPanel extends Component {
         get(db).then(train => {
             const elements = [];
             train.forEach(t => {
-                var mode;
+                var mode, heure;
                 if (t.val().hourdepart !== "" && t.val().hourarrive === "") {
                     mode = 'depart';
+                    heure = t.val().hourdepart;
                 } else if (t.val().hourarrive !== "" && t.val().hourdepart === "") {
                     mode = 'arrivee';
+                    heure = t.val().hourarrive;
                 } else {
                     mode = 'both';
+                    heure = t.val().hourarrive + '/' + t.val().hourdepart;
                 }
-                elements.push(<ControlPanelRow key={t.key} type={t.val().type} numero={t.val().number} heure={t.val().heure} mode={mode} show={t.val().show} id={t.key} gid={this.props.id} />);
+                elements.push(<ControlPanelRow key={t.key} type={t.val().type} numero={t.val().number} heure={heure} mode={mode} show={t.val().show} departed={t.val().departure} id={t.key} gid={this.props.id} />);
             });
 
             const root = createRoot(document.getElementById('table'));
